@@ -597,7 +597,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 210540870}
+      - m_Target: {fileID: 210540873}
         m_MethodName: ToMatch
         m_Mode: 1
         m_Arguments:
@@ -659,7 +659,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 210540870}
+        - m_Target: {fileID: 210540873}
           m_MethodName: PlayOver
           m_Mode: 1
           m_Arguments:
@@ -676,7 +676,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 210540870}
+        - m_Target: {fileID: 210540873}
           m_MethodName: OverExit3
           m_Mode: 1
           m_Arguments:
@@ -770,6 +770,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 210540871}
+  - component: {fileID: 210540873}
+  - component: {fileID: 210540872}
   - component: {fileID: 210540870}
   m_Layer: 0
   m_Name: LobbyManager
@@ -786,47 +788,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 210540869}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d103b3cbc4c2f1f4e8783a6cb255ef3a, type: 3}
+  m_Script: {fileID: 11500000, guid: fb7c9123d78a72e41bfb771a10999097, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene_Play: {fileID: 1989795863}
-  scene_Char: {fileID: 1690807807}
-  scene_Lobby: {fileID: 1374094080}
-  Text_Home: {fileID: 30597991}
-  Text_Play: {fileID: 1287612877}
-  Text_Char: {fileID: 1308879243}
-  Fx_Home: {fileID: 1360588075}
-  Fx_Play: {fileID: 470440888}
-  Fx_Char: {fileID: 943653160}
-  Fx_now3: {fileID: 0}
-  overText3: {fileID: 0}
-  Fx_last3: {fileID: 0}
-  LastText3: {fileID: 0}
-  inLobby: 1
-  PlayedType: {fileID: 0}
-  Button_Quick: {fileID: 729908701}
-  Button_ToPlay2: {fileID: 813867015}
-  Button_Credit: {fileID: 315345312}
-  overButton4: {fileID: 0}
-  Button_Back1: {fileID: 1076213313}
-  Button_Random: {fileID: 806729702}
-  Button_Custom: {fileID: 1929163512}
-  Button_Tutorial: {fileID: 2101860506}
-  infor_Custom: {fileID: 952165473}
-  infor_Random: {fileID: 157817505}
-  infor_Tutorial: {fileID: 432577924}
-  infor_Null: {fileID: 155678977}
-  Fx_Random: {fileID: 1943347726}
-  Fx_Custom: {fileID: 725431925}
-  Fx_Tutorial: {fileID: 1205394959}
-  BackGroun1: {fileID: 0}
-  overButton: {fileID: 0}
-  overInfor: {fileID: 0}
-  Fx_now: {fileID: 0}
-  Button_Back2: {fileID: 524691988}
-  Button_team1: {fileID: 947976999}
-  Button_team2: {fileID: 678330226}
-  Button_Common: {fileID: 1300261400}
 --- !u!4 &210540871
 Transform:
   m_ObjectHideFlags: 0
@@ -840,6 +804,65 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &210540872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 210540869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29b68e4dd68ea484d85b472f449e822f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &210540873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 210540869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d103b3cbc4c2f1f4e8783a6cb255ef3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scene_Play: {fileID: 1989795863}
+  scene_Char: {fileID: 1690807807}
+  scene_Lobby: {fileID: 1374094080}
+  Text_Home: {fileID: 30597993}
+  Text_Play: {fileID: 1287612879}
+  Text_Char: {fileID: 1308879245}
+  Text_GameType: {fileID: 1962902166}
+  Fx_Home: {fileID: 1360588075}
+  Fx_Play: {fileID: 470440888}
+  Fx_Char: {fileID: 943653160}
+  Fx_BackGround_Match: {fileID: 1391813708}
+  Fx_Time2: {fileID: 2001580999}
+  PlayedType: {fileID: 6056838}
+  Button_Quick: {fileID: 729908701}
+  Button_ToPlay2: {fileID: 813867015}
+  Button_Credit: {fileID: 315345312}
+  Button_Back1: {fileID: 1076213313}
+  Button_Random: {fileID: 806729704}
+  Button_Custom: {fileID: 1929163514}
+  Button_Tutorial: {fileID: 2101860508}
+  Button_Cancel: {fileID: 1514759278}
+  infor_Custom: {fileID: 952165473}
+  infor_Random: {fileID: 157817505}
+  infor_Tutorial: {fileID: 432577924}
+  infor_Null: {fileID: 155678977}
+  Fx_Random: {fileID: 1943347726}
+  Fx_Custom: {fileID: 725431925}
+  Fx_Tutorial: {fileID: 1205394959}
+  Fx_Time1: {fileID: 2025212414}
+  TimeS: {fileID: 1938185707}
+  TimeM: {fileID: 591796594}
+  BackGround_Before: {fileID: 1950738100}
+  BackGround_After: {fileID: 308539873}
+  Button_Back2: {fileID: 524691988}
+  Button_team1: {fileID: 947976999}
+  Button_team2: {fileID: 678330226}
+  Button_Common: {fileID: 1300261400}
 --- !u!1 &213434495
 GameObject:
   m_ObjectHideFlags: 0
@@ -988,6 +1011,80 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 266245470}
+--- !u!1 &268252983
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 268252984}
+  - component: {fileID: 268252986}
+  - component: {fileID: 268252985}
+  m_Layer: 5
+  m_Name: Text_PassTime
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &268252984
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 268252983}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.0000306, y: 1.0000306, z: 1.0000306}
+  m_Children: []
+  m_Father: {fileID: 308539874}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 176.5, y: -67}
+  m_SizeDelta: {x: 269.5, y: 116.6}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &268252985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 268252983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.4292453, g: 0.64535517, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: b487498294ee1464196b9de20fedc40d, type: 3}
+    m_FontSize: 70
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 80
+    m_Alignment: 3
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: ':'
+--- !u!222 &268252986
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 268252983}
 --- !u!1 &308539873
 GameObject:
   m_ObjectHideFlags: 0
@@ -1002,7 +1099,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &308539874
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1017,8 +1114,11 @@ RectTransform:
   - {fileID: 213434496}
   - {fileID: 326022605}
   - {fileID: 2011502895}
+  - {fileID: 268252984}
   - {fileID: 1938185706}
+  - {fileID: 591796593}
   - {fileID: 1514759279}
+  - {fileID: 2025212415}
   m_Father: {fileID: 1989795867}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1155,7 +1255,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 210540870}
+        - m_Target: {fileID: 210540873}
           m_MethodName: CreditOver
           m_Mode: 1
           m_Arguments:
@@ -1172,7 +1272,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 210540870}
+        - m_Target: {fileID: 210540873}
           m_MethodName: OverExit4
           m_Mode: 1
           m_Arguments:
@@ -1528,7 +1628,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 432847390}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &432847390
@@ -1580,7 +1691,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 210540870}
+        - m_Target: {fileID: 210540873}
           m_MethodName: CustomOver
           m_Mode: 1
           m_Arguments:
@@ -1597,7 +1708,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 210540870}
+        - m_Target: {fileID: 210540873}
           m_MethodName: OverExit
           m_Mode: 1
           m_Arguments:
@@ -1716,7 +1827,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -763, y: 267}
+  m_AnchoredPosition: {x: -763, y: 256.6}
   m_SizeDelta: {x: 173.75, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &524691990
@@ -1758,7 +1869,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 210540870}
+      - m_Target: {fileID: 210540873}
         m_MethodName: ToLobby
         m_Mode: 1
         m_Arguments:
@@ -1834,7 +1945,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 210540870}
+        - m_Target: {fileID: 210540873}
           m_MethodName: BackOver2
           m_Mode: 1
           m_Arguments:
@@ -1851,7 +1962,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 210540870}
+        - m_Target: {fileID: 210540873}
           m_MethodName: OverExit4
           m_Mode: 1
           m_Arguments:
@@ -2007,7 +2118,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 568860057}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 210540873}
+        m_MethodName: RandomPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &568860057
@@ -2059,7 +2181,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 210540870}
+        - m_Target: {fileID: 210540873}
           m_MethodName: RandomOver
           m_Mode: 1
           m_Arguments:
@@ -2076,7 +2198,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 210540870}
+        - m_Target: {fileID: 210540873}
           m_MethodName: OverExit
           m_Mode: 1
           m_Arguments:
@@ -2090,6 +2212,80 @@ MonoBehaviour:
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   delegates: []
+--- !u!1 &591796592
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 591796593}
+  - component: {fileID: 591796595}
+  - component: {fileID: 591796594}
+  m_Layer: 5
+  m_Name: Text_PassTimeM
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &591796593
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 591796592}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.0000306, y: 1.0000306, z: 1.0000306}
+  m_Children: []
+  m_Father: {fileID: 308539874}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 94.70007, y: -67}
+  m_SizeDelta: {x: 269.5, y: 116.6}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &591796594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 591796592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.4292453, g: 0.64535517, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: b487498294ee1464196b9de20fedc40d, type: 3}
+    m_FontSize: 70
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 80
+    m_Alignment: 3
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 00
+--- !u!222 &591796595
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 591796592}
 --- !u!1 &633134403
 GameObject:
   m_ObjectHideFlags: 0
@@ -2710,7 +2906,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 729908704}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &729908704
@@ -2762,7 +2969,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 210540870}
+        - m_Target: {fileID: 210540873}
           m_MethodName: QuickOver
           m_Mode: 1
           m_Arguments:
@@ -2779,7 +2986,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 210540870}
+        - m_Target: {fileID: 210540873}
           m_MethodName: OverExit4
           m_Mode: 1
           m_Arguments:
@@ -3027,7 +3234,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 210540870}
+      - m_Target: {fileID: 210540873}
         m_MethodName: ToMatch
         m_Mode: 1
         m_Arguments:
@@ -3089,7 +3296,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 210540870}
+        - m_Target: {fileID: 210540873}
           m_MethodName: ToPlay2Over
           m_Mode: 1
           m_Arguments:
@@ -3106,7 +3313,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 210540870}
+        - m_Target: {fileID: 210540873}
           m_MethodName: OverExit4
           m_Mode: 1
           m_Arguments:
@@ -3801,7 +4008,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 210540870}
+      - m_Target: {fileID: 210540873}
         m_MethodName: ToLobby
         m_Mode: 1
         m_Arguments:
@@ -3877,7 +4084,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 210540870}
+        - m_Target: {fileID: 210540873}
           m_MethodName: BackOver1
           m_Mode: 1
           m_Arguments:
@@ -3894,7 +4101,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 210540870}
+        - m_Target: {fileID: 210540873}
           m_MethodName: OverExit4
           m_Mode: 1
           m_Arguments:
@@ -4060,7 +4267,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 210540870}
+      - m_Target: {fileID: 210540873}
         m_MethodName: ToLobby
         m_Mode: 1
         m_Arguments:
@@ -4122,7 +4329,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 210540870}
+        - m_Target: {fileID: 210540873}
           m_MethodName: HomeOver
           m_Mode: 1
           m_Arguments:
@@ -4139,7 +4346,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 210540870}
+        - m_Target: {fileID: 210540873}
           m_MethodName: OverExit3
           m_Mode: 1
           m_Arguments:
@@ -5048,7 +5255,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1391813709
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5062,6 +5269,7 @@ RectTransform:
   - {fileID: 1026402403}
   - {fileID: 1313088732}
   - {fileID: 1962902165}
+  - {fileID: 2001581000}
   m_Father: {fileID: 1413483249}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5304,7 +5512,7 @@ RectTransform:
   m_Children:
   - {fileID: 1945432258}
   m_Father: {fileID: 308539874}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5317,12 +5525,12 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1514759278}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
+  m_EffectColor: {r: 1, g: 1, b: 1, a: 1}
   m_EffectDistance: {x: 5, y: 5}
   m_UseGraphicAlpha: 1
 --- !u!114 &1514759281
@@ -5341,8 +5549,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 210540870}
-          m_MethodName: BackOver1
+        - m_Target: {fileID: 210540873}
+          m_MethodName: CancelOver
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -5358,7 +5566,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 210540870}
+        - m_Target: {fileID: 210540873}
           m_MethodName: OverExit4
           m_Mode: 1
           m_Arguments:
@@ -5411,8 +5619,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 210540870}
-        m_MethodName: ToLobby
+      - m_Target: {fileID: 210540873}
+        m_MethodName: CancelPressed
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5752,7 +5960,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1579852847}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 210540869}
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1579852847
@@ -5804,8 +6023,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 210540870}
-          m_MethodName: TutoraiOver
+        - m_Target: {fileID: 210540873}
+          m_MethodName: TutorialOver
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -5821,7 +6040,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 210540870}
+        - m_Target: {fileID: 210540873}
           m_MethodName: OverExit
           m_Mode: 1
           m_Arguments:
@@ -6554,7 +6773,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 210540870}
+      - m_Target: {fileID: 210540873}
         m_MethodName: ToChar
         m_Mode: 1
         m_Arguments:
@@ -6616,7 +6835,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 210540870}
+        - m_Target: {fileID: 210540873}
           m_MethodName: CharOver
           m_Mode: 1
           m_Arguments:
@@ -6633,7 +6852,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 210540870}
+        - m_Target: {fileID: 210540873}
           m_MethodName: OverExit3
           m_Mode: 1
           m_Arguments:
@@ -6875,7 +7094,7 @@ GameObject:
   - component: {fileID: 1938185708}
   - component: {fileID: 1938185707}
   m_Layer: 5
-  m_Name: Text_PassTime
+  m_Name: Text_PassTimeS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6892,11 +7111,11 @@ RectTransform:
   m_LocalScale: {x: 1.0000306, y: 1.0000306, z: 1.0000306}
   m_Children: []
   m_Father: {fileID: 308539874}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 94.7, y: -67}
+  m_AnchoredPosition: {x: 197.4, y: -67}
   m_SizeDelta: {x: 269.5, y: 116.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1938185707
@@ -6931,7 +7150,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 00:10
+  m_Text: 00
 --- !u!222 &1938185708
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7094,7 +7313,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1950738101
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7288,6 +7507,74 @@ RectTransform:
   m_AnchoredPosition: {x: 213, y: 1}
   m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &2001580999
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 2001581000}
+  - component: {fileID: 2001581002}
+  - component: {fileID: 2001581001}
+  m_Layer: 5
+  m_Name: Image_Time2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2001581000
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2001580999}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1391813709}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -315.3, y: -3.2}
+  m_SizeDelta: {x: 60, y: 60}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2001581001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2001580999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: 02fb68e76acb5c545b7c96b9400c7c1a, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &2001581002
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2001580999}
 --- !u!1 &2011502894
 GameObject:
   m_ObjectHideFlags: 0
@@ -7362,6 +7649,74 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2011502894}
+--- !u!1 &2025212414
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 2025212415}
+  - component: {fileID: 2025212417}
+  - component: {fileID: 2025212416}
+  m_Layer: 5
+  m_Name: Image_Time1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2025212415
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2025212414}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 308539874}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -146.07, y: -54.9}
+  m_SizeDelta: {x: 140.74, y: 140.7}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2025212416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2025212414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: 02fb68e76acb5c545b7c96b9400c7c1a, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &2025212417
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2025212414}
 --- !u!1 &2068971032
 GameObject:
   m_ObjectHideFlags: 0
