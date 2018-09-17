@@ -44,7 +44,6 @@ public class ManagerLobbyCanvas : MonoBehaviour {
     //Match Scene UI
     //Button - Text
     //BeforeMatch
-    [SerializeField] private GameObject Button_Back1;
     [SerializeField] private Text Button_Random;
     [SerializeField] private Text Button_Custom;
     [SerializeField] private Text Button_Tutorial;
@@ -79,17 +78,26 @@ public class ManagerLobbyCanvas : MonoBehaviour {
 
     //AfterCustom
 
-    [SerializeField] private GameObject[] roomObject = new GameObject[6];
+    [SerializeField] private GameObject[] roomObject = new GameObject[7];
     RoomInfo[] list;
+    int number;
+    int page;
+    int numberNow;
 
     [SerializeField] private GameObject BackGround_AfterCustom;
+
+    [SerializeField] private Text roomInfo_Title;
+    [SerializeField] private Text roomInfo_State;
+    [SerializeField] private Text roomInfo_Mode;
+    [SerializeField] private Text roomInfo_Map;
+
+    // 맵 사진 ?
 
 
 
 
 
     //Character Scene UI
-    [SerializeField] private GameObject Button_Back2;
     [SerializeField] private GameObject Button_team1;
     [SerializeField] private GameObject Button_team2;
     [SerializeField] private GameObject Button_Common;
@@ -104,6 +112,13 @@ public class ManagerLobbyCanvas : MonoBehaviour {
             if (inLobby == 1)
             {
                 //옵션
+            }
+            else if (inLobby == 4)
+            {
+                BackGround_AfterCustom.SetActive(false);
+                BackGround_Before.SetActive(true);
+
+                inLobby = 2;
             }
             else
             {
@@ -210,8 +225,6 @@ public class ManagerLobbyCanvas : MonoBehaviour {
 
     public void QuickOver()
     {
-        OverExit4();
-
         overButton4 = Button_Quick;
         overButton4.GetComponent<Outline>().enabled = true;
     }
@@ -219,13 +232,28 @@ public class ManagerLobbyCanvas : MonoBehaviour {
     {
         if (QuickType == 1)
         {
+
             ToMatch();
-            RandomPressed();
+
+            Fx_BackGround_Match.SetActive(true);
+
+            BackGround_AfterRandom.SetActive(true);
+            BackGround_Before.SetActive(false);
+
+            StartCoroutine(MatchingAnim());
+            StartCoroutine(MatchingAnim2());
+
+            Network.JoinRandom();
         }
         else if (QuickType == 2)
-        {
+        { 
             ToMatch();
-            CustomPressed();
+            inLobby = 4;
+
+            BackGround_AfterCustom.SetActive(true);
+            BackGround_Before.SetActive(false);
+
+            RoomListPrepare();
         }
         else if (QuickType == 3)
         {
@@ -236,8 +264,6 @@ public class ManagerLobbyCanvas : MonoBehaviour {
 
     public void CreditOver()
     {
-        OverExit4();
-
         overButton4 = Button_Credit;
         overButton4.GetComponent<Outline>().enabled = true;
     }
@@ -274,8 +300,6 @@ public class ManagerLobbyCanvas : MonoBehaviour {
 
     public void RandomOver()
     {
-        OverExit();
-
         infor_Null.SetActive(false);
         infor_Random.SetActive(true);
         overInfor = infor_Random;
@@ -291,6 +315,7 @@ public class ManagerLobbyCanvas : MonoBehaviour {
         PlayerPrefs.SetInt("PlayedType", 1);
         Text_GameType.text = "Random Match";
         PlayedType.text = "Random";
+        QuickType = 1;
         Fx_BackGround_Match.SetActive(true);
 
         BackGround_AfterRandom.SetActive(true);
@@ -379,8 +404,6 @@ public class ManagerLobbyCanvas : MonoBehaviour {
 
     public void CustomOver()
     {
-        OverExit();
-
         infor_Null.SetActive(false);
         infor_Custom.SetActive(true);
         overInfor = infor_Custom;
@@ -395,14 +418,16 @@ public class ManagerLobbyCanvas : MonoBehaviour {
 
         PlayerPrefs.SetInt("PlayedType", 2);
         PlayedType.text = "Custom";
+        QuickType = 2;
+
+        BackGround_AfterCustom.SetActive(true);
+        BackGround_Before.SetActive(false);
 
         RoomListPrepare();
     }
 
     public void TutorialOver()
     {
-        OverExit();
-
         infor_Null.SetActive(false);
         infor_Tutorial.SetActive(true);
         overInfor = infor_Tutorial;
@@ -417,20 +442,233 @@ public class ManagerLobbyCanvas : MonoBehaviour {
 
         PlayerPrefs.SetInt("PlayedType", 3);
         PlayedType.text = "Tutorial";
+        QuickType = 3;
     }
-    
+
+
     //AfterCustom
+    public void RoomListPrepare()
+    {
+        // page = 0 - 1페이지
+        page = 0;
+        list = Network.GetRoomList();
+        number = list.Length;
+        //방 개수 한 페이지 이상일경우 6개만 로드
+        if (number > 6)
+        {
+            numberNow = 6;
+        }
+        //한 페이지 이하면 갯수만큼 로드
+        else numberNow = number;
 
-    //public void RoomListPrepare()
-    //{
-    //    list = Network.Getroomlist();
-    //    list[0].Name; //name_mode
-    //    list[0].MaxPlayers;
-    //    list[0].PlayerCount;
-    //    list[0].IsOpen; // true면 waiting flase playing
-    //}
+
+        //모두 끄기
+        for (int i = 0; i < 7; i++) roomObject[i].SetActive(false);
+
+        //차례로 키고 정보 기록
+        for (int i = 0; i < numberNow + 1; i++)
+        {
+            roomObject[i].SetActive(true);
+
+            string[] infor = list[i].Name.Split('_');
+            roomObject[i].transform.GetChild(0).GetComponent<Text>().text = infor[0];
+            roomObject[i].transform.GetChild(1).GetComponent<Text>().text = infor[1];
+            if (list[i].IsOpen == true) roomObject[i].transform.GetChild(2).GetComponent<Text>().text = "Waiting";
+            else if (list[i].IsOpen == false) roomObject[i].transform.GetChild(2).GetComponent<Text>().text = "Playing";
+            roomObject[i].transform.GetChild(3).GetComponent<Text>().text = list[i].PlayerCount + "/" + list[i].MaxPlayers;
+        }
+
+        //list[i].Name; //name_mode
+        //list[i].MaxPlayers;
+        //list[i].PlayerCount;
+        //list[i].IsOpen; // true면 waiting flase playing
+    }
+
+    public void Refresh()
+    {
+        list = Network.GetRoomList();
+        number = list.Length;
+        //페이지에 따른 갯수이상이면 최대 페이지 만큼 로드
+        if (number > 6 * (page + 1)) numberNow = 6;
+        //그 페이지를 채우지 못하만큼 작아진 경우 모드 끄기
+        else if (number <= 6 * page) for (int i = 0; i < 7; i++) roomObject[i].SetActive(false);
+        //아니면 현재 페이지에 맞게 로드
+        else numberNow = number - (6 * (page));
 
 
+        //모두 끄기
+        for (int i = 0; i < 7; i++) roomObject[i].SetActive(false);
+
+        //차례로 키고 정보 기록
+        for (int i = 6 * page; i < (numberNow + 1) * (page + 1); i++)
+        {
+            int a = 0;
+            roomObject[a].SetActive(true);
+
+            string[] infor = list[i].Name.Split('_');
+            roomObject[a].transform.GetChild(0).GetComponent<Text>().text = infor[0];
+            roomObject[a].transform.GetChild(1).GetComponent<Text>().text = infor[1];
+            if (list[i].IsOpen == true) roomObject[a].transform.GetChild(2).GetComponent<Text>().text = "Waiting";
+            else if (list[i].IsOpen == false) roomObject[a].transform.GetChild(2).GetComponent<Text>().text = "Playing";
+            roomObject[a].transform.GetChild(3).GetComponent<Text>().text = list[i].PlayerCount + "/" + list[i].MaxPlayers;
+
+            a++;
+        }
+    }
+
+    public void NextPage()
+    {
+        page++;
+        if (number > 6 * (page + 1)) numberNow = 6;
+        else if (number <= 6 * page) for (int i = 0; i < 7; i++) roomObject[i].SetActive(false);
+        else numberNow = number - (6 * (page));
+
+        //모두 끄기
+        for (int i = 0; i < 7; i++) roomObject[i].SetActive(false);
+
+        //차례로 키고 정보 기록
+        for (int i = 6 * page; i < (numberNow + 1) * (page + 1); i++)
+        {
+            int a = 0;
+            roomObject[a].SetActive(true);
+
+            string[] infor = list[i].Name.Split('_');
+            roomObject[a].transform.GetChild(0).GetComponent<Text>().text = infor[0];
+            roomObject[a].transform.GetChild(1).GetComponent<Text>().text = infor[1];
+            if (list[i].IsOpen == true) roomObject[a].transform.GetChild(2).GetComponent<Text>().text = "Waiting";
+            else if (list[i].IsOpen == false) roomObject[a].transform.GetChild(2).GetComponent<Text>().text = "Playing";
+            roomObject[a].transform.GetChild(3).GetComponent<Text>().text = list[i].PlayerCount + "/" + list[i].MaxPlayers;
+
+            a++;
+        }
+    }
+
+    public void PrevPage()
+    {
+        page--;
+        if (number > 6 * (page + 1)) numberNow = 6;
+        else if (number <= 6 * page) for (int i = 0; i < 7; i++) roomObject[i].SetActive(false);
+        else numberNow = number - (6 * (page));
+
+        //모두 끄기
+        for (int i = 0; i < 7; i++) roomObject[i].SetActive(false);
+
+        //차례로 키고 정보 기록
+        for (int i = 6 * page; i < (numberNow + 1) * (page + 1); i++)
+        {
+            int a = 0;
+            roomObject[a].SetActive(true);
+
+            string[] infor = list[i].Name.Split('_');
+            roomObject[a].transform.GetChild(0).GetComponent<Text>().text = infor[0];
+            roomObject[a].transform.GetChild(1).GetComponent<Text>().text = infor[1];
+            if (list[i].IsOpen == true) roomObject[a].transform.GetChild(2).GetComponent<Text>().text = "Waiting";
+            else if (list[i].IsOpen == false) roomObject[a].transform.GetChild(2).GetComponent<Text>().text = "Playing";
+            roomObject[a].transform.GetChild(3).GetComponent<Text>().text = list[i].PlayerCount + "/" + list[i].MaxPlayers;
+
+            a++;
+        }
+    }
+
+
+    public void Room0Over()
+    {
+        overButton4 = roomObject[0];
+        roomObject[0].GetComponent<Outline>().enabled = true;
+
+        roomInfo_Title.text = roomObject[0].transform.GetChild(0).GetComponent<Text>().text;
+        roomInfo_Mode.text = roomObject[0].transform.GetChild(1).GetComponent<Text>().text;
+        roomInfo_State.text = roomObject[0].transform.GetChild(2).GetComponent<Text>().text;
+        //인원 ??
+    }
+    public void Room0Join()
+    {
+        Network.JoinCustom(roomObject[0].transform.GetChild(0).GetComponent<Text>().text);
+    }
+
+    public void Room1Over()
+    {
+        overButton4 = roomObject[1];
+        roomObject[1].GetComponent<Outline>().enabled = true;
+
+        roomInfo_Title.text = roomObject[1].transform.GetChild(0).GetComponent<Text>().text;
+        roomInfo_Mode.text = roomObject[1].transform.GetChild(1).GetComponent<Text>().text;
+        roomInfo_State.text = roomObject[1].transform.GetChild(2).GetComponent<Text>().text;
+    }
+    public void Room1Join()
+    {
+        Network.JoinCustom(roomObject[1].transform.GetChild(0).GetComponent<Text>().text);
+    }
+
+    public void Room2Over()
+    {
+        overButton4 = roomObject[2];
+        roomObject[2].GetComponent<Outline>().enabled = true;
+
+        roomInfo_Title.text = roomObject[2].transform.GetChild(0).GetComponent<Text>().text;
+        roomInfo_Mode.text = roomObject[2].transform.GetChild(1).GetComponent<Text>().text;
+        roomInfo_State.text = roomObject[2].transform.GetChild(2).GetComponent<Text>().text;
+    }
+    public void Room2Join()
+    {
+        Network.JoinCustom(roomObject[2].transform.GetChild(0).GetComponent<Text>().text);
+    }
+
+    public void Room3Over()
+    {
+        overButton4 = roomObject[3];
+        roomObject[3].GetComponent<Outline>().enabled = true;
+
+        roomInfo_Title.text = roomObject[3].transform.GetChild(0).GetComponent<Text>().text;
+        roomInfo_Mode.text = roomObject[3].transform.GetChild(1).GetComponent<Text>().text;
+        roomInfo_State.text = roomObject[3].transform.GetChild(2).GetComponent<Text>().text;
+    }
+    public void Room3Join()
+    {
+        Network.JoinCustom(roomObject[3].transform.GetChild(0).GetComponent<Text>().text);
+    }
+
+    public void Room4Over()
+    {
+        overButton4 = roomObject[4];
+        roomObject[4].GetComponent<Outline>().enabled = true;
+
+        roomInfo_Title.text = roomObject[4].transform.GetChild(0).GetComponent<Text>().text;
+        roomInfo_Mode.text = roomObject[4].transform.GetChild(1).GetComponent<Text>().text;
+        roomInfo_State.text = roomObject[4].transform.GetChild(2).GetComponent<Text>().text;
+    }
+    public void Room4Join()
+    {
+        Network.JoinCustom(roomObject[4].transform.GetChild(0).GetComponent<Text>().text);
+    }
+
+    public void Room5Over()
+    {
+        overButton4 = roomObject[5];
+        roomObject[5].GetComponent<Outline>().enabled = true;
+
+        roomInfo_Title.text = roomObject[5].transform.GetChild(0).GetComponent<Text>().text;
+        roomInfo_Mode.text = roomObject[5].transform.GetChild(1).GetComponent<Text>().text;
+        roomInfo_State.text = roomObject[5].transform.GetChild(2).GetComponent<Text>().text;
+    }
+    public void Room5Join()
+    {
+        Network.JoinCustom(roomObject[5].transform.GetChild(0).GetComponent<Text>().text);
+    }
+
+    public void Room6Over()
+    {
+        overButton4 = roomObject[6];
+        roomObject[6].GetComponent<Outline>().enabled = true;
+
+        roomInfo_Title.text = roomObject[6].transform.GetChild(0).GetComponent<Text>().text;
+        roomInfo_Mode.text = roomObject[6].transform.GetChild(1).GetComponent<Text>().text;
+        roomInfo_State.text = roomObject[6].transform.GetChild(2).GetComponent<Text>().text;
+    }
+    public void Room6Join()
+    {
+        Network.JoinCustom(roomObject[6].transform.GetChild(0).GetComponent<Text>().text);
+    }
 
 
 
@@ -473,14 +711,5 @@ public class ManagerLobbyCanvas : MonoBehaviour {
     public void CommonOver()
     {
 
-    }
-
-    public void BackOver2()
-    {
-        Fx_now3 = Fx_Home;
-        overText3 = Text_Home;
-
-        overButton4 = Button_Back2;
-        overButton4.GetComponent<Outline>().enabled = true;
     }
 }
