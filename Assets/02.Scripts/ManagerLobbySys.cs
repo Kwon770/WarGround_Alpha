@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Manager_Lobby_Sys : MonoBehaviour {
+public class ManagerLobbySys : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {

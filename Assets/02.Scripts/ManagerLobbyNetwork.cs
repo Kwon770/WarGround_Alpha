@@ -2,18 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Manager_Lobby_Network : MonoBehaviour
+public class ManagerLobbyNetwork : MonoBehaviour
 {
     private string[] roomList = new string[10];
 
-    private Manager_Lobby_Canvas Canvas;
-    private Manager_Lobby_Sys Sys;
+    private ManagerLobbyCanvas Canvas;
+    private ManagerLobbySys Sys;
 
     void Start()
     {
 
-        Canvas = gameObject.GetComponent<Manager_Lobby_Canvas>();
-        Sys = gameObject.GetComponent<Manager_Lobby_Sys>();
+        Canvas = gameObject.GetComponent<ManagerLobbyCanvas>();
+        Sys = gameObject.GetComponent<ManagerLobbySys>();
     }
 
 

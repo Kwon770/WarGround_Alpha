@@ -4,10 +4,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Manager_Lobby_Canvas : MonoBehaviour {
+public class ManagerLobbyCanvas : MonoBehaviour {
 
     //System
-    public GameObject scene_Play;
+    [SerializeField] GameObject scene_Play;
     public GameObject scene_Char;
     public GameObject scene_Lobby;
 
@@ -99,7 +99,7 @@ public class Manager_Lobby_Canvas : MonoBehaviour {
     }
     private void Start()
     {
-        Network = gameObject.GetComponent<Manager_Lobby_Network>();
+        Network = gameObject.GetComponent<ManagerLobbyNetwork>();
 
         Fx_last3 = Fx_Home;
         LastText3 = Text_Home;
