@@ -12,13 +12,13 @@ public class ManagerLobbyNetwork : MonoBehaviour
 
     void Start()
     {
-
         Canvas = gameObject.GetComponent<ManagerLobbyCanvas>();
         Sys = gameObject.GetComponent<ManagerLobbySys>();
+        ConnectNetwork();
     }
 
 
-
+    //네트워크 연결 및 확인
     public bool ConnectNetwork()
     {
         if (!PhotonNetwork.connected)
@@ -33,6 +33,7 @@ public class ManagerLobbyNetwork : MonoBehaviour
         return false;
     }
 
+    //랜덤룸 입장
     public void JoinRandom()
     {
         bool check = false;
@@ -47,25 +48,41 @@ public class ManagerLobbyNetwork : MonoBehaviour
         }
         if (!check)
         {
+            Debug.Log(PhotonNetwork.connected + " " + PhotonNetwork.insideLobby);
             check = true;
             RoomOptions option=new RoomOptions();
-            option.MaxPlayers = 2;
+            option.PublishUserId = true;
+            option.MaxPlayers = 2;//다음에 랜덤으로
             option.IsOpen = true;
             PhotonNetwork.CreateRoom("WarGround" + Random.RandomRange(0, 1000), option,TypedLobby.Default);
         }
         if(check) Sys.MatchingDone();
     }
 
+    //커스텀룸 입장
     public void JoinCustom(string roomName)
     {
         PhotonNetwork.JoinRoom(roomName);
     }
 
+    //방 떠나기
+    public void LeaveRoom()
+    {
+        PhotonNetwork.LeaveRoom();
+    }
+
+    //방 리스트 얻어오기
     public RoomInfo[] GetRoomList()
     {
         return PhotonNetwork.GetRoomList();
     }
+
+    //유저가 들어왔을때
+    private void OnPlayerConnected(NetworkPlayer player)
+    {
+        if (PhotonNetwork.room.MaxPlayers == PhotonNetwork.room.PlayerCount)
+        {
+            //매치매이킹 성공
+        }
+    }
 }
-	
-//스튜던트 객체 안에 이름 학번 학점넣고
-//여러개를 넣어서 또다른 클래스 만들어서 종류별로 정렬 이름 입력시 학생정보구하기
