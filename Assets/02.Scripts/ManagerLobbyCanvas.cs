@@ -7,22 +7,22 @@ using UnityEngine.UI;
 public class ManagerLobbyCanvas : MonoBehaviour {
 
     //System
-    [SerializeField] GameObject scene_Play;
-    public GameObject scene_Char;
-    public GameObject scene_Lobby;
+    [SerializeField] private GameObject scene_Play;
+    [SerializeField] private GameObject scene_Char;
+    [SerializeField] private GameObject scene_Lobby;
 
-    public Text Text_Home;
-    public Text Text_Play;
-    public Text Text_Char;
+    [SerializeField] private Text Text_Home;
+    [SerializeField] private Text Text_Play;
+    [SerializeField] private Text Text_Char;
 
-    public Text Text_GameType;
+    [SerializeField] private Text Text_GameType;
 
-    public GameObject Fx_Home;
-    public GameObject Fx_Play;
-    public GameObject Fx_Char;
+    [SerializeField] private GameObject Fx_Home;
+    [SerializeField] private GameObject Fx_Play;
+    [SerializeField] private GameObject Fx_Char;
 
-    public GameObject Fx_BackGround_Match;
-    public GameObject Fx_Time2;
+    [SerializeField] private GameObject Fx_BackGround_Match;
+    [SerializeField] private GameObject Fx_Time2;
 
     private GameObject Fx_now3;
     private Text overText3;
@@ -33,81 +33,105 @@ public class ManagerLobbyCanvas : MonoBehaviour {
     private int inLobby = 1;
 
     //Lobby Scene UI
-    public Text PlayedType;
+    [SerializeField] private Text PlayedType;
 
-    public GameObject Button_Quick;
-    public GameObject Button_ToPlay2;
-    public GameObject Button_Credit;
+    [SerializeField] private GameObject Button_Quick;
+    [SerializeField] private GameObject Button_Credit;
 
     private GameObject overButton4;
 
     private int QuickType;
     //Match Scene UI
     //Button - Text
-    public GameObject Button_Back1;
-    public Text Button_Random;
-    public Text Button_Custom;
-    public Text Button_Tutorial;
-    public GameObject Button_Cancel;
+    //BeforeMatch
+    [SerializeField] private GameObject Button_Back1;
+    [SerializeField] private Text Button_Random;
+    [SerializeField] private Text Button_Custom;
+    [SerializeField] private Text Button_Tutorial;
 
-    public GameObject infor_Custom;
-    public GameObject infor_Random;
-    public GameObject infor_Tutorial;
-    public GameObject infor_Null;
+    [SerializeField] private GameObject infor_Custom;
+    [SerializeField] private GameObject infor_Random;
+    [SerializeField] private GameObject infor_Tutorial;
+    [SerializeField] private GameObject infor_Null;
 
-    public GameObject Fx_Random;
-    public GameObject Fx_Custom;
-    public GameObject Fx_Tutorial;
+    [SerializeField] private GameObject Fx_Random;
+    [SerializeField] private GameObject Fx_Custom;
+    [SerializeField] private GameObject Fx_Tutorial;
 
-    public GameObject Fx_Time1;
-    public Text TimeS;
-    public Text TimeM;
-
-    public GameObject BackGround_Before;
-    public GameObject BackGround_After;
+    [SerializeField] private GameObject BackGround_Before;
 
     private Text overButton;
     private GameObject overInfor;
+
     private GameObject Fx_now;
+
+    //AfterRandom
+    [SerializeField] private GameObject Button_Cancel;
+    [SerializeField] private GameObject Fx_Time1;
+    [SerializeField] private Text TimeS;
+    [SerializeField] private Text TimeM;
+
+    [SerializeField] private GameObject BackGround_AfterRandom;
 
     private bool canceled = false;
     private int matchingTimeS = 0;
     private int matchingTimeM = 0;
 
+    //AfterCustom
+
+    [SerializeField] private GameObject[] roomObject = new GameObject[6];
+    RoomInfo[] list;
+
+    [SerializeField] private GameObject BackGround_AfterCustom;
+
+
+
+
+
     //Character Scene UI
-    public GameObject Button_Back2;
-    public GameObject Button_team1;
-    public GameObject Button_team2;
-    public GameObject Button_Common;
+    [SerializeField] private GameObject Button_Back2;
+    [SerializeField] private GameObject Button_team1;
+    [SerializeField] private GameObject Button_team2;
+    [SerializeField] private GameObject Button_Common;
 
 
 
-    private Manager_Lobby_Network Network;
+    private ManagerLobbyNetwork Network;
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (inLobby == 1)
             {
-
+                //옵션
             }
             else
             {
+                //current Scene Fx On
+                Fx_Home.SetActive(true);
+                Text_Home.GetComponent<Text>().color = Color.white;
+
+                //Last Scene Fx Off
+                Fx_last3.SetActive(false);
+                Fx_last3 = Fx_Home;
+                LastText3.color = new Color(0.4823529f, 0.4823529f, 0.4823529f);
+                LastText3 = Text_Home;
+
                 StartCoroutine(Cor1());
             }
         }
     }
     private void Start()
     {
-        Network = gameObject.GetComponent<ManagerLobbyNetwork>();
+        Network = GetComponent<ManagerLobbyNetwork>();
 
         Fx_last3 = Fx_Home;
         LastText3 = Text_Home;
         if (PlayerPrefs.HasKey("PlayedType"))
         {
             QuickType = PlayerPrefs.GetInt("PlayedType");
-            if (QuickType == 1) PlayedType.text = "Random";
-            else if (QuickType == 2) PlayedType.text = "Custom";
+            if (QuickType == 1) PlayedType.text = "Random Match";
+            else if (QuickType == 2) PlayedType.text = "Custom Match";
             else if (QuickType == 3) PlayedType.text = "Tutorial";
         }
     }
@@ -186,6 +210,8 @@ public class ManagerLobbyCanvas : MonoBehaviour {
 
     public void QuickOver()
     {
+        OverExit4();
+
         overButton4 = Button_Quick;
         overButton4.GetComponent<Outline>().enabled = true;
     }
@@ -207,13 +233,11 @@ public class ManagerLobbyCanvas : MonoBehaviour {
         }
     }
 
-    public void ToPlay2Over()
-    {
-        overButton4 = Button_ToPlay2;
-        overButton4.GetComponent<Outline>().enabled = true;
-    }
+
     public void CreditOver()
     {
+        OverExit4();
+
         overButton4 = Button_Credit;
         overButton4.GetComponent<Outline>().enabled = true;
     }
@@ -250,6 +274,8 @@ public class ManagerLobbyCanvas : MonoBehaviour {
 
     public void RandomOver()
     {
+        OverExit();
+
         infor_Null.SetActive(false);
         infor_Random.SetActive(true);
         overInfor = infor_Random;
@@ -267,7 +293,7 @@ public class ManagerLobbyCanvas : MonoBehaviour {
         PlayedType.text = "Random";
         Fx_BackGround_Match.SetActive(true);
 
-        BackGround_After.SetActive(true);
+        BackGround_AfterRandom.SetActive(true);
         BackGround_Before.SetActive(false);
 
         StartCoroutine(MatchingAnim());
@@ -347,12 +373,14 @@ public class ManagerLobbyCanvas : MonoBehaviour {
         canceled = true;
         Fx_BackGround_Match.SetActive(false);
 
-        BackGround_After.SetActive(false);
+        BackGround_AfterRandom.SetActive(false);
         BackGround_Before.SetActive(true);
     }
 
     public void CustomOver()
     {
+        OverExit();
+
         infor_Null.SetActive(false);
         infor_Custom.SetActive(true);
         overInfor = infor_Custom;
@@ -368,11 +396,13 @@ public class ManagerLobbyCanvas : MonoBehaviour {
         PlayerPrefs.SetInt("PlayedType", 2);
         PlayedType.text = "Custom";
 
-        //룸리스트 불러오기 배열 선언
+        RoomListPrepare();
     }
 
     public void TutorialOver()
     {
+        OverExit();
+
         infor_Null.SetActive(false);
         infor_Tutorial.SetActive(true);
         overInfor = infor_Tutorial;
@@ -389,14 +419,16 @@ public class ManagerLobbyCanvas : MonoBehaviour {
         PlayedType.text = "Tutorial";
     }
     
-    public void BackOver1()
-    {
-        Fx_now3 = Fx_Home;
-        overText3 = Text_Home;
+    //AfterCustom
 
-        overButton4 = Button_Back1;
-        overButton4.GetComponent<Outline>().enabled = true;
-    }
+    //public void RoomListPrepare()
+    //{
+    //    list = Network.Getroomlist();
+    //    list[0].Name; //name_mode
+    //    list[0].MaxPlayers;
+    //    list[0].PlayerCount;
+    //    list[0].IsOpen; // true면 waiting flase playing
+    //}
 
 
 
