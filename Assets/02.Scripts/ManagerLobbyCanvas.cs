@@ -419,6 +419,7 @@ public class ManagerLobbyCanvas : MonoBehaviour {
         PlayerPrefs.SetInt("PlayedType", 2);
         PlayedType.text = "Custom";
         QuickType = 2;
+        inLobby = 4;
 
         BackGround_AfterCustom.SetActive(true);
         BackGround_Before.SetActive(false);
