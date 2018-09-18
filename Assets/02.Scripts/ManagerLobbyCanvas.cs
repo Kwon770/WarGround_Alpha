@@ -466,17 +466,20 @@ public class ManagerLobbyCanvas : MonoBehaviour {
         //모두 끄기
         for (int i = 0; i < 7; i++) roomObject[i].SetActive(false);
 
-        //차례로 키고 정보 기록
-        for (int i = 0; i < numberNow + 1; i++)
+        if(numberNow != 0)
         {
-            roomObject[i].SetActive(true);
+            //차례로 키고 정보 기록
+            for (int i = 0; i < numberNow + 1; i++)
+            {
+                roomObject[i].SetActive(true);
 
-            string[] infor = list[i].Name.Split('_');
-            roomObject[i].transform.GetChild(0).GetComponent<Text>().text = infor[0];
-            roomObject[i].transform.GetChild(1).GetComponent<Text>().text = infor[1];
-            if (list[i].IsOpen == true) roomObject[i].transform.GetChild(2).GetComponent<Text>().text = "Waiting";
-            else if (list[i].IsOpen == false) roomObject[i].transform.GetChild(2).GetComponent<Text>().text = "Playing";
-            roomObject[i].transform.GetChild(3).GetComponent<Text>().text = list[i].PlayerCount + "/" + list[i].MaxPlayers;
+                string[] infor = list[i].Name.Split('_');
+                roomObject[i].transform.GetChild(0).GetComponent<Text>().text = infor[0];
+                roomObject[i].transform.GetChild(1).GetComponent<Text>().text = infor[1];
+                if (list[i].IsOpen == true) roomObject[i].transform.GetChild(2).GetComponent<Text>().text = "Waiting";
+                else if (list[i].IsOpen == false) roomObject[i].transform.GetChild(2).GetComponent<Text>().text = "Playing";
+                roomObject[i].transform.GetChild(3).GetComponent<Text>().text = list[i].PlayerCount + "/" + list[i].MaxPlayers;
+            }
         }
 
         //list[i].Name; //name_mode
@@ -501,19 +504,22 @@ public class ManagerLobbyCanvas : MonoBehaviour {
         for (int i = 0; i < 7; i++) roomObject[i].SetActive(false);
 
         //차례로 키고 정보 기록
-        for (int i = 6 * page; i < (numberNow + 1) * (page + 1); i++)
+        if(numberNow != 0)
         {
-            int a = 0;
-            roomObject[a].SetActive(true);
+            for (int i = 6 * page; i < (numberNow + 1) * (page + 1); i++)
+            {
+                int a = 0;
+                roomObject[a].SetActive(true);
 
-            string[] infor = list[i].Name.Split('_');
-            roomObject[a].transform.GetChild(0).GetComponent<Text>().text = infor[0];
-            roomObject[a].transform.GetChild(1).GetComponent<Text>().text = infor[1];
-            if (list[i].IsOpen == true) roomObject[a].transform.GetChild(2).GetComponent<Text>().text = "Waiting";
-            else if (list[i].IsOpen == false) roomObject[a].transform.GetChild(2).GetComponent<Text>().text = "Playing";
-            roomObject[a].transform.GetChild(3).GetComponent<Text>().text = list[i].PlayerCount + "/" + list[i].MaxPlayers;
+                string[] infor = list[i].Name.Split('_');
+                roomObject[a].transform.GetChild(0).GetComponent<Text>().text = infor[0];
+                roomObject[a].transform.GetChild(1).GetComponent<Text>().text = infor[1];
+                if (list[i].IsOpen == true) roomObject[a].transform.GetChild(2).GetComponent<Text>().text = "Waiting";
+                else if (list[i].IsOpen == false) roomObject[a].transform.GetChild(2).GetComponent<Text>().text = "Playing";
+                roomObject[a].transform.GetChild(3).GetComponent<Text>().text = list[i].PlayerCount + "/" + list[i].MaxPlayers;
 
-            a++;
+                a++;
+            }
         }
     }
 
@@ -528,19 +534,26 @@ public class ManagerLobbyCanvas : MonoBehaviour {
         for (int i = 0; i < 7; i++) roomObject[i].SetActive(false);
 
         //차례로 키고 정보 기록
-        for (int i = 6 * page; i < (numberNow + 1) * (page + 1); i++)
+        if(numberNow != 0)
         {
-            int a = 0;
-            roomObject[a].SetActive(true);
+            for (int i = 6 * page; i < (numberNow + 1) * (page + 1); i++)
+            {
+                int a = 0;
+                roomObject[a].SetActive(true);
 
-            string[] infor = list[i].Name.Split('_');
-            roomObject[a].transform.GetChild(0).GetComponent<Text>().text = infor[0];
-            roomObject[a].transform.GetChild(1).GetComponent<Text>().text = infor[1];
-            if (list[i].IsOpen == true) roomObject[a].transform.GetChild(2).GetComponent<Text>().text = "Waiting";
-            else if (list[i].IsOpen == false) roomObject[a].transform.GetChild(2).GetComponent<Text>().text = "Playing";
-            roomObject[a].transform.GetChild(3).GetComponent<Text>().text = list[i].PlayerCount + "/" + list[i].MaxPlayers;
+                string[] infor = list[i].Name.Split('_');
+                roomObject[a].transform.GetChild(0).GetComponent<Text>().text = infor[0];
+                roomObject[a].transform.GetChild(1).GetComponent<Text>().text = infor[1];
+                if (list[i].IsOpen == true) roomObject[a].transform.GetChild(2).GetComponent<Text>().text = "Waiting";
+                else if (list[i].IsOpen == false) roomObject[a].transform.GetChild(2).GetComponent<Text>().text = "Playing";
+                roomObject[a].transform.GetChild(3).GetComponent<Text>().text = list[i].PlayerCount + "/" + list[i].MaxPlayers;
 
-            a++;
+                a++;
+            }
+        }
+        else
+        {
+            //방없음 오류 띄우기
         }
     }
 
@@ -555,19 +568,22 @@ public class ManagerLobbyCanvas : MonoBehaviour {
         for (int i = 0; i < 7; i++) roomObject[i].SetActive(false);
 
         //차례로 키고 정보 기록
-        for (int i = 6 * page; i < (numberNow + 1) * (page + 1); i++)
+        if (numberNow != 0)
         {
-            int a = 0;
-            roomObject[a].SetActive(true);
+            for (int i = 6 * page; i < (numberNow + 1) * (page + 1); i++)
+            {
+                int a = 0;
+                roomObject[a].SetActive(true);
 
-            string[] infor = list[i].Name.Split('_');
-            roomObject[a].transform.GetChild(0).GetComponent<Text>().text = infor[0];
-            roomObject[a].transform.GetChild(1).GetComponent<Text>().text = infor[1];
-            if (list[i].IsOpen == true) roomObject[a].transform.GetChild(2).GetComponent<Text>().text = "Waiting";
-            else if (list[i].IsOpen == false) roomObject[a].transform.GetChild(2).GetComponent<Text>().text = "Playing";
-            roomObject[a].transform.GetChild(3).GetComponent<Text>().text = list[i].PlayerCount + "/" + list[i].MaxPlayers;
+                string[] infor = list[i].Name.Split('_');
+                roomObject[a].transform.GetChild(0).GetComponent<Text>().text = infor[0];
+                roomObject[a].transform.GetChild(1).GetComponent<Text>().text = infor[1];
+                if (list[i].IsOpen == true) roomObject[a].transform.GetChild(2).GetComponent<Text>().text = "Waiting";
+                else if (list[i].IsOpen == false) roomObject[a].transform.GetChild(2).GetComponent<Text>().text = "Playing";
+                roomObject[a].transform.GetChild(3).GetComponent<Text>().text = list[i].PlayerCount + "/" + list[i].MaxPlayers;
 
-            a++;
+                a++;
+            }
         }
     }
 
