@@ -509,6 +509,9 @@ public class ManagerLobbyCanvas : MonoBehaviour {
 
 
     //AfterCustom
+    //
+    // maxplayer로 모두 확인 / maxplayer는 byte형 / name - string방이름_int 맵
+    //
     public void RoomListPrepare()
     {
         // page = 0 - 1페이지
