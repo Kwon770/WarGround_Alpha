@@ -38,6 +38,15 @@ public class ManagerLobbyCanvas : MonoBehaviour {
     [SerializeField] private GameObject Button_Quick;
     [SerializeField] private GameObject Button_Credit;
 
+    [SerializeField] private GameObject Panel_Option1;
+    [SerializeField] private GameObject Panel_Option2;
+    [SerializeField] private GameObject Button_Option1;
+    [SerializeField] private GameObject Button_Option2;
+    [SerializeField] private GameObject Button_Quit;
+
+    private bool Option1 = false;
+    private bool Option2 = false;
+
     private GameObject overButton4;
 
     private int QuickType;
@@ -111,7 +120,24 @@ public class ManagerLobbyCanvas : MonoBehaviour {
         {
             if (inLobby == 1)
             {
-                //옵션
+                if(Option1)
+                {
+                    Panel_Option1.SetActive(false);
+                    Panel_Option2.SetActive(false);
+                    Option1 = false;
+                }
+                else if (Option2)
+                {
+                    Panel_Option1.SetActive(true);
+                    Panel_Option2.SetActive(false);
+                    Option2 = false;
+                    Option1 = true;
+                }
+                else if (!Option1 && !Option2)
+                {
+                    Panel_Option1.SetActive(true);
+                    Option1 = true;
+                }
             }
             else if (inLobby == 4)
             {
@@ -261,14 +287,49 @@ public class ManagerLobbyCanvas : MonoBehaviour {
         }
     }
 
-
     public void CreditOver()
     {
         overButton4 = Button_Credit;
         overButton4.GetComponent<Outline>().enabled = true;
     }
+    public void CreditPressed()
+    { 
+    }
 
+    public void Option1Over()
+    {
+        overButton4 = Button_Option1;
+        overButton4.GetComponent<Outline>().enabled = true;
+    }
+    public void Option1Pressed()
+    {
+        Panel_Option1.SetActive(true);
+        Option1 = true;
+    }
 
+    public void Option2Over()
+    {
+        overButton4 = Button_Option2;
+        overButton4.GetComponent<Outline>().enabled = true;
+    }
+    public void Option2Pressed()
+    {
+        Panel_Option1.SetActive(false);
+        Panel_Option2.SetActive(true);
+        Option1 = false;
+        Option2 = true;
+    }
+
+    public void QuitOver()
+    {
+
+        overButton4 = Button_Quit;
+        overButton4.GetComponent<Outline>().enabled = true;
+    }
+    public void QuitPressed()
+    {
+        Application.Quit();
+    }
 
 
 
@@ -276,7 +337,7 @@ public class ManagerLobbyCanvas : MonoBehaviour {
     //Match Scene Function
     public void ToMatch()
     {
-        inLobby = 2;
+        if(inLobby != 4) inLobby = 2;
         Camera.main.transform.DOMoveX(213, 0.7f).SetEase(Ease.OutQuart);
 
         //current Scene Fx On
