@@ -455,6 +455,7 @@ public class ManagerLobbyCanvas : MonoBehaviour {
     public void CancelPressed()
     {
         OverExit4();
+        //랜덤 매칭 취소 함수
 
         canceled = true;
         Fx_BackGround_Match.SetActive(false);
@@ -510,7 +511,7 @@ public class ManagerLobbyCanvas : MonoBehaviour {
 
     //AfterCustom
     //
-    // maxplayer로 모두 확인 / maxplayer는 byte형 / name - string방이름_int 맵
+    // name - string방이름_int 맵
     //
     public void RoomListPrepare()
     {
@@ -539,10 +540,10 @@ public class ManagerLobbyCanvas : MonoBehaviour {
 
                 string[] infor = list[i].Name.Split('_');
                 roomObject[i].transform.GetChild(0).GetComponent<Text>().text = infor[0];
-                roomObject[i].transform.GetChild(1).GetComponent<Text>().text = infor[1];
+                // infor[1]; //맵
                 if (list[i].IsOpen == true) roomObject[i].transform.GetChild(2).GetComponent<Text>().text = "Waiting";
                 else if (list[i].IsOpen == false) roomObject[i].transform.GetChild(2).GetComponent<Text>().text = "Playing";
-                roomObject[i].transform.GetChild(3).GetComponent<Text>().text = list[i].PlayerCount + "/" + list[i].MaxPlayers;
+                roomObject[i].transform.GetChild(3).GetComponent<Text>().text = list[i].PlayerCount + "/2";
             }
         }
 
@@ -577,10 +578,10 @@ public class ManagerLobbyCanvas : MonoBehaviour {
 
                 string[] infor = list[i].Name.Split('_');
                 roomObject[a].transform.GetChild(0).GetComponent<Text>().text = infor[0];
-                roomObject[a].transform.GetChild(1).GetComponent<Text>().text = infor[1];
+                //infor[1];  //맵
                 if (list[i].IsOpen == true) roomObject[a].transform.GetChild(2).GetComponent<Text>().text = "Waiting";
                 else if (list[i].IsOpen == false) roomObject[a].transform.GetChild(2).GetComponent<Text>().text = "Playing";
-                roomObject[a].transform.GetChild(3).GetComponent<Text>().text = list[i].PlayerCount + "/" + list[i].MaxPlayers;
+                roomObject[a].transform.GetChild(3).GetComponent<Text>().text = list[i].PlayerCount + "/2";
 
                 a++;
             }
@@ -607,10 +608,10 @@ public class ManagerLobbyCanvas : MonoBehaviour {
 
                 string[] infor = list[i].Name.Split('_');
                 roomObject[a].transform.GetChild(0).GetComponent<Text>().text = infor[0];
-                roomObject[a].transform.GetChild(1).GetComponent<Text>().text = infor[1];
+                //infor[1]; //맵
                 if (list[i].IsOpen == true) roomObject[a].transform.GetChild(2).GetComponent<Text>().text = "Waiting";
                 else if (list[i].IsOpen == false) roomObject[a].transform.GetChild(2).GetComponent<Text>().text = "Playing";
-                roomObject[a].transform.GetChild(3).GetComponent<Text>().text = list[i].PlayerCount + "/" + list[i].MaxPlayers;
+                roomObject[a].transform.GetChild(3).GetComponent<Text>().text = list[i].PlayerCount + "/2";
 
                 a++;
             }
@@ -641,10 +642,10 @@ public class ManagerLobbyCanvas : MonoBehaviour {
 
                 string[] infor = list[i].Name.Split('_');
                 roomObject[a].transform.GetChild(0).GetComponent<Text>().text = infor[0];
-                roomObject[a].transform.GetChild(1).GetComponent<Text>().text = infor[1];
+                //infor[1]; //맵
                 if (list[i].IsOpen == true) roomObject[a].transform.GetChild(2).GetComponent<Text>().text = "Waiting";
                 else if (list[i].IsOpen == false) roomObject[a].transform.GetChild(2).GetComponent<Text>().text = "Playing";
-                roomObject[a].transform.GetChild(3).GetComponent<Text>().text = list[i].PlayerCount + "/" + list[i].MaxPlayers;
+                roomObject[a].transform.GetChild(3).GetComponent<Text>().text = list[i].PlayerCount + "/2";
 
                 a++;
             }
