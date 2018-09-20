@@ -33,6 +33,8 @@ public class ManagerLobbyNetwork : MonoBehaviour
         return false;
     }
 
+
+
     //랜덤룸 입장
     public void JoinRandom()
     {
@@ -48,15 +50,22 @@ public class ManagerLobbyNetwork : MonoBehaviour
         }
         if (!check)
         {
-            Debug.Log(PhotonNetwork.connected + " " + PhotonNetwork.insideLobby);
-            check = true;
-            RoomOptions option=new RoomOptions();
-            option.PublishUserId = true;
-            option.MaxPlayers = 2;//다음에 랜덤으로
-            option.IsOpen = true;
-            PhotonNetwork.CreateRoom("WarGround" + Random.RandomRange(0, 1000), option,TypedLobby.Default);
+            byte MaxPlayer = (byte)Random.RandomRange(2, 5);
+            int Map = (byte)Random.RandomRange(1, 5); ;
+            CreateRoom("WarGround_" + Random.RandomRange(1, 1000) + "_" + Map, MaxPlayer, Map);
         }
-        if(check) Sys.MatchingDone();
+    }
+
+    //커스텀룸 제작
+    public void CreateRoom(string Name,byte MaxPlayer,int Map)
+    {
+        RoomOptions option = new RoomOptions
+        {
+            PublishUserId = true,
+            MaxPlayers = MaxPlayer,
+            IsOpen = true
+        };
+        PhotonNetwork.CreateRoom(Name, option, TypedLobby.Default);
     }
 
     //커스텀룸 입장
@@ -84,5 +93,9 @@ public class ManagerLobbyNetwork : MonoBehaviour
         {
             //매치매이킹 성공
         }
+    }
+    void Update()
+    {
+        Debug.Log(PhotonNetwork.connected + " " + PhotonNetwork.insideLobby + " " + PhotonNetwork.inRoom);
     }
 }
