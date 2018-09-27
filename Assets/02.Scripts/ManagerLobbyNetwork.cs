@@ -50,19 +50,18 @@ public class ManagerLobbyNetwork : MonoBehaviour
         }
         if (!check)
         {
-            byte MaxPlayer = (byte)Random.RandomRange(2, 5);
-            int Map = (byte)Random.RandomRange(1, 5); ;
-            CreateRoom("WarGround_" + Random.RandomRange(1, 1000) + "_" + Map, MaxPlayer, Map);
+            int Map = (byte)Random.Range(1, 5); ;
+            CreateRoom("WarGround_" + Random.Range(1, 1000), Map);
         }
     }
 
     //커스텀룸 제작
-    public void CreateRoom(string Name,byte MaxPlayer,int Map)
+    public void CreateRoom(string Name, int Map)
     {
         RoomOptions option = new RoomOptions
         {
             PublishUserId = true,
-            MaxPlayers = MaxPlayer,
+            MaxPlayers = 2,
             IsOpen = true
         };
         PhotonNetwork.CreateRoom(Name, option, TypedLobby.Default);

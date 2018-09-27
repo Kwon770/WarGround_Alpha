@@ -1,4 +1,5 @@
 ﻿using DG.Tweening;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -50,6 +51,8 @@ public class ManagerLobbyCanvas : MonoBehaviour {
     private GameObject overButton4;
 
     private int QuickType;
+
+
     //Match Scene UI
     //Button - Text
     //BeforeMatch
@@ -89,19 +92,20 @@ public class ManagerLobbyCanvas : MonoBehaviour {
 
     [SerializeField] private GameObject[] roomObject = new GameObject[7];
     RoomInfo[] list;
-    int number;
-    int page;
-    int numberNow;
+    private int except;
+    private int number;
+    private int page;
+    private int numberNow;
 
     [SerializeField] private GameObject BackGround_AfterCustom;
 
     [SerializeField] private GameObject panel_CreateRoom;
     [SerializeField] private InputField createdName;
     [SerializeField] private Dropdown createdMap;
+    [SerializeField] private Toggle createdPrivate;
 
     [SerializeField] private Text roomInfo_Title;
     [SerializeField] private Text roomInfo_State;
-    [SerializeField] private Text roomInfo_Mode;
     [SerializeField] private Text roomInfo_Map;
 
     // 맵 사진 ?
@@ -117,7 +121,7 @@ public class ManagerLobbyCanvas : MonoBehaviour {
 
 
 
-    private ManagerLobbyNetwork Network;
+    private ManagerLobbyNetwork network;
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -150,6 +154,11 @@ public class ManagerLobbyCanvas : MonoBehaviour {
 
                 inLobby = 2;
             }
+            else if (inLobby == 10)
+            {
+                inLobby = 4;
+                panel_CreateRoom.SetActive(false);
+            }
             else
             {
                 //current Scene Fx On
@@ -168,7 +177,7 @@ public class ManagerLobbyCanvas : MonoBehaviour {
     }
     private void Start()
     {
-        Network = GetComponent<ManagerLobbyNetwork>();
+        network = GetComponent<ManagerLobbyNetwork>();
 
         Fx_last3 = Fx_Home;
         LastText3 = Text_Home;
@@ -273,7 +282,7 @@ public class ManagerLobbyCanvas : MonoBehaviour {
             StartCoroutine(MatchingAnim());
             StartCoroutine(MatchingAnim2());
 
-            Network.JoinRandom();
+            network.JoinRandom();
         }
         else if (QuickType == 2)
         { 
@@ -389,7 +398,7 @@ public class ManagerLobbyCanvas : MonoBehaviour {
         StartCoroutine(MatchingAnim());
         StartCoroutine(MatchingAnim2());
 
-        Network.JoinRandom();
+        network.JoinRandom();
     }
     IEnumerator MatchingAnim()
     {
@@ -459,7 +468,7 @@ public class ManagerLobbyCanvas : MonoBehaviour {
     public void CancelPressed()
     {
         OverExit4();
-        Network.LeaveRoom();
+        network.LeaveRoom();
 
         canceled = true;
         Fx_BackGround_Match.SetActive(false);
@@ -517,11 +526,18 @@ public class ManagerLobbyCanvas : MonoBehaviour {
     
     public void CreateRoom()
     {
+        inLobby = 10;
+
         panel_CreateRoom.SetActive(true);
+        createdName.text = "";
     }
     
     public void Created()
     {
+        inLobby = 4;
+
+        if (createdPrivate.isOn) network.CreateRoom(createdName.text + '_' + UnityEngine.Random.Range(1001, 2000), createdMap.value);
+        else network.CreateRoom(createdName.text, createdMap.value);
         panel_CreateRoom.SetActive(false);
     }
 
@@ -531,10 +547,10 @@ public class ManagerLobbyCanvas : MonoBehaviour {
     {
         // page = 0 - 1페이지
         page = 0;
-        list = Network.GetRoomList();
+        list = network.GetRoomList();
         number = list.Length;
-        //방 개수 한 페이지 이상일경우 6개만 로드
-        if (number > 6)
+        //방 개수 한 페이지 이상일경우 7개만 로드
+        if (number > 7)
         {
             numberNow = 6;
         }
@@ -544,20 +560,38 @@ public class ManagerLobbyCanvas : MonoBehaviour {
 
         //모두 끄기
         for (int i = 0; i < 7; i++) roomObject[i].SetActive(false);
+        except = 0;
 
-        if(numberNow != 0)
+        if (numberNow != 0)
         {
             //차례로 키고 정보 기록
             for (int i = 0; i < numberNow + 1; i++)
             {
-                roomObject[i].SetActive(true);
-
                 string[] infor = list[i].Name.Split('_');
-                roomObject[i].transform.GetChild(0).GetComponent<Text>().text = infor[0];
-                // infor[1]; //맵
-                if (list[i].IsOpen == true) roomObject[i].transform.GetChild(2).GetComponent<Text>().text = "Waiting";
-                else if (list[i].IsOpen == false) roomObject[i].transform.GetChild(2).GetComponent<Text>().text = "Playing";
-                roomObject[i].transform.GetChild(3).GetComponent<Text>().text = list[i].PlayerCount + "/2";
+
+                if (infor.Length == 2)
+                {
+                    roomObject[i - except].SetActive(true);
+
+                    //제목
+                    roomObject[i - except].transform.GetChild(0).GetComponent<Text>().text = infor[0];
+                    //맵
+                    switch(Convert.ToInt32(infor[1]))
+                    {
+                        case 0:
+                            roomObject[i - except].transform.GetChild(3).GetComponent<Text>().text = "Oasis";
+                            break;
+                        case 1:
+                            roomObject[i - except].transform.GetChild(3).GetComponent<Text>().text = "Desert";
+                            break;
+                    }
+                    //상태
+                    if (list[i].IsOpen == true) roomObject[i - except].transform.GetChild(1).GetComponent<Text>().text = "Waiting";
+                    else if (list[i].IsOpen == false) roomObject[i - except].transform.GetChild(1).GetComponent<Text>().text = "Playing";
+                    //인원수
+                    roomObject[i - except].transform.GetChild(2).GetComponent<Text>().text = list[i].PlayerCount + "/2";
+                }
+                else except++;
             }
         }
 
@@ -569,14 +603,14 @@ public class ManagerLobbyCanvas : MonoBehaviour {
 
     public void Refresh()
     {
-        list = Network.GetRoomList();
+        list = network.GetRoomList();
         number = list.Length;
         //페이지에 따른 갯수이상이면 최대 페이지 만큼 로드
         if (number > 6 * (page + 1)) numberNow = 6;
         //그 페이지를 채우지 못하만큼 작아진 경우 모드 끄기
         else if (number <= 6 * page) for (int i = 0; i < 7; i++) roomObject[i].SetActive(false);
         //아니면 현재 페이지에 맞게 로드
-        else numberNow = number - (6 * (page));
+        else numberNow = number - (6 * page);
 
 
         //모두 끄기
@@ -585,25 +619,35 @@ public class ManagerLobbyCanvas : MonoBehaviour {
         //차례로 키고 정보 기록
         if(numberNow != 0)
         {
-            for (int i = 6 * page; i < (numberNow + 1) * (page + 1); i++)
+            for (int i = 6 * page; i < numberNow * (page + 1); i++)
             {
-                int a = 0;
-                roomObject[a].SetActive(true);
-
                 string[] infor = list[i].Name.Split('_');
-                roomObject[a].transform.GetChild(0).GetComponent<Text>().text = infor[0];
-                //infor[1];  //맵
-                if (list[i].IsOpen == true) roomObject[a].transform.GetChild(2).GetComponent<Text>().text = "Waiting";
-                else if (list[i].IsOpen == false) roomObject[a].transform.GetChild(2).GetComponent<Text>().text = "Playing";
-                roomObject[a].transform.GetChild(3).GetComponent<Text>().text = list[i].PlayerCount + "/2";
 
-                a++;
+                if (infor.Length == 2)
+                {
+                    roomObject[(i % 6) - except].SetActive(true);
+
+                    roomObject[(i % 6) - except].transform.GetChild(0).GetComponent<Text>().text = infor[0];
+                    switch (Convert.ToInt32(infor[1]))
+                    {
+                        case 0:
+                            roomObject[(i % 6) - except].transform.GetChild(3).GetComponent<Text>().text = "Oasis";
+                            break;
+                        case 1:
+                            roomObject[(i % 6) - except].transform.GetChild(3).GetComponent<Text>().text = "Desert";
+                            break;
+                    }
+                    if (list[i].IsOpen == true) roomObject[(i % 6)- except].transform.GetChild(1).GetComponent<Text>().text = "Waiting";
+                    else if (list[i].IsOpen == false) roomObject[(i % 6) - except].transform.GetChild(1).GetComponent<Text>().text = "Playing";
+                    roomObject[(i % 6) - except].transform.GetChild(2).GetComponent<Text>().text = list[i].PlayerCount + "/2";
+                }
+                else except++;
             }
         }
     }
-
     public void NextPage()
     {
+
         page++;
         if (number > 6 * (page + 1)) numberNow = 6;
         else if (number <= 6 * page) for (int i = 0; i < 7; i++) roomObject[i].SetActive(false);
@@ -613,29 +657,34 @@ public class ManagerLobbyCanvas : MonoBehaviour {
         for (int i = 0; i < 7; i++) roomObject[i].SetActive(false);
 
         //차례로 키고 정보 기록
-        if(numberNow != 0)
+        if (numberNow != 0)
         {
-            for (int i = 6 * page; i < (numberNow + 1) * (page + 1); i++)
+            for (int i = 6 * page; i < numberNow * (page + 1); i++)
             {
-                int a = 0;
-                roomObject[a].SetActive(true);
-
                 string[] infor = list[i].Name.Split('_');
-                roomObject[a].transform.GetChild(0).GetComponent<Text>().text = infor[0];
-                //infor[1]; //맵
-                if (list[i].IsOpen == true) roomObject[a].transform.GetChild(2).GetComponent<Text>().text = "Waiting";
-                else if (list[i].IsOpen == false) roomObject[a].transform.GetChild(2).GetComponent<Text>().text = "Playing";
-                roomObject[a].transform.GetChild(3).GetComponent<Text>().text = list[i].PlayerCount + "/2";
 
-                a++;
+                if (infor.Length == 2)
+                {
+                    roomObject[(i % 6) - except].SetActive(true);
+
+                    roomObject[(i % 6) - except].transform.GetChild(0).GetComponent<Text>().text = infor[0];
+                    switch (Convert.ToInt32(infor[1]))
+                    {
+                        case 0:
+                            roomObject[(i % 6) - except].transform.GetChild(3).GetComponent<Text>().text = "Oasis";
+                            break;
+                        case 1:
+                            roomObject[(i % 6) - except].transform.GetChild(3).GetComponent<Text>().text = "Desert";
+                            break;
+                    }
+                    if (list[i].IsOpen == true) roomObject[(i % 6) - except].transform.GetChild(1).GetComponent<Text>().text = "Waiting";
+                    else if (list[i].IsOpen == false) roomObject[(i % 6) - except].transform.GetChild(1).GetComponent<Text>().text = "Playing";
+                    roomObject[(i % 6) - except].transform.GetChild(2).GetComponent<Text>().text = list[i].PlayerCount + "/2";
+                }
+                else except++;
             }
         }
-        else
-        {
-            //방없음 오류 띄우기
-        }
     }
-
     public void PrevPage()
     {
         page--;
@@ -649,37 +698,48 @@ public class ManagerLobbyCanvas : MonoBehaviour {
         //차례로 키고 정보 기록
         if (numberNow != 0)
         {
-            for (int i = 6 * page; i < (numberNow + 1) * (page + 1); i++)
+            for (int i = 6 * page; i < numberNow * (page + 1); i++)
             {
-                int a = 0;
-                roomObject[a].SetActive(true);
-
                 string[] infor = list[i].Name.Split('_');
-                roomObject[a].transform.GetChild(0).GetComponent<Text>().text = infor[0];
-                //infor[1]; //맵
-                if (list[i].IsOpen == true) roomObject[a].transform.GetChild(2).GetComponent<Text>().text = "Waiting";
-                else if (list[i].IsOpen == false) roomObject[a].transform.GetChild(2).GetComponent<Text>().text = "Playing";
-                roomObject[a].transform.GetChild(3).GetComponent<Text>().text = list[i].PlayerCount + "/2";
 
-                a++;
+                if (infor.Length == 2)
+                {
+                    roomObject[(i % 6) - except].SetActive(true);
+
+                    roomObject[(i % 6) - except].transform.GetChild(0).GetComponent<Text>().text = infor[0];
+                    switch (Convert.ToInt32(infor[1]))
+                    {
+                        case 0:
+                            roomObject[(i % 6) - except].transform.GetChild(3).GetComponent<Text>().text = "Oasis";
+                            break;
+                        case 1:
+                            roomObject[(i % 6) - except].transform.GetChild(3).GetComponent<Text>().text = "Desert";
+                            break;
+                    }
+                    if (list[i].IsOpen == true) roomObject[(i % 6) - except].transform.GetChild(1).GetComponent<Text>().text = "Waiting";
+                    else if (list[i].IsOpen == false) roomObject[(i % 6) - except].transform.GetChild(1).GetComponent<Text>().text = "Playing";
+                    roomObject[(i % 6) - except].transform.GetChild(2).GetComponent<Text>().text = list[i].PlayerCount + "/2";
+                }
+                else except++;
             }
         }
     }
 
 
+    // 3개 - infor[2] //맵 2개 - infor[1] 맵
     public void Room0Over()
     {
         overButton4 = roomObject[0];
         roomObject[0].GetComponent<Outline>().enabled = true;
 
         roomInfo_Title.text = roomObject[0].transform.GetChild(0).GetComponent<Text>().text;
-        roomInfo_Mode.text = roomObject[0].transform.GetChild(1).GetComponent<Text>().text;
-        roomInfo_State.text = roomObject[0].transform.GetChild(2).GetComponent<Text>().text;
+        roomInfo_Map.text = roomObject[0].transform.GetChild(3).GetComponent<Text>().text;
+        roomInfo_State.text = roomObject[0].transform.GetChild(1).GetComponent<Text>().text;
         //인원 ??
     }
     public void Room0Join()
     {
-        Network.JoinCustom(roomObject[0].transform.GetChild(0).GetComponent<Text>().text);
+        network.JoinCustom(roomObject[0].transform.GetChild(0).GetComponent<Text>().text);
     }
 
     public void Room1Over()
@@ -688,12 +748,12 @@ public class ManagerLobbyCanvas : MonoBehaviour {
         roomObject[1].GetComponent<Outline>().enabled = true;
 
         roomInfo_Title.text = roomObject[1].transform.GetChild(0).GetComponent<Text>().text;
-        roomInfo_Mode.text = roomObject[1].transform.GetChild(1).GetComponent<Text>().text;
-        roomInfo_State.text = roomObject[1].transform.GetChild(2).GetComponent<Text>().text;
+        roomInfo_Map.text = roomObject[1].transform.GetChild(3).GetComponent<Text>().text;
+        roomInfo_State.text = roomObject[1].transform.GetChild(1).GetComponent<Text>().text;
     }
     public void Room1Join()
     {
-        Network.JoinCustom(roomObject[1].transform.GetChild(0).GetComponent<Text>().text);
+        network.JoinCustom(roomObject[1].transform.GetChild(0).GetComponent<Text>().text);
     }
 
     public void Room2Over()
@@ -702,12 +762,12 @@ public class ManagerLobbyCanvas : MonoBehaviour {
         roomObject[2].GetComponent<Outline>().enabled = true;
 
         roomInfo_Title.text = roomObject[2].transform.GetChild(0).GetComponent<Text>().text;
-        roomInfo_Mode.text = roomObject[2].transform.GetChild(1).GetComponent<Text>().text;
-        roomInfo_State.text = roomObject[2].transform.GetChild(2).GetComponent<Text>().text;
+        roomInfo_Map.text = roomObject[2].transform.GetChild(3).GetComponent<Text>().text;
+        roomInfo_State.text = roomObject[2].transform.GetChild(1).GetComponent<Text>().text;
     }
     public void Room2Join()
     {
-        Network.JoinCustom(roomObject[2].transform.GetChild(0).GetComponent<Text>().text);
+        network.JoinCustom(roomObject[2].transform.GetChild(0).GetComponent<Text>().text);
     }
 
     public void Room3Over()
@@ -716,12 +776,12 @@ public class ManagerLobbyCanvas : MonoBehaviour {
         roomObject[3].GetComponent<Outline>().enabled = true;
 
         roomInfo_Title.text = roomObject[3].transform.GetChild(0).GetComponent<Text>().text;
-        roomInfo_Mode.text = roomObject[3].transform.GetChild(1).GetComponent<Text>().text;
-        roomInfo_State.text = roomObject[3].transform.GetChild(2).GetComponent<Text>().text;
+        roomInfo_Map.text = roomObject[3].transform.GetChild(3).GetComponent<Text>().text;
+        roomInfo_State.text = roomObject[3].transform.GetChild(1).GetComponent<Text>().text;
     }
     public void Room3Join()
     {
-        Network.JoinCustom(roomObject[3].transform.GetChild(0).GetComponent<Text>().text);
+        network.JoinCustom(roomObject[3].transform.GetChild(0).GetComponent<Text>().text);
     }
 
     public void Room4Over()
@@ -730,12 +790,12 @@ public class ManagerLobbyCanvas : MonoBehaviour {
         roomObject[4].GetComponent<Outline>().enabled = true;
 
         roomInfo_Title.text = roomObject[4].transform.GetChild(0).GetComponent<Text>().text;
-        roomInfo_Mode.text = roomObject[4].transform.GetChild(1).GetComponent<Text>().text;
-        roomInfo_State.text = roomObject[4].transform.GetChild(2).GetComponent<Text>().text;
+        roomInfo_Map.text = roomObject[4].transform.GetChild(3).GetComponent<Text>().text;
+        roomInfo_State.text = roomObject[4].transform.GetChild(1).GetComponent<Text>().text;
     }
     public void Room4Join()
     {
-        Network.JoinCustom(roomObject[4].transform.GetChild(0).GetComponent<Text>().text);
+        network.JoinCustom(roomObject[4].transform.GetChild(0).GetComponent<Text>().text);
     }
 
     public void Room5Over()
@@ -744,12 +804,12 @@ public class ManagerLobbyCanvas : MonoBehaviour {
         roomObject[5].GetComponent<Outline>().enabled = true;
 
         roomInfo_Title.text = roomObject[5].transform.GetChild(0).GetComponent<Text>().text;
-        roomInfo_Mode.text = roomObject[5].transform.GetChild(1).GetComponent<Text>().text;
-        roomInfo_State.text = roomObject[5].transform.GetChild(2).GetComponent<Text>().text;
+        roomInfo_Map.text = roomObject[5].transform.GetChild(3).GetComponent<Text>().text;
+        roomInfo_State.text = roomObject[5].transform.GetChild(1).GetComponent<Text>().text;
     }
     public void Room5Join()
     {
-        Network.JoinCustom(roomObject[5].transform.GetChild(0).GetComponent<Text>().text);
+        network.JoinCustom(roomObject[5].transform.GetChild(0).GetComponent<Text>().text);
     }
 
     public void Room6Over()
@@ -758,12 +818,12 @@ public class ManagerLobbyCanvas : MonoBehaviour {
         roomObject[6].GetComponent<Outline>().enabled = true;
 
         roomInfo_Title.text = roomObject[6].transform.GetChild(0).GetComponent<Text>().text;
-        roomInfo_Mode.text = roomObject[6].transform.GetChild(1).GetComponent<Text>().text;
-        roomInfo_State.text = roomObject[6].transform.GetChild(2).GetComponent<Text>().text;
+        roomInfo_Map.text = roomObject[6].transform.GetChild(3).GetComponent<Text>().text;
+        roomInfo_State.text = roomObject[6].transform.GetChild(1).GetComponent<Text>().text;
     }
     public void Room6Join()
     {
-        Network.JoinCustom(roomObject[6].transform.GetChild(0).GetComponent<Text>().text);
+        network.JoinCustom(roomObject[6].transform.GetChild(0).GetComponent<Text>().text);
     }
 
 
