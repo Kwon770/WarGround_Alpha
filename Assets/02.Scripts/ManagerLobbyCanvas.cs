@@ -95,6 +95,10 @@ public class ManagerLobbyCanvas : MonoBehaviour {
 
     [SerializeField] private GameObject BackGround_AfterCustom;
 
+    [SerializeField] private GameObject panel_CreateRoom;
+    [SerializeField] private InputField createdName;
+    [SerializeField] private Dropdown createdMap;
+
     [SerializeField] private Text roomInfo_Title;
     [SerializeField] private Text roomInfo_State;
     [SerializeField] private Text roomInfo_Mode;
@@ -455,7 +459,7 @@ public class ManagerLobbyCanvas : MonoBehaviour {
     public void CancelPressed()
     {
         OverExit4();
-        //랜덤 매칭 취소 함수
+        Network.LeaveRoom();
 
         canceled = true;
         Fx_BackGround_Match.SetActive(false);
@@ -510,9 +514,19 @@ public class ManagerLobbyCanvas : MonoBehaviour {
 
 
     //AfterCustom
-    //
+    
+    public void CreateRoom()
+    {
+        panel_CreateRoom.SetActive(true);
+    }
+    
+    public void Created()
+    {
+        panel_CreateRoom.SetActive(false);
+    }
+
+
     // name - string방이름_int 맵
-    //
     public void RoomListPrepare()
     {
         // page = 0 - 1페이지
