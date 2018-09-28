@@ -8,6 +8,8 @@ using UnityEngine.UI;
 public class ManagerLobbyCanvas : MonoBehaviour {
 
     //System
+    [SerializeField] private GameObject Blocking;
+
     [SerializeField] private GameObject scene_Play;
     [SerializeField] private GameObject scene_Char;
     [SerializeField] private GameObject scene_Lobby;
@@ -92,21 +94,29 @@ public class ManagerLobbyCanvas : MonoBehaviour {
 
     [SerializeField] private GameObject[] roomObject = new GameObject[7];
     RoomInfo[] list;
-    private int except;
     private int number;
     private int page;
     private int numberNow;
 
+    private int  [] password;
+
     [SerializeField] private GameObject BackGround_AfterCustom;
 
     [SerializeField] private GameObject panel_CreateRoom;
+    [SerializeField] private GameObject panel_enterPrivate;
+
     [SerializeField] private InputField createdName;
+    [SerializeField] private InputField createdPassword;
+    [SerializeField] private InputField enterPassword;
+    [SerializeField] private GameObject createdPasswordText;
     [SerializeField] private Dropdown createdMap;
     [SerializeField] private Toggle createdPrivate;
 
     [SerializeField] private Text roomInfo_Title;
     [SerializeField] private Text roomInfo_State;
     [SerializeField] private Text roomInfo_Map;
+
+    [SerializeField] private Text roomInfo_Number;
 
     // 맵 사진 ?
 
@@ -132,6 +142,7 @@ public class ManagerLobbyCanvas : MonoBehaviour {
                 {
                     Panel_Option1.SetActive(false);
                     Panel_Option2.SetActive(false);
+                    Blocking.SetActive(false);
                     Option1 = false;
                 }
                 else if (Option2)
@@ -144,6 +155,7 @@ public class ManagerLobbyCanvas : MonoBehaviour {
                 else if (!Option1 && !Option2)
                 {
                     Panel_Option1.SetActive(true);
+                    Blocking.SetActive(true);
                     Option1 = true;
                 }
             }
@@ -158,6 +170,11 @@ public class ManagerLobbyCanvas : MonoBehaviour {
             {
                 inLobby = 4;
                 panel_CreateRoom.SetActive(false);
+                Blocking.SetActive(false);
+                a = false;
+                createdPassword.text = "";
+                createdPassword.gameObject.SetActive(false);
+                createdPasswordText.SetActive(false);
             }
             else
             {
@@ -317,6 +334,7 @@ public class ManagerLobbyCanvas : MonoBehaviour {
     public void Option1Pressed()
     {
         Panel_Option1.SetActive(true);
+        Blocking.SetActive(true);
         Option1 = true;
     }
 
@@ -529,16 +547,41 @@ public class ManagerLobbyCanvas : MonoBehaviour {
         inLobby = 10;
 
         panel_CreateRoom.SetActive(true);
+        Blocking.SetActive(true);
         createdName.text = "";
     }
-    
+
     public void Created()
     {
         inLobby = 4;
 
-        if (createdPrivate.isOn) network.CreateRoom(createdName.text + '_' + UnityEngine.Random.Range(1001, 2000), createdMap.value);
-        else network.CreateRoom(createdName.text, createdMap.value);
+        if (createdPrivate.isOn) network.CreateRoom(createdName.text + '_' + UnityEngine.Random.Range(1001, 2000) + "_" + createdPassword.text + "_" + createdMap.value, createdMap.value);
+        else network.CreateRoom(createdName.text + "_" + createdMap.value, createdMap.value);
+
         panel_CreateRoom.SetActive(false);
+        Blocking.SetActive(false);
+
+        //
+        createdPassword.text = "";
+        createdPassword.gameObject.SetActive(false);
+        createdPasswordText.SetActive(false);
+    }
+    private bool a = false;
+    public void PrivateOn()
+    {
+        if(!a)
+        {
+            a = true;
+            createdPassword.gameObject.SetActive(true);
+            createdPasswordText.SetActive(true);
+        }
+        else
+        {
+            a = false;
+            createdPassword.text = "";
+            createdPassword.gameObject.SetActive(false);
+            createdPasswordText.SetActive(false);
+        }
     }
 
 
@@ -549,49 +592,107 @@ public class ManagerLobbyCanvas : MonoBehaviour {
         page = 0;
         list = network.GetRoomList();
         number = list.Length;
+        roomInfo_Number.text = "(" + number + ")";
         //방 개수 한 페이지 이상일경우 7개만 로드
         if (number > 7)
         {
-            numberNow = 6;
+            numberNow = 7;
         }
         //한 페이지 이하면 갯수만큼 로드
         else numberNow = number;
 
 
         //모두 끄기
+        for (int i = 0; i < 7; i++) roomObject[i].transform.GetChild(4).gameObject.SetActive(false);
         for (int i = 0; i < 7; i++) roomObject[i].SetActive(false);
-        except = 0;
 
         if (numberNow != 0)
         {
             //차례로 키고 정보 기록
-            for (int i = 0; i < numberNow + 1; i++)
+            for (int i = 0; i < numberNow; i++)
             {
                 string[] infor = list[i].Name.Split('_');
 
-                if (infor.Length == 2)
+                if (infor.Length == 2) //Custom
                 {
-                    roomObject[i - except].SetActive(true);
+                    roomObject[i].SetActive(true);
 
                     //제목
-                    roomObject[i - except].transform.GetChild(0).GetComponent<Text>().text = infor[0];
+                    roomObject[i].transform.GetChild(0).GetComponent<Text>().text = infor[0];
                     //맵
                     switch(Convert.ToInt32(infor[1]))
                     {
                         case 0:
-                            roomObject[i - except].transform.GetChild(3).GetComponent<Text>().text = "Oasis";
+                            roomObject[i].transform.GetChild(3).GetComponent<Text>().text = "Desert";
                             break;
                         case 1:
-                            roomObject[i - except].transform.GetChild(3).GetComponent<Text>().text = "Desert";
+                            roomObject[i].transform.GetChild(3).GetComponent<Text>().text = "Snowy Field";
+                            break;
+                        case 2:
+                            roomObject[i].transform.GetChild(3).GetComponent<Text>().text = "Plains";
                             break;
                     }
                     //상태
-                    if (list[i].IsOpen == true) roomObject[i - except].transform.GetChild(1).GetComponent<Text>().text = "Waiting";
-                    else if (list[i].IsOpen == false) roomObject[i - except].transform.GetChild(1).GetComponent<Text>().text = "Playing";
+                    if (list[i].IsOpen == true) roomObject[i].transform.GetChild(1).GetComponent<Text>().text = "Waiting";
+                    else if (list[i].IsOpen == false) roomObject[i].transform.GetChild(1).GetComponent<Text>().text = "Playing";
                     //인원수
-                    roomObject[i - except].transform.GetChild(2).GetComponent<Text>().text = list[i].PlayerCount + "/2";
+                    roomObject[i].transform.GetChild(2).GetComponent<Text>().text = list[i].PlayerCount + "/2";
                 }
-                else except++;
+                else if (infor.Length == 3) //Random
+                {
+                    roomObject[i].SetActive(true);
+                    roomObject[i].transform.GetChild(4).gameObject.SetActive(true);
+                    password[i] = UnityEngine.Random.Range(10000, 99999);
+
+                    //제목
+                    roomObject[i].transform.GetChild(0).GetComponent<Text>().text = infor[0] + infor[1];
+                    //맵
+                    switch (Convert.ToInt32(infor[2]))
+                    {
+                        case 0:
+                            roomObject[i].transform.GetChild(3).GetComponent<Text>().text = "Desert";
+                            break;
+                        case 1:
+                            roomObject[i].transform.GetChild(3).GetComponent<Text>().text = "Snowy Field";
+                            break;
+                        case 2:
+                            roomObject[i].transform.GetChild(3).GetComponent<Text>().text = "Plains";
+                            break;
+                    }
+                    //상태
+                    if (list[i].IsOpen == true) roomObject[i].transform.GetChild(1).GetComponent<Text>().text = "Waiting";
+                    else if (list[i].IsOpen == false) roomObject[i].transform.GetChild(1).GetComponent<Text>().text = "Playing";
+                    //인원수
+                    roomObject[i].transform.GetChild(2).GetComponent<Text>().text = list[i].PlayerCount + "/2";
+                }
+                else //Custom Private
+                {
+                    roomObject[i].SetActive(true);
+                    roomObject[i].transform.GetChild(4).gameObject.SetActive(true);
+
+                    password[i] = Convert.ToInt32(infor[2]);
+                    //제목
+                    roomObject[i].transform.GetChild(0).GetComponent<Text>().text = infor[0];
+
+                    //맵
+                    switch (Convert.ToInt32(infor[3]))
+                    {
+                        case 0:
+                            roomObject[i].transform.GetChild(3).GetComponent<Text>().text = "Desert";
+                            break;
+                        case 1:
+                            roomObject[i].transform.GetChild(3).GetComponent<Text>().text = "Snowy Field";
+                            break;
+                        case 2:
+                            roomObject[i].transform.GetChild(3).GetComponent<Text>().text = "Plains";
+                            break;
+                    }
+                    //상태
+                    if (list[i].IsOpen == true) roomObject[i].transform.GetChild(1).GetComponent<Text>().text = "Waiting";
+                    else if (list[i].IsOpen == false) roomObject[i].transform.GetChild(1).GetComponent<Text>().text = "Playing";
+                    //인원수
+                    roomObject[i].transform.GetChild(2).GetComponent<Text>().text = list[i].PlayerCount + "/2";
+                }
             }
         }
 
@@ -603,129 +704,339 @@ public class ManagerLobbyCanvas : MonoBehaviour {
 
     public void Refresh()
     {
-        list = network.GetRoomList();
-        number = list.Length;
-        //페이지에 따른 갯수이상이면 최대 페이지 만큼 로드
-        if (number > 6 * (page + 1)) numberNow = 6;
-        //그 페이지를 채우지 못하만큼 작아진 경우 모드 끄기
-        else if (number <= 6 * page) for (int i = 0; i < 7; i++) roomObject[i].SetActive(false);
-        //아니면 현재 페이지에 맞게 로드
-        else numberNow = number - (6 * page);
-
-
+        for (int i = 0; i < 7; i++) roomObject[i].transform.GetChild(4).gameObject.SetActive(false);
         //모두 끄기
         for (int i = 0; i < 7; i++) roomObject[i].SetActive(false);
+
+        list = network.GetRoomList();
+        number = list.Length;
+        roomInfo_Number.text = "(" + number + ")";
+        //페이지에 따른 갯수이상이면 최대 페이지 만큼 로드
+        if (number > 7 * (page + 1)) numberNow = 7 * (page + 1);
+        //그 페이지를 채우지 못하만큼 작아진 경우 모드 끄기
+        else if (number <= 6 * page) numberNow = 0;
+        //아니면 현재 페이지에 맞게 로드
+        else numberNow = number;
+
 
         //차례로 키고 정보 기록
         if(numberNow != 0)
         {
-            for (int i = 6 * page; i < numberNow * (page + 1); i++)
+            for (int i = 7 * page; i < numberNow; i++)
             {
                 string[] infor = list[i].Name.Split('_');
 
                 if (infor.Length == 2)
                 {
-                    roomObject[(i % 6) - except].SetActive(true);
+                    roomObject[i % 7].SetActive(true);
 
-                    roomObject[(i % 6) - except].transform.GetChild(0).GetComponent<Text>().text = infor[0];
+                    roomObject[i % 7].transform.GetChild(0).GetComponent<Text>().text = infor[0];
                     switch (Convert.ToInt32(infor[1]))
                     {
                         case 0:
-                            roomObject[(i % 6) - except].transform.GetChild(3).GetComponent<Text>().text = "Oasis";
+                            roomObject[i % 7].transform.GetChild(3).GetComponent<Text>().text = "Desert";
                             break;
                         case 1:
-                            roomObject[(i % 6) - except].transform.GetChild(3).GetComponent<Text>().text = "Desert";
+                            roomObject[i % 7].transform.GetChild(3).GetComponent<Text>().text = "Snowy Field";
+                            break;
+                        case 2:
+                            roomObject[i % 7].transform.GetChild(3).GetComponent<Text>().text = "Plains";
                             break;
                     }
-                    if (list[i].IsOpen == true) roomObject[(i % 6)- except].transform.GetChild(1).GetComponent<Text>().text = "Waiting";
-                    else if (list[i].IsOpen == false) roomObject[(i % 6) - except].transform.GetChild(1).GetComponent<Text>().text = "Playing";
-                    roomObject[(i % 6) - except].transform.GetChild(2).GetComponent<Text>().text = list[i].PlayerCount + "/2";
+                    if (list[i].IsOpen == true) roomObject[i % 7].transform.GetChild(1).GetComponent<Text>().text = "Waiting";
+                    else if (list[i].IsOpen == false) roomObject[i % 7].transform.GetChild(1).GetComponent<Text>().text = "Playing";
+                    roomObject[i % 7].transform.GetChild(2).GetComponent<Text>().text = list[i].PlayerCount + "/2";
                 }
-                else except++;
+                else if (infor.Length == 3) //Random
+                {
+                    roomObject[i % 7].SetActive(true);
+                    roomObject[i % 7].transform.GetChild(4).gameObject.SetActive(true);
+                    password[i % 7] = UnityEngine.Random.Range(10000, 99999);
+
+                    //제목
+                    roomObject[i % 7].transform.GetChild(0).GetComponent<Text>().text = infor[0] + infor[1];
+                    //맵
+                    switch (Convert.ToInt32(infor[2]))
+                    {
+                        case 0:
+                            roomObject[i % 7].transform.GetChild(3).GetComponent<Text>().text = "Desert";
+                            break;
+                        case 1:
+                            roomObject[i % 7].transform.GetChild(3).GetComponent<Text>().text = "Snowy Field";
+                            break;
+                        case 2:
+                            roomObject[i % 7].transform.GetChild(3).GetComponent<Text>().text = "Plains";
+                            break;
+                    }
+                    //상태
+                    if (list[i].IsOpen == true) roomObject[i % 7].transform.GetChild(1).GetComponent<Text>().text = "Waiting";
+                    else if (list[i].IsOpen == false) roomObject[i % 7].transform.GetChild(1).GetComponent<Text>().text = "Playing";
+                    //인원수
+                    roomObject[i % 7].transform.GetChild(2).GetComponent<Text>().text = list[i].PlayerCount + "/2";
+                }
+                else //Custom Private
+                {
+                    roomObject[i % 7].SetActive(true);
+                    roomObject[i % 7].transform.GetChild(4).gameObject.SetActive(true);
+
+                    password[i % 7] = Convert.ToInt32(infor[2]);
+                    //제목
+                    roomObject[i % 7].transform.GetChild(0).GetComponent<Text>().text = infor[0];
+
+                    //맵
+                    switch (Convert.ToInt32(infor[3]))
+                    {
+                        case 0:
+                            roomObject[i % 7].transform.GetChild(3).GetComponent<Text>().text = "Desert";
+                            break;
+                        case 1:
+                            roomObject[i % 7].transform.GetChild(3).GetComponent<Text>().text = "Snowy Field";
+                            break;
+                        case 2:
+                            roomObject[i % 7].transform.GetChild(3).GetComponent<Text>().text = "Plains";
+                            break;
+                    }
+                    //상태
+                    if (list[i].IsOpen == true) roomObject[i % 7].transform.GetChild(1).GetComponent<Text>().text = "Waiting";
+                    else if (list[i].IsOpen == false) roomObject[i % 7].transform.GetChild(1).GetComponent<Text>().text = "Playing";
+                    //인원수
+                    roomObject[i % 7].transform.GetChild(2).GetComponent<Text>().text = list[i].PlayerCount + "/2";
+                }
             }
         }
     }
     public void NextPage()
     {
-
         page++;
-        if (number > 6 * (page + 1)) numberNow = 6;
-        else if (number <= 6 * page) for (int i = 0; i < 7; i++) roomObject[i].SetActive(false);
-        else numberNow = number - (6 * (page));
 
+        for (int i = 0; i < 7; i++) roomObject[i].transform.GetChild(4).gameObject.SetActive(false);
         //모두 끄기
         for (int i = 0; i < 7; i++) roomObject[i].SetActive(false);
+
+        list = network.GetRoomList();
+        number = list.Length;
+        roomInfo_Number.text = "(" + number + ")";
+        //페이지에 따른 갯수이상이면 최대 페이지 만큼 로드
+        if (number > 7 * (page + 1)) numberNow = 7 * (page + 1);
+        //그 페이지를 채우지 못하만큼 작아진 경우 모드 끄기
+        else if (number <= 6 * page) numberNow = 0;
+        //아니면 현재 페이지에 맞게 로드
+        else numberNow = number;
+
 
         //차례로 키고 정보 기록
         if (numberNow != 0)
         {
-            for (int i = 6 * page; i < numberNow * (page + 1); i++)
+            for (int i = 7 * page; i < numberNow; i++)
             {
                 string[] infor = list[i].Name.Split('_');
 
                 if (infor.Length == 2)
                 {
-                    roomObject[(i % 6) - except].SetActive(true);
+                    roomObject[i % 7].SetActive(true);
 
-                    roomObject[(i % 6) - except].transform.GetChild(0).GetComponent<Text>().text = infor[0];
+                    roomObject[i % 7].transform.GetChild(0).GetComponent<Text>().text = infor[0];
                     switch (Convert.ToInt32(infor[1]))
                     {
                         case 0:
-                            roomObject[(i % 6) - except].transform.GetChild(3).GetComponent<Text>().text = "Oasis";
+                            roomObject[i % 7].transform.GetChild(3).GetComponent<Text>().text = "Desert";
                             break;
                         case 1:
-                            roomObject[(i % 6) - except].transform.GetChild(3).GetComponent<Text>().text = "Desert";
+                            roomObject[i % 7].transform.GetChild(3).GetComponent<Text>().text = "Snowy Field";
+                            break;
+                        case 2:
+                            roomObject[i % 7].transform.GetChild(3).GetComponent<Text>().text = "Plains";
                             break;
                     }
-                    if (list[i].IsOpen == true) roomObject[(i % 6) - except].transform.GetChild(1).GetComponent<Text>().text = "Waiting";
-                    else if (list[i].IsOpen == false) roomObject[(i % 6) - except].transform.GetChild(1).GetComponent<Text>().text = "Playing";
-                    roomObject[(i % 6) - except].transform.GetChild(2).GetComponent<Text>().text = list[i].PlayerCount + "/2";
+                    if (list[i].IsOpen == true) roomObject[i % 7].transform.GetChild(1).GetComponent<Text>().text = "Waiting";
+                    else if (list[i].IsOpen == false) roomObject[i % 7].transform.GetChild(1).GetComponent<Text>().text = "Playing";
+                    roomObject[i % 7].transform.GetChild(2).GetComponent<Text>().text = list[i].PlayerCount + "/2";
                 }
-                else except++;
+                else if (infor.Length == 3) //Random
+                {
+                    roomObject[i % 7].SetActive(true);
+                    roomObject[i % 7].transform.GetChild(4).gameObject.SetActive(true);
+                    password[i % 7] = UnityEngine.Random.Range(10000, 99999);
+
+                    //제목
+                    roomObject[i % 7].transform.GetChild(0).GetComponent<Text>().text = infor[0] + infor[1];
+                    //맵
+                    switch (Convert.ToInt32(infor[2]))
+                    {
+                        case 0:
+                            roomObject[i % 7].transform.GetChild(3).GetComponent<Text>().text = "Desert";
+                            break;
+                        case 1:
+                            roomObject[i % 7].transform.GetChild(3).GetComponent<Text>().text = "Snowy Field";
+                            break;
+                        case 2:
+                            roomObject[i % 7].transform.GetChild(3).GetComponent<Text>().text = "Plains";
+                            break;
+                    }
+                    //상태
+                    if (list[i].IsOpen == true) roomObject[i % 7].transform.GetChild(1).GetComponent<Text>().text = "Waiting";
+                    else if (list[i].IsOpen == false) roomObject[i % 7].transform.GetChild(1).GetComponent<Text>().text = "Playing";
+                    //인원수
+                    roomObject[i % 7].transform.GetChild(2).GetComponent<Text>().text = list[i].PlayerCount + "/2";
+                }
+                else //Custom Private
+                {
+                    roomObject[i % 7].SetActive(true);
+                    roomObject[i % 7].transform.GetChild(4).gameObject.SetActive(true);
+
+                    password[i % 7] = Convert.ToInt32(infor[2]);
+                    //제목
+                    roomObject[i % 7].transform.GetChild(0).GetComponent<Text>().text = infor[0];
+
+                    //맵
+                    switch (Convert.ToInt32(infor[3]))
+                    {
+                        case 0:
+                            roomObject[i % 7].transform.GetChild(3).GetComponent<Text>().text = "Desert";
+                            break;
+                        case 1:
+                            roomObject[i % 7].transform.GetChild(3).GetComponent<Text>().text = "Snowy Field";
+                            break;
+                        case 2:
+                            roomObject[i % 7].transform.GetChild(3).GetComponent<Text>().text = "Plains";
+                            break;
+                    }
+                    //상태
+                    if (list[i].IsOpen == true) roomObject[i % 7].transform.GetChild(1).GetComponent<Text>().text = "Waiting";
+                    else if (list[i].IsOpen == false) roomObject[i % 7].transform.GetChild(1).GetComponent<Text>().text = "Playing";
+                    //인원수
+                    roomObject[i % 7].transform.GetChild(2).GetComponent<Text>().text = list[i].PlayerCount + "/2";
+                }
             }
         }
     }
     public void PrevPage()
     {
         page--;
-        if (number > 6 * (page + 1)) numberNow = 6;
-        else if (number <= 6 * page) for (int i = 0; i < 7; i++) roomObject[i].SetActive(false);
-        else numberNow = number - (6 * (page));
 
+        for (int i = 0; i < 7; i++) roomObject[i].transform.GetChild(4).gameObject.SetActive(false);
         //모두 끄기
         for (int i = 0; i < 7; i++) roomObject[i].SetActive(false);
+
+        list = network.GetRoomList();
+        number = list.Length;
+        roomInfo_Number.text = "(" + number + ")";
+        //페이지에 따른 갯수이상이면 최대 페이지 만큼 로드
+        if (number > 7 * (page + 1)) numberNow = 7 * (page + 1);
+        //그 페이지를 채우지 못하만큼 작아진 경우 모드 끄기
+        else if (number <= 6 * page) numberNow = 0;
+        //아니면 현재 페이지에 맞게 로드
+        else numberNow = number;
+
 
         //차례로 키고 정보 기록
         if (numberNow != 0)
         {
-            for (int i = 6 * page; i < numberNow * (page + 1); i++)
+            for (int i = 7 * page; i < numberNow; i++)
             {
                 string[] infor = list[i].Name.Split('_');
 
                 if (infor.Length == 2)
                 {
-                    roomObject[(i % 6) - except].SetActive(true);
+                    roomObject[i % 7].SetActive(true);
 
-                    roomObject[(i % 6) - except].transform.GetChild(0).GetComponent<Text>().text = infor[0];
+                    roomObject[i % 7].transform.GetChild(0).GetComponent<Text>().text = infor[0];
                     switch (Convert.ToInt32(infor[1]))
                     {
                         case 0:
-                            roomObject[(i % 6) - except].transform.GetChild(3).GetComponent<Text>().text = "Oasis";
+                            roomObject[i % 7].transform.GetChild(3).GetComponent<Text>().text = "Desert";
                             break;
                         case 1:
-                            roomObject[(i % 6) - except].transform.GetChild(3).GetComponent<Text>().text = "Desert";
+                            roomObject[i % 7].transform.GetChild(3).GetComponent<Text>().text = "Snowy Field";
+                            break;
+                        case 2:
+                            roomObject[i % 7].transform.GetChild(3).GetComponent<Text>().text = "Plains";
                             break;
                     }
-                    if (list[i].IsOpen == true) roomObject[(i % 6) - except].transform.GetChild(1).GetComponent<Text>().text = "Waiting";
-                    else if (list[i].IsOpen == false) roomObject[(i % 6) - except].transform.GetChild(1).GetComponent<Text>().text = "Playing";
-                    roomObject[(i % 6) - except].transform.GetChild(2).GetComponent<Text>().text = list[i].PlayerCount + "/2";
+                    if (list[i].IsOpen == true) roomObject[i % 7].transform.GetChild(1).GetComponent<Text>().text = "Waiting";
+                    else if (list[i].IsOpen == false) roomObject[i % 7].transform.GetChild(1).GetComponent<Text>().text = "Playing";
+                    roomObject[i % 7].transform.GetChild(2).GetComponent<Text>().text = list[i].PlayerCount + "/2";
                 }
-                else except++;
+                else if (infor.Length == 3) //Random
+                {
+                    roomObject[i % 7].SetActive(true);
+                    roomObject[i % 7].transform.GetChild(4).gameObject.SetActive(true);
+                    password[i % 7] = UnityEngine.Random.Range(10000, 99999);
+
+                    //제목
+                    roomObject[i % 7].transform.GetChild(0).GetComponent<Text>().text = infor[0] + infor[1];
+                    //맵
+                    switch (Convert.ToInt32(infor[2]))
+                    {
+                        case 0:
+                            roomObject[i % 7].transform.GetChild(3).GetComponent<Text>().text = "Desert";
+                            break;
+                        case 1:
+                            roomObject[i % 7].transform.GetChild(3).GetComponent<Text>().text = "Snowy Field";
+                            break;
+                        case 2:
+                            roomObject[i % 7].transform.GetChild(3).GetComponent<Text>().text = "Plains";
+                            break;
+                    }
+                    //상태
+                    if (list[i].IsOpen == true) roomObject[i % 7].transform.GetChild(1).GetComponent<Text>().text = "Waiting";
+                    else if (list[i].IsOpen == false) roomObject[i % 7].transform.GetChild(1).GetComponent<Text>().text = "Playing";
+                    //인원수
+                    roomObject[i % 7].transform.GetChild(2).GetComponent<Text>().text = list[i].PlayerCount + "/2";
+                }
+                else //Custom Private
+                {
+                    roomObject[i % 7].SetActive(true);
+                    roomObject[i % 7].transform.GetChild(4).gameObject.SetActive(true);
+
+                    password[i % 7] = Convert.ToInt32(infor[2]);
+                    //제목
+                    roomObject[i % 7].transform.GetChild(0).GetComponent<Text>().text = infor[0];
+
+                    //맵
+                    switch (Convert.ToInt32(infor[3]))
+                    {
+                        case 0:
+                            roomObject[i % 7].transform.GetChild(3).GetComponent<Text>().text = "Desert";
+                            break;
+                        case 1:
+                            roomObject[i % 7].transform.GetChild(3).GetComponent<Text>().text = "Snowy Field";
+                            break;
+                        case 2:
+                            roomObject[i % 7].transform.GetChild(3).GetComponent<Text>().text = "Plains";
+                            break;
+                    }
+                    //상태
+                    if (list[i].IsOpen == true) roomObject[i % 7].transform.GetChild(1).GetComponent<Text>().text = "Waiting";
+                    else if (list[i].IsOpen == false) roomObject[i % 7].transform.GetChild(1).GetComponent<Text>().text = "Playing";
+                    //인원수
+                    roomObject[i % 7].transform.GetChild(2).GetComponent<Text>().text = list[i].PlayerCount + "/2";
+                }
             }
         }
     }
 
 
+    private int EnterNum;
+    public void EnterPrivate()
+    {
+        if (password[EnterNum] == Convert.ToInt32(enterPassword.text))
+        {
+            panel_enterPrivate.SetActive(false);
+            Blocking.SetActive(false);
+            network.JoinCustom(roomObject[0].transform.GetChild(0).GetComponent<Text>().text);
+        }
+        else
+        {
+            StartCoroutine(WrongPasswordAnim());
+        }
+    }
+    IEnumerator WrongPasswordAnim()
+    {
+        yield return new WaitForSeconds(1);
+        panel_enterPrivate.SetActive(false);
+        Blocking.SetActive(false);
+    }
     // 3개 - infor[2] //맵 2개 - infor[1] 맵
     public void Room0Over()
     {
@@ -739,7 +1050,13 @@ public class ManagerLobbyCanvas : MonoBehaviour {
     }
     public void Room0Join()
     {
-        network.JoinCustom(roomObject[0].transform.GetChild(0).GetComponent<Text>().text);
+        if(roomObject[0].transform.GetChild(4).gameObject.activeSelf)
+        {
+            EnterNum = 0;
+            Blocking.SetActive(true);
+            panel_enterPrivate.SetActive(true);
+        }
+        else network.JoinCustom(roomObject[0].transform.GetChild(0).GetComponent<Text>().text);
     }
 
     public void Room1Over()
@@ -753,7 +1070,13 @@ public class ManagerLobbyCanvas : MonoBehaviour {
     }
     public void Room1Join()
     {
-        network.JoinCustom(roomObject[1].transform.GetChild(0).GetComponent<Text>().text);
+        if (roomObject[0].transform.GetChild(4).gameObject.activeSelf)
+        {
+            EnterNum = 1;
+            Blocking.SetActive(true);
+            panel_enterPrivate.SetActive(true);
+        }
+        else network.JoinCustom(roomObject[1].transform.GetChild(0).GetComponent<Text>().text);
     }
 
     public void Room2Over()
@@ -767,7 +1090,13 @@ public class ManagerLobbyCanvas : MonoBehaviour {
     }
     public void Room2Join()
     {
-        network.JoinCustom(roomObject[2].transform.GetChild(0).GetComponent<Text>().text);
+        if (roomObject[0].transform.GetChild(4).gameObject.activeSelf)
+        {
+            EnterNum = 2;
+            Blocking.SetActive(true);
+            panel_enterPrivate.SetActive(true);
+        }
+        else network.JoinCustom(roomObject[2].transform.GetChild(0).GetComponent<Text>().text);
     }
 
     public void Room3Over()
@@ -781,7 +1110,13 @@ public class ManagerLobbyCanvas : MonoBehaviour {
     }
     public void Room3Join()
     {
-        network.JoinCustom(roomObject[3].transform.GetChild(0).GetComponent<Text>().text);
+        if (roomObject[0].transform.GetChild(4).gameObject.activeSelf)
+        {
+            EnterNum = 3;
+            Blocking.SetActive(true);
+            panel_enterPrivate.SetActive(true);
+        }
+        else network.JoinCustom(roomObject[3].transform.GetChild(0).GetComponent<Text>().text);
     }
 
     public void Room4Over()
@@ -795,7 +1130,13 @@ public class ManagerLobbyCanvas : MonoBehaviour {
     }
     public void Room4Join()
     {
-        network.JoinCustom(roomObject[4].transform.GetChild(0).GetComponent<Text>().text);
+        if (roomObject[0].transform.GetChild(4).gameObject.activeSelf)
+        {
+            EnterNum = 4;
+            Blocking.SetActive(true);
+            panel_enterPrivate.SetActive(true);
+        }
+        else network.JoinCustom(roomObject[4].transform.GetChild(0).GetComponent<Text>().text);
     }
 
     public void Room5Over()
@@ -809,7 +1150,13 @@ public class ManagerLobbyCanvas : MonoBehaviour {
     }
     public void Room5Join()
     {
-        network.JoinCustom(roomObject[5].transform.GetChild(0).GetComponent<Text>().text);
+        if (roomObject[0].transform.GetChild(4).gameObject.activeSelf)
+        {
+            EnterNum = 5;
+            Blocking.SetActive(true);
+            panel_enterPrivate.SetActive(true);
+        }
+        else network.JoinCustom(roomObject[5].transform.GetChild(0).GetComponent<Text>().text);
     }
 
     public void Room6Over()
@@ -823,7 +1170,13 @@ public class ManagerLobbyCanvas : MonoBehaviour {
     }
     public void Room6Join()
     {
-        network.JoinCustom(roomObject[6].transform.GetChild(0).GetComponent<Text>().text);
+        if (roomObject[0].transform.GetChild(4).gameObject.activeSelf)
+        {
+            EnterNum = 6;
+            Blocking.SetActive(true);
+            panel_enterPrivate.SetActive(true);
+        }
+        else network.JoinCustom(roomObject[6].transform.GetChild(0).GetComponent<Text>().text);
     }
 
 
