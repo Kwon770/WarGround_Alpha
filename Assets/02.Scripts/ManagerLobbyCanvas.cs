@@ -98,7 +98,7 @@ public class ManagerLobbyCanvas : MonoBehaviour {
     private int page;
     private int numberNow;
 
-    private int  [] password;
+    string [] password = new string[10];
 
     [SerializeField] private GameObject BackGround_AfterCustom;
 
@@ -626,10 +626,6 @@ public class ManagerLobbyCanvas : MonoBehaviour {
             for (int i = 0; i < numberNow; i++)
             {
                 string[] infor = list[i].Name.Split('_');
-                Debug.Log("0" + infor[0]);
-                Debug.Log("1" +infor[1]);
-                Debug.Log("2" + infor[2]);
-                Debug.Log("3" + infor[3]);
 
                 if (infor.Length == 2) //Custom
                 {
@@ -638,7 +634,7 @@ public class ManagerLobbyCanvas : MonoBehaviour {
                     //제목
                     roomObject[i].transform.GetChild(0).GetComponent<Text>().text = infor[0];
                     //맵
-                    switch(Convert.ToInt32(infor[1]))
+                    switch(int.Parse(infor[1]))
                     {
                         case 0:
                             roomObject[i].transform.GetChild(3).GetComponent<Text>().text = "Desert";
@@ -660,12 +656,12 @@ public class ManagerLobbyCanvas : MonoBehaviour {
                 {
                     roomObject[i].SetActive(true);
                     roomObject[i].transform.GetChild(4).gameObject.SetActive(true);
-                    password[i] = UnityEngine.Random.Range(10000, 99999);
+                    password[i] = UnityEngine.Random.Range(10000, 99999) + "";
 
                     //제목
                     roomObject[i].transform.GetChild(0).GetComponent<Text>().text = infor[0] + infor[1];
                     //맵
-                    switch (Convert.ToInt32(infor[2]))
+                    switch (int.Parse(infor[2]))
                     {
                         case 0:
                             roomObject[i].transform.GetChild(3).GetComponent<Text>().text = "Desert";
@@ -688,12 +684,12 @@ public class ManagerLobbyCanvas : MonoBehaviour {
                     roomObject[i].SetActive(true);
                     roomObject[i].transform.GetChild(4).gameObject.SetActive(true);
 
-                    password[i] = Convert.ToInt32(infor[2]);
+                    password[i] = infor[2];
                     //제목
                     roomObject[i].transform.GetChild(0).GetComponent<Text>().text = infor[0];
 
                     //맵
-                    switch (Convert.ToInt32(infor[3]))
+                    switch (int.Parse(infor[3]))
                     {
                         case 0:
                             roomObject[i].transform.GetChild(3).GetComponent<Text>().text = "Desert";
@@ -744,17 +740,13 @@ public class ManagerLobbyCanvas : MonoBehaviour {
             {
                 string[] infor = list[i].Name.Split('_');
                 //
-                Debug.Log("0" + infor[0]);
-                Debug.Log("1" + infor[1]);
-                Debug.Log("2" + infor[2]);
-                Debug.Log("3" + infor[3]);
 
                 if (infor.Length == 2)
                 {
                     roomObject[i % 7].SetActive(true);
 
                     roomObject[i % 7].transform.GetChild(0).GetComponent<Text>().text = infor[0];
-                    switch (Convert.ToInt32(infor[1]))
+                    switch (int.Parse(infor[1]))
                     {
                         case 0:
                             roomObject[i % 7].transform.GetChild(3).GetComponent<Text>().text = "Desert";
@@ -774,12 +766,12 @@ public class ManagerLobbyCanvas : MonoBehaviour {
                 {
                     roomObject[i % 7].SetActive(true);
                     roomObject[i % 7].transform.GetChild(4).gameObject.SetActive(true);
-                    password[i % 7] = UnityEngine.Random.Range(10000, 99999);
+                    password[i % 7] = UnityEngine.Random.Range(10000, 99999) + "";
 
                     //제목
                     roomObject[i % 7].transform.GetChild(0).GetComponent<Text>().text = infor[0] + infor[1];
                     //맵
-                    switch (Convert.ToInt32(infor[2]))
+                    switch (int.Parse(infor[2]))
                     {
                         case 0:
                             roomObject[i % 7].transform.GetChild(3).GetComponent<Text>().text = "Desert";
@@ -802,12 +794,12 @@ public class ManagerLobbyCanvas : MonoBehaviour {
                     roomObject[i % 7].SetActive(true);
                     roomObject[i % 7].transform.GetChild(4).gameObject.SetActive(true);
 
-                    password[i % 7] = Convert.ToInt32(infor[2]);
+                    password[i % 7] = infor[2];
                     //제목
                     roomObject[i % 7].transform.GetChild(0).GetComponent<Text>().text = infor[0];
 
                     //맵
-                    switch (Convert.ToInt32(infor[3]))
+                    switch (int.Parse(infor[3]))
                     {
                         case 0:
                             roomObject[i % 7].transform.GetChild(3).GetComponent<Text>().text = "Desert";
@@ -859,7 +851,7 @@ public class ManagerLobbyCanvas : MonoBehaviour {
                     roomObject[i % 7].SetActive(true);
 
                     roomObject[i % 7].transform.GetChild(0).GetComponent<Text>().text = infor[0];
-                    switch (Convert.ToInt32(infor[1]))
+                    switch (int.Parse(infor[1]))
                     {
                         case 0:
                             roomObject[i % 7].transform.GetChild(3).GetComponent<Text>().text = "Desert";
@@ -879,12 +871,12 @@ public class ManagerLobbyCanvas : MonoBehaviour {
                 {
                     roomObject[i % 7].SetActive(true);
                     roomObject[i % 7].transform.GetChild(4).gameObject.SetActive(true);
-                    password[i % 7] = UnityEngine.Random.Range(10000, 99999);
+                    password[i % 7] = UnityEngine.Random.Range(10000, 99999) + "";
 
                     //제목
                     roomObject[i % 7].transform.GetChild(0).GetComponent<Text>().text = infor[0] + infor[1];
                     //맵
-                    switch (Convert.ToInt32(infor[2]))
+                    switch (int.Parse(infor[2]))
                     {
                         case 0:
                             roomObject[i % 7].transform.GetChild(3).GetComponent<Text>().text = "Desert";
@@ -907,12 +899,12 @@ public class ManagerLobbyCanvas : MonoBehaviour {
                     roomObject[i % 7].SetActive(true);
                     roomObject[i % 7].transform.GetChild(4).gameObject.SetActive(true);
 
-                    password[i % 7] = Convert.ToInt32(infor[2]);
+                    password[i % 7] = infor[2];
                     //제목
                     roomObject[i % 7].transform.GetChild(0).GetComponent<Text>().text = infor[0];
 
                     //맵
-                    switch (Convert.ToInt32(infor[3]))
+                    switch (int.Parse(infor[3]))
                     {
                         case 0:
                             roomObject[i % 7].transform.GetChild(3).GetComponent<Text>().text = "Desert";
@@ -964,7 +956,7 @@ public class ManagerLobbyCanvas : MonoBehaviour {
                     roomObject[i % 7].SetActive(true);
 
                     roomObject[i % 7].transform.GetChild(0).GetComponent<Text>().text = infor[0];
-                    switch (Convert.ToInt32(infor[1]))
+                    switch (int.Parse(infor[1]))
                     {
                         case 0:
                             roomObject[i % 7].transform.GetChild(3).GetComponent<Text>().text = "Desert";
@@ -984,12 +976,12 @@ public class ManagerLobbyCanvas : MonoBehaviour {
                 {
                     roomObject[i % 7].SetActive(true);
                     roomObject[i % 7].transform.GetChild(4).gameObject.SetActive(true);
-                    password[i % 7] = UnityEngine.Random.Range(10000, 99999);
+                    password[i % 7] = UnityEngine.Random.Range(10000, 99999) + "";
 
                     //제목
                     roomObject[i % 7].transform.GetChild(0).GetComponent<Text>().text = infor[0] + infor[1];
                     //맵
-                    switch (Convert.ToInt32(infor[2]))
+                    switch (int.Parse(infor[2]))
                     {
                         case 0:
                             roomObject[i % 7].transform.GetChild(3).GetComponent<Text>().text = "Desert";
@@ -1012,12 +1004,12 @@ public class ManagerLobbyCanvas : MonoBehaviour {
                     roomObject[i % 7].SetActive(true);
                     roomObject[i % 7].transform.GetChild(4).gameObject.SetActive(true);
 
-                    password[i % 7] = Convert.ToInt32(infor[2]);
+                    password[i % 7] = infor[2];
                     //제목
                     roomObject[i % 7].transform.GetChild(0).GetComponent<Text>().text = infor[0];
 
                     //맵
-                    switch (Convert.ToInt32(infor[3]))
+                    switch (int.Parse(infor[3]))
                     {
                         case 0:
                             roomObject[i % 7].transform.GetChild(3).GetComponent<Text>().text = "Desert";
@@ -1043,7 +1035,7 @@ public class ManagerLobbyCanvas : MonoBehaviour {
     private int EnterNum;
     public void EnterPrivate()
     {
-        if (password[EnterNum] == Convert.ToInt32(enterPassword.text))
+        if (password[EnterNum] == enterPassword.text)
         {
             panel_enterPrivate.SetActive(false);
             Blocking.SetActive(false);

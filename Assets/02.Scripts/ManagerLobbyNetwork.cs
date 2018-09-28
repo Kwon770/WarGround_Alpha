@@ -97,8 +97,4 @@ public class ManagerLobbyNetwork : MonoBehaviour
     {
         UserName = name;
     }
-    void Update()
-    {
-        Debug.Log(PhotonNetwork.connected + " " + PhotonNetwork.insideLobby + " " + PhotonNetwork.inRoom + " " + PhotonNetwork.room.PlayerCount + " " + PhotonNetwork.room.Name);
-    }
 }
