@@ -242,7 +242,7 @@ public class ManagerLobbyCanvas : MonoBehaviour {
 
     public void OverExit3()
     {
-        if ((Fx_now3 == Fx_Home && inLobby != 1) || (Fx_now3 == Fx_Play && inLobby != 2) || (Fx_now3 == Fx_Char && inLobby != 3))
+        if ((Fx_now3 == Fx_Home && inLobby != 1) || (Fx_now3 == Fx_Play && (inLobby != 2 || inLobby != 4)) || (Fx_now3 == Fx_Char && inLobby != 3))
         {
             Fx_now3.SetActive(false);
             overText3.color = new Color(0.4823529f, 0.4823529f, 0.4823529f);
@@ -626,6 +626,10 @@ public class ManagerLobbyCanvas : MonoBehaviour {
             for (int i = 0; i < numberNow; i++)
             {
                 string[] infor = list[i].Name.Split('_');
+                Debug.Log("0" + infor[0]);
+                Debug.Log("1" +infor[1]);
+                Debug.Log("2" + infor[2]);
+                Debug.Log("3" + infor[3]);
 
                 if (infor.Length == 2) //Custom
                 {

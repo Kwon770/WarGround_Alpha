@@ -3950,7 +3950,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &380299390
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9218,7 +9218,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Oasis
+  m_Text: Desert
 --- !u!222 &1017507723
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10130,9 +10130,11 @@ MonoBehaviour:
   m_Value: 0
   m_Options:
     m_Options:
-    - m_Text: Oasis
-      m_Image: {fileID: 0}
     - m_Text: Desert
+      m_Image: {fileID: 0}
+    - m_Text: Snowy Field
+      m_Image: {fileID: 0}
+    - m_Text: Plains
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
@@ -12552,7 +12554,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 1
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -17172,7 +17174,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1950738101
 RectTransform:
   m_ObjectHideFlags: 0
