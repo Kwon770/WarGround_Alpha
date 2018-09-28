@@ -736,9 +736,15 @@ public class ManagerLobbyCanvas : MonoBehaviour {
         //아니면 현재 페이지에 맞게 로드
         else numberNow = number;
 
+        //
+        Debug.Log("0" + infor[0]);
+        Debug.Log("1" + infor[1]);
+        Debug.Log("2" + infor[2]);
+        Debug.Log("3" + infor[3]);
+
 
         //차례로 키고 정보 기록
-        if(numberNow != 0)
+        if (numberNow != 0)
         {
             for (int i = 7 * page; i < numberNow; i++)
             {
