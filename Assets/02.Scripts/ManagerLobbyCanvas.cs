@@ -105,6 +105,8 @@ public class ManagerLobbyCanvas : MonoBehaviour {
     [SerializeField] private GameObject panel_CreateRoom;
     [SerializeField] private GameObject panel_enterPrivate;
 
+    [SerializeField] private GameObject Button_Created;
+
     [SerializeField] private InputField createdName;
     [SerializeField] private InputField createdPassword;
     [SerializeField] private InputField enterPassword;
@@ -264,6 +266,8 @@ public class ManagerLobbyCanvas : MonoBehaviour {
         overText3.color = Color.white;
     }
 
+
+    //public void Set
 
 
 
@@ -551,6 +555,11 @@ public class ManagerLobbyCanvas : MonoBehaviour {
         createdName.text = "";
     }
 
+    public void CreatedOver()
+    {
+        overButton4 = Button_Created;
+        overButton4.GetComponent<Outline>().enabled = true;
+    }
     public void Created()
     {
         inLobby = 4;
