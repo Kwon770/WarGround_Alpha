@@ -6,7 +6,7 @@ public class ManagerLobbyNetwork : MonoBehaviour
 {
 
     [SerializeField]string GameVersion;
-    
+    [SerializeField] string UserName;
     private ManagerLobbyCanvas Canvas;
     private ManagerLobbySys Sys;
 
@@ -93,8 +93,12 @@ public class ManagerLobbyNetwork : MonoBehaviour
             //매치매이킹 성공
         }
     }
+    public void SetName(string name)
+    {
+        UserName = name;
+    }
     void Update()
     {
-        Debug.Log(PhotonNetwork.connected + " " + PhotonNetwork.insideLobby + " " + PhotonNetwork.inRoom);
+        Debug.Log(PhotonNetwork.connected + " " + PhotonNetwork.insideLobby + " " + PhotonNetwork.inRoom + " " + PhotonNetwork.room.PlayerCount + " " + PhotonNetwork.room.Name);
     }
 }
