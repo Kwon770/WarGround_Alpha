@@ -178,6 +178,11 @@ public class ManagerLobbyCanvas : MonoBehaviour {
                 createdPassword.gameObject.SetActive(false);
                 createdPasswordText.SetActive(false);
             }
+            else if(inLobby == 11)
+            {
+                inLobby = 4;
+                panel_enterPrivate.SetActive(false);
+            }
             else
             {
                 //current Scene Fx On
@@ -1064,6 +1069,7 @@ public class ManagerLobbyCanvas : MonoBehaviour {
             EnterNum = 0;
             Blocking.SetActive(true);
             panel_enterPrivate.SetActive(true);
+            inLobby = 11;
         }
         else network.JoinCustom(roomObject[0].transform.GetChild(0).GetComponent<Text>().text);
     }
@@ -1084,6 +1090,7 @@ public class ManagerLobbyCanvas : MonoBehaviour {
             EnterNum = 1;
             Blocking.SetActive(true);
             panel_enterPrivate.SetActive(true);
+            inLobby = 11;
         }
         else network.JoinCustom(roomObject[1].transform.GetChild(0).GetComponent<Text>().text);
     }
@@ -1104,6 +1111,7 @@ public class ManagerLobbyCanvas : MonoBehaviour {
             EnterNum = 2;
             Blocking.SetActive(true);
             panel_enterPrivate.SetActive(true);
+            inLobby = 11;
         }
         else network.JoinCustom(roomObject[2].transform.GetChild(0).GetComponent<Text>().text);
     }
@@ -1124,6 +1132,7 @@ public class ManagerLobbyCanvas : MonoBehaviour {
             EnterNum = 3;
             Blocking.SetActive(true);
             panel_enterPrivate.SetActive(true);
+            inLobby = 11;
         }
         else network.JoinCustom(roomObject[3].transform.GetChild(0).GetComponent<Text>().text);
     }
@@ -1144,6 +1153,7 @@ public class ManagerLobbyCanvas : MonoBehaviour {
             EnterNum = 4;
             Blocking.SetActive(true);
             panel_enterPrivate.SetActive(true);
+            inLobby = 11;
         }
         else network.JoinCustom(roomObject[4].transform.GetChild(0).GetComponent<Text>().text);
     }
@@ -1164,6 +1174,7 @@ public class ManagerLobbyCanvas : MonoBehaviour {
             EnterNum = 5;
             Blocking.SetActive(true);
             panel_enterPrivate.SetActive(true);
+            inLobby = 11;
         }
         else network.JoinCustom(roomObject[5].transform.GetChild(0).GetComponent<Text>().text);
     }
@@ -1184,6 +1195,7 @@ public class ManagerLobbyCanvas : MonoBehaviour {
             EnterNum = 6;
             Blocking.SetActive(true);
             panel_enterPrivate.SetActive(true);
+            inLobby = 11;
         }
         else network.JoinCustom(roomObject[6].transform.GetChild(0).GetComponent<Text>().text);
     }
