@@ -10,14 +10,6 @@ public class ManagerLobbyCanvas : MonoBehaviour {
     //System
     [SerializeField] private GameObject Blocking;
 
-    [SerializeField] private GameObject scene_Play;
-    [SerializeField] private GameObject scene_Char;
-    [SerializeField] private GameObject scene_Lobby;
-
-    [SerializeField] private Text Text_Home;
-    [SerializeField] private Text Text_Play;
-    [SerializeField] private Text Text_Char;
-
     [SerializeField] private Text Text_GameType;
 
     [SerializeField] private GameObject Fx_Home;
@@ -27,11 +19,12 @@ public class ManagerLobbyCanvas : MonoBehaviour {
     [SerializeField] private GameObject Fx_BackGround_Match;
     [SerializeField] private GameObject Fx_Time2;
 
+    [SerializeField] private GameObject UI;
+
+
     private GameObject Fx_now3;
-    private Text overText3;
 
     private GameObject Fx_last3;
-    private Text LastText3;
 
     private int inLobby = 1;
 
@@ -41,16 +34,16 @@ public class ManagerLobbyCanvas : MonoBehaviour {
     [SerializeField] private GameObject Button_Quick;
     [SerializeField] private GameObject Button_Credit;
 
-    [SerializeField] private GameObject Panel_Option1;
-    [SerializeField] private GameObject Panel_Option2;
-    [SerializeField] private GameObject Button_Option1;
-    [SerializeField] private GameObject Button_Option2;
+    [SerializeField] private GameObject Panel_Option;
+    [SerializeField] private GameObject Button_Option;
     [SerializeField] private GameObject Button_Quit;
 
-    private bool Option1 = false;
-    private bool Option2 = false;
+    private bool Option = false;
 
+    //outline button
     private GameObject overButton4;
+    //icon
+    private GameObject overButton5;
 
     private int QuickType;
 
@@ -140,25 +133,17 @@ public class ManagerLobbyCanvas : MonoBehaviour {
         {
             if (inLobby == 1)
             {
-                if(Option1)
+                if(Option)
                 {
-                    Panel_Option1.SetActive(false);
-                    Panel_Option2.SetActive(false);
+                    Panel_Option.SetActive(false);
                     Blocking.SetActive(false);
-                    Option1 = false;
+                    Option = false;
                 }
-                else if (Option2)
+                else
                 {
-                    Panel_Option1.SetActive(true);
-                    Panel_Option2.SetActive(false);
-                    Option2 = false;
-                    Option1 = true;
-                }
-                else if (!Option1 && !Option2)
-                {
-                    Panel_Option1.SetActive(true);
+                    Panel_Option.SetActive(true);
                     Blocking.SetActive(true);
-                    Option1 = true;
+                    Option = true;
                 }
             }
             else if (inLobby == 4)
@@ -187,13 +172,10 @@ public class ManagerLobbyCanvas : MonoBehaviour {
             {
                 //current Scene Fx On
                 Fx_Home.SetActive(true);
-                Text_Home.GetComponent<Text>().color = Color.white;
 
                 //Last Scene Fx Off
                 Fx_last3.SetActive(false);
                 Fx_last3 = Fx_Home;
-                LastText3.color = new Color(0.4823529f, 0.4823529f, 0.4823529f);
-                LastText3 = Text_Home;
 
                 StartCoroutine(Cor1());
             }
@@ -204,7 +186,6 @@ public class ManagerLobbyCanvas : MonoBehaviour {
         network = GetComponent<ManagerLobbyNetwork>();
 
         Fx_last3 = Fx_Home;
-        LastText3 = Text_Home;
         if (PlayerPrefs.HasKey("PlayedType"))
         {
             QuickType = PlayerPrefs.GetInt("PlayedType");
@@ -223,29 +204,26 @@ public class ManagerLobbyCanvas : MonoBehaviour {
     {
         //current Scene Fx On
         Fx_now3.SetActive(true);
-        overText3.GetComponent<Text>().color = Color.white;
 
         //Last Scene Fx Off
         Fx_last3.SetActive(false);
         Fx_last3 = Fx_Home;
-        LastText3.color = new Color(0.4823529f, 0.4823529f, 0.4823529f);
-        LastText3 = Text_Home;
 
         StartCoroutine(Cor1());
     }
     IEnumerator Cor1()
     {
         Camera.main.transform.DOMoveX(0, 0.7f).SetEase(Ease.OutQuart);
+        UI.transform.DOMoveX(960, 0.7f).SetEase(Ease.OutQuart);
         inLobby = 1;
         yield return new WaitForSeconds(0.3f);
     }
 
     public void OverExit3()
     {
-        if ((Fx_now3 == Fx_Home && inLobby != 1) || (Fx_now3 == Fx_Play && (inLobby != 2 || inLobby != 4)) || (Fx_now3 == Fx_Char && inLobby != 3))
+        if ((Fx_now3 == Fx_Home && inLobby != 1) || (Fx_now3 == Fx_Play && (inLobby != 2 && inLobby != 4)) || (Fx_now3 == Fx_Char && inLobby != 3))
         {
             Fx_now3.SetActive(false);
-            overText3.color = new Color(0.4823529f, 0.4823529f, 0.4823529f);
         }
     }
 
@@ -253,22 +231,16 @@ public class ManagerLobbyCanvas : MonoBehaviour {
     {
         Fx_now3 = Fx_Home;
         Fx_now3.SetActive(true);
-        overText3 = Text_Home;
-        overText3.color = Color.white;
     }
     public void PlayOver()
     {
         Fx_now3 = Fx_Play;
         Fx_now3.SetActive(true);
-        overText3 = Text_Play;
-        overText3.color = Color.white;
     }
     public void CharOver()
     {
         Fx_now3 = Fx_Char;
         Fx_now3.SetActive(true);
-        overText3 = Text_Char;
-        overText3.color = Color.white;
     }
 
 
@@ -335,36 +307,27 @@ public class ManagerLobbyCanvas : MonoBehaviour {
     { 
     }
 
+    public void OverExit5()
+    {
+        overButton5.GetComponent<Image>().color = Color.white;
+    }
+
     public void Option1Over()
     {
-        overButton4 = Button_Option1;
-        overButton4.GetComponent<Outline>().enabled = true;
+        overButton5 = Button_Option;
+        overButton5.GetComponent<Image>().color = Color.black;
     }
     public void Option1Pressed()
     {
-        Panel_Option1.SetActive(true);
+        Panel_Option.SetActive(true);
         Blocking.SetActive(true);
-        Option1 = true;
-    }
-
-    public void Option2Over()
-    {
-        overButton4 = Button_Option2;
-        overButton4.GetComponent<Outline>().enabled = true;
-    }
-    public void Option2Pressed()
-    {
-        Panel_Option1.SetActive(false);
-        Panel_Option2.SetActive(true);
-        Option1 = false;
-        Option2 = true;
+        Option = true;
     }
 
     public void QuitOver()
     {
-
-        overButton4 = Button_Quit;
-        overButton4.GetComponent<Outline>().enabled = true;
+        overButton5 = Button_Quit;
+        overButton5.GetComponent<Image>().color = Color.black;
     }
     public void QuitPressed()
     {
@@ -379,23 +342,20 @@ public class ManagerLobbyCanvas : MonoBehaviour {
     {
         if(inLobby != 4) inLobby = 2;
         Camera.main.transform.DOMoveX(213, 0.7f).SetEase(Ease.OutQuart);
+        UI.transform.DOMoveX(-1117, 0.7f).SetEase(Ease.OutQuart);
 
         //current Scene Fx On
         Fx_Play.SetActive(true);
-        Text_Play.GetComponent<Text>().color = Color.white;
 
         //Last Scene Fx Off
         Fx_last3.SetActive(false);
         Fx_last3 = Fx_Play;
-        LastText3.GetComponent<Text>().color = new Color(0.4823529f, 0.4823529f, 0.4823529f);
-        LastText3 = Text_Play;
     }
 
     public void OverExit()
     {
         overInfor.SetActive(false);
         infor_Null.SetActive(true);
-        overButton.color = new Color(0.4823529f, 0.4823529f, 0.4823529f);
         Fx_now.SetActive(false);
     }
 
@@ -404,7 +364,6 @@ public class ManagerLobbyCanvas : MonoBehaviour {
         infor_Null.SetActive(false);
         infor_Random.SetActive(true);
         overInfor = infor_Random;
-        Button_Random.color = Color.white;
         overButton = Button_Random;
         Fx_Random.SetActive(true);
         Fx_now = Fx_Random;
@@ -509,7 +468,6 @@ public class ManagerLobbyCanvas : MonoBehaviour {
         infor_Null.SetActive(false);
         infor_Custom.SetActive(true);
         overInfor = infor_Custom;
-        Button_Custom.color = Color.white;
         overButton = Button_Custom;
         Fx_Custom.SetActive(true);
         Fx_now = Fx_Custom;
@@ -534,7 +492,6 @@ public class ManagerLobbyCanvas : MonoBehaviour {
         infor_Null.SetActive(false);
         infor_Tutorial.SetActive(true);
         overInfor = infor_Tutorial;
-        Button_Tutorial.color = Color.white;
         overButton = Button_Tutorial;
         Fx_Tutorial.SetActive(true);
         Fx_now = Fx_Tutorial;
@@ -1212,16 +1169,14 @@ public class ManagerLobbyCanvas : MonoBehaviour {
     {
         inLobby = 3;
         Camera.main.transform.DOMoveX(420, 0.7f).SetEase(Ease.OutQuart);
+        UI.transform.DOMoveX(-3120, 0.7f).SetEase(Ease.OutQuart);
 
         //current Scene Fx On
         Fx_now3.SetActive(true);
-        overText3.GetComponent<Text>().color = Color.white;
 
         //Last Scene Fx Off
         Fx_last3.SetActive(false);
         Fx_last3 = Fx_Char;
-        LastText3.GetComponent<Text>().color = new Color(0.4823529f, 0.4823529f, 0.4823529f);
-        LastText3 = Text_Char;
     }
 
     public void OverExit2()
