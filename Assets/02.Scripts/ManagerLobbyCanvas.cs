@@ -1039,7 +1039,7 @@ public class ManagerLobbyCanvas : MonoBehaviour {
         {
             panel_enterPrivate.SetActive(false);
             Blocking.SetActive(false);
-            network.JoinCustom(roomObject[0].transform.GetChild(0).GetComponent<Text>().text);
+            network.JoinCustom(list[EnterNum].Name);
         }
         else
         {
@@ -1072,7 +1072,7 @@ public class ManagerLobbyCanvas : MonoBehaviour {
             panel_enterPrivate.SetActive(true);
             inLobby = 11;
         }
-        else network.JoinCustom(roomObject[0].transform.GetChild(0).GetComponent<Text>().text);
+        else network.JoinCustom(list[0].Name);
     }
 
     public void Room1Over()
@@ -1086,14 +1086,14 @@ public class ManagerLobbyCanvas : MonoBehaviour {
     }
     public void Room1Join()
     {
-        if (roomObject[0].transform.GetChild(4).gameObject.activeSelf)
+        if (roomObject[1].transform.GetChild(4).gameObject.activeSelf)
         {
             EnterNum = 1;
             Blocking.SetActive(true);
             panel_enterPrivate.SetActive(true);
             inLobby = 11;
         }
-        else network.JoinCustom(roomObject[1].transform.GetChild(0).GetComponent<Text>().text);
+        else network.JoinCustom(list[1].Name);
     }
 
     public void Room2Over()
@@ -1107,14 +1107,14 @@ public class ManagerLobbyCanvas : MonoBehaviour {
     }
     public void Room2Join()
     {
-        if (roomObject[0].transform.GetChild(4).gameObject.activeSelf)
+        if (roomObject[2].transform.GetChild(4).gameObject.activeSelf)
         {
             EnterNum = 2;
             Blocking.SetActive(true);
             panel_enterPrivate.SetActive(true);
             inLobby = 11;
         }
-        else network.JoinCustom(roomObject[2].transform.GetChild(0).GetComponent<Text>().text);
+        else network.JoinCustom(list[2].Name);
     }
 
     public void Room3Over()
@@ -1128,14 +1128,14 @@ public class ManagerLobbyCanvas : MonoBehaviour {
     }
     public void Room3Join()
     {
-        if (roomObject[0].transform.GetChild(4).gameObject.activeSelf)
+        if (roomObject[3].transform.GetChild(4).gameObject.activeSelf)
         {
             EnterNum = 3;
             Blocking.SetActive(true);
             panel_enterPrivate.SetActive(true);
             inLobby = 11;
         }
-        else network.JoinCustom(roomObject[3].transform.GetChild(0).GetComponent<Text>().text);
+        else network.JoinCustom(list[3].Name);
     }
 
     public void Room4Over()
@@ -1149,14 +1149,14 @@ public class ManagerLobbyCanvas : MonoBehaviour {
     }
     public void Room4Join()
     {
-        if (roomObject[0].transform.GetChild(4).gameObject.activeSelf)
+        if (roomObject[4].transform.GetChild(4).gameObject.activeSelf)
         {
             EnterNum = 4;
             Blocking.SetActive(true);
             panel_enterPrivate.SetActive(true);
             inLobby = 11;
         }
-        else network.JoinCustom(roomObject[4].transform.GetChild(0).GetComponent<Text>().text);
+        else network.JoinCustom(list[4].Name);
     }
 
     public void Room5Over()
@@ -1170,14 +1170,14 @@ public class ManagerLobbyCanvas : MonoBehaviour {
     }
     public void Room5Join()
     {
-        if (roomObject[0].transform.GetChild(4).gameObject.activeSelf)
+        if (roomObject[5].transform.GetChild(4).gameObject.activeSelf)
         {
             EnterNum = 5;
             Blocking.SetActive(true);
             panel_enterPrivate.SetActive(true);
             inLobby = 11;
         }
-        else network.JoinCustom(roomObject[5].transform.GetChild(0).GetComponent<Text>().text);
+        else network.JoinCustom(list[5].Name);
     }
 
     public void Room6Over()
@@ -1191,14 +1191,14 @@ public class ManagerLobbyCanvas : MonoBehaviour {
     }
     public void Room6Join()
     {
-        if (roomObject[0].transform.GetChild(4).gameObject.activeSelf)
+        if (roomObject[6].transform.GetChild(4).gameObject.activeSelf)
         {
             EnterNum = 6;
             Blocking.SetActive(true);
             panel_enterPrivate.SetActive(true);
             inLobby = 11;
         }
-        else network.JoinCustom(roomObject[6].transform.GetChild(0).GetComponent<Text>().text);
+        else network.JoinCustom(list[6].Name);
     }
 
 
