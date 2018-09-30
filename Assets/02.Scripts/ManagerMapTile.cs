@@ -6,6 +6,8 @@ public class ManagerMapTile : MonoBehaviour {
 
     [SerializeField] GameObject Tiles;
     [SerializeField] TileInfo[] Tile;
+
+    TileInfo Temp;
     private void Start()
     {
         Temp = null;
@@ -18,7 +20,6 @@ public class ManagerMapTile : MonoBehaviour {
 
     void CheckMoveTile(int x,int y,int cost)
     {
-        TileInfo Temp;
 
         Queue<TileInfo> Tile = new Queue<TileInfo>();
         Queue<int> Cost = new Queue<int>();

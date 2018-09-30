@@ -10,13 +10,10 @@ public class ManagerLobbyCanvas : MonoBehaviour {
     //System
     [SerializeField] private GameObject Blocking;
 
-    [SerializeField] private Text Text_GameType;
-
     [SerializeField] private GameObject Fx_Home;
     [SerializeField] private GameObject Fx_Play;
     [SerializeField] private GameObject Fx_Char;
 
-    [SerializeField] private GameObject Fx_BackGround_Match;
     [SerializeField] private GameObject Fx_Time2;
 
     [SerializeField] private GameObject UI;
@@ -32,13 +29,18 @@ public class ManagerLobbyCanvas : MonoBehaviour {
     [SerializeField] private Text PlayedType;
 
     [SerializeField] private GameObject Button_Quick;
-    [SerializeField] private GameObject Button_Credit;
+    [SerializeField] private GameObject Button_Quick_Play;
 
     [SerializeField] private GameObject Panel_Option;
     [SerializeField] private GameObject Button_Option;
     [SerializeField] private GameObject Button_Quit;
 
+    [SerializeField] private Text Resolution;
+
     private bool Option = false;
+    private int resoultion_w = 1920;
+    private int resoultion_h = 1080;
+    private bool mode = true;
 
     //outline button
     private GameObject overButton4;
@@ -76,6 +78,8 @@ public class ManagerLobbyCanvas : MonoBehaviour {
     [SerializeField] private GameObject Fx_Time1;
     [SerializeField] private Text TimeS;
     [SerializeField] private Text TimeM;
+    [SerializeField] private Text TimeS1;
+    [SerializeField] private Text TimeM1;
 
     [SerializeField] private GameObject BackGround_AfterRandom;
 
@@ -99,6 +103,10 @@ public class ManagerLobbyCanvas : MonoBehaviour {
     [SerializeField] private GameObject panel_enterPrivate;
 
     [SerializeField] private GameObject Button_Created;
+    [SerializeField] private GameObject Button_CreatedRoom;
+    [SerializeField] private GameObject Button_NextPage;
+    [SerializeField] private GameObject Button_PrevPage;
+    [SerializeField] private GameObject Button_Refresh;
 
     [SerializeField] private InputField createdName;
     [SerializeField] private InputField createdPassword;
@@ -136,13 +144,11 @@ public class ManagerLobbyCanvas : MonoBehaviour {
                 if(Option)
                 {
                     Panel_Option.SetActive(false);
-                    Blocking.SetActive(false);
                     Option = false;
                 }
                 else
                 {
                     Panel_Option.SetActive(true);
-                    Blocking.SetActive(true);
                     Option = true;
                 }
             }
@@ -193,6 +199,11 @@ public class ManagerLobbyCanvas : MonoBehaviour {
             else if (QuickType == 2) PlayedType.text = "Custom Match";
             else if (QuickType == 3) PlayedType.text = "Tutorial";
         }
+
+        if (PlayerPrefs.GetInt("mode") == 0) mode = false;
+        else mode = true;
+        Screen.SetResolution(PlayerPrefs.GetInt("width"), PlayerPrefs.GetInt("height"), mode);
+        Resolution.text = PlayerPrefs.GetInt("width") + "*" + PlayerPrefs.GetInt("height");
     }
 
 
@@ -272,7 +283,8 @@ public class ManagerLobbyCanvas : MonoBehaviour {
 
             ToMatch();
 
-            Fx_BackGround_Match.SetActive(true);
+            Button_Quick.SetActive(false);
+            Button_Quick_Play.SetActive(true);
 
             BackGround_AfterRandom.SetActive(true);
             BackGround_Before.SetActive(false);
@@ -298,14 +310,6 @@ public class ManagerLobbyCanvas : MonoBehaviour {
         }
     }
 
-    public void CreditOver()
-    {
-        overButton4 = Button_Credit;
-        overButton4.GetComponent<Outline>().enabled = true;
-    }
-    public void CreditPressed()
-    { 
-    }
 
     public void OverExit5()
     {
@@ -320,9 +324,63 @@ public class ManagerLobbyCanvas : MonoBehaviour {
     public void Option1Pressed()
     {
         Panel_Option.SetActive(true);
-        Blocking.SetActive(true);
         Option = true;
     }
+    public void OptionQuit()
+    {
+        Panel_Option.SetActive(false);
+        Option = false;
+    }
+
+    public void Option_HD()
+    {
+        if (PlayerPrefs.GetInt("mode") == 0) mode = false;
+        else mode = true;
+        Screen.SetResolution(1280, 720, mode);
+        resoultion_w = 1280;
+        resoultion_h = 720;
+        PlayerPrefs.SetInt("width", 1280);
+        PlayerPrefs.SetInt("height", 720);
+
+        Resolution.text = PlayerPrefs.GetInt("width") + "*" + PlayerPrefs.GetInt("height");
+    }
+    public void Option_FHD()
+    {
+        if (PlayerPrefs.GetInt("mode") == 0) mode = false;
+        else mode = true;
+        Screen.SetResolution(1920, 1080, mode);
+        resoultion_w = 1920;
+        resoultion_h = 1080;
+        PlayerPrefs.SetInt("width", 1920);
+        PlayerPrefs.SetInt("height", 1080);
+
+        Resolution.text = PlayerPrefs.GetInt("width") + "*" + PlayerPrefs.GetInt("height");
+    }
+    public void Option_QHD()
+    {
+        if (PlayerPrefs.GetInt("mode") == 0) mode = false;
+        else mode = true;
+        Screen.SetResolution(2560, 1440, mode);
+        resoultion_w = 2560;
+        resoultion_h = 1440;
+        PlayerPrefs.SetInt("width", 2560);
+        PlayerPrefs.SetInt("height", 1440);
+
+        Resolution.text = PlayerPrefs.GetInt("width") + "*" + PlayerPrefs.GetInt("height");
+    }
+    public void Option_Window()
+    {
+        Screen.SetResolution(PlayerPrefs.GetInt("width"), PlayerPrefs.GetInt("height"), false);
+        mode = false;
+        PlayerPrefs.SetInt("mode", 0);
+    }
+    public void Option_Full()
+    {
+        Screen.SetResolution(PlayerPrefs.GetInt("width"), PlayerPrefs.GetInt("height"), true);
+        mode = true;
+        PlayerPrefs.SetInt("mode", 1);
+    }
+    
 
     public void QuitOver()
     {
@@ -373,10 +431,11 @@ public class ManagerLobbyCanvas : MonoBehaviour {
         OverExit();
 
         PlayerPrefs.SetInt("PlayedType", 1);
-        Text_GameType.text = "Random Match";
         PlayedType.text = "Random";
         QuickType = 1;
-        Fx_BackGround_Match.SetActive(true);
+
+        Button_Quick.SetActive(false);
+        Button_Quick_Play.SetActive(true);
 
         BackGround_AfterRandom.SetActive(true);
         BackGround_Before.SetActive(false);
@@ -412,10 +471,12 @@ public class ManagerLobbyCanvas : MonoBehaviour {
                 if(matchingTimeM < 10)
                 {
                     TimeM.text = "0" + matchingTimeM;
+                    TimeM1.text = "0" + matchingTimeM;
                 }
                 else
                 {
                     TimeM.text = "" + matchingTimeM;
+                    TimeM1.text = "" + matchingTimeM;
                 }
             }
             else
@@ -425,10 +486,12 @@ public class ManagerLobbyCanvas : MonoBehaviour {
                 if (matchingTimeS < 10)
                 {
                     TimeS.text = "0" + matchingTimeS;
+                    TimeS1.text = "0" + matchingTimeS;
                 }
                 else
                 {
                     TimeS.text = "" + matchingTimeS;
+                    TimeS1.text = "" + matchingTimeS;
                 }
             }
 
@@ -438,8 +501,10 @@ public class ManagerLobbyCanvas : MonoBehaviour {
                 canceled = false;
                 matchingTimeS = 0;
                 TimeS.text = "00";
+                TimeS1.text = "00";
                 matchingTimeM = 0;
                 TimeM.text = "00";
+                TimeM1.text = "00";
 
                 break;
             }
@@ -457,7 +522,9 @@ public class ManagerLobbyCanvas : MonoBehaviour {
         network.LeaveRoom();
 
         canceled = true;
-        Fx_BackGround_Match.SetActive(false);
+
+        Button_Quick.SetActive(true);
+        Button_Quick_Play.SetActive(false);
 
         BackGround_AfterRandom.SetActive(false);
         BackGround_Before.SetActive(true);
@@ -508,6 +575,11 @@ public class ManagerLobbyCanvas : MonoBehaviour {
 
     //AfterCustom
     
+    public void CreatedRoomOver()
+    {
+        overButton5 = Button_CreatedRoom;
+        overButton5.GetComponent<Image>().color = Color.black;
+    }
     public void CreateRoom()
     {
         inLobby = 10;
@@ -574,8 +646,12 @@ public class ManagerLobbyCanvas : MonoBehaviour {
 
 
         //모두 끄기
-        for (int i = 0; i < 7; i++) roomObject[i].transform.GetChild(4).gameObject.SetActive(false);
-        for (int i = 0; i < 7; i++) roomObject[i].SetActive(false);
+        for (int i = 0; i < 7; i++)
+        {
+            roomObject[i].transform.GetChild(4).gameObject.SetActive(false);
+            roomObject[i].transform.GetChild(5).gameObject.SetActive(false);
+            roomObject[i].SetActive(false);
+        }
 
         if (numberNow != 0)
         {
@@ -587,6 +663,7 @@ public class ManagerLobbyCanvas : MonoBehaviour {
                 if (infor.Length == 2) //Custom
                 {
                     roomObject[i].SetActive(true);
+                    roomObject[i].transform.GetChild(5).gameObject.SetActive(true);
 
                     //제목
                     roomObject[i].transform.GetChild(0).GetComponent<Text>().text = infor[0];
@@ -673,11 +750,21 @@ public class ManagerLobbyCanvas : MonoBehaviour {
         //list[i].IsOpen; // true면 waiting flase playing
     }
 
+
+    public void RefreshOver()
+    {
+        overButton5 = Button_Refresh;
+        overButton5.GetComponent<Image>().color = Color.black;
+    }
     public void Refresh()
     {
-        for (int i = 0; i < 7; i++) roomObject[i].transform.GetChild(4).gameObject.SetActive(false);
         //모두 끄기
-        for (int i = 0; i < 7; i++) roomObject[i].SetActive(false);
+        for (int i = 0; i < 7; i++)
+        {
+            roomObject[i].transform.GetChild(4).gameObject.SetActive(false);
+            roomObject[i].transform.GetChild(5).gameObject.SetActive(false);
+            roomObject[i].SetActive(false);
+        }
 
         list = network.GetRoomList();
         number = list.Length;
@@ -701,6 +788,7 @@ public class ManagerLobbyCanvas : MonoBehaviour {
                 if (infor.Length == 2)
                 {
                     roomObject[i % 7].SetActive(true);
+                    roomObject[i % 7].transform.GetChild(5).gameObject.SetActive(true);
 
                     roomObject[i % 7].transform.GetChild(0).GetComponent<Text>().text = infor[0];
                     switch (int.Parse(infor[1]))
@@ -776,14 +864,24 @@ public class ManagerLobbyCanvas : MonoBehaviour {
                 }
             }
         }
+    }
+
+    public void NextPageOver()
+    {
+        overButton5 = Button_NextPage;
+        overButton5.GetComponent<Image>().color = Color.black;
     }
     public void NextPage()
     {
         page++;
 
-        for (int i = 0; i < 7; i++) roomObject[i].transform.GetChild(4).gameObject.SetActive(false);
         //모두 끄기
-        for (int i = 0; i < 7; i++) roomObject[i].SetActive(false);
+        for (int i = 0; i < 7; i++)
+        {
+            roomObject[i].transform.GetChild(4).gameObject.SetActive(false);
+            roomObject[i].transform.GetChild(5).gameObject.SetActive(false);
+            roomObject[i].SetActive(false);
+        }
 
         list = network.GetRoomList();
         number = list.Length;
@@ -806,6 +904,7 @@ public class ManagerLobbyCanvas : MonoBehaviour {
                 if (infor.Length == 2)
                 {
                     roomObject[i % 7].SetActive(true);
+                    roomObject[i % 7].transform.GetChild(5).gameObject.SetActive(true);
 
                     roomObject[i % 7].transform.GetChild(0).GetComponent<Text>().text = infor[0];
                     switch (int.Parse(infor[1]))
@@ -882,13 +981,23 @@ public class ManagerLobbyCanvas : MonoBehaviour {
             }
         }
     }
+
+    public void PrevPageOver()
+    {
+        overButton5 = Button_PrevPage;
+        overButton5.GetComponent<Image>().color = Color.black;
+    }
     public void PrevPage()
     {
         page--;
 
-        for (int i = 0; i < 7; i++) roomObject[i].transform.GetChild(4).gameObject.SetActive(false);
         //모두 끄기
-        for (int i = 0; i < 7; i++) roomObject[i].SetActive(false);
+        for (int i = 0; i < 7; i++)
+        {
+            roomObject[i].transform.GetChild(4).gameObject.SetActive(false);
+            roomObject[i].transform.GetChild(5).gameObject.SetActive(false);
+            roomObject[i].SetActive(false);
+        }
 
         list = network.GetRoomList();
         number = list.Length;
@@ -911,6 +1020,7 @@ public class ManagerLobbyCanvas : MonoBehaviour {
                 if (infor.Length == 2)
                 {
                     roomObject[i % 7].SetActive(true);
+                    roomObject[i % 7].transform.GetChild(5).gameObject.SetActive(true);
 
                     roomObject[i % 7].transform.GetChild(0).GetComponent<Text>().text = infor[0];
                     switch (int.Parse(infor[1]))
