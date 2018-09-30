@@ -10,6 +10,9 @@ public class ManagerCamera : MonoBehaviour {
     [SerializeField] float ZoomSpeed;
     [SerializeField] float ScreenMouseSpeed;
     [SerializeField] float ScreenDragSpeed;
+    [SerializeField] float CamerBackSpeed;
+    [SerializeField] Transform Center;
+    [SerializeField] float distance;
     Vector3 prevPos = Vector3.zero;
 
     public Camera MainCam;
@@ -26,6 +29,9 @@ public class ManagerCamera : MonoBehaviour {
         {
             CameraStopSwitch();
         }
+        if (CameraStop) return;
+
+        
 
         if (Input.GetAxis("Mouse ScrollWheel") < 0) // 줌 아웃
         {
@@ -38,16 +44,21 @@ public class ManagerCamera : MonoBehaviour {
             CameraZoomLock();
         }
 
-        if (Input.GetMouseButtonDown(1))  prevPos = Input.mousePosition;
-        if (Input.GetMouseButton(1))    // 오른쪽 마우스 드래그로 이동
+        CameraBack();
+
+        if (Input.GetMouseButtonDown(1)) prevPos = Input.mousePosition;
+        
+        // 오른쪽 마우스 드래그로 이동
+        if (Input.GetMouseButton(1))
         {
             Vector3 dir = (Input.mousePosition - prevPos);
-            
+
             transform.position -= transform.right * dir.x * ScreenDragSpeed * Time.deltaTime * CameraSize;
             transform.position -= transform.forward * dir.y * ScreenDragSpeed * Time.deltaTime * CameraSize;
             prevPos = Input.mousePosition;
         }
 
+        // 마우스 포지션으로 이동
         else if (Input.mousePosition.x <= 0)
         {
             transform.position -= transform.right * Time.deltaTime * ScreenMouseSpeed * CameraSize;// new Vector3(transform.position.x - ScreenMoveSpeed * Time.deltaTime, transform.position.y, transform.position.z);
@@ -64,27 +75,19 @@ public class ManagerCamera : MonoBehaviour {
         {
             transform.position += transform.forward * Time.deltaTime * ScreenMouseSpeed * CameraSize;// new Vector3(transform.position.x, transform.position.y, transform.position.z + ScreenMoveSpeed * Time.deltaTime);
         }
-
-
-
     }
-
-
-
-
-
 
     void CameraStopSwitch()
     {
-        if (CameraStop == false)
+        CameraStop = !CameraStop;
+    }
+    void CameraBack()
+    {
+        if (Vector3.Magnitude(Center.position - transform.position) > distance)
         {
-            CameraStop = true;
+//            transform.position = Vector3.Lerp(Center.position, Center.position, 0.1f);
+            transform.Translate((Center.position - transform.position) * Time.deltaTime * CamerBackSpeed * Vector3.Magnitude(Center.position - transform.position));
         }
-        else
-        {
-            CameraStop = false;
-        }
-
     }
     void CameraZoomLock()
     {

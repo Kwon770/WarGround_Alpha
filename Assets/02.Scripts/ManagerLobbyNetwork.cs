@@ -1,17 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class ManagerLobbyNetwork : MonoBehaviour
+public class ManagerLobbyNetwork : Photon.MonoBehaviour
 {
-
-    [SerializeField]string GameVersion;
+    public static ManagerLobbyNetwork instance;
+    [SerializeField] Dropdown Elite;
+    [SerializeField] string GameVersion;
     [SerializeField] string UserName;
     private ManagerLobbyCanvas Canvas;
     private ManagerLobbySys Sys;
 
+    public MatchManager MatchManager;
+
     void Start()
     {
+        PhotonNetwork.playerName = UserName;//이름 지정 다음에 지워야함
+        instance = this;//싱글톤
+        ConnectNetwork();//인터넷연결
+        MatchManager = null;
         Canvas = gameObject.GetComponent<ManagerLobbyCanvas>();
         Sys = gameObject.GetComponent<ManagerLobbySys>();
         ConnectNetwork();
@@ -29,11 +37,19 @@ public class ManagerLobbyNetwork : MonoBehaviour
         {
             PhotonNetwork.JoinLobby();
         }
-        if(PhotonNetwork.insideLobby) return true;
+        if (PhotonNetwork.insideLobby)
+        {
+            PhotonNetwork.playerName = UserName;
+            return true;
+        }
         return false;
     }
 
-
+    public void SetUserID(string name)
+    {
+        UserName = name;
+        PhotonNetwork.playerName = UserName;
+    }
 
     //랜덤룸 입장
     public void JoinRandom()
@@ -50,7 +66,7 @@ public class ManagerLobbyNetwork : MonoBehaviour
         }
         if (!check)
         {
-            int Map = (byte)Random.Range(1, 5); ;
+            int Map = 1;//임시로 기본맵인 1
             CreateRoom("WarGround_" + Random.Range(1, 1000), Map);
         }
     }
@@ -85,14 +101,6 @@ public class ManagerLobbyNetwork : MonoBehaviour
         return PhotonNetwork.GetRoomList();
     }
 
-    //유저가 들어왔을때
-    private void OnPlayerConnected(NetworkPlayer player)
-    {
-        if (PhotonNetwork.room.MaxPlayers == PhotonNetwork.room.PlayerCount)
-        {
-            //매치매이킹 성공
-        }
-    }
     public void SetName(string name)
     {
         UserName = name;
@@ -102,7 +110,25 @@ public class ManagerLobbyNetwork : MonoBehaviour
     {
         if(PhotonNetwork.inRoom)
         {
-            Debug.Log(PhotonNetwork.room.Name + " " + PhotonNetwork.room.PlayerCount);
+            Debug.Log(PhotonNetwork.room.Name + " " + PhotonNetwork.room.PlayerCount + " " + PhotonNetwork.playerName);
+            if (PhotonNetwork.room.MaxPlayers == PhotonNetwork.room.PlayerCount)
+            {
+                if (PhotonNetwork.isMasterClient && MatchManager == null)
+                {
+                    MatchManager = PhotonNetwork.Instantiate("MatchManager", Vector3.zero, Quaternion.identity, 0).GetComponent<MatchManager>();
+                }
+                //매치매이킹 성공
+            }
+            else if (MatchManager != null)
+            {
+                PhotonView.Destroy(MatchManager.gameObject);
+            }
         }
+    }
+
+    public void ChoseElite()
+    {
+        Debug.Log("dasdf");
+        if (MatchManager != null) MatchManager.photonView.RPC("SetElite", PhotonTargets.MasterClient, PhotonNetwork.playerName, Elite.value);
     }
 }

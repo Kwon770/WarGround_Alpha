@@ -42,4 +42,7 @@ MonoBehaviour:
   - RequestForPickupItems
   - RequestForPickupTimes
   - TaggedPlayer
+  - GetUserID
+  - SetElite
+  - SceneLoadStart
   DisableAutoOpenWizard: 1

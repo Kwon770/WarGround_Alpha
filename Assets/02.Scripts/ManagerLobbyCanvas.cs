@@ -202,8 +202,8 @@ public class ManagerLobbyCanvas : MonoBehaviour {
 
         if (PlayerPrefs.GetInt("mode") == 0) mode = false;
         else mode = true;
-        Screen.SetResolution(PlayerPrefs.GetInt("width"), PlayerPrefs.GetInt("height"), mode);
-        Resolution.text = PlayerPrefs.GetInt("width") + "*" + PlayerPrefs.GetInt("height");
+//        Screen.SetResolution(PlayerPrefs.GetInt("width"), PlayerPrefs.GetInt("height"), mode);
+//        Resolution.text = PlayerPrefs.GetInt("width") + "*" + PlayerPrefs.GetInt("height");
     }
 
 
