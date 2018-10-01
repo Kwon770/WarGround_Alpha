@@ -772,6 +772,7 @@ GameObject:
   - component: {fileID: 4445013507478876}
   - component: {fileID: 95567000720067096}
   - component: {fileID: 114747904525505770}
+  - component: {fileID: 114059503166297234}
   m_Layer: 0
   m_Name: Winvelt
   m_TagString: Untagged
@@ -2933,6 +2934,17 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114059503166297234
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1459603538645120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44dc29487264b45488d85297d748679e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114747904525505770
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2951,7 +2963,7 @@ MonoBehaviour:
   synchronization: 3
   onSerializeTransformOption: 3
   onSerializeRigidBodyOption: 2
-  ownershipTransfer: 0
+  ownershipTransfer: 1
   ObservedComponents:
   - {fileID: 4445013507478876}
   ObservedComponentsFoldoutOpen: 1

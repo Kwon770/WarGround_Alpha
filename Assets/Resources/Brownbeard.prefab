@@ -179,6 +179,7 @@ GameObject:
   - component: {fileID: 4208611598451068}
   - component: {fileID: 95680462010269580}
   - component: {fileID: 114757456527828966}
+  - component: {fileID: 114208399871562842}
   m_Layer: 0
   m_Name: Brownbeard
   m_TagString: Untagged
@@ -2933,6 +2934,17 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114208399871562842
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1092548028271312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44dc29487264b45488d85297d748679e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114757456527828966
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2951,7 +2963,7 @@ MonoBehaviour:
   synchronization: 3
   onSerializeTransformOption: 3
   onSerializeRigidBodyOption: 2
-  ownershipTransfer: 0
+  ownershipTransfer: 1
   ObservedComponents:
   - {fileID: 4208611598451068}
   ObservedComponentsFoldoutOpen: 1

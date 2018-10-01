@@ -22,17 +22,13 @@ public class ManagerCamera : MonoBehaviour {
 	void Update () {
 
         MainCam.orthographicSize = CameraSize;
-
-       
-
+        
         if (Input.GetKeyDown(KeyCode.Space)) // 카메라 잠금, 잠금해제 (스페이스바)
         {
             CameraStopSwitch();
         }
         if (CameraStop) return;
-
         
-
         if (Input.GetAxis("Mouse ScrollWheel") < 0) // 줌 아웃
         {
             CameraSize = CameraSize + ZoomSpeed * Time.deltaTime;
@@ -47,7 +43,7 @@ public class ManagerCamera : MonoBehaviour {
         CameraBack();
 
         if (Input.GetMouseButtonDown(1)) prevPos = Input.mousePosition;
-        
+
         // 오른쪽 마우스 드래그로 이동
         if (Input.GetMouseButton(1))
         {
@@ -57,7 +53,7 @@ public class ManagerCamera : MonoBehaviour {
             transform.position -= transform.forward * dir.y * ScreenDragSpeed * Time.deltaTime * CameraSize;
             prevPos = Input.mousePosition;
         }
-
+        else if (CameraBack()) ;
         // 마우스 포지션으로 이동
         else if (Input.mousePosition.x <= 0)
         {
@@ -81,13 +77,15 @@ public class ManagerCamera : MonoBehaviour {
     {
         CameraStop = !CameraStop;
     }
-    void CameraBack()
+    bool CameraBack()
     {
         if (Vector3.Magnitude(Center.position - transform.position) > distance)
         {
 //            transform.position = Vector3.Lerp(Center.position, Center.position, 0.1f);
             transform.Translate((Center.position - transform.position) * Time.deltaTime * CamerBackSpeed * Vector3.Magnitude(Center.position - transform.position));
+            return true;
         }
+        return false;
     }
     void CameraZoomLock()
     {
@@ -101,6 +99,3 @@ public class ManagerCamera : MonoBehaviour {
         }
     }
 }
-
-
-  

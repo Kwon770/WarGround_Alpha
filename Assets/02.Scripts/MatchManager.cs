@@ -11,7 +11,7 @@ public class MatchManager : Photon.MonoBehaviour {
     bool sceneCheck;
     string MapType;
     
-    void Start ()
+    void Awake ()
     {
         ManagerLobbyNetwork.instance.MatchManager = this;
         DontDestroyOnLoad(this.gameObject);
@@ -110,8 +110,7 @@ public class MatchManager : Photon.MonoBehaviour {
         for (int i = 0; i < PhotonNetwork.room.PlayerCount; i++)
         {
             Debug.Log(Elite[EliteSelect[i]]);
-            PhotonNetwork.Instantiate(Elite[EliteSelect[i]], MapSet.instance.SpawnPoint[i].transform.position, MapSet.instance.SpawnRotation[i], 0);
+            PhotonNetwork.Instantiate(Elite[EliteSelect[i]], MapSet.instance.SpawnPoint[i].transform.position, MapSet.instance.SpawnRotation[i], 0).GetComponent<UnitInfo>();
         }
-        //엘리트 유닛 생성
     }
 }
