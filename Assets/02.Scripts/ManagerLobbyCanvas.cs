@@ -133,8 +133,10 @@ public class ManagerLobbyCanvas : MonoBehaviour {
     [SerializeField] private GameObject Button_Common;
 
 
-
     private ManagerLobbyNetwork network;
+
+
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -200,10 +202,13 @@ public class ManagerLobbyCanvas : MonoBehaviour {
             else if (QuickType == 3) PlayedType.text = "Tutorial";
         }
 
-        if (PlayerPrefs.GetInt("mode") == 0) mode = false;
-        else mode = true;
-//        Screen.SetResolution(PlayerPrefs.GetInt("width"), PlayerPrefs.GetInt("height"), mode);
-//        Resolution.text = PlayerPrefs.GetInt("width") + "*" + PlayerPrefs.GetInt("height");
+        if(PlayerPrefs.HasKey("mode") && PlayerPrefs.HasKey("width") && PlayerPrefs.HasKey("height"))
+        {
+            if (PlayerPrefs.GetInt("mode") == 0) mode = false;
+            else mode = true;
+            Screen.SetResolution(PlayerPrefs.GetInt("width"), PlayerPrefs.GetInt("height"), mode);
+            Resolution.text = PlayerPrefs.GetInt("width") + "*" + PlayerPrefs.GetInt("height");
+        }
     }
 
 
@@ -463,7 +468,7 @@ public class ManagerLobbyCanvas : MonoBehaviour {
     {
         while(true)
         {
-            if(matchingTimeS >= 60)
+            if(matchingTimeS > 60)
             {
                 matchingTimeM++;
                 matchingTimeS = 0;
