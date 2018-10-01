@@ -16,6 +16,7 @@ public class ManagerLobbyNetwork : Photon.MonoBehaviour
 
     void Start()
     {
+        UserName = "Guest" + Random.Range(1, 1000);
         PhotonNetwork.playerName = UserName;//이름 지정 다음에 지워야함
         instance = this;//싱글톤
         ConnectNetwork();//인터넷연결
@@ -54,6 +55,9 @@ public class ManagerLobbyNetwork : Photon.MonoBehaviour
     //랜덤룸 입장
     public void JoinRandom()
     {
+        //네트워크 미연결시 리턴
+        if (!ConnectNetwork()) return;
+
         bool check = false;
         RoomInfo[] list = GetRoomList();
         foreach(RoomInfo room in list)
@@ -74,6 +78,9 @@ public class ManagerLobbyNetwork : Photon.MonoBehaviour
     //커스텀룸 제작
     public void CreateRoom(string Name, int Map)
     {
+        //네트워크 미연결시 리턴
+        if (!ConnectNetwork()) return;
+
         RoomOptions option = new RoomOptions
         {
             PublishUserId = true,
@@ -86,12 +93,16 @@ public class ManagerLobbyNetwork : Photon.MonoBehaviour
     //커스텀룸 입장
     public void JoinCustom(string roomName)
     {
+        //네트워크 미연결시 리턴
+        if (!ConnectNetwork()) return;
+
         PhotonNetwork.JoinRoom(roomName);
     }
 
     //방 떠나기
     public void LeaveRoom()
     {
+        ResetInfo();
         PhotonNetwork.LeaveRoom();
     }
 
@@ -131,4 +142,10 @@ public class ManagerLobbyNetwork : Photon.MonoBehaviour
         Debug.Log("dasdf");
         if (MatchManager != null) MatchManager.photonView.RPC("SetElite", PhotonTargets.MasterClient, PhotonNetwork.playerName, Elite.value);
     }
+    
+    public void ResetInfo()
+    {
+        Elite.value = 0;
+    }
+
 }

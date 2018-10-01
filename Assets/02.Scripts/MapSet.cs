@@ -24,14 +24,30 @@ public class MapSet : MonoBehaviour {
 
     [SerializeField] Light light;
     
+    static int count=0;
 
     private void Awake()
-    {/*
-        int EnvIndex = UnityEngine.Random.Range(1,6);
-        light.intensity = Env[EnvIndex].lightPower;
-        light.shadowStrength = Env[EnvIndex].shadowStrength;
-        light.color = Env[EnvIndex].color;
-        RenderSettings.skybox= Env[EnvIndex].skybox;*/
+    {
         instance = this;
+    }
+    private void Start()
+    {
+        int count = UnityEngine.Random.Range(1, 5);
+        SetEnv(count);
+    }
+    void SetEnv(int index)
+    {
+        light.intensity = Env[index].lightPower;
+        light.shadowStrength = Env[index].shadowStrength;
+        light.color = Env[index].color;
+        RenderSettings.skybox= Env[index].skybox;
+    }
+
+    private void Update()
+    {
+        if (Input.GetKey(KeyCode.A))
+        {
+            SetEnv((++count)%5);
+        }
     }
 }

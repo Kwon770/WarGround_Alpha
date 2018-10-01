@@ -381,6 +381,7 @@ GameObject:
   - component: {fileID: 4709056175256500}
   - component: {fileID: 95429197056085212}
   - component: {fileID: 114209268695410006}
+  - component: {fileID: 114922517274042090}
   m_Layer: 0
   m_Name: Ragnarr
   m_TagString: Untagged
@@ -2951,14 +2952,26 @@ MonoBehaviour:
   synchronization: 3
   onSerializeTransformOption: 3
   onSerializeRigidBodyOption: 2
-  ownershipTransfer: 0
+  ownershipTransfer: 1
   ObservedComponents:
   - {fileID: 4709056175256500}
+  - {fileID: 114922517274042090}
   ObservedComponentsFoldoutOpen: 1
   viewIdField: 0
   instantiationId: -1
   currentMasterID: -1
   isRuntimeInstantiated: 0
+--- !u!114 &114922517274042090
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1166917363261110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44dc29487264b45488d85297d748679e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!137 &137001176335916606
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
