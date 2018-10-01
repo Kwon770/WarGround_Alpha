@@ -202,13 +202,8 @@ public class ManagerLobbyCanvas : MonoBehaviour {
             else if (QuickType == 3) PlayedType.text = "Tutorial";
         }
 
-        if(PlayerPrefs.HasKey("mode") && PlayerPrefs.HasKey("width") && PlayerPrefs.HasKey("height"))
-        {
-            if (PlayerPrefs.GetInt("mode") == 0) mode = false;
-            else mode = true;
-            Screen.SetResolution(PlayerPrefs.GetInt("width"), PlayerPrefs.GetInt("height"), mode);
-            Resolution.text = PlayerPrefs.GetInt("width") + "*" + PlayerPrefs.GetInt("height");
-        }
+        Screen.SetResolution(1920, 1080, true); 
+        Resolution.text = "1920*1080";
     }
 
 
