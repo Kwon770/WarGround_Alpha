@@ -23,7 +23,7 @@ public class ManagerCamera : MonoBehaviour {
 	void Update () {
 
         MainCam.orthographicSize = CameraSize;
-        CameraSize = Mathf.Lerp(CameraSize, CameraSizeToReach, 0.1f);
+        CameraSize = Mathf.Lerp(CameraSize, CameraSizeToReach, 0.08f);
         CameraZoomLock();
 
         if (Input.GetKeyDown(KeyCode.Space)) // 카메라 잠금, 잠금해제 (스페이스바)
