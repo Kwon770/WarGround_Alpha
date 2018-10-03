@@ -45,4 +45,5 @@ MonoBehaviour:
   - GetUserID
   - SetElite
   - SceneLoadStart
+  - GetDemage
   DisableAutoOpenWizard: 1

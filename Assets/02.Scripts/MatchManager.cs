@@ -109,8 +109,7 @@ public class MatchManager : Photon.MonoBehaviour {
         Debug.Log("AAAAAAAAAAAAAAAAA");
         for (int i = 0; i < PhotonNetwork.room.PlayerCount; i++)
         {
-            Debug.Log(Elite[EliteSelect[i]]);
-            PhotonNetwork.Instantiate(Elite[EliteSelect[i]], MapSet.instance.SpawnPoint[i].transform.position, MapSet.instance.SpawnRotation[i], 0).GetComponent<UnitInfo>();
+            PhotonNetwork.Instantiate(Elite[EliteSelect[i]-1], MapSet.instance.SpawnPoint[i].transform.position, MapSet.instance.SpawnRotation[i], 0).GetComponent<UnitInfo>().SetOwner(PlayerList[i]);
         }
     }
 }
