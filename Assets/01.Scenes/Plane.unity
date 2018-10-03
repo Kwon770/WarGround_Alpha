@@ -45455,9 +45455,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CameraSize: 9
+  CameraSizeToReach: 7
   CameraSizeMin: 2
   CameraSizeMax: 7
-  ZoomSpeed: 10
+  ZoomSpeed: 15
   ScreenMouseSpeed: 3
   ScreenDragSpeed: 0.12
   CamerBackSpeed: 0.1

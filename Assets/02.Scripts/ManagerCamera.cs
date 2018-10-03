@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class ManagerCamera : MonoBehaviour {
 
-    [SerializeField] float CameraSize;    //줌 인, 줌 아웃
+    [SerializeField] float CameraSize;
+    [SerializeField] float CameraSizeToReach;//줌 인, 줌 아웃
     [SerializeField] float CameraSizeMin;
     [SerializeField] float CameraSizeMax;
     [SerializeField] float ZoomSpeed;
@@ -22,7 +23,9 @@ public class ManagerCamera : MonoBehaviour {
 	void Update () {
 
         MainCam.orthographicSize = CameraSize;
-        
+        CameraSize = Mathf.Lerp(CameraSize, CameraSizeToReach, 0.08f);
+        CameraZoomLock();
+
         if (Input.GetKeyDown(KeyCode.Space)) // 카메라 잠금, 잠금해제 (스페이스바)
         {
             CameraStopSwitch();
@@ -31,13 +34,15 @@ public class ManagerCamera : MonoBehaviour {
         
         if (Input.GetAxis("Mouse ScrollWheel") < 0) // 줌 아웃
         {
-            CameraSize = CameraSize + ZoomSpeed * Time.deltaTime;
-            CameraZoomLock();
+            CameraSizeToReach = CameraSizeToReach + ZoomSpeed * Time.deltaTime;
+            //CameraSize = CameraSize - ZoomSpeed * Time.deltaTime;
+           
         }
         if (Input.GetAxis("Mouse ScrollWheel") > 0)     // 줌 인
         {
-            CameraSize = CameraSize - ZoomSpeed * Time.deltaTime;
-            CameraZoomLock();
+            CameraSizeToReach = CameraSizeToReach - ZoomSpeed * Time.deltaTime;
+            //CameraSize = CameraSize - ZoomSpeed * Time.deltaTime;
+            
         }
 
         CameraBack();
@@ -55,19 +60,19 @@ public class ManagerCamera : MonoBehaviour {
         }
         else if (CameraBack()) ;
         // 마우스 포지션으로 이동
-        else if (Input.mousePosition.x <= 0)
+        else if (Input.mousePosition.x <= 5f)
         {
             transform.position -= transform.right * Time.deltaTime * ScreenMouseSpeed * CameraSize;// new Vector3(transform.position.x - ScreenMoveSpeed * Time.deltaTime, transform.position.y, transform.position.z);
         }
-        else if (Input.mousePosition.x >= Screen.width)
+        else if (Input.mousePosition.x >= Screen.width - 5f)
         {
             transform.position += transform.right * Time.deltaTime * ScreenMouseSpeed * CameraSize;// new Vector3(transform.position.x + ScreenMoveSpeed * Time.deltaTime, transform.position.y, transform.position.z);
         }
-        else if (Input.mousePosition.y <= 0)
+        else if (Input.mousePosition.y <= 5f)
         {
             transform.position -= transform.forward * Time.deltaTime * ScreenMouseSpeed * CameraSize;//new Vector3(transform.position.x, transform.position.y, transform.position.z - ScreenMoveSpeed * Time.deltaTime);
         }
-        else if (Input.mousePosition.y >= Screen.height)
+        else if (Input.mousePosition.y >= Screen.height - 5f)
         {
             transform.position += transform.forward * Time.deltaTime * ScreenMouseSpeed * CameraSize;// new Vector3(transform.position.x, transform.position.y, transform.position.z + ScreenMoveSpeed * Time.deltaTime);
         }
@@ -96,6 +101,14 @@ public class ManagerCamera : MonoBehaviour {
         if (CameraSize <= CameraSizeMin)
         {
             CameraSize = CameraSizeMin;
+        }
+        if (CameraSizeToReach >= CameraSizeMax)
+        {
+            CameraSizeToReach = CameraSizeMax;
+        }
+        if (CameraSizeToReach <= CameraSizeMin)
+        {
+            CameraSizeToReach = CameraSizeMin;
         }
     }
 }
