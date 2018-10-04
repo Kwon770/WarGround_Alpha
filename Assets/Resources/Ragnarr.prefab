@@ -2972,6 +2972,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44dc29487264b45488d85297d748679e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Owner: 
+  ATK: 5
+  MaxHP: 30
+  HP: 30
+  SHD: 0
+  MaxAct: 0
+  Act: 0
+  range: 0
 --- !u!137 &137001176335916606
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

@@ -2945,6 +2945,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44dc29487264b45488d85297d748679e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Owner: 
+  ATK: 5
+  MaxHP: 30
+  HP: 30
+  SHD: 0
+  MaxAct: 0
+  Act: 0
+  range: 0
 --- !u!114 &114757456527828966
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2966,6 +2974,7 @@ MonoBehaviour:
   ownershipTransfer: 1
   ObservedComponents:
   - {fileID: 4208611598451068}
+  - {fileID: 114208399871562842}
   ObservedComponentsFoldoutOpen: 1
   viewIdField: 0
   instantiationId: -1

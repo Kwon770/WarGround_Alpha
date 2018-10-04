@@ -66,12 +66,14 @@ public class UnitInfo : Photon.MonoBehaviour {
             stream.SendNext(HP);
             stream.SendNext(SHD);
             stream.SendNext(Act);
+            stream.SendNext(Owner);
         }
         else
         {
             HP = (int)stream.ReceiveNext();
             SHD = (int)stream.ReceiveNext();
             Act = (int)stream.ReceiveNext();
+            Owner = (string)stream.ReceiveNext();
         }
     }
 }

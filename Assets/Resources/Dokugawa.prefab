@@ -2955,6 +2955,7 @@ MonoBehaviour:
   ownershipTransfer: 1
   ObservedComponents:
   - {fileID: 4541912275255088}
+  - {fileID: 114521277987860290}
   ObservedComponentsFoldoutOpen: 1
   viewIdField: 0
   instantiationId: -1
@@ -2971,6 +2972,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44dc29487264b45488d85297d748679e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Owner: 
+  ATK: 5
+  MaxHP: 20
+  HP: 20
+  SHD: 10
+  MaxAct: 0
+  Act: 0
+  range: 0
 --- !u!137 &137005153805456236
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
