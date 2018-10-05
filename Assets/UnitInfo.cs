@@ -5,14 +5,20 @@ using UnityEngine;
 public class UnitInfo : Photon.MonoBehaviour {
 
     public string Owner;
+    public int x;
+    public int y;
 
-    [SerializeField] int ATK;
-    [SerializeField] int MaxHP;
-    [SerializeField] int HP;
-    [SerializeField] int SHD;
-    [SerializeField] int MaxAct;
-    [SerializeField] int Act;
-    [SerializeField] int range;
+    [SerializeField] public int ATK;
+
+    [SerializeField] public int MaxHP;
+    [SerializeField] public int HP;
+
+    [SerializeField] public int SHD;
+
+    [SerializeField] public int MaxAct;
+    [SerializeField] public int Act;
+
+    [SerializeField] public int range;
     // Use this for initialization
 
     //초기화
@@ -22,13 +28,7 @@ public class UnitInfo : Photon.MonoBehaviour {
     public void SetOwner(string name)
     {
         Owner = name;
-        if (PhotonNetwork.playerName == name)
-        {
-            if (!photonView.isMine)
-            {
-                photonView.RequestOwnership();
-            }
-        }
+        Debug.Log("mine? : " + photonView.isMine);
     }
 
     //리셋
@@ -55,6 +55,12 @@ public class UnitInfo : Photon.MonoBehaviour {
             if (ATK <= 0) return;
         }
         HP -= ATK;
+    }
+
+    //이동
+    public void Move(List<TileInfo> path)
+    {
+        //path대로 이동
     }
 
     //스텟 동기화

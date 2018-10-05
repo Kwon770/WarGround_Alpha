@@ -142,6 +142,7 @@ public class ManagerLobbyNetwork : Photon.MonoBehaviour
     public void SetElite(int type)
     {
         EliteType = type;
+        MatchManager.EliteType = type;
         ChooseElite();
     }
     public void ChooseElite()

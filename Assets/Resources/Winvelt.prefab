@@ -773,6 +773,7 @@ GameObject:
   - component: {fileID: 95567000720067096}
   - component: {fileID: 114747904525505770}
   - component: {fileID: 114059503166297234}
+  - component: {fileID: 136711544946432552}
   m_Layer: 0
   m_Name: Winvelt
   m_TagString: Untagged
@@ -2980,6 +2981,19 @@ MonoBehaviour:
   instantiationId: -1
   currentMasterID: -1
   isRuntimeInstantiated: 0
+--- !u!136 &136711544946432552
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1459603538645120}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!137 &137010190419895474
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
