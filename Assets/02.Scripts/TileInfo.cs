@@ -9,6 +9,7 @@ public class TileInfo : MonoBehaviour {
 
     [SerializeField] public int cost;
     [SerializeField] public int idlecost;
+
     public bool Switch;
 
     private void OnMouseDown()

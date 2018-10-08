@@ -11,9 +11,9 @@ public class GameManager : MonoBehaviour {
     }ObjTpye Type;
     enum Trigger
     {
-        Attack,
-        Move,
         None,
+        Attack,
+        Move
     }Trigger trigger;
     bool enemy;
     GameObject Obj;
@@ -52,6 +52,7 @@ public class GameManager : MonoBehaviour {
                 //유닛 클릭했을때
                 if (hit.collider.tag == "Unit")
                 {
+                    Debug.Log("유닛클릭 : " + hit.collider.gameObject + " " + trigger);
                     //공격 할때
                     if (Obj != null && !enemy && trigger==Trigger.Attack)
                     {
@@ -78,6 +79,7 @@ public class GameManager : MonoBehaviour {
                 //타일 클릭했을때
                 else if (hit.collider.tag == "Tile")
                 {
+                    Debug.Log("타일클릭 : " + hit.collider.gameObject.name + " " + trigger + " :----: " + Obj==null);
                     //이동 할때
                     if (Obj != null && !enemy && trigger == Trigger.Move)
                     {
@@ -97,14 +99,16 @@ public class GameManager : MonoBehaviour {
     //이동 및 방어 행동 연산
     void Move(GameObject Unit, GameObject Tile)
     {
+        Debug.Log(Unit + " " + Tile);
         UnitInfo unit = Unit.GetComponent<UnitInfo>();
         TileInfo SP = GameData.data.FindTile(unit.x, unit.y);
         TileInfo EP = Tile.GetComponent<TileInfo>();
 
         List<TileInfo> path = Calculator.Calc.Move(SP, EP, unit.Act);
 
+        Debug.Log(path);
         if (path == null) return;
-
-        unit.Move(path);
+        StopCoroutine(unit.Move(path));
+        StartCoroutine(unit.Move(path));
     }
 }

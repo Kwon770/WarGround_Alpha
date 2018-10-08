@@ -21,15 +21,17 @@ public class Calculator : MonoBehaviour {
         TileQueue.Add(SP);
         ActQueue.Add(0);
         PathQueue.Add(0);
+        
 
         while (s <= e)
         {
             tile = TileQueue[s];
             int k = tile.x % 2 == 1 ? 1 : 0;
             
-            if (tile == EP)
+            if (tile.gameObject.Equals(EP.gameObject))
             {
-                if (minAct < ActQueue[s])
+                Debug.Log(ActQueue[s] + " " + minAct);
+                if (minAct > ActQueue[s])
                 {
                     minAct = ActQueue[s];
                     minActIndex = s;

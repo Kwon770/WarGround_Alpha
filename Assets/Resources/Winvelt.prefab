@@ -776,7 +776,7 @@ GameObject:
   - component: {fileID: 136711544946432552}
   m_Layer: 0
   m_Name: Winvelt
-  m_TagString: Untagged
+  m_TagString: Unit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2946,14 +2946,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44dc29487264b45488d85297d748679e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveTrigger: 0
   Owner: 
+  x: 0
+  y: 0
   ATK: 5
   MaxHP: 25
   HP: 25
   SHD: 0
-  MaxAct: 0
-  Act: 0
+  MaxAct: 3
+  Act: 3
   range: 0
+  moveSpeed: 5
 --- !u!114 &114747904525505770
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2974,7 +2978,6 @@ MonoBehaviour:
   onSerializeRigidBodyOption: 2
   ownershipTransfer: 1
   ObservedComponents:
-  - {fileID: 4445013507478876}
   - {fileID: 114059503166297234}
   ObservedComponentsFoldoutOpen: 1
   viewIdField: 0

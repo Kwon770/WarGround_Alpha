@@ -2946,14 +2946,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44dc29487264b45488d85297d748679e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveTrigger: 0
   Owner: 
+  x: 0
+  y: 0
   ATK: 5
   MaxHP: 30
   HP: 30
   SHD: 5
-  MaxAct: 0
-  Act: 0
+  MaxAct: 3
+  Act: 3
   range: 0
+  moveSpeed: 5
 --- !u!114 &114778693038925688
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2974,7 +2978,6 @@ MonoBehaviour:
   onSerializeRigidBodyOption: 2
   ownershipTransfer: 1
   ObservedComponents:
-  - {fileID: 4623664248239440}
   - {fileID: 114380459513072670}
   ObservedComponentsFoldoutOpen: 1
   viewIdField: 0

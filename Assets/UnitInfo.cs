@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class UnitInfo : Photon.MonoBehaviour {
 
+    Vector3 currrentPos;
+    Quaternion currentQuater;
+
+    public bool moveTrigger;
     public string Owner;
     public int x;
     public int y;
@@ -19,12 +23,17 @@ public class UnitInfo : Photon.MonoBehaviour {
     [SerializeField] public int Act;
 
     [SerializeField] public int range;
+
+    [SerializeField] float moveSpeed;
     // Use this for initialization
 
     //초기화
     void Awake () {
         DontDestroyOnLoad(gameObject);
-	}
+        moveTrigger = false;
+        currrentPos = transform.position;
+        currentQuater = transform.rotation;
+    }
     public void SetOwner(string name)
     {
         Owner = name;
@@ -58,28 +67,62 @@ public class UnitInfo : Photon.MonoBehaviour {
     }
 
     //이동
-    public void Move(List<TileInfo> path)
+    public IEnumerator Move(List<TileInfo> path)
     {
-        //path대로 이동
+        Debug.Log("이동시작");
+        int pathindex = 0;
+        Vector3 pos=path[pathindex].GetComponent<Transform>().position;
+        while (true)
+        {
+            Debug.Log("이동중");
+            if (pos == transform.position)
+            {
+                x = path[pathindex].x;
+                y = path[pathindex].y;
+                if (path.Count<=++pathindex)break;
+                pos = path[pathindex].GetComponent<Transform>().position;
+            }
+            transform.position = Vector3.Lerp(transform.position, path[pathindex].GetComponent<Transform>().position, Time.deltaTime * moveSpeed);
+            yield return null;
+        }
+        moveTrigger = false;
     }
 
     //스텟 동기화
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
-
         if (stream.isWriting)
         {
+            //좌표 동기화
+            stream.SendNext(x);
+            stream.SendNext(y);
+
+            //스텟 동기화
             stream.SendNext(HP);
             stream.SendNext(SHD);
             stream.SendNext(Act);
             stream.SendNext(Owner);
+            
+            //움직임 동기화
+            stream.SendNext(transform.position);
+            stream.SendNext(transform.rotation);
         }
         else
         {
+            //좌표 동기화
+            x = (int)stream.ReceiveNext();
+            y = (int)stream.ReceiveNext();
+
+            //스텟 동기화
             HP = (int)stream.ReceiveNext();
             SHD = (int)stream.ReceiveNext();
             Act = (int)stream.ReceiveNext();
             Owner = (string)stream.ReceiveNext();
+
+            currrentPos = (Vector3)stream.ReceiveNext();
+            currentQuater = (Quaternion)stream.ReceiveNext();
+//            transform.position = (Vector3)stream.ReceiveNext();
+//            transform.rotation = (Quaternion)stream.ReceiveNext();
         }
     }
 }

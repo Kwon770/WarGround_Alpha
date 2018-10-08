@@ -2955,7 +2955,6 @@ MonoBehaviour:
   onSerializeRigidBodyOption: 2
   ownershipTransfer: 1
   ObservedComponents:
-  - {fileID: 4541912275255088}
   - {fileID: 114521277987860290}
   ObservedComponentsFoldoutOpen: 1
   viewIdField: 0
@@ -2973,14 +2972,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44dc29487264b45488d85297d748679e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveTrigger: 0
   Owner: 
+  x: 0
+  y: 0
   ATK: 5
   MaxHP: 20
   HP: 20
   SHD: 10
-  MaxAct: 0
-  Act: 0
+  MaxAct: 3
+  Act: 3
   range: 0
+  moveSpeed: 5
 --- !u!136 &136133998904690796
 CapsuleCollider:
   m_ObjectHideFlags: 1
