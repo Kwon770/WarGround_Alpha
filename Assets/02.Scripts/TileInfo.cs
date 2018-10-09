@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class TileInfo : MonoBehaviour {
 
-    [SerializeField] int x;
-    [SerializeField] int y;
+    [SerializeField] public int x;
+    [SerializeField] public int y;
 
-    [SerializeField] int cost;
-    [SerializeField] int idlecost;
+    [SerializeField] public int cost;
+    [SerializeField] public int idlecost;
+
     public bool Switch;
 
     private void OnMouseDown()

@@ -382,9 +382,10 @@ GameObject:
   - component: {fileID: 95429197056085212}
   - component: {fileID: 114209268695410006}
   - component: {fileID: 114922517274042090}
+  - component: {fileID: 136099483496865010}
   m_Layer: 0
   m_Name: Ragnarr
-  m_TagString: Untagged
+  m_TagString: Unit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2954,7 +2955,6 @@ MonoBehaviour:
   onSerializeRigidBodyOption: 2
   ownershipTransfer: 1
   ObservedComponents:
-  - {fileID: 4709056175256500}
   - {fileID: 114922517274042090}
   ObservedComponentsFoldoutOpen: 1
   viewIdField: 0
@@ -2972,6 +2972,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44dc29487264b45488d85297d748679e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveTrigger: 0
+  Owner: 
+  x: 0
+  y: 0
+  ATK: 5
+  MaxHP: 30
+  HP: 30
+  SHD: 0
+  MaxAct: 3
+  Act: 3
+  range: 0
+  moveSpeed: 5
+--- !u!136 &136099483496865010
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1166917363261110}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!137 &137001176335916606
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

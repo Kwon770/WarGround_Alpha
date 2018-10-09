@@ -8,6 +8,9 @@ public class MatchManager : Photon.MonoBehaviour {
     [SerializeField] int[] EliteSelect;
     [SerializeField] string[] PlayerList;
     [SerializeField] string[] Elite;
+
+    public int EliteType;
+
     bool sceneCheck;
     string MapType;
     
@@ -99,18 +102,13 @@ public class MatchManager : Photon.MonoBehaviour {
     {
         AsyncOperation async = SceneManager.LoadSceneAsync(MapType);
         yield return async;
-        if (PhotonNetwork.isMasterClient)
-        {
-            GameSet();
-        }
-    }
-    void GameSet()
-    {
-        Debug.Log("AAAAAAAAAAAAAAAAA");
-        for (int i = 0; i < PhotonNetwork.room.PlayerCount; i++)
-        {
-            Debug.Log(Elite[EliteSelect[i]]);
-            PhotonNetwork.Instantiate(Elite[EliteSelect[i]], MapSet.instance.SpawnPoint[i].transform.position, MapSet.instance.SpawnRotation[i], 0).GetComponent<UnitInfo>();
-        }
+
+        //각자 지정한 엘리트 스폰
+        Debug.Log(EliteType + " " + PhotonNetwork.player.ID + " " + PhotonNetwork.playerName);
+        GameObject unit =
+        PhotonNetwork.Instantiate(Elite[EliteType - 1], MapSet.instance.SpawnPoint[PhotonNetwork.player.ID - 1].transform.position, MapSet.instance.SpawnRotation[PhotonNetwork.player.ID - 1], 0);
+        unit.GetComponent<UnitInfo>().SetOwner(PhotonNetwork.playerName);
+        unit.GetComponent<UnitInfo>().x = MapSet.instance.SpawnPoint[PhotonNetwork.player.ID - 1].GetComponent<TileInfo>().x;
+        unit.GetComponent<UnitInfo>().y = MapSet.instance.SpawnPoint[PhotonNetwork.player.ID - 1].GetComponent<TileInfo>().y;
     }
 }
