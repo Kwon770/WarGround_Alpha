@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class UnitInfo : Photon.MonoBehaviour {
 
-    Vector3 currrentPos;
-    Quaternion currentQuater;
+    public Vector3 currrentPos;
+    public Quaternion currentQuater;
 
     public bool moveTrigger;
     public string Owner;
     public int x;
     public int y;
+
+    public Coroutine move;
 
     [SerializeField] public int ATK;
 
@@ -33,6 +35,10 @@ public class UnitInfo : Photon.MonoBehaviour {
         moveTrigger = false;
         currrentPos = transform.position;
         currentQuater = transform.rotation;
+        if (!photonView.isMine)
+        {
+            gameObject.AddComponent<Synchro>();
+        }
     }
     public void SetOwner(string name)
     {

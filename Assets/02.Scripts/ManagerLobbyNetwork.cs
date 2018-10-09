@@ -141,6 +141,12 @@ public class ManagerLobbyNetwork : Photon.MonoBehaviour
     // 1. savage, merica, kami, pluto, brown, royal
     public void SetElite(int type)
     {
+        if (MatchManager == null)
+        {
+            //선택 불가 메세지
+            return;
+        }
+
         EliteType = type;
         MatchManager.EliteType = type;
         ChooseElite();
@@ -149,7 +155,6 @@ public class ManagerLobbyNetwork : Photon.MonoBehaviour
     {
         if (MatchManager != null) MatchManager.photonView.RPC("SetElite", PhotonTargets.MasterClient, PhotonNetwork.playerName, EliteType);
     }
-    
     public void ResetInfo()
     {
         EliteType = 0;

@@ -18,7 +18,6 @@ public class GameManager : MonoBehaviour {
     bool enemy;
     GameObject Obj;
 
-
     void Update()
     {
         Input_Computer();
@@ -108,7 +107,7 @@ public class GameManager : MonoBehaviour {
 
         Debug.Log(path);
         if (path == null) return;
-        StopCoroutine(unit.Move(path));
-        StartCoroutine(unit.Move(path));
+        if (unit.move != null) StopCoroutine(unit.move);
+         unit.move = StartCoroutine(unit.Move(path));
     }
 }
