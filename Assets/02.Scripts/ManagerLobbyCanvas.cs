@@ -81,6 +81,9 @@ public class ManagerLobbyCanvas : MonoBehaviour {
     [SerializeField] private Text TimeS1;
     [SerializeField] private Text TimeM1;
 
+    [SerializeField] private Text PlayerChar1;
+    [SerializeField] private Text EnemyChar1;
+
     [SerializeField] private GameObject BackGround_AfterRandom;
 
     private bool canceled = false;
@@ -101,6 +104,7 @@ public class ManagerLobbyCanvas : MonoBehaviour {
 
     [SerializeField] private GameObject panel_CreateRoom;
     [SerializeField] private GameObject panel_enterPrivate;
+    [SerializeField] private GameObject panel_CustomRoom;
 
     [SerializeField] private GameObject Button_Created;
     [SerializeField] private GameObject Button_CreatedRoom;
@@ -120,6 +124,13 @@ public class ManagerLobbyCanvas : MonoBehaviour {
     [SerializeField] private Text roomInfo_Map;
 
     [SerializeField] private Text roomInfo_Number;
+    
+
+
+
+    //AfterCustom In Room
+    [SerializeField] private Text PlayerChar2;
+    [SerializeField] private Text EnemyChar2;
 
     // 맵 사진 ?
 
@@ -134,7 +145,7 @@ public class ManagerLobbyCanvas : MonoBehaviour {
 
 
     private ManagerLobbyNetwork network;
-
+    private ManagerLobbySys sys;
 
 
     private void Update()
@@ -192,6 +203,7 @@ public class ManagerLobbyCanvas : MonoBehaviour {
     private void Start()
     {
         network = GetComponent<ManagerLobbyNetwork>();
+        sys = GetComponent<ManagerLobbySys>();
 
         Fx_last3 = Fx_Home;
         if (PlayerPrefs.HasKey("PlayedType"))
@@ -400,7 +412,7 @@ public class ManagerLobbyCanvas : MonoBehaviour {
     {
         if(inLobby != 4) inLobby = 2;
         Camera.main.transform.DOMoveX(213, 0.7f).SetEase(Ease.OutQuart);
-        UI.transform.DOMoveX(-1117, 0.7f).SetEase(Ease.OutQuart);
+        UI.transform.DOMoveX( 960 - (Screen.width + 997), 0.7f).SetEase(Ease.OutQuart);
 
         //current Scene Fx On
         Fx_Play.SetActive(true);
@@ -429,6 +441,7 @@ public class ManagerLobbyCanvas : MonoBehaviour {
     public void RandomPressed()
     {
         OverExit();
+        sys.RandomJoin();
 
         PlayerPrefs.SetInt("PlayedType", 1);
         PlayedType.text = "Random";
@@ -574,7 +587,7 @@ public class ManagerLobbyCanvas : MonoBehaviour {
 
 
     //AfterCustom
-    
+    // Room List UI Func
     public void CreatedRoomOver()
     {
         overButton5 = Button_CreatedRoom;
@@ -586,7 +599,12 @@ public class ManagerLobbyCanvas : MonoBehaviour {
 
         panel_CreateRoom.SetActive(true);
         Blocking.SetActive(true);
+
+        //초기화
         createdName.text = "";
+        createdPassword.text = "";
+        createdPassword.gameObject.SetActive(false);
+        createdPasswordText.SetActive(false);
     }
 
     public void CreatedOver()
@@ -603,11 +621,10 @@ public class ManagerLobbyCanvas : MonoBehaviour {
 
         panel_CreateRoom.SetActive(false);
         Blocking.SetActive(false);
+        BackGround_AfterCustom.SetActive(false);
+        panel_CustomRoom.SetActive(true);
 
-        //
-        createdPassword.text = "";
-        createdPassword.gameObject.SetActive(false);
-        createdPasswordText.SetActive(false);
+        sys.CustomJoin();
     }
     private bool a = false;
     public void PrivateOn()
@@ -627,8 +644,35 @@ public class ManagerLobbyCanvas : MonoBehaviour {
         }
     }
 
+   private int EnterNum;
+    public void EnterPrivate()
+    {
+        if (password[EnterNum] == enterPassword.text)
+        {
+            network.JoinCustom(list[EnterNum].Name);
+            panel_enterPrivate.SetActive(false);
+            Blocking.SetActive(false);
+            BackGround_AfterCustom.SetActive(false);
+            panel_CustomRoom.SetActive(true);
+            inLobby = 12;
+            sys.CustomJoin();
+        }
+        else
+        {
+            StartCoroutine(WrongPasswordAnim());
+        }
+    }
+    IEnumerator WrongPasswordAnim()
+    {
+        yield return new WaitForSeconds(1);
+        panel_enterPrivate.SetActive(false);
+        Blocking.SetActive(false);
+    }
 
-    // name - string방이름_int 맵
+
+
+
+    // Room Load Func
     public void RoomListPrepare()
     {
         // page = 0 - 1페이지
@@ -749,7 +793,6 @@ public class ManagerLobbyCanvas : MonoBehaviour {
         //list[i].PlayerCount;
         //list[i].IsOpen; // true면 waiting flase playing
     }
-
 
     public void RefreshOver()
     {
@@ -1099,26 +1142,7 @@ public class ManagerLobbyCanvas : MonoBehaviour {
     }
 
 
-    private int EnterNum;
-    public void EnterPrivate()
-    {
-        if (password[EnterNum] == enterPassword.text)
-        {
-            panel_enterPrivate.SetActive(false);
-            Blocking.SetActive(false);
-            network.JoinCustom(list[EnterNum].Name);
-        }
-        else
-        {
-            StartCoroutine(WrongPasswordAnim());
-        }
-    }
-    IEnumerator WrongPasswordAnim()
-    {
-        yield return new WaitForSeconds(1);
-        panel_enterPrivate.SetActive(false);
-        Blocking.SetActive(false);
-    }
+    // Room List UI
     // 3개 - infor[2] //맵 2개 - infor[1] 맵
     public void Room0Over()
     {
@@ -1139,7 +1163,14 @@ public class ManagerLobbyCanvas : MonoBehaviour {
             panel_enterPrivate.SetActive(true);
             inLobby = 11;
         }
-        else network.JoinCustom(list[0].Name);
+        else
+        {
+            network.JoinCustom(list[0].Name);
+            BackGround_AfterCustom.SetActive(false);
+            panel_CustomRoom.SetActive(true);
+            inLobby = 12;
+            sys.CustomJoin();
+        }
     }
 
     public void Room1Over()
@@ -1160,7 +1191,14 @@ public class ManagerLobbyCanvas : MonoBehaviour {
             panel_enterPrivate.SetActive(true);
             inLobby = 11;
         }
-        else network.JoinCustom(list[1].Name);
+        else
+        {
+            network.JoinCustom(list[1].Name);
+            BackGround_AfterCustom.SetActive(false);
+            panel_CustomRoom.SetActive(true);
+            inLobby = 12;
+            sys.CustomJoin();
+        }
     }
 
     public void Room2Over()
@@ -1181,7 +1219,14 @@ public class ManagerLobbyCanvas : MonoBehaviour {
             panel_enterPrivate.SetActive(true);
             inLobby = 11;
         }
-        else network.JoinCustom(list[2].Name);
+        else
+        {
+            network.JoinCustom(list[2].Name);
+            BackGround_AfterCustom.SetActive(false);
+            panel_CustomRoom.SetActive(true);
+            inLobby = 12;
+            sys.CustomJoin();
+        }
     }
 
     public void Room3Over()
@@ -1202,7 +1247,14 @@ public class ManagerLobbyCanvas : MonoBehaviour {
             panel_enterPrivate.SetActive(true);
             inLobby = 11;
         }
-        else network.JoinCustom(list[3].Name);
+        else
+        {
+            network.JoinCustom(list[3].Name);
+            BackGround_AfterCustom.SetActive(false);
+            panel_CustomRoom.SetActive(true);
+            inLobby = 12;
+            sys.CustomJoin();
+        }
     }
 
     public void Room4Over()
@@ -1223,7 +1275,14 @@ public class ManagerLobbyCanvas : MonoBehaviour {
             panel_enterPrivate.SetActive(true);
             inLobby = 11;
         }
-        else network.JoinCustom(list[4].Name);
+        else
+        {
+            network.JoinCustom(list[4].Name);
+            BackGround_AfterCustom.SetActive(false);
+            panel_CustomRoom.SetActive(true);
+            inLobby = 12;
+            sys.CustomJoin();
+        }
     }
 
     public void Room5Over()
@@ -1244,7 +1303,14 @@ public class ManagerLobbyCanvas : MonoBehaviour {
             panel_enterPrivate.SetActive(true);
             inLobby = 11;
         }
-        else network.JoinCustom(list[5].Name);
+        else
+        {
+            network.JoinCustom(list[5].Name);
+            BackGround_AfterCustom.SetActive(false);
+            panel_CustomRoom.SetActive(true);
+            inLobby = 12;
+            sys.CustomJoin();
+        }
     }
 
     public void Room6Over()
@@ -1265,9 +1331,63 @@ public class ManagerLobbyCanvas : MonoBehaviour {
             panel_enterPrivate.SetActive(true);
             inLobby = 11;
         }
-        else network.JoinCustom(list[6].Name);
+        else
+        {
+            network.JoinCustom(list[6].Name);
+            BackGround_AfterCustom.SetActive(false);
+            panel_CustomRoom.SetActive(true);
+            inLobby = 12;
+            sys.CustomJoin();
+        }
     }
 
+
+
+
+    // In Room UI
+    public void QuitRoom()
+    {
+        network.LeaveRoom();
+        BackGround_AfterCustom.SetActive(true);
+        panel_CustomRoom.SetActive(false);
+        inLobby = 4;
+    }
+    
+    public void StartGame()
+    {
+         
+    }
+
+    public void Char1()
+    {
+        network.SetElite(1);  
+        PlayerChar2.text = "<color=#7EA1FF>" + "Cora - Savageborn" + "</color>";
+    }
+    public void Char2()
+    {
+        network.SetElite(2);
+        PlayerChar2.text = "<color=#7EA1FF>" + "Cora - Merica" + "</color>";
+    }
+    public void Char3()
+    {
+        network.SetElite(3);
+        PlayerChar2.text = "<color=#7EA1FF>" + "Cora - Kamiken" + "</color>";
+    }
+    public void Char4()
+    {
+        network.SetElite(4);
+        PlayerChar2.text = "<color=#FFA249>" + "Partan - Pluto" + "</color>";
+    }
+    public void Char5()
+    {
+        network.SetElite(5);
+        PlayerChar2.text = "<color=#FFA249>" + "Partan - Brownbeard Pirates" + "</color>";
+    }
+    public void Char6()
+    {
+        network.SetElite(6);
+        PlayerChar2.text = "<color=#FFA249>" + "Partan - Royal Guard" + "</color>";
+    }
 
 
 
@@ -1279,7 +1399,7 @@ public class ManagerLobbyCanvas : MonoBehaviour {
     {
         inLobby = 3;
         Camera.main.transform.DOMoveX(420, 0.7f).SetEase(Ease.OutQuart);
-        UI.transform.DOMoveX(-3120, 0.7f).SetEase(Ease.OutQuart);
+        UI.transform.DOMoveX( (960 - (Screen.width + 997)) + (Screen.width + 923), 0.7f).SetEase(Ease.OutQuart);
 
         //current Scene Fx On
         Fx_now3.SetActive(true);
