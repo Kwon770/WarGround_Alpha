@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class ManagerLobbyNetwork : Photon.MonoBehaviour
 {
     public static ManagerLobbyNetwork instance;
-    [SerializeField] Dropdown Elite;
     [SerializeField] string GameVersion;
     [SerializeField] string UserName;
     private ManagerLobbyCanvas Canvas;
@@ -137,15 +136,16 @@ public class ManagerLobbyNetwork : Photon.MonoBehaviour
         }
     }
 
-    public void ChoseElite()
+    // 1. savage, merica, kami, pluto, brown, royal
+    public void ChoseElite(int eliteVal)
     {
         Debug.Log("dasdf");
-        if (MatchManager != null) MatchManager.photonView.RPC("SetElite", PhotonTargets.MasterClient, PhotonNetwork.playerName, Elite.value);
+        if (MatchManager != null) MatchManager.photonView.RPC("SetElite", PhotonTargets.MasterClient, PhotonNetwork.playerName, eliteVal);
     }
     
     public void ResetInfo()
     {
-        Elite.value = 0;
+        //Elite.value = 0;
     }
 
 }
