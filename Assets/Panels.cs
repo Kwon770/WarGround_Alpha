@@ -23,12 +23,11 @@ public class Panels : MonoBehaviour
         endPos = transform.position + (Center.position - target.position);
         float time = 0;
 
-        while (transform.position!=endPos)
+        while (time<=1)
         {
             transform.position = Vector3.Lerp(startPos, endPos, curve.Evaluate(time));
             time += Time.deltaTime * layoutMoveSpeed;
             yield return null;
         }
-        
     }
 }

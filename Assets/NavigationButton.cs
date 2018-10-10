@@ -6,10 +6,8 @@ using UnityEngine.UI;
 
 public class NavigationButton : MonoBehaviour
 {
-    [SerializeField]
-    Image _imageOnSelected;
-    [SerializeField]
-    Button _button;
+    [SerializeField] Image _imageOnSelected;
+    [SerializeField] Button _button;
     bool _selected;
 
     public Button Button

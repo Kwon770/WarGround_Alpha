@@ -43,7 +43,6 @@ public class UnitInfo : Photon.MonoBehaviour {
     public void SetOwner(string name)
     {
         Owner = name;
-        Debug.Log("mine? : " + photonView.isMine);
     }
 
     //리셋
@@ -76,20 +75,26 @@ public class UnitInfo : Photon.MonoBehaviour {
     public IEnumerator Move(List<TileInfo> path)
     {
         Debug.Log("이동시작");
-        int pathindex = 0;
-        Vector3 pos=path[pathindex].GetComponent<Transform>().position;
-        while (true)
+        
+        Vector3 endPos;
+        Vector3 startPos;
+
+        for (int i = 0; i < path.Count; i++)
         {
-            Debug.Log("이동중");
-            if (pos == transform.position)
+            float time = 0;
+            endPos = path[i].transform.position;
+            startPos = transform.position;
+            
+            x = path[i].x;
+            y = path[i].y;
+
+            while (transform.position!=endPos)
             {
-                x = path[pathindex].x;
-                y = path[pathindex].y;
-                if (path.Count<=++pathindex)break;
-                pos = path[pathindex].GetComponent<Transform>().position;
+                transform.position = Vector3.Lerp(startPos, endPos, time);
+                time += Time.deltaTime * moveSpeed;
+                yield return null;
             }
-            transform.position = Vector3.Lerp(transform.position, path[pathindex].GetComponent<Transform>().position, Time.deltaTime * moveSpeed);
-            yield return null;
+            yield return new WaitForSeconds(0.5f);
         }
         moveTrigger = false;
     }

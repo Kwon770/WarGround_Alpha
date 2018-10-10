@@ -5536,8 +5536,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   x: 5
   y: 6
-  cost: 1
-  idlecost: 1
+  cost: 100
+  idlecost: 100
   Switch: 0
 --- !u!1 &187540157
 GameObject:
@@ -8944,8 +8944,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   x: 4
   y: 6
-  cost: 1
-  idlecost: 1
+  cost: 100
+  idlecost: 100
   Switch: 0
 --- !u!4 &320077498 stripped
 Transform:
@@ -19403,8 +19403,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   x: 9
   y: 6
-  cost: 1
-  idlecost: 1
+  cost: 100
+  idlecost: 100
   Switch: 0
 --- !u!1 &732791930
 GameObject:
@@ -23312,8 +23312,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   x: 5
   y: 7
-  cost: 1
-  idlecost: 1
+  cost: 100
+  idlecost: 100
   Switch: 0
 --- !u!1 &901836382
 GameObject:
@@ -31329,8 +31329,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   x: 7
   y: 6
-  cost: 1
-  idlecost: 1
+  cost: 100
+  idlecost: 100
   Switch: 0
 --- !u!4 &1207200426 stripped
 Transform:
@@ -32787,8 +32787,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   x: 5
   y: 8
-  cost: 1
-  idlecost: 1
+  cost: 100
+  idlecost: 100
   Switch: 0
 --- !u!64 &1270487766
 MeshCollider:
@@ -35722,8 +35722,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   x: 4
   y: 7
-  cost: 1
-  idlecost: 1
+  cost: 100
+  idlecost: 100
   Switch: 0
 --- !u!4 &1402102786 stripped
 Transform:
@@ -37365,8 +37365,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   x: 1
   y: 7
-  cost: 1
-  idlecost: 1
+  cost: 100
+  idlecost: 100
   Switch: 0
 --- !u!4 &1476203985 stripped
 Transform:
@@ -42922,8 +42922,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   x: 4
   y: 4
-  cost: 1
-  idlecost: 1
+  cost: 100
+  idlecost: 100
   Switch: 0
 --- !u!4 &1721010828 stripped
 Transform:
@@ -48945,8 +48945,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   x: 2
   y: 6
-  cost: 1
-  idlecost: 1
+  cost: 100
+  idlecost: 100
   Switch: 0
 --- !u!1001 &1981135833
 Prefab:
@@ -49755,8 +49755,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   x: 4
   y: 5
-  cost: 1
-  idlecost: 1
+  cost: 100
+  idlecost: 100
   Switch: 0
 --- !u!64 &2020603999
 MeshCollider:

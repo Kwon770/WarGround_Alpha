@@ -412,7 +412,7 @@ public class ManagerLobbyCanvas : MonoBehaviour {
     {
         if(inLobby != 4) inLobby = 2;
         Camera.main.transform.DOMoveX(213, 0.7f).SetEase(Ease.OutQuart);
-        UI.transform.DOMoveX( 960 - (Screen.width + 997), 0.7f).SetEase(Ease.OutQuart);
+        UI.transform.DOMoveX( -1117, 0.7f).SetEase(Ease.OutQuart);
 
         //current Scene Fx On
         Fx_Play.SetActive(true);
@@ -1399,7 +1399,7 @@ public class ManagerLobbyCanvas : MonoBehaviour {
     {
         inLobby = 3;
         Camera.main.transform.DOMoveX(420, 0.7f).SetEase(Ease.OutQuart);
-        UI.transform.DOMoveX( (960 - (Screen.width + 997)) + (Screen.width + 923), 0.7f).SetEase(Ease.OutQuart);
+        UI.transform.DOMoveX(-3120, 0.7f).SetEase(Ease.OutQuart);
 
         //current Scene Fx On
         Fx_now3.SetActive(true);

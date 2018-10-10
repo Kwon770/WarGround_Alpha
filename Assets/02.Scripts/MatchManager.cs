@@ -55,7 +55,6 @@ public class MatchManager : Photon.MonoBehaviour {
     [PunRPC]
     public void GetUserID(string name)
     {
-        Debug.Log(name);
         for (int i = 0; i < PhotonNetwork.room.MaxPlayers; i++)
         {
             if (PlayerList[i] == null)
@@ -104,7 +103,6 @@ public class MatchManager : Photon.MonoBehaviour {
         yield return async;
 
         //각자 지정한 엘리트 스폰
-        Debug.Log(EliteType + " " + PhotonNetwork.player.ID + " " + PhotonNetwork.playerName);
         GameObject unit =
         PhotonNetwork.Instantiate(Elite[EliteType - 1], MapSet.instance.SpawnPoint[PhotonNetwork.player.ID - 1].transform.position, MapSet.instance.SpawnRotation[PhotonNetwork.player.ID - 1], 0);
         unit.GetComponent<UnitInfo>().SetOwner(PhotonNetwork.playerName);

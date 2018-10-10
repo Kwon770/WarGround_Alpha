@@ -11,14 +11,10 @@ public class NavigationBar : MonoBehaviour
         Character,
     }
 
-    [SerializeField]
-    Panels panels;
-    [SerializeField]
-    NavigationButton _home;
-    [SerializeField]
-    NavigationButton _play;
-    [SerializeField]
-    NavigationButton _character;
+    [SerializeField] Panels panels;
+    [SerializeField] NavigationButton _home;
+    [SerializeField] NavigationButton _play;
+    [SerializeField] NavigationButton _character;
 
     NavigationButton[] _buttons;
 
