@@ -55,12 +55,13 @@ MonoBehaviour:
   EliteSelect: 
   PlayerList: []
   Elite:
-  - Deathknight
   - Ragnarr
   - Winvelt
-  - Brownbeard
   - Dokugawa
+  - Deathknight
+  - Brownbeard
   - Mars
+  EliteType: 0
 --- !u!114 &114776789897162648
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -56,6 +56,7 @@ public class GameManager : MonoBehaviour {
                     if (Obj != null && !enemy && trigger==Trigger.Attack)
                     {
                         //Obj->hit.transform.gameObject 공격
+                        Attack(Obj, hit.transform.gameObject);
                         ResetTrigger();
                         return;
                     }
@@ -78,13 +79,14 @@ public class GameManager : MonoBehaviour {
                 //타일 클릭했을때
                 else if (hit.collider.tag == "Tile")
                 {
-                    Debug.Log("타일클릭 : " + hit.collider.gameObject.name + " " + trigger + " :----: " + Obj==null);
+//                    Debug.Log("타일클릭 : " + hit.collider.gameObject.name + " " + trigger + " :----: " + Obj==null);
                     //이동 할때
                     if (Obj != null && !enemy && trigger == Trigger.Move)
                     {
                         //Obj가 hit.transform.gameObject 으로 이동
                         Move(Obj, hit.transform.gameObject);
                         ResetTrigger();
+                        return;
                     }
                     if (Obj == null)
                     {
@@ -109,5 +111,16 @@ public class GameManager : MonoBehaviour {
         if (path == null) return;
         if (unit.move != null) StopCoroutine(unit.move);
          unit.move = StartCoroutine(unit.Move(path));
+    }
+    void Attack(GameObject Attacker,GameObject Defender)
+    {
+        UnitInfo attacker = Attacker.GetComponent<UnitInfo>();
+        UnitInfo defender = Defender.GetComponent<UnitInfo>();
+
+        if (Calculator.Calc.Attack(GameData.data.FindTile(attacker.x,attacker.y),GameData.data.FindTile(defender.x, defender.y), attacker.range))
+        {
+            defender.photonView.RPC("GetDemage", PhotonTargets.All, attacker.ATK + attacker.AddATK);
+        }
+        attacker.photonView.RPC("Attack", PhotonTargets.All);
     }
 }

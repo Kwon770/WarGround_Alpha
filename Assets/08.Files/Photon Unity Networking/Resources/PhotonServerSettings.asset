@@ -47,4 +47,5 @@ MonoBehaviour:
   - SceneLoadStart
   - GetDemage
   - SetOwner
+  - Attack
   DisableAutoOpenWizard: 1
