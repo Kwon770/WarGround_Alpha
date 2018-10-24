@@ -36,4 +36,8 @@ public class Anim : MonoBehaviour {
     {
         anim.SetBool("MOVE", false);
     }
+    public void DIE()
+    {
+        anim.SetTrigger("DIE");
+    }
 }

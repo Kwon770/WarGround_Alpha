@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,6 +14,8 @@ public class UnitInfo : Photon.MonoBehaviour {
     public string Owner;
     public int x;
     public int y;
+
+    [SerializeField] float delay;
 
     public Coroutine move;
 
@@ -34,16 +37,30 @@ public class UnitInfo : Photon.MonoBehaviour {
     // Use this for initialization
 
     //초기화
-    void Awake () {
+    IEnumerator Setting()
+    {
         anim = GetComponent<Anim>();
         DontDestroyOnLoad(gameObject);
         moveTrigger = false;
-        currrentPos = transform.position;
-        currentQuater = transform.rotation;
+
         if (!photonView.isMine)
         {
             gameObject.AddComponent<Synchro>();
         }
+        while (true)
+        {
+            if (GameData.data != null)
+            {
+                GameData.data.AddUnit(this);
+                break;
+            }
+            yield return null;
+        }
+    }
+    void Awake()
+    {
+        Debug.Log("셋팅하기" + " " + photonView.isMine);
+        StartCoroutine("Setting");
     }
     public void SetOwner(string name)
     {
@@ -60,8 +77,6 @@ public class UnitInfo : Photon.MonoBehaviour {
     [PunRPC]
     public void GetDemage(int ATK)
     {
-        anim.Block();//피격 애니매이션 실행
-
         if (!photonView.isMine) return;
 
         //방어 무시일 경우
@@ -88,18 +103,41 @@ public class UnitInfo : Photon.MonoBehaviour {
         HP -= ATK;
     }
 
+    //애니매이션 재생
+    IEnumerator Animation(float delayTime, UnitInfo temp)
+    {
+        float time = 0;
+
+        Quaternion startRot1 = transform.rotation;
+        Quaternion endRot1 = Quaternion.LookRotation(temp.transform.position - transform.position);
+        Quaternion startRot2 = temp.transform.rotation;
+        Quaternion endRot2 = Quaternion.LookRotation(transform.position - temp.transform.position);
+        while (time<1)
+        {
+            transform.rotation = Quaternion.Lerp(startRot1, endRot1, time);
+            temp.transform.rotation = Quaternion.Lerp(startRot2, endRot2, time);
+            time += Time.deltaTime * rotSpeed;
+            yield return null;
+        }
+
+        anim.Attack();//가격 애니메이션 실행
+        yield return new WaitForSeconds(delayTime);
+        if (temp.HP > 0) temp.anim.Block();
+        else temp.DIE();
+        
+    }
+
     //공격
     [PunRPC]
-    public void Attack()
+    public void Attack(int x,int y)
     {
-        anim.Attack();//가격 애니메이션 실행
+        UnitInfo temp = GameData.data.FindUnit(x, y);
+        StartCoroutine(Animation(delay, temp));
     }
 
     //이동
     public IEnumerator Move(List<TileInfo> path)
     {
-        Debug.Log("이동시작");
-        
         Vector3 endPos;
         Vector3 startPos;
         Quaternion startRot;
@@ -122,7 +160,6 @@ public class UnitInfo : Photon.MonoBehaviour {
             time = 0;
             while (Quaternion.Angle(endRot , transform.rotation)>5)
             {
-                Debug.Log("회전중");
                 transform.rotation = Quaternion.Lerp(startRot, endRot, time);
                 time += Time.deltaTime * rotSpeed;
                 yield return null;
@@ -130,7 +167,6 @@ public class UnitInfo : Photon.MonoBehaviour {
             time = 0;
             while (Vector3.Magnitude(transform.position-endPos)>0.1)
             {
-                Debug.Log("이동중 : " + time  + " : " + transform.position + " : " + endPos + " : " + Vector3.Magnitude(transform.position - endPos));
                 transform.position = Vector3.Lerp(startPos, endPos, time);
                 time += Time.deltaTime * moveSpeed;
                 yield return null;
@@ -139,6 +175,18 @@ public class UnitInfo : Photon.MonoBehaviour {
             yield return new WaitForSeconds(0.5f);
         }
         moveTrigger = false;
+    }
+
+    //사망
+    public void DIE()
+    {
+        GameData.data.DelUnit(this);
+        anim.DIE();
+        Destroy(gameObject,4f);
+    }
+    private void OnDestroy()
+    {
+        Debug.Log(this + "오브젝트 사망");
     }
 
     //스텟 동기화

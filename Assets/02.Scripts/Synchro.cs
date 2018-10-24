@@ -26,6 +26,7 @@ public class Synchro : MonoBehaviour {
     }
     void Update ()
     {
+        if (GameData.data == null) return;
         if((posX!=unitinfo.x || posY!=unitinfo.y) && !moveTrigger)
         {
             moveTrigger = true;
@@ -62,7 +63,6 @@ public class Synchro : MonoBehaviour {
         time = 0;
         while (Quaternion.Angle(endRot, transform.rotation) > 5)
         {
-            Debug.Log("회전중");
             transform.rotation = Quaternion.Lerp(startRot, endRot, time);
             time += Time.deltaTime * synchroRotSpeed;
             yield return null;
@@ -70,7 +70,6 @@ public class Synchro : MonoBehaviour {
         time = 0;
         while (Vector3.Magnitude(transform.position - endPos) > 0.1)
         {
-            Debug.Log("이동중 : " + time + " : " + transform.position + " : " + endPos + " : " + Vector3.Magnitude(transform.position - endPos));
             transform.position = Vector3.Lerp(startPos, endPos, time);
             time += Time.deltaTime * synchroMoveSpeed;
             yield return null;

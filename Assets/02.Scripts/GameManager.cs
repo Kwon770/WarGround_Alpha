@@ -121,6 +121,6 @@ public class GameManager : MonoBehaviour {
         {
             defender.photonView.RPC("GetDemage", PhotonTargets.All, attacker.ATK + attacker.AddATK);
         }
-        attacker.photonView.RPC("Attack", PhotonTargets.All);
+        attacker.photonView.RPC("Attack", PhotonTargets.All,defender.x,defender.y);
     }
 }

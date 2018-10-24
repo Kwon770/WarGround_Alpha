@@ -1313,6 +1313,7 @@ MonoBehaviour:
   Owner: 
   x: 0
   y: 0
+  delay: 1.8
   ATK: 5
   AddATK: 0
   MaxHP: 20
