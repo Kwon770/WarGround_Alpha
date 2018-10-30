@@ -2953,6 +2953,8 @@ MonoBehaviour:
   Owner: 
   x: 0
   y: 0
+  Kinds: Deathknight
+  CanSpawn: 1
   delay: 2
   ATK: 3
   AddATK: 0
@@ -3001,7 +3003,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85aa51bf57569a2438c8be4a366dc4b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delay: 0
+  anim: {fileID: 0}
 --- !u!136 &136678863152861994
 CapsuleCollider:
   m_ObjectHideFlags: 1

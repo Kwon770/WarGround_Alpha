@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class UnitInfo : Photon.MonoBehaviour {
 
-    Anim anim;
+    public Anim anim;
 
     public Vector3 currrentPos;
     public Quaternion currentQuater;
@@ -14,10 +14,14 @@ public class UnitInfo : Photon.MonoBehaviour {
     public string Owner;
     public int x;
     public int y;
+    
+    public Coroutine move;
+
+    [SerializeField] public string Kinds;
+
+    [SerializeField] bool CanSpawn;
 
     [SerializeField] float delay;
-
-    public Coroutine move;
 
     [SerializeField] public int ATK;
     [SerializeField] public int AddATK;
@@ -37,6 +41,11 @@ public class UnitInfo : Photon.MonoBehaviour {
     // Use this for initialization
 
     //초기화
+    void Awake()
+    {
+        Debug.Log("셋팅하기" + " " + photonView.isMine);
+        StartCoroutine("Setting");
+    }
     IEnumerator Setting()
     {
         anim = GetComponent<Anim>();
@@ -57,14 +66,20 @@ public class UnitInfo : Photon.MonoBehaviour {
             yield return null;
         }
     }
-    void Awake()
-    {
-        Debug.Log("셋팅하기" + " " + photonView.isMine);
-        StartCoroutine("Setting");
-    }
     public void SetOwner(string name)
     {
         Owner = name;
+    }
+
+    public void UI()
+    {
+        GameManager.manager.AttackButton.SetActive(true);
+        GameManager.manager.MoveButton.SetActive(true);
+        if (CanSpawn)
+        {
+            GameManager.manager.SpawnButton.gameObject.SetActive(true);
+            GetComponent<Spawn>().Setting();
+        }
     }
 
     //리셋
@@ -122,7 +137,10 @@ public class UnitInfo : Photon.MonoBehaviour {
 
         anim.Attack();//가격 애니메이션 실행
         yield return new WaitForSeconds(delayTime);
-        if (temp.HP > 0) temp.anim.Block();
+        if (temp.HP > 0)
+        {
+            temp.anim.Block();
+        }
         else temp.DIE();
         
     }

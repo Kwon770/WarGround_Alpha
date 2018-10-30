@@ -104,7 +104,8 @@ public class Calculator : MonoBehaviour {
         return null;
     }
 
-    public bool Attack(TileInfo EP, TileInfo SP, int range)
+    //공격 가능 여부 계산, 가능 : true, 불가능 : false
+    public int Range(TileInfo EP, TileInfo SP, int range)
     {
         int s = 0, e = 0;
         TileInfo tile, temp;
@@ -119,7 +120,7 @@ public class Calculator : MonoBehaviour {
             int k = tile.x % 2 == 1 ? 1 : 0;
             if (tile.gameObject.Equals(EP.gameObject))
             {
-                return true;
+                return RangeQueue[s];
             }
             temp = GameData.data.FindTile(tile.x, tile.y - 1);
             if (temp != null && RangeQueue[s] + 1 <= range)
@@ -165,12 +166,7 @@ public class Calculator : MonoBehaviour {
             }
             s++;
         }
-        return false;
+        return -1;
     }
 
-    //공격 가능 여부 계산, 가능 : true, 불가능 : false
-    public bool Attack()
-    {
-        return false;
-    }
 }

@@ -2,24 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Anim : MonoBehaviour {
-
-    [SerializeField] float delay;
-
-    Animator anim;
+public class Anim : Photon.MonoBehaviour {
+    
+    public Animator anim;
     
 	void Awake ()
     {
         anim = GetComponent<Animator>();
 	}
-
-    /*public IEnumerator Attack(GameObject Target)
-    {
-        Anim target=Target.GetComponent<Anim>();
-        anim.SetTrigger("Attack");
-        yield return new WaitForSeconds(delay);
-        target.Block();
-    }*/
     public void Attack()
     {
         anim.SetTrigger("ATTACK");
@@ -39,5 +29,15 @@ public class Anim : MonoBehaviour {
     public void DIE()
     {
         anim.SetTrigger("DIE");
+    }
+
+
+    //특수 애니메이션
+
+    //닌자 회피 애니메이션
+    [PunRPC]
+    public void EVASION()
+    {
+        anim.SetTrigger("EVASION");
     }
 }

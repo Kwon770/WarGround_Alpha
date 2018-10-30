@@ -48,4 +48,5 @@ MonoBehaviour:
   - GetDemage
   - SetOwner
   - Attack
+  - EVASION
   DisableAutoOpenWizard: 1
