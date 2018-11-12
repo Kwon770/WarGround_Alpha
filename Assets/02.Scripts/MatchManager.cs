@@ -89,6 +89,7 @@ public class MatchManager : Photon.MonoBehaviour {
         {
             sceneCheck = false;
             //씬 변경 시작
+            if(PhotonNetwork.isMasterClient)PhotonNetwork.Instantiate("NetworkManager", Vector3.zero, Quaternion.identity, 0);
             photonView.RPC("SceneLoadStart", PhotonTargets.All);
         }
     }

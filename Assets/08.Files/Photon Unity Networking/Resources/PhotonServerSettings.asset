@@ -49,4 +49,7 @@ MonoBehaviour:
   - SetOwner
   - Attack
   - EVASION
+  - ChangeOwner
+  - SetMaster
+  - SetOwnerUI
   DisableAutoOpenWizard: 1

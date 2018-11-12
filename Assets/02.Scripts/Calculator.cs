@@ -11,13 +11,24 @@ public class Calculator : MonoBehaviour {
 	}
 
     //이동 행동력계산,path 반환
-    public List<TileInfo> Move(TileInfo EP, TileInfo SP, int Act)
+    public List<TileInfo> Move(TileInfo SP, TileInfo EP, int Act)
     {
         int s=0, e=0, minAct=Act+1,minActIndex=0;
+
         TileInfo tile, temp;
         List<TileInfo> TileQueue = new List<TileInfo>();
         List<int> ActQueue = new List<int>();
         List<int> PathQueue = new List<int>();
+        int[,] check = new int[15,15];
+
+        //초기화
+        for(int i = 0; i < 15; i++)
+        {
+            for(int j = 0; j < 15; j++)
+            {
+                check[i, j] = 999;
+            }
+        }
         TileQueue.Add(SP);
         ActQueue.Add(0);
         PathQueue.Add(0);
@@ -39,49 +50,57 @@ public class Calculator : MonoBehaviour {
                 //최소값 비교
             }
 
+            Debug.Log(tile.x + " " + tile.y);
+
             temp = GameData.data.FindTile(tile.x, tile.y - 1);
-            if (temp != null && ActQueue[s]+temp.cost<=Act)
+            if (temp != null && ActQueue[s]+temp.cost<=Act && check[temp.x,temp.y] > ActQueue[s] + temp.cost)
             {
+                check[temp.x, temp.y] = ActQueue[s] + temp.cost;
                 e++;
                 TileQueue.Add(temp);
                 ActQueue.Add(ActQueue[s] + temp.cost);
                 PathQueue.Add(s);
             }
             temp = GameData.data.FindTile(tile.x, tile.y + 1);
-            if (temp != null && ActQueue[s] + temp.cost <= Act)
+            if (temp != null && ActQueue[s] + temp.cost <= Act && check[temp.x, temp.y] > ActQueue[s] + temp.cost)
             {
+                check[temp.x, temp.y] = ActQueue[s] + temp.cost;
                 e++;
                 TileQueue.Add(temp);
                 ActQueue.Add(ActQueue[s] + temp.cost);
                 PathQueue.Add(s);
             }
             temp = GameData.data.FindTile(tile.x + 1, tile.y - k);
-            if (temp != null && ActQueue[s] + temp.cost <= Act)
+            if (temp != null && ActQueue[s] + temp.cost <= Act && check[temp.x, temp.y] > ActQueue[s] + temp.cost)
             {
+                check[temp.x, temp.y] = ActQueue[s] + temp.cost;
                 e++;
                 TileQueue.Add(temp);
                 ActQueue.Add(ActQueue[s] + temp.cost);
                 PathQueue.Add(s);
             }
             temp = GameData.data.FindTile(tile.x + 1, tile.y + 1 - k);
-            if (temp != null && ActQueue[s] + temp.cost <= Act)
+            if (temp != null && ActQueue[s] + temp.cost <= Act && check[temp.x, temp.y] > ActQueue[s] + temp.cost)
             {
+                check[temp.x, temp.y] = ActQueue[s] + temp.cost;
                 e++;
                 TileQueue.Add(temp);
                 ActQueue.Add(ActQueue[s] + temp.cost);
                 PathQueue.Add(s);
             }
             temp = GameData.data.FindTile(tile.x - 1, tile.y - k);
-            if (temp != null && ActQueue[s] + temp.cost <= Act)
+            if (temp != null && ActQueue[s] + temp.cost <= Act && check[temp.x, temp.y] > ActQueue[s] + temp.cost)
             {
+                check[temp.x, temp.y] = ActQueue[s] + temp.cost;
                 e++;
                 TileQueue.Add(temp);
                 ActQueue.Add(ActQueue[s] + temp.cost);
                 PathQueue.Add(s);
             }
             temp = GameData.data.FindTile(tile.x - 1, tile.y + 1 - k);
-            if (temp != null && ActQueue[s] + temp.cost <= Act)
+            if (temp != null && ActQueue[s] + temp.cost <= Act && check[temp.x, temp.y] > ActQueue[s] + temp.cost)
             {
+                check[temp.x, temp.y] = ActQueue[s] + temp.cost;
                 e++;
                 TileQueue.Add(temp);
                 ActQueue.Add(ActQueue[s] + temp.cost);
@@ -99,6 +118,7 @@ public class Calculator : MonoBehaviour {
                 index = PathQueue[index];
                 path.Add(TileQueue[index]);
             }
+            path.Reverse();
             return path;
         }
         return null;

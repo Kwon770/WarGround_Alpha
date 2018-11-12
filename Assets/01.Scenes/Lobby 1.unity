@@ -5589,9 +5589,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panels: {fileID: 1375073549}
-  _home: {fileID: 1099125903}
-  _play: {fileID: 1442601437}
-  _character: {fileID: 626196296}
+  _buttons:
+  - {fileID: 1099125903}
+  - {fileID: 1442601437}
+  - {fileID: 626196296}
 --- !u!4 &129799034 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4399618948696068, guid: aa35b9b48e01949829454aec1d420341,

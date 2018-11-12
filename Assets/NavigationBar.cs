@@ -12,16 +12,12 @@ public class NavigationBar : MonoBehaviour
     }
 
     [SerializeField] Panels panels;
-    [SerializeField] NavigationButton _home;
-    [SerializeField] NavigationButton _play;
-    [SerializeField] NavigationButton _character;
 
+    [SerializeField][Tooltip("0 == Home, 1 == Play, 2 == Character")]
     NavigationButton[] _buttons;
 
     private void Awake()
     {
-        _buttons = new NavigationButton[] { _home, _play, _character };
-
         // 클릭 이벤트 등록
         for (int i = 0; i < _buttons.Length; i++)
         {
