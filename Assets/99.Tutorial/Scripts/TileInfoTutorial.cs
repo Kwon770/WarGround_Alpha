@@ -8,30 +8,35 @@ public class TileInfoTutorial : MonoBehaviour {
     [SerializeField] public int Y = 0;
     [SerializeField] public int cost = 1;
     [SerializeField] enum ocpyStat { team, enemy, none }
-    [SerializeField] bool selectTile = false;
+    [SerializeField] public bool selectTile = false;
+    [SerializeField] public bool firstTile = false;  // 반드시 이동, 혹은 공격 후에 이것을 false 로 되돌려줘야한다.
 
-    void ChangeVisual( ocpyStat stat, bool select ) // 점령 상태에 따라 타일 색상을 변경
+    Renderer mat;
+
+    private void Start()
     {
-        if( stat == ocpyStat.team )
-        {
+        mat = transform.GetChild(0).gameObject.GetComponent<Renderer>();
 
-        }
-        else if( stat == ocpyStat.enemy )
-        {
 
+    }
+
+    private void Update()
+    {
+        ChangeVisual();
+    }
+
+    void ChangeVisual() // 점령 상태에 따라 타일 색상을 변경
+    {
+        
+        
+
+        if( selectTile == true )
+        {
+            mat.material.color = Color.red;
         }
         else
         {
-
-        }
-
-        if( select == false )
-        {
-            //투명도 50%적용
-        }
-        else
-        {
-            //투명도 100% 적용
+            mat.material.color = Color.white;
         }
     }
 

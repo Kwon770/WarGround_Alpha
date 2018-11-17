@@ -161,6 +161,7 @@ MonoBehaviour:
   Y: 5
   cost: 1
   selectTile: 0
+  firstTile: 0
 --- !u!64 &31518874
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -300,6 +301,7 @@ MonoBehaviour:
   Y: 1
   cost: 1
   selectTile: 0
+  firstTile: 0
 --- !u!64 &64111653
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -363,6 +365,7 @@ MonoBehaviour:
   Y: 7
   cost: 1
   selectTile: 0
+  firstTile: 0
 --- !u!64 &65848543
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -578,6 +581,7 @@ MonoBehaviour:
   Y: 2
   cost: 1
   selectTile: 0
+  firstTile: 0
 --- !u!64 &216568708
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -641,6 +645,7 @@ MonoBehaviour:
   Y: 5
   cost: 1
   selectTile: 0
+  firstTile: 0
 --- !u!64 &222202990
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -856,6 +861,7 @@ MonoBehaviour:
   Y: 2
   cost: 1
   selectTile: 0
+  firstTile: 0
 --- !u!64 &321301468
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1071,6 +1077,7 @@ MonoBehaviour:
   Y: 5
   cost: 1
   selectTile: 0
+  firstTile: 0
 --- !u!64 &348453619
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1134,6 +1141,7 @@ MonoBehaviour:
   Y: 4
   cost: 1
   selectTile: 0
+  firstTile: 0
 --- !u!64 &427914586
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1197,6 +1205,7 @@ MonoBehaviour:
   Y: 2
   cost: 1
   selectTile: 0
+  firstTile: 0
 --- !u!64 &437735564
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1488,6 +1497,7 @@ MonoBehaviour:
   Y: 2
   cost: 1
   selectTile: 0
+  firstTile: 0
 --- !u!64 &547324561
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1808,6 +1818,7 @@ MonoBehaviour:
   Y: 5
   cost: 1
   selectTile: 0
+  firstTile: 0
 --- !u!64 &598197081
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1948,6 +1959,7 @@ MonoBehaviour:
   Y: 4
   cost: 1
   selectTile: 0
+  firstTile: 0
 --- !u!64 &664614202
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2011,6 +2023,7 @@ MonoBehaviour:
   Y: 6
   cost: 1
   selectTile: 0
+  firstTile: 0
 --- !u!64 &692036042
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2074,6 +2087,7 @@ MonoBehaviour:
   Y: 3
   cost: 1
   selectTile: 0
+  firstTile: 0
 --- !u!64 &697669591
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2394,6 +2408,7 @@ MonoBehaviour:
   Y: 3
   cost: 1
   selectTile: 0
+  firstTile: 0
 --- !u!64 &824161311
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2533,6 +2548,7 @@ MonoBehaviour:
   Y: 3
   cost: 1
   selectTile: 0
+  firstTile: 1
 --- !u!64 &860502340
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2596,6 +2612,7 @@ MonoBehaviour:
   Y: 4
   cost: 1
   selectTile: 0
+  firstTile: 0
 --- !u!64 &867418698
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2658,6 +2675,7 @@ MonoBehaviour:
   Y: 1
   cost: 1
   selectTile: 0
+  firstTile: 0
 --- !u!64 &925047375
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2873,6 +2891,7 @@ MonoBehaviour:
   Y: 0
   cost: 1
   selectTile: 0
+  firstTile: 0
 --- !u!64 &1007509225
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2936,6 +2955,7 @@ MonoBehaviour:
   Y: 3
   cost: 1
   selectTile: 0
+  firstTile: 0
 --- !u!64 &1008793564
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2999,6 +3019,7 @@ MonoBehaviour:
   Y: 6
   cost: 1
   selectTile: 0
+  firstTile: 0
 --- !u!64 &1059263025
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -3504,6 +3525,7 @@ MonoBehaviour:
   Y: 5
   cost: 1
   selectTile: 0
+  firstTile: 0
 --- !u!64 &1222428596
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -3643,6 +3665,7 @@ MonoBehaviour:
   Y: 1
   cost: 1
   selectTile: 0
+  firstTile: 0
 --- !u!64 &1322932243
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -3787,6 +3810,7 @@ MonoBehaviour:
   Y: 2
   cost: 1
   selectTile: 0
+  firstTile: 0
 --- !u!64 &1352972934
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -3918,6 +3942,85 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e7f472dbb5d3aa4c9e06125a261025f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myTurn: 0
+  unit: {fileID: 0}
+  startLocX: 0
+  startLocY: 0
+  goToLocX: 0
+  goToLocY: 0
+  listFirst: 0
+  listSize: 1
+  listSwitch: 0
+  tileSave:
+  - {fileID: 1322932240}
+  - {fileID: 321301465}
+  - {fileID: 824161308}
+  - {fileID: 1784793714}
+  - {fileID: 222202987}
+  - {fileID: 2024830473}
+  - {fileID: 925047372}
+  - {fileID: 547324558}
+  - {fileID: 697669588}
+  - {fileID: 867418695}
+  - {fileID: 31518871}
+  - {fileID: 1059263022}
+  - {fileID: 65848540}
+  - {fileID: 1007509222}
+  - {fileID: 2077470147}
+  - {fileID: 437735561}
+  - {fileID: 1667976786}
+  - {fileID: 1983787571}
+  - {fileID: 1926955286}
+  - {fileID: 692036039}
+  - {fileID: 1589655759}
+  - {fileID: 64111650}
+  - {fileID: 1352972931}
+  - {fileID: 860502337}
+  - {fileID: 427914583}
+  - {fileID: 1222428593}
+  - {fileID: 1737376419}
+  - {fileID: 1902315593}
+  - {fileID: 1787663914}
+  - {fileID: 216568705}
+  - {fileID: 1008793561}
+  - {fileID: 664614199}
+  - {fileID: 348453616}
+  - {fileID: 598197078}
+  tileSaveInfo:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &1589655759
 GameObject:
   m_ObjectHideFlags: 0
@@ -3966,6 +4069,7 @@ MonoBehaviour:
   Y: 7
   cost: 1
   selectTile: 0
+  firstTile: 0
 --- !u!64 &1589655762
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -4181,6 +4285,7 @@ MonoBehaviour:
   Y: 3
   cost: 1
   selectTile: 0
+  firstTile: 0
 --- !u!64 &1667976789
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -4396,6 +4501,7 @@ MonoBehaviour:
   Y: 6
   cost: 1
   selectTile: 0
+  firstTile: 0
 --- !u!64 &1737376422
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -4566,6 +4672,7 @@ MonoBehaviour:
   Y: 4
   cost: 1
   selectTile: 0
+  firstTile: 0
 --- !u!64 &1784793717
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -4629,6 +4736,7 @@ MonoBehaviour:
   Y: 1
   cost: 1
   selectTile: 0
+  firstTile: 0
 --- !u!64 &1787663917
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -4692,6 +4800,7 @@ MonoBehaviour:
   Y: 7
   cost: 1
   selectTile: 0
+  firstTile: 0
 --- !u!64 &1902315596
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -4755,6 +4864,7 @@ MonoBehaviour:
   Y: 5
   cost: 1
   selectTile: 0
+  firstTile: 0
 --- !u!64 &1926955289
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -4818,6 +4928,7 @@ MonoBehaviour:
   Y: 4
   cost: 1
   selectTile: 0
+  firstTile: 0
 --- !u!64 &1983787574
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -5033,6 +5144,7 @@ MonoBehaviour:
   Y: 6
   cost: 1
   selectTile: 0
+  firstTile: 0
 --- !u!64 &2024830476
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -5237,6 +5349,7 @@ MonoBehaviour:
   Y: 1
   cost: 1
   selectTile: 0
+  firstTile: 0
 --- !u!64 &2077470150
 MeshCollider:
   m_ObjectHideFlags: 0
