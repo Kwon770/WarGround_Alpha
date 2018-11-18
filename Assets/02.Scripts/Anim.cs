@@ -30,6 +30,14 @@ public class Anim : Photon.MonoBehaviour {
     {
         anim.SetTrigger("DIE");
     }
+    public void RISE()
+    {
+        anim.SetTrigger("RISE");
+    }
+    public void HEAL()
+    {
+        anim.SetTrigger("HEAL");
+    }
 
 
     //특수 애니메이션

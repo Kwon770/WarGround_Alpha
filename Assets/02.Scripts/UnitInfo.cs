@@ -92,7 +92,7 @@ public class UnitInfo : Photon.MonoBehaviour {
     [PunRPC]
     public void GetDemage(int ATK)
     {
-        if (!photonView.isMine) return;
+//        if (!photonView.isMine) return;
 
         //방어 무시일 경우
         if (ATK < 0)
@@ -116,6 +116,7 @@ public class UnitInfo : Photon.MonoBehaviour {
             }
         }
         HP -= ATK;
+        if (Kinds == "Guarder") SHD += 2;
     }
 
     //애니매이션 재생
@@ -134,12 +135,12 @@ public class UnitInfo : Photon.MonoBehaviour {
             time += Time.deltaTime * rotSpeed;
             yield return null;
         }
-
         anim.Attack();//가격 애니메이션 실행
         yield return new WaitForSeconds(delayTime);
         if (temp.HP > 0)
         {
-            temp.anim.Block();
+            if (Kinds == "Healer") temp.anim.HEAL();
+            else temp.anim.Block();
         }
         else temp.DIE();
         
@@ -195,13 +196,79 @@ public class UnitInfo : Photon.MonoBehaviour {
         moveTrigger = false;
     }
 
-    //사망
+    //피가 0 이하일때
     public void DIE()
     {
-        GameData.data.DelUnit(this);
         anim.DIE();
-        Destroy(gameObject,4f);
+        if (!photonView.isMine) return;
+        if (Banshee())
+        {
+            //부활
+            photonView.RPC("Rise", PhotonTargets.All);
+            return;
+        }
+        //사망처리
+        else
+        {
+            photonView.RPC("DestroyUnit", PhotonTargets.All);
+        }
     }
+
+    //사망처리
+    [PunRPC]
+    public void DestroyUnit()
+    {
+        GameData.data.DelUnit(this);
+        Destroy(gameObject, 4f);
+    }
+
+    //부활 관련 코드
+    public bool Banshee()
+    {
+        // 밴시 부활 여부 확인
+        foreach (UnitInfo unit in GameData.data.Units)
+        {
+            if (Kinds == "SkullKnight") break;
+            if (unit.Kinds == "Pluto_Banshee" && unit.Owner != Owner)
+            {
+
+                int range = Calculator.Calc.Range(GameData.data.FindTile(x, y), GameData.data.FindTile(unit.x, unit.y), 2);
+
+                Debug.Log(range);
+
+                if (range <= 2)
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public void ChangeForm()
+    {
+        transform.GetChild(0).GetComponent<SkinnedMeshRenderer>().sharedMesh = GameData.data.SkullKnight;
+    }
+
+    [PunRPC]
+    public void Rise()
+    {
+        if (GetComponent<Synchro>()==null)
+        {
+            gameObject.AddComponent<Synchro>();
+        }
+        else
+        {
+            Destroy(GetComponent<Synchro>());
+            photonView.RequestOwnership();
+            Kinds = "SkullKnight";
+            Owner = PhotonNetwork.playerName;
+            if (ATK == -2) ATK = -1;
+            HP = 2; MaxHP = 2; SHD = 2; range = 1; AddATK = 0; MaxAct = 2;
+        }
+        anim.RISE();
+    }
+
     private void OnDestroy()
     {
         Debug.Log(this + "오브젝트 사망");

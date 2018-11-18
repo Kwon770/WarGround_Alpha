@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GameData : MonoBehaviour {
-    public static GameData data;
 
+    [SerializeField] public Mesh SkullKnight;
+
+    public static GameData data;
+    
     [SerializeField] Transform Map;
     
     public TileInfo[] Tiles;

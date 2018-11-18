@@ -132,7 +132,7 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-    //이동 및 방어 행동 연산
+    //이동 및 공격, 방어 행동 연산
     void Move(GameObject Unit, GameObject Tile)
     {
         Debug.Log(Unit + " " + Tile);
@@ -145,7 +145,7 @@ public class GameManager : MonoBehaviour {
         Debug.Log(path);
         if (path == null) return;
         if (unit.move != null) StopCoroutine(unit.move);
-         unit.move = StartCoroutine(unit.Move(path));
+        unit.move = StartCoroutine(unit.Move(path));
     }
     void Attack(GameObject Attacker,GameObject Defender)
     {
@@ -159,7 +159,7 @@ public class GameManager : MonoBehaviour {
             if (defender.Kinds == "Ninja" && range > 1) defender.anim.photonView.RPC("EVASION", PhotonTargets.All);
 
             else defender.photonView.RPC("GetDemage", PhotonTargets.All, attacker.ATK + attacker.AddATK);
+            attacker.photonView.RPC("Attack", PhotonTargets.All,defender.x,defender.y);
         }
-        attacker.photonView.RPC("Attack", PhotonTargets.All,defender.x,defender.y);
     }
 }

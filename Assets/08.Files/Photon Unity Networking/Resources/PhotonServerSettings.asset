@@ -52,4 +52,7 @@ MonoBehaviour:
   - ChangeOwner
   - SetMaster
   - SetOwnerUI
+  - DIE
+  - Rise
+  - DestroyUnit
   DisableAutoOpenWizard: 1

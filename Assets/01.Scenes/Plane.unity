@@ -36789,6 +36789,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a69f764d831001641afb1f9cba06ae48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SkullKnight: {fileID: 4300030, guid: e6f8c6b4cd0c5d24fbefebd224edfdb5, type: 3}
   Map: {fileID: 1976405837}
   Tiles: []
   Units: []

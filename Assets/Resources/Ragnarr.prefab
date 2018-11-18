@@ -384,6 +384,7 @@ GameObject:
   - component: {fileID: 114922517274042090}
   - component: {fileID: 136099483496865010}
   - component: {fileID: 114037120508920130}
+  - component: {fileID: 114828630926165346}
   m_Layer: 0
   m_Name: Ragnarr
   m_TagString: Unit
@@ -2974,6 +2975,19 @@ MonoBehaviour:
   instantiationId: -1
   currentMasterID: -1
   isRuntimeInstantiated: 0
+--- !u!114 &114828630926165346
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1166917363261110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53a6ced5ea913be4298572ba1dbea0f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Units: []
+  unitName: 
 --- !u!114 &114922517274042090
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2985,6 +2999,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44dc29487264b45488d85297d748679e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 0}
   currrentPos: {x: 0, y: 0, z: 0}
   currentQuater: {x: 0, y: 0, z: 0, w: 0}
   moveTrigger: 0

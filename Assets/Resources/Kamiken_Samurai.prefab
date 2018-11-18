@@ -222,24 +222,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1404191423423434
-GameObject:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4445605339564014}
-  - component: {fileID: 33721085349780864}
-  - component: {fileID: 23567769623889126}
-  - component: {fileID: 95080599718032296}
-  m_Layer: 0
-  m_Name: Katana
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &1415546794099792
 GameObject:
   m_ObjectHideFlags: 1
@@ -545,6 +527,24 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1919359451391054
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4868836939080062}
+  - component: {fileID: 33609151369493590}
+  - component: {fileID: 23768759102722284}
+  - component: {fileID: 95208254590778468}
+  m_Layer: 0
+  m_Name: Prop_Naginata_01
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1923388924659878
 GameObject:
   m_ObjectHideFlags: 1
@@ -799,19 +799,6 @@ Transform:
   m_Father: {fileID: 4600958198972010}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4445605339564014
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1404191423423434}
-  m_LocalRotation: {x: -0.20771152, y: 0.26071948, z: -0.7373976, w: 0.58747435}
-  m_LocalPosition: {x: 0.114, y: 0.044, z: 0.125}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4600848801163624}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 90}
 --- !u!4 &4467575407252534
 Transform:
   m_ObjectHideFlags: 1
@@ -909,7 +896,7 @@ Transform:
   m_Children:
   - {fileID: 4146087552909874}
   - {fileID: 4233057681507964}
-  - {fileID: 4445605339564014}
+  - {fileID: 4868836939080062}
   m_Father: {fileID: 4340444327589406}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1020,7 +1007,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1511140357801966}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.1920118, y: 0.21650791, z: 4.780889}
+  m_LocalPosition: {x: 862.58954, y: 752.92993, z: -1435.6558}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4919602757531630}
@@ -1084,6 +1071,19 @@ Transform:
   m_Father: {fileID: 4696397517832420}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4868836939080062
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1919359451391054}
+  m_LocalRotation: {x: -0.11047393, y: 0.16427976, z: -0.83033067, w: 0.5209209}
+  m_LocalPosition: {x: 0.963, y: -0.329, z: -0.261}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4600848801163624}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 8.861, y: 22.124, z: 248.922}
 --- !u!4 &4891225280580464
 Transform:
   m_ObjectHideFlags: 1
@@ -1180,12 +1180,12 @@ Transform:
   m_Father: {fileID: 4218283046649448}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &23567769623889126
+--- !u!23 &23768759102722284
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1404191423423434}
+  m_GameObject: {fileID: 1919359451391054}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -1215,22 +1215,22 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33721085349780864
+--- !u!33 &33609151369493590
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1404191423423434}
-  m_Mesh: {fileID: 4300000, guid: daaf1aa9ebec9be46a25a5a154c040e5, type: 3}
---- !u!95 &95080599718032296
+  m_GameObject: {fileID: 1919359451391054}
+  m_Mesh: {fileID: 4300000, guid: dbee62cb4f9197345a6b16c9d5dd2613, type: 3}
+--- !u!95 &95208254590778468
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1404191423423434}
+  m_GameObject: {fileID: 1919359451391054}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: daaf1aa9ebec9be46a25a5a154c040e5, type: 3}
+  m_Avatar: {fileID: 9000000, guid: dbee62cb4f9197345a6b16c9d5dd2613, type: 3}
   m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
@@ -1307,6 +1307,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44dc29487264b45488d85297d748679e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 0}
   currrentPos: {x: 0, y: 0, z: 0}
   currentQuater: {x: 0, y: 0, z: 0, w: 0}
   moveTrigger: 0
@@ -1315,7 +1316,7 @@ MonoBehaviour:
   y: 0
   Kinds: Samurai
   CanSpawn: 0
-  delay: 1.2
+  delay: 1.1
   ATK: 3
   AddATK: 0
   MaxHP: 5

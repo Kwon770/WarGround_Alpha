@@ -30,11 +30,17 @@ public class Spawn : Photon.MonoBehaviour {
     public void UnitSpawn(TileInfo tile)
     {
         Vector3 spawnPos=tile.transform.position;
-        GameObject unit = PhotonNetwork.Instantiate(unitName, spawnPos, transform.rotation, 0);
+        UnitInfo unit = PhotonNetwork.Instantiate(unitName, spawnPos, transform.rotation, 0).GetComponent<UnitInfo>();
 
-        unit.GetComponent<UnitInfo>().SetOwner(PhotonNetwork.playerName);
-        unit.GetComponent<UnitInfo>().x = tile.x;
-        unit.GetComponent<UnitInfo>().y = tile.y;
+
+
+        unit.SetOwner(PhotonNetwork.playerName);
+        unit.x = tile.x;
+        unit.y = tile.y;
+        if (GetComponent<UnitInfo>().Kinds == "Mars")
+        {
+            unit.SHD += 1;
+        }
     }
     
     public void SetName(string name)

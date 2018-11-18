@@ -41,7 +41,6 @@ public class Calculator : MonoBehaviour {
             
             if (tile.gameObject.Equals(EP.gameObject))
             {
-                Debug.Log(ActQueue[s] + " " + minAct);
                 if (minAct > ActQueue[s])
                 {
                     minAct = ActQueue[s];
@@ -49,8 +48,7 @@ public class Calculator : MonoBehaviour {
                 }
                 //최소값 비교
             }
-
-            Debug.Log(tile.x + " " + tile.y);
+            
 
             temp = GameData.data.FindTile(tile.x, tile.y - 1);
             if (temp != null && ActQueue[s]+temp.cost<=Act && check[temp.x,temp.y] > ActQueue[s] + temp.cost)
