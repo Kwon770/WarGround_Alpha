@@ -16,6 +16,7 @@ public class TileInfoTutorial : MonoBehaviour {
     [SerializeField] public int stage;
     [SerializeField] public UnitInfoTutorial selectUnit;
 
+   
     Renderer mat;
 
     private void Start()
@@ -24,6 +25,7 @@ public class TileInfoTutorial : MonoBehaviour {
 
 
     }
+
 
     private void Update()
     {

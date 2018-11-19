@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TutorialManager : MonoBehaviour
 {
@@ -24,11 +25,18 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] TileInfoTutorial[] tileSaveInfo = new TileInfoTutorial[34];
     [SerializeField] UnitInfoTutorial selectUnit; // 지금 현재 고른 유닛 표시
 
+    [SerializeField] public bool canClick = true;
+    [SerializeField] int scriptNum = 0;
+    public Text myText;
+
+
+
 
     enum selectButton { Atk, Move };
 
     private void Start()
     {
+        ScriptIndex();
         for (int i = 0; i < 34; i++)
         {
             tileSaveInfo[i] = tileSave[i].GetComponent<TileInfoTutorial>();
@@ -78,7 +86,7 @@ public class TutorialManager : MonoBehaviour
     void GetGotoTile(TileInfoTutorial startTile, int actPoint)
     {
 
-
+        Debug.Log("abc");
         if (actPoint == 0)
         {
             return;
@@ -246,7 +254,7 @@ public class TutorialManager : MonoBehaviour
 
 
             tempStage++;
-            Debug.Log("tttt" + tempStage);
+            
         }
 
 
@@ -264,49 +272,24 @@ public class TutorialManager : MonoBehaviour
         if(tileStage == 0)
         {
             tileList.Add(pathSave);
+            selectUnit.actPoint--;
             Debug.Log("aaa");
         }
         else
         {
             tileList.Add(pathSave);
+            selectUnit.actPoint--;
             for (int i = 0; i < tileStage; i++)
             {
                 tileList.Add(pathSave.path);
+                Debug.Log(i);
+                selectUnit.actPoint--;
                 pathSave = pathSave.path;
             }
         }
-        /*else if(tileStage == 1)
-        {
-            tileList.Add(pathSave);
-            tileList.Add(pathSave.path);
-
-        }*/
-
-        StartCoroutine(UnitMove(tileList, tileStage, selectUnit));
         
-    }
 
-    IEnumerator UnitMove(List<TileInfoTutorial> moveList, int tileStage, UnitInfoTutorial moveUnit)   //유닛이 이동하는데 딜레이 있게 이동한다
-    {
-        if (tileStage == 0)
-        {
-            moveUnit.endPoint = moveList[0];
-            moveUnit.movingEnd = false;
-            yield return new WaitForSeconds(1.0f);
-            moveUnit.movingEnd = true;
-        }
-        else
-        {
-            for (int i = tileStage; i >= 0; i--)
-            {
-                moveUnit.movingEnd = false;
-                
-                moveUnit.endPoint = moveList[i];
-                yield return new WaitForSeconds(1.0f);
-            }
-            moveUnit.movingEnd = true;
-        }
-        
+        StartCoroutine(selectUnit.UnitMove(tileList, tileStage, selectUnit));
         
     }
 
@@ -317,4 +300,39 @@ public class TutorialManager : MonoBehaviour
             tileSaveInfo[i].selectTile = false;
         }
     }
+
+
+    public void MoveButtonAct()
+    {
+        if(canClick != true)
+        {
+            return;
+        }
+
+        if (selectUnit.movingEnd != true)
+        {
+            return;
+        }
+        GetGotoTile(selectUnit.startPoint, selectUnit.actPoint);
+    }
+
+    public void ScriptButtonAct()
+    {
+        scriptNum++;
+        ScriptIndex();
+        
+    }  //스크립트 버튼
+
+    public void ScriptIndex()
+    {
+        if(scriptNum == 0)
+        {
+            myText.text = "Welcome to Aisa.\n You're now in Tutorial.";
+        }
+        else if (scriptNum == 1)
+        {
+            myText.text = "Hello";
+        }
+    }
+
 }

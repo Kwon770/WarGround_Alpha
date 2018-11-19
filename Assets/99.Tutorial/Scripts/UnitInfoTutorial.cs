@@ -13,41 +13,57 @@ public class UnitInfoTutorial : MonoBehaviour {
     [SerializeField] bool moving = false;   //애니메이션 전용
     [SerializeField] public bool movingEnd = true;    //이동 중 명력 중복 수행 방지 전용, true= 버튼 누를수잇음, false = 못 누름
 
+
+    [SerializeField] Animator anim;
+
     private void Start()
     {
         transform.position = new Vector3(startPoint.transform.position.x, startPoint.transform.position.y, startPoint.transform.position.z);
         
     }
-
-    private void Update()
+    public IEnumerator UnitMove(List<TileInfoTutorial> path, int tileStage, UnitInfoTutorial moveUnit)   //유닛이 이동하는데 딜레이 있게 이동한다
     {
-        endPoint.firstTile = true;
+        movingEnd = false;
+        Debug.Log(path.Count);
+        path.Reverse();
+        Vector3 endPos;
+        Vector3 startPos;
+        Quaternion startRot;
+        Quaternion endRot;
 
-        if (startPoint != endPoint)
+        for (int i = 0; i < path.Count; i++)
         {
-            if(moving == false)
+            float time = 0;
+            endPos = path[i].transform.position;
+            startPos = transform.position;
+
+            endRot = Quaternion.LookRotation(path[i].transform.position - transform.position);
+            startRot = transform.rotation;
+
+            startPoint = path[i];
+
+            anim.SetBool("MOVE", true);
+            while (time <= 1)
             {
-                moving = true;
-                StartCoroutine(StopMoving());
+                Debug.Log("회전중");
+                transform.rotation = Quaternion.Lerp(startRot, endRot, time);
+                time += Time.deltaTime * 5;
+                yield return null;
             }
-
-            transform.position = Vector3.MoveTowards(transform.position, endPoint.transform.position, 8.0f * Time.deltaTime);
+            time = 0;
+            while (time <= 1)
+            {
+                Debug.Log("이동중");
+                transform.position = Vector3.Lerp(startPos, endPos, time);
+                time += Time.deltaTime * 1f;
+                yield return null;
+            }
+            anim.SetBool("MOVE", false);
+            yield return new WaitForSeconds(0.5f);
         }
-        else
-        {
-            moving = false;
-            
-        }
-
-        
+        movingEnd = true;
     }
-
-    IEnumerator StopMoving()
-    {
-        yield return new WaitForSeconds(0.5f);
-        moving = false;
-        startPoint = endPoint;
-    }
+    
 }
 
 
