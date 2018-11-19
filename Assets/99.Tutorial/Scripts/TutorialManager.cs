@@ -22,6 +22,7 @@ public class TutorialManager : MonoBehaviour
 
     [SerializeField] GameObject[] tileSave = new GameObject[34];
     [SerializeField] TileInfoTutorial[] tileSaveInfo = new TileInfoTutorial[34];
+    [SerializeField] UnitInfoTutorial selectUnit; // 지금 현재 고른 유닛 표시
 
 
     enum selectButton { Atk, Move };
@@ -39,9 +40,38 @@ public class TutorialManager : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            GetGotoTile(tileSaveInfo[15], 2);
+            GetGotoTile(selectUnit.myTile, 6);
         }
+
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit))
+        {
+            if(Input.GetMouseButtonDown(0))
+            {
+                if (hit.transform.tag == "Tile")
+                {
+                    TileInfoTutorial rayTile = hit.transform.GetComponent<TileInfoTutorial>();
+
+                    Debug.Log("a");
+
+                    if (rayTile.selectTile == true)
+                    {
+                        AfterBfsMove(rayTile, rayTile.stage);
+                    }
+                    
+                    
+                }
+                if (hit.transform.tag == "Unit")
+                {
+                    selectUnit = hit.transform.GetComponent<UnitInfoTutorial>();
+                }
+            }
+            
+        } //stage
+
     }
+
 
     void GetGotoTile(TileInfoTutorial startTile, int actPoint)
     {
@@ -63,11 +93,13 @@ public class TutorialManager : MonoBehaviour
         List<TileInfoTutorial> tileList = new List<TileInfoTutorial>();
         tileList.Add(startTile);
 
-       
+        int tempStage = 0; //이것은 경로 추적에 중요하다
 
         for (int i = 0; i < actPoint; i++) //행동력만큼 반복하며
         {
+            
            
+
             for (int j = listSwitch; j < listSize; j++) //리스트에 들어있는 타일을 기준으로 찾으며
             {
                 startLocX = tileList[j].X;
@@ -84,6 +116,8 @@ public class TutorialManager : MonoBehaviour
                         {
                             tileList.Add(tileSaveInfo[k]);
                             tileSaveInfo[k].selectTile = true;
+                            tileSaveInfo[k].path = tileList[j];
+                            tileSaveInfo[k].stage = tempStage;
                             listFirst++;
                             
                             
@@ -93,6 +127,8 @@ public class TutorialManager : MonoBehaviour
                            
                             tileList.Add(tileSaveInfo[k]);
                             tileSaveInfo[k].selectTile = true;
+                            tileSaveInfo[k].path = tileList[j];
+                            tileSaveInfo[k].stage = tempStage;
                             listFirst++;
                             
 
@@ -101,6 +137,8 @@ public class TutorialManager : MonoBehaviour
                         {
                             tileList.Add(tileSaveInfo[k]);
                             tileSaveInfo[k].selectTile = true;
+                            tileSaveInfo[k].path = tileList[j];
+                            tileSaveInfo[k].stage = tempStage;
                             listFirst++;
                             
 
@@ -109,6 +147,8 @@ public class TutorialManager : MonoBehaviour
                         {
                             tileList.Add(tileSaveInfo[k]);
                             tileSaveInfo[k].selectTile = true;
+                            tileSaveInfo[k].path = tileList[j];
+                            tileSaveInfo[k].stage = tempStage;
                             listFirst++;
                             
 
@@ -117,6 +157,8 @@ public class TutorialManager : MonoBehaviour
                         {
                             tileList.Add(tileSaveInfo[k]);
                             tileSaveInfo[k].selectTile = true;
+                            tileSaveInfo[k].path = tileList[j];
+                            tileSaveInfo[k].stage = tempStage;
                             listFirst++;
                             
 
@@ -125,6 +167,8 @@ public class TutorialManager : MonoBehaviour
                         {
                             tileList.Add(tileSaveInfo[k]);
                             tileSaveInfo[k].selectTile = true;
+                            tileSaveInfo[k].path = tileList[j];
+                            tileSaveInfo[k].stage = tempStage;
                             listFirst++;
                             
 
@@ -136,6 +180,8 @@ public class TutorialManager : MonoBehaviour
                         {
                             tileList.Add(tileSaveInfo[k]);
                             tileSaveInfo[k].selectTile = true;
+                            tileSaveInfo[k].path = tileList[j];
+                            tileSaveInfo[k].stage = tempStage;
                             listFirst++;
 
                             
@@ -144,6 +190,8 @@ public class TutorialManager : MonoBehaviour
                         {
                             tileList.Add(tileSaveInfo[k]);
                             tileSaveInfo[k].selectTile = true;
+                            tileSaveInfo[k].path = tileList[j];
+                            tileSaveInfo[k].stage = tempStage;
                             listFirst++;
                             
                         }
@@ -151,6 +199,8 @@ public class TutorialManager : MonoBehaviour
                         {
                             tileList.Add(tileSaveInfo[k]);
                             tileSaveInfo[k].selectTile = true;
+                            tileSaveInfo[k].path = tileList[j];
+                            tileSaveInfo[k].stage = tempStage;
                             listFirst++;
                             
                         }
@@ -158,6 +208,8 @@ public class TutorialManager : MonoBehaviour
                         {
                             tileList.Add(tileSaveInfo[k]);
                             tileSaveInfo[k].selectTile = true;
+                            tileSaveInfo[k].path = tileList[j];
+                            tileSaveInfo[k].stage = tempStage;
                             listFirst++;
                             
                         }
@@ -165,6 +217,8 @@ public class TutorialManager : MonoBehaviour
                         {
                             tileList.Add(tileSaveInfo[k]);
                             tileSaveInfo[k].selectTile = true;
+                            tileSaveInfo[k].path = tileList[j];
+                            tileSaveInfo[k].stage = tempStage;
                             listFirst++;
                             
                         }
@@ -172,6 +226,8 @@ public class TutorialManager : MonoBehaviour
                         {
                             tileList.Add(tileSaveInfo[k]);
                             tileSaveInfo[k].selectTile = true;
+                            tileSaveInfo[k].path = tileList[j];
+                            tileSaveInfo[k].stage = tempStage;
                             listFirst++;
                             
                         }
@@ -187,12 +243,63 @@ public class TutorialManager : MonoBehaviour
             listFirst = 0;
 
 
-            Debug.Log("listSwitch : " + listSize);
+            tempStage++;
+            Debug.Log("tttt" + tempStage);
         }
-        
 
-        
+
+        startTile.firstTile = false;
     }
 
 
+
+    void AfterBfsMove(TileInfoTutorial endTile, int tileStage)
+    {
+        
+        TileInfoTutorial pathSave = endTile;
+        List<TileInfoTutorial> tileList = new List<TileInfoTutorial>();
+
+        if(tileStage == 0)
+        {
+            tileList.Add(pathSave);
+            Debug.Log("aaa");
+        }
+        else
+        {
+            tileList.Add(pathSave);
+            for (int i = 0; i < tileStage; i++)
+            {
+                tileList.Add(pathSave.path);
+                pathSave = pathSave.path;
+            }
+        }
+        /*else if(tileStage == 1)
+        {
+            tileList.Add(pathSave);
+            tileList.Add(pathSave.path);
+
+        }*/
+
+        StartCoroutine(UnitMove(tileList, tileStage, selectUnit));
+        
+    }
+
+    IEnumerator UnitMove(List<TileInfoTutorial> moveList, int tileStage, UnitInfoTutorial moveUnit)
+    {
+        if (tileStage == 0)
+        {
+            moveUnit.gotoTile = moveList[0];
+        }
+        else
+        {
+            for (int i = tileStage; i >= 0; i--)
+            {
+                Debug.Log("몇번"+ tileStage);
+                moveUnit.gotoTile = moveList[i];
+                yield return new WaitForSeconds(1.5f);
+            }
+        }
+        
+        
+    }
 }

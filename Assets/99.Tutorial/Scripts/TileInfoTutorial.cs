@@ -9,7 +9,12 @@ public class TileInfoTutorial : MonoBehaviour {
     [SerializeField] public int cost = 1;
     [SerializeField] enum ocpyStat { team, enemy, none }
     [SerializeField] public bool selectTile = false;
-    [SerializeField] public bool firstTile = false;  // 반드시 이동, 혹은 공격 후에 이것을 false 로 되돌려줘야한다.
+    [SerializeField] public bool firstTile = false; // 당연히 행동대상 유닛이 있느 타일은 활성화가 되면 안되잖냐
+
+    //이동관련
+    [SerializeField] public TileInfoTutorial path;
+    [SerializeField] public int stage;
+    [SerializeField] public UnitInfoTutorial selectUnit;
 
     Renderer mat;
 
