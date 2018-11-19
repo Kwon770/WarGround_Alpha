@@ -38,9 +38,9 @@ public class TutorialManager : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
+        if(Input.GetKeyDown(KeyCode.Space) && selectUnit.movingEnd == true)
         {
-            GetGotoTile(selectUnit.myTile, 6);
+            GetGotoTile(selectUnit.startPoint, selectUnit.actPoint);
         }
 
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -58,6 +58,7 @@ public class TutorialManager : MonoBehaviour
                     if (rayTile.selectTile == true)
                     {
                         AfterBfsMove(rayTile, rayTile.stage);
+                        AllTileBreak();
                     }
                     
                     
@@ -284,22 +285,35 @@ public class TutorialManager : MonoBehaviour
         
     }
 
-    IEnumerator UnitMove(List<TileInfoTutorial> moveList, int tileStage, UnitInfoTutorial moveUnit)
+    IEnumerator UnitMove(List<TileInfoTutorial> moveList, int tileStage, UnitInfoTutorial moveUnit)   //유닛이 이동하는데 딜레이 있게 이동한다
     {
         if (tileStage == 0)
         {
-            moveUnit.gotoTile = moveList[0];
+            moveUnit.endPoint = moveList[0];
+            moveUnit.movingEnd = false;
+            yield return new WaitForSeconds(1.0f);
+            moveUnit.movingEnd = true;
         }
         else
         {
             for (int i = tileStage; i >= 0; i--)
             {
-                Debug.Log("몇번"+ tileStage);
-                moveUnit.gotoTile = moveList[i];
-                yield return new WaitForSeconds(1.5f);
+                moveUnit.movingEnd = false;
+                
+                moveUnit.endPoint = moveList[i];
+                yield return new WaitForSeconds(1.0f);
             }
+            moveUnit.movingEnd = true;
         }
         
         
+    }
+
+    void AllTileBreak()   //명령 후 모든 타일 초기화
+    {
+        for (int i = 0; i < 34; i++)
+        {
+            tileSaveInfo[i].selectTile = false;
+        }
     }
 }

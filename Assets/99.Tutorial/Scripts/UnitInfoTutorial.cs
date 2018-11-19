@@ -4,19 +4,23 @@ using UnityEngine;
 
 public class UnitInfoTutorial : MonoBehaviour {
 
-    [SerializeField] public TileInfoTutorial gotoTile;
-    [SerializeField] public TileInfoTutorial myTile;
+    [SerializeField] public TileInfoTutorial endPoint;
+    [SerializeField] public TileInfoTutorial startPoint; // 이동용
 
-    [SerializeField] bool moving = false;
+    [SerializeField] public int actPoint;
+
+    [SerializeField] bool moving = false;   //애니메이션 전용
+    [SerializeField] public bool movingEnd = true;    //이동 중 명력 중복 수행 방지 전용, true= 버튼 누를수잇음, false = 못 누름
 
     private void Start()
     {
-        transform.position = new Vector3(myTile.transform.position.x, myTile.transform.position.y, myTile.transform.position.z);
+        transform.position = new Vector3(startPoint.transform.position.x, startPoint.transform.position.y, startPoint.transform.position.z + 0.5f);
+        
     }
 
     private void Update()
     {
-        if(myTile != gotoTile)
+        if(startPoint != endPoint)
         {
             if(moving == false)
             {
@@ -24,7 +28,7 @@ public class UnitInfoTutorial : MonoBehaviour {
                 StartCoroutine(StopMoving());
             }
 
-            transform.position = Vector3.MoveTowards(transform.position, gotoTile.transform.position, 8.0f * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, endPoint.transform.position, 8.0f * Time.deltaTime);
         }
         else
         {
@@ -36,9 +40,9 @@ public class UnitInfoTutorial : MonoBehaviour {
 
     IEnumerator StopMoving()
     {
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(0.5f);
         moving = false;
-        myTile = gotoTile;
+        startPoint = endPoint;
     }
 }
 

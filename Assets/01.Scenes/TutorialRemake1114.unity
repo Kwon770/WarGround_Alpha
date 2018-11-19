@@ -161,7 +161,7 @@ MonoBehaviour:
   Y: 5
   cost: 1
   selectTile: 0
-  firstTile: 0
+  firstTile: 1
   path: {fileID: 0}
   stage: 0
   selectUnit: {fileID: 0}
@@ -1848,7 +1848,7 @@ MonoBehaviour:
   Y: 5
   cost: 1
   selectTile: 0
-  firstTile: 0
+  firstTile: 1
   path: {fileID: 0}
   stage: 0
   selectUnit: {fileID: 0}
@@ -1992,7 +1992,7 @@ MonoBehaviour:
   Y: 4
   cost: 1
   selectTile: 0
-  firstTile: 0
+  firstTile: 1
   path: {fileID: 0}
   stage: 0
   selectUnit: {fileID: 0}
@@ -2660,7 +2660,7 @@ MonoBehaviour:
   Y: 4
   cost: 1
   selectTile: 0
-  firstTile: 0
+  firstTile: 1
   path: {fileID: 0}
   stage: 0
   selectUnit: {fileID: 0}
@@ -2851,9 +2851,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c066e538b29465f4ebdfc9c859740fa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gotoTile: {fileID: 1322932242}
-  myTile: {fileID: 1322932242}
+  endPoint: {fileID: 1322932242}
+  startPoint: {fileID: 1322932242}
+  actPoint: 6
   moving: 0
+  movingEnd: 1
 --- !u!136 &967836134
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -4194,7 +4196,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  selectUnit: {fileID: 0}
+  selectUnit: {fileID: 967836133}
 --- !u!1 &1589655759
 GameObject:
   m_ObjectHideFlags: 0
