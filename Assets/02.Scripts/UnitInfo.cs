@@ -17,6 +17,8 @@ public class UnitInfo : Photon.MonoBehaviour {
     
     public Coroutine move;
 
+    [SerializeField] bool dieTrigger;
+
     [SerializeField] public string Kinds;
 
     [SerializeField] bool CanSpawn;
@@ -48,6 +50,7 @@ public class UnitInfo : Photon.MonoBehaviour {
     }
     IEnumerator Setting()
     {
+        dieTrigger = false;
         anim = GetComponent<Anim>();
         DontDestroyOnLoad(gameObject);
         moveTrigger = false;
@@ -90,32 +93,35 @@ public class UnitInfo : Photon.MonoBehaviour {
 
     //데미지받기
     [PunRPC]
-    public void GetDemage(int ATK)
+    public void GetDemage(int demage)
     {
 //        if (!photonView.isMine) return;
 
         //방어 무시일 경우
-        if (ATK < 0)
+        if (demage < 0)
         {
-            HP += ATK;
+            HP += demage;
             return;
         }
 
         //방어무시가 아닐경우
         if (SHD > 0)
         {
-            if (ATK >= SHD)
+            if (demage >= SHD)
             {
-                ATK -= SHD;
+                demage -= SHD;
                 SHD = 0;
             }
             else
             {
-                SHD -= ATK;
-                ATK = 0;
+                SHD -= demage;
+                demage = 0;
             }
         }
-        HP -= ATK;
+        HP -= demage;
+        if (HP <= 0) dieTrigger = true;
+
+        Debug.Log(gameObject + " " + dieTrigger);
         if (Kinds == "Guarder") SHD += 2;
     }
 
@@ -123,7 +129,6 @@ public class UnitInfo : Photon.MonoBehaviour {
     IEnumerator Animation(float delayTime, UnitInfo temp)
     {
         float time = 0;
-
         Quaternion startRot1 = transform.rotation;
         Quaternion endRot1 = Quaternion.LookRotation(temp.transform.position - transform.position);
         Quaternion startRot2 = temp.transform.rotation;
@@ -137,13 +142,13 @@ public class UnitInfo : Photon.MonoBehaviour {
         }
         anim.Attack();//가격 애니메이션 실행
         yield return new WaitForSeconds(delayTime);
-        if (temp.HP > 0)
+        Debug.Log(gameObject + " " + dieTrigger);
+        if(temp.dieTrigger) temp.DIE();
+        else
         {
             if (Kinds == "Healer") temp.anim.HEAL();
             else temp.anim.Block();
         }
-        else temp.DIE();
-        
     }
 
     //공격
@@ -177,14 +182,14 @@ public class UnitInfo : Photon.MonoBehaviour {
 
             anim.Move();//이동 애니메이션 시작
             time = 0;
-            while (Quaternion.Angle(endRot , transform.rotation)>5)
+            while (time <= 1)
             {
                 transform.rotation = Quaternion.Lerp(startRot, endRot, time);
                 time += Time.deltaTime * rotSpeed;
                 yield return null;
             }
             time = 0;
-            while (Vector3.Magnitude(transform.position-endPos)>0.1)
+            while (time <= 1)
             {
                 transform.position = Vector3.Lerp(startPos, endPos, time);
                 time += Time.deltaTime * moveSpeed;
@@ -199,6 +204,7 @@ public class UnitInfo : Photon.MonoBehaviour {
     //피가 0 이하일때
     public void DIE()
     {
+        Debug.Log("DDDd");
         anim.DIE();
         if (!photonView.isMine) return;
         if (Banshee())

@@ -1288,9 +1288,10 @@ MonoBehaviour:
   Owner: 
   x: 0
   y: 0
+  dieTrigger: 0
   Kinds: Pluto_Banshee
   CanSpawn: 0
-  delay: 0.4
+  delay: 1.4
   ATK: 4
   AddATK: 0
   MaxHP: 4

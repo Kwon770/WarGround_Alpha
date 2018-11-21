@@ -5,40 +5,27 @@ using UnityEngine.SceneManagement;
 
 public class MatchManager : Photon.MonoBehaviour {
     
-    [SerializeField] int[] EliteSelect;
     [SerializeField] string[] PlayerList;
     [SerializeField] string[] Elite;
-
-    public int EliteType;
-
+    int check;
     bool sceneCheck;
     string MapType;
     
     void Awake ()
     {
+        check = 0;
+
         ManagerLobbyNetwork.instance.MatchManager = this;
         DontDestroyOnLoad(this.gameObject);
 
         PlayerList = new string[PhotonNetwork.room.MaxPlayers];
-        EliteSelect = new int[PhotonNetwork.room.MaxPlayers];
         sceneCheck = true;
-
-        if (PhotonNetwork.room.MaxPlayers == 2)
-        {
-            MapType = "Plane";
-        }
-        else if (PhotonNetwork.room.MaxPlayers == 3)
-        {
-            MapType = "Desert";
-        }
-        else if (PhotonNetwork.room.MaxPlayers == 4)
-        {
-            MapType = "Snow";
-        }
+        
+        MapType = "Plane";
 
         photonView.RPC("GetUserID", PhotonTargets.MasterClient, PhotonNetwork.playerName);
     }
-
+    
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
         
@@ -52,6 +39,7 @@ public class MatchManager : Photon.MonoBehaviour {
         }
     }
 
+    //id 갱신
     [PunRPC]
     public void GetUserID(string name)
     {
@@ -66,47 +54,41 @@ public class MatchManager : Photon.MonoBehaviour {
     }
 
     [PunRPC]
-    public void SetElite(string name, int eliteType)
+    public void Check()
     {
-        Debug.Log(name + " " + eliteType);
-        for (int i = 0; i < PhotonNetwork.room.MaxPlayers; i++)
-        {
-            if (PlayerList[i] == name)
-            {
-                EliteSelect[i] = eliteType;
-                break;
-            }
-        }
+        check++;
     }
+
     private void Update()
     {
-        bool check = true;
-        for(int i = 0; i < PhotonNetwork.room.MaxPlayers; i++)
-        {
-            if (EliteSelect[i] == 0) check = false;
-        }
-        if (check && sceneCheck)
+        if (sceneCheck)
         {
             sceneCheck = false;
             //씬 변경 시작
             if(PhotonNetwork.isMasterClient)PhotonNetwork.Instantiate("NetworkManager", Vector3.zero, Quaternion.identity, 0);
             photonView.RPC("SceneLoadStart", PhotonTargets.All);
         }
+        if (check == PhotonNetwork.room.MaxPlayers) Destroy(this.gameObject);
     }
+    
+    //씬로드
     [PunRPC]
     public void SceneLoadStart()
     {
         StartCoroutine(SceneLoad());
     }
+
     IEnumerator SceneLoad()
     {
         AsyncOperation async = SceneManager.LoadSceneAsync(MapType);
         yield return async;
 
         //각자 지정한 엘리트 스폰
-        GameObject unit = PhotonNetwork.Instantiate(Elite[EliteType - 1], MapSet.instance.SpawnPoint[PhotonNetwork.player.ID - 1].transform.position, MapSet.instance.SpawnRotation[PhotonNetwork.player.ID - 1], 0);
+        GameObject unit = PhotonNetwork.Instantiate(Elite[ManagerLobbyNetwork.instance.EliteType - 1], MapSet.instance.SpawnPoint[PhotonNetwork.player.ID - 1].transform.position, MapSet.instance.SpawnRotation[PhotonNetwork.player.ID - 1], 0);
         unit.GetComponent<UnitInfo>().SetOwner(PhotonNetwork.playerName);
         unit.GetComponent<UnitInfo>().x = MapSet.instance.SpawnPoint[PhotonNetwork.player.ID - 1].GetComponent<TileInfo>().x;
         unit.GetComponent<UnitInfo>().y = MapSet.instance.SpawnPoint[PhotonNetwork.player.ID - 1].GetComponent<TileInfo>().y;
+
+        photonView.RPC("Check", PhotonTargets.MasterClient);
     }
 }
