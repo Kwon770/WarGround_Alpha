@@ -10,16 +10,8 @@ public class MenuControl : MonoBehaviour {
     [SerializeField] GameObject Pos;
     [SerializeField] GameObject home;
 
-    [SerializeField] float layoutMoveSpeed;
+    [SerializeField] float Speed;
     [SerializeField] AnimationCurve curve;
-
-    //public Button Button
-    //{
-    //    get
-    //    {
-    //        return _button;
-    //    }
-    //}
 
     public void Move()
     {
@@ -27,6 +19,7 @@ public class MenuControl : MonoBehaviour {
         startPos = transform.position;
         endPos = Pos.transform.position;
 
+        StopAllCoroutines();
         StartCoroutine(Anim(startPos, endPos));
     }
     public void Back()
@@ -35,17 +28,22 @@ public class MenuControl : MonoBehaviour {
         startPos = transform.position;
         endPos = home.transform.position;
 
+        StopAllCoroutines();
         StartCoroutine(Anim(startPos, endPos));
     }
     public IEnumerator Anim(Vector3 startPos, Vector3 endPos)
     {
+        Manager.instance.corutine = true;
+
         float time = 0;
 
         while (time <= 1)
         {
             transform.position = Vector3.Lerp(startPos, endPos, curve.Evaluate(time));
-            time += Time.deltaTime * layoutMoveSpeed;
+            time += Time.deltaTime * Speed;
             yield return null;
         }
+
+        Manager.instance.corutine = false;
     }
 }
