@@ -15,7 +15,7 @@ public class MatchManager : Photon.MonoBehaviour {
     {
         check = 0;
 
-        ManagerLobbyNetwork.instance.MatchManager = this;
+        LobbyNetwork.instance.MatchManager = this;
         DontDestroyOnLoad(this.gameObject);
 
         PlayerList = new string[PhotonNetwork.room.MaxPlayers];
@@ -84,7 +84,7 @@ public class MatchManager : Photon.MonoBehaviour {
         yield return async;
 
         //각자 지정한 엘리트 스폰
-        GameObject unit = PhotonNetwork.Instantiate(Elite[ManagerLobbyNetwork.instance.EliteType - 1], MapSet.instance.SpawnPoint[PhotonNetwork.player.ID - 1].transform.position, MapSet.instance.SpawnRotation[PhotonNetwork.player.ID - 1], 0);
+        GameObject unit = PhotonNetwork.Instantiate(Elite[LobbyNetwork.instance.EliteType - 1], MapSet.instance.SpawnPoint[PhotonNetwork.player.ID - 1].transform.position, MapSet.instance.SpawnRotation[PhotonNetwork.player.ID - 1], 0);
         unit.GetComponent<UnitInfo>().SetOwner(PhotonNetwork.playerName);
         unit.GetComponent<UnitInfo>().x = MapSet.instance.SpawnPoint[PhotonNetwork.player.ID - 1].GetComponent<TileInfo>().x;
         unit.GetComponent<UnitInfo>().y = MapSet.instance.SpawnPoint[PhotonNetwork.player.ID - 1].GetComponent<TileInfo>().y;

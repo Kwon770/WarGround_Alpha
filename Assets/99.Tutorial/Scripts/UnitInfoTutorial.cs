@@ -6,6 +6,7 @@ public class UnitInfoTutorial : MonoBehaviour {
 
     [SerializeField] public TileInfoTutorial endPoint;
     [SerializeField] public TileInfoTutorial startPoint; // 이동용
+    
 
     [SerializeField] public int actPoint;
 
@@ -14,13 +15,15 @@ public class UnitInfoTutorial : MonoBehaviour {
 
     private void Start()
     {
-        transform.position = new Vector3(startPoint.transform.position.x, startPoint.transform.position.y, startPoint.transform.position.z + 0.5f);
+        transform.position = new Vector3(startPoint.transform.position.x, startPoint.transform.position.y, startPoint.transform.position.z);
         
     }
 
     private void Update()
     {
-        if(startPoint != endPoint)
+        endPoint.firstTile = true;
+
+        if (startPoint != endPoint)
         {
             if(moving == false)
             {
@@ -33,6 +36,7 @@ public class UnitInfoTutorial : MonoBehaviour {
         else
         {
             moving = false;
+            
         }
 
         

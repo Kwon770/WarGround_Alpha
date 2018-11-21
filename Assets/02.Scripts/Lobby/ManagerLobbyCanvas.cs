@@ -144,7 +144,7 @@ public class ManagerLobbyCanvas : MonoBehaviour {
     [SerializeField] private GameObject Button_Common;
 
 
-    private ManagerLobbyNetwork network;
+    private LobbyNetwork network;
     private ManagerLobbySys sys;
 
 
@@ -202,7 +202,7 @@ public class ManagerLobbyCanvas : MonoBehaviour {
     }
     private void Start()
     {
-        network = GetComponent<ManagerLobbyNetwork>();
+        network = GetComponent<LobbyNetwork>();
         sys = GetComponent<ManagerLobbySys>();
 
         Fx_last3 = Fx_Home;

@@ -66,6 +66,7 @@ public class TutorialManager : MonoBehaviour
                 if (hit.transform.tag == "Unit")
                 {
                     selectUnit = hit.transform.GetComponent<UnitInfoTutorial>();
+                    
                 }
             }
             
