@@ -5,7 +5,7 @@ using UnityEngine;
 public class Panels : MonoBehaviour
 {
     [SerializeField] Transform Center;
-    [SerializeField] float layoutMoveSpeed;
+    [SerializeField] float Speed;
     [SerializeField] AnimationCurve curve;
 
     public void Move(int index)
@@ -26,7 +26,7 @@ public class Panels : MonoBehaviour
         while (time<=1)
         {
             transform.position = Vector3.Lerp(startPos, endPos, curve.Evaluate(time));
-            time += Time.deltaTime * layoutMoveSpeed;
+            time += Time.deltaTime * Speed;
             yield return null;
         }
     }
