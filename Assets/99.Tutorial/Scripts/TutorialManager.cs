@@ -23,11 +23,10 @@ public class TutorialManager : MonoBehaviour
 
     [SerializeField] GameObject[] tileSave = new GameObject[34];
     [SerializeField] TileInfoTutorial[] tileSaveInfo = new TileInfoTutorial[34];
-    [SerializeField] UnitInfoTutorial selectUnit; // 지금 현재 고른 유닛 표시
+    [SerializeField] public UnitInfoTutorial selectUnit; // 지금 현재 고른 유닛 표시
 
     [SerializeField] public bool canClick = true;
-    [SerializeField] int scriptNum = 0;
-    public Text myText;
+   
 
 
 
@@ -36,7 +35,7 @@ public class TutorialManager : MonoBehaviour
 
     private void Start()
     {
-        ScriptIndex();
+
         for (int i = 0; i < 34; i++)
         {
             tileSaveInfo[i] = tileSave[i].GetComponent<TileInfoTutorial>();
@@ -316,23 +315,6 @@ public class TutorialManager : MonoBehaviour
         GetGotoTile(selectUnit.startPoint, selectUnit.actPoint);
     }
 
-    public void ScriptButtonAct()
-    {
-        scriptNum++;
-        ScriptIndex();
-        
-    }  //스크립트 버튼
-
-    public void ScriptIndex()
-    {
-        if(scriptNum == 0)
-        {
-            myText.text = "Welcome to Aisa.\n You're now in Tutorial.";
-        }
-        else if (scriptNum == 1)
-        {
-            myText.text = "Hello";
-        }
-    }
+    
 
 }
