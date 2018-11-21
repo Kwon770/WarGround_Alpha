@@ -23,9 +23,14 @@ public class Manager : MonoBehaviour {
             {
 
             }
-            else if (scene == (int)Menunum.Play || scene == (int)Menunum.Character)
+            else if (scene == (int)Menunum.Play)
             {
                 StartCoroutine(menu.MenuReturnAnim());
+                scene = (int)Menunum.Home;
+            }
+            else if (scene == (int)Menunum.Character)
+            {
+                StartCoroutine(menu.CountryReturnAnim());
                 scene = (int)Menunum.Home;
             }
         }

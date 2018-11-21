@@ -55,4 +55,5 @@ MonoBehaviour:
   - DIE
   - Rise
   - DestroyUnit
+  - Check
   DisableAutoOpenWizard: 1

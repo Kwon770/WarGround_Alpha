@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class RoomManager : MonoBehaviour {
 
-    [SerializeField] ManagerLobbyNetwork network;
+    [SerializeField] LobbyNetwork network;
 	// Use this for initialization
 	void Awake () {
-        network = GetComponent<ManagerLobbyNetwork>();
+        network = GetComponent<LobbyNetwork>();
 	}
 	
     public void EnterRandomRoom()

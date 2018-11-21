@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ManagerLobbyNetwork : Photon.MonoBehaviour
+public class LobbyNetwork : Photon.MonoBehaviour
 {
-    public static ManagerLobbyNetwork instance;
+    public static LobbyNetwork instance;
 
     [SerializeField] public int EliteType;
     [SerializeField] string GameVersion;

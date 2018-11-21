@@ -16,13 +16,13 @@ public class ManagerLobbySys : MonoBehaviour {
     [SerializeField] private Text Text_PlayerID2;
     [SerializeField] private Text Text_OpID2;
 
-    private ManagerLobbyNetwork network;
+    private LobbyNetwork network;
     private string userName;
 
     // Use this for initialization
     void Start ()
     {
-        network = GetComponent<ManagerLobbyNetwork>();
+        network = GetComponent<LobbyNetwork>();
         userName = "Guest" + Random.Range(0, 1001);
         Text_User.text = userName;
         network.SetUserID(userName);

@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class MenuControl : MonoBehaviour {
 
-
     public Button button;
 
     [SerializeField] GameObject Pos;
@@ -14,6 +13,13 @@ public class MenuControl : MonoBehaviour {
     [SerializeField] float layoutMoveSpeed;
     [SerializeField] AnimationCurve curve;
 
+    //public Button Button
+    //{
+    //    get
+    //    {
+    //        return _button;
+    //    }
+    //}
 
     public void Move()
     {
