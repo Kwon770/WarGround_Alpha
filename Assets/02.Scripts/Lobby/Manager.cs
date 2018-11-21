@@ -12,7 +12,7 @@ public class Manager : MonoBehaviour {
         Play,
         Character,
     }
-    public int scene = 0;
+    [HideInInspector]public int scene = 0;
 
 
     void Update () {
