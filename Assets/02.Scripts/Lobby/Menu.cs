@@ -64,7 +64,6 @@ public class Menu : MonoBehaviour {
     {
         Partan.SetActive(true);
         Cora.SetActive(true);
-        yield return null;
 
         float time = 0;
 
