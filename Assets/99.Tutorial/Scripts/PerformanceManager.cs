@@ -21,7 +21,10 @@ public class PerformanceManager : MonoBehaviour {
     [SerializeField] bool opening;
 
     // ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ 여기서부턴 본게임
-   
+    [SerializeField] int sceneNum;
+    [SerializeField] GameObject button;
+
+
 
     private void Start()
     {
@@ -40,7 +43,8 @@ public class PerformanceManager : MonoBehaviour {
                 StopCoroutine(openingCoroutine);
                 tutorialStart();
 
-                
+                button.SetActive(true);
+
                 opening = false;
             }
             
@@ -52,28 +56,37 @@ public class PerformanceManager : MonoBehaviour {
     IEnumerator PerformanceSequence()
     {
         int i = 0;
+        Debug.Log("a");
+        
 
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1.0f);
 
         StartCoroutine(TextAlphaCaculator(true, textList[i])); // 0 START
-        
-        yield return new WaitForSeconds(3.5f);
-        StartCoroutine(TextAlphaCaculator(false, textList[i])); // 0 END
-        i++;
+
+        yield return new WaitForSeconds(2.0f);
         anim.SetBool("openingCam", true);
 
+        yield return new WaitForSeconds(1.0f);
+        StartCoroutine(TextAlphaCaculator(false, textList[i])); // 0 END
+        i++;
+        
+
         yield return new WaitForSeconds(3.5f);
-        StartCoroutine(TextAlphaCaculator(true, textList[i])); //1 START
+        StartCoroutine(TextAlphaCaculator(true, textList[i])); //1 START hong nyeom
         i++;
         StartCoroutine(TextAlphaCaculator(true, textList[i])); //2 START
 
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(3.0f);
         StartCoroutine(TextAlphaCaculator(false, textList[i-1])); //1 END
         StartCoroutine(TextAlphaCaculator(false, textList[i]));   //2 END
         i++;
 
         yield return new WaitForSeconds(3.0f);
-        StartCoroutine(TextAlphaCaculator(true, textList[i])); //3 START
+
+        
+        cam.GetComponent<CameraManager>().sceneNumber = 1;
+
+        StartCoroutine(TextAlphaCaculator(true, textList[i])); //3 START  hyun seok
         i++;
         StartCoroutine(TextAlphaCaculator(true, textList[i])); //4 START
 
@@ -83,7 +96,7 @@ public class PerformanceManager : MonoBehaviour {
         i++;
 
         yield return new WaitForSeconds(3.0f);
-        StartCoroutine(TextAlphaCaculator(true, textList[i])); //5 START
+        StartCoroutine(TextAlphaCaculator(true, textList[i])); //5 START soon chan
         i++;
         StartCoroutine(TextAlphaCaculator(true, textList[i])); //6 START
 
@@ -91,6 +104,17 @@ public class PerformanceManager : MonoBehaviour {
         StartCoroutine(TextAlphaCaculator(false, textList[i - 1])); //5 END
         StartCoroutine(TextAlphaCaculator(false, textList[i]));   //6 END
         i++;
+
+        yield return new WaitForSeconds(2.0f);
+        if (opening == true)
+        {
+            anim.SetBool("openingCam", false);
+            StopCoroutine(openingCoroutine);
+            tutorialStart();
+
+
+            opening = false;
+        }
 
         yield return null;
     }   //오프닝 시퀀스

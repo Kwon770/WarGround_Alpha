@@ -11,14 +11,24 @@ public class CameraManager : MonoBehaviour {
     [SerializeField] GameObject ship;
     [SerializeField] Vector3 shipAndCamDistance; // 카메라와 배 간 거리 저장
 
+    [SerializeField] public int sceneNumber;
+
     [SerializeField] bool openingStart = false;
+
+
+    [SerializeField] GameObject[] sceneLoc;
+    int animSwitch;
     
-    private void Start()
+    private void Start() // 지금 ㅇ브젝트 위치에 따라 처음 카메라 위치 잡고있음
     {
-        
+        sceneNumber = 0;
+        animSwitch = 0;
+
         opening = true;
+        transform.position = new Vector3(sceneLoc[0].transform.position.x, sceneLoc[0].transform.position.y, sceneLoc[0].transform.position.z);
+       
         shipAndCamDistance = new Vector3(transform.position.x - ship.transform.position.x, transform.position.y - ship.transform.position.y, transform.position.z - ship.transform.position.z);
-        transform.position = new Vector3(transform.position.x + ship.transform.position.x, transform.position.y, transform.position.z + ship.transform.position.z);
+        //transform.position = new Vector3(transform.position.x + ship.transform.position.x, transform.position.y, transform.position.z + ship.transform.position.z);
 
     }
 
@@ -27,7 +37,9 @@ public class CameraManager : MonoBehaviour {
         if (opening == true)
         {
             
-            transform.position = new Vector3(ship.transform.position.x, ship.transform.position.y, ship.transform.position.z) + shipAndCamDistance;
+                transform.position = new Vector3(ship.transform.position.x, ship.transform.position.y, ship.transform.position.z) + shipAndCamDistance;
+            
+
         }
          else
         {

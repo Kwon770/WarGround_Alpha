@@ -16,6 +16,8 @@ public class UnitInfoTutorial : MonoBehaviour {
 
     [SerializeField] Animator anim;
 
+    [SerializeField] ScriptManager scriptManager;
+
     private void Start()
     {
         transform.position = new Vector3(startPoint.transform.position.x, startPoint.transform.position.y, startPoint.transform.position.z);
@@ -62,6 +64,10 @@ public class UnitInfoTutorial : MonoBehaviour {
             yield return new WaitForSeconds(0.5f);
         }
         movingEnd = true;
+        scriptManager.canSkip = true;
+        scriptManager.textNumber++;
+        scriptManager.StartCoroutine(scriptManager.MessagePrint(scriptManager.boxIndex));
+        scriptManager.boxIndex = (scriptManager.boxIndex - 1) * -1;
     }
     
 }

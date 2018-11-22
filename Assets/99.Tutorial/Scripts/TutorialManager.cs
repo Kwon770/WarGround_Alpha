@@ -26,8 +26,10 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] public UnitInfoTutorial selectUnit; // 지금 현재 고른 유닛 표시
 
     [SerializeField] public bool canClick = true;
-   
 
+
+    // ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ 이제부터 본 게임
+    [SerializeField] ScriptManager scriptManager;
 
 
 
@@ -45,10 +47,10 @@ public class TutorialManager : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space) && selectUnit.movingEnd == true)
+        /*if(Input.GetKeyDown(KeyCode.Space) && selectUnit.movingEnd == true) 이제는 쓸모없는 친구
         {
             GetGotoTile(selectUnit.startPoint, selectUnit.actPoint);
-        }
+        }*/
 
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
@@ -258,6 +260,13 @@ public class TutorialManager : MonoBehaviour
 
 
         startTile.firstTile = false;
+        for(int i = 0; i < 34; i++)
+        {
+            if (i != 16)
+            {
+                tileSaveInfo[i].selectTile = false;
+            }
+        }
     }
 
 
@@ -312,9 +321,35 @@ public class TutorialManager : MonoBehaviour
         {
             return;
         }
+
+        canClick = false;
+
         GetGotoTile(selectUnit.startPoint, selectUnit.actPoint);
+        scriptManager.canSkip = true;
+        scriptManager.textNumber++;
+        scriptManager.StartCoroutine(scriptManager.MessagePrint(scriptManager.boxIndex));
+        scriptManager.boxIndex = (scriptManager.boxIndex - 1) * -1;
     }
 
-    
+    public void ClickTurnButton()
+    {
+        if (canClick != true)
+        {
+            return;
+        }
+
+        if (selectUnit.movingEnd != true)
+        {
+            return;
+        }
+
+        canClick = false;
+
+        GetGotoTile(selectUnit.startPoint, selectUnit.actPoint);
+        scriptManager.canSkip = true;
+        scriptManager.textNumber++;
+        scriptManager.StartCoroutine(scriptManager.MessagePrint(scriptManager.boxIndex));
+        scriptManager.boxIndex = (scriptManager.boxIndex - 1) * -1;
+    }
 
 }
