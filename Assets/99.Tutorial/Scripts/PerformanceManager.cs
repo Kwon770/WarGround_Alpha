@@ -7,7 +7,7 @@ public class PerformanceManager : MonoBehaviour {
 
     [SerializeField] Text presentsText;
     [SerializeField] float alphaSpeed;
-    [SerializeField] Text[] textList = new Text[20];
+    [SerializeField] Text[] textList = new Text[12];
     [SerializeField] GameObject cam;
     [SerializeField] Camera mainCam;
     //[SerializeField] Quaternion startRot; 지울것
@@ -16,22 +16,37 @@ public class PerformanceManager : MonoBehaviour {
     [SerializeField] Coroutine openingCoroutine; //오프닝 코루틴 멈추기
 
     [SerializeField] GameObject unit;
+    [SerializeField] GameObject scriptManager;
     [SerializeField] GameObject openingScript;
+    [SerializeField] bool opening;
+
+    // ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ 여기서부턴 본게임
+   
 
     private void Start()
     {
         openingCoroutine = StartCoroutine(PerformanceSequence());
 
+        opening = true;
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape))       //튜토리얼 종료용
         {
-            anim.SetBool("openingCam", false);
-            StopCoroutine(openingCoroutine);
-            tutorialStart();
+            if(opening == true)
+            {
+                anim.SetBool("openingCam", false);
+                StopCoroutine(openingCoroutine);
+                tutorialStart();
+
+                
+                opening = false;
+            }
+            
         }
+
+       
     }
 
     IEnumerator PerformanceSequence()
@@ -57,29 +72,30 @@ public class PerformanceManager : MonoBehaviour {
         StartCoroutine(TextAlphaCaculator(false, textList[i]));   //2 END
         i++;
 
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(3.0f);
         StartCoroutine(TextAlphaCaculator(true, textList[i])); //3 START
         i++;
         StartCoroutine(TextAlphaCaculator(true, textList[i])); //4 START
 
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(3.0f);
         StartCoroutine(TextAlphaCaculator(false, textList[i - 1])); //3 END
         StartCoroutine(TextAlphaCaculator(false, textList[i]));   //4 END
         i++;
 
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(3.0f);
         StartCoroutine(TextAlphaCaculator(true, textList[i])); //5 START
         i++;
         StartCoroutine(TextAlphaCaculator(true, textList[i])); //6 START
 
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(3.0f);
         StartCoroutine(TextAlphaCaculator(false, textList[i - 1])); //5 END
         StartCoroutine(TextAlphaCaculator(false, textList[i]));   //6 END
         i++;
 
         yield return null;
-    }
+    }   //오프닝 시퀀스
 
+    
 
     IEnumerator TextAlphaCaculator(bool alphaMax, Text textAlpha)
     {
@@ -119,10 +135,15 @@ public class PerformanceManager : MonoBehaviour {
         openingScript.SetActive(false);
         
         unit.SetActive(true);
-       
-        
-        
+
+        scriptManager.SetActive(true);
+
+
     }
+
+    // ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ 인게임입니다
+
+
 }
 
 

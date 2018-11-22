@@ -24,7 +24,6 @@ public class CameraManager : MonoBehaviour {
 
     private void Update()
     {
-        Debug.Log(cam.gameObject.transform.rotation);
         if (opening == true)
         {
             
@@ -35,19 +34,18 @@ public class CameraManager : MonoBehaviour {
             if(openingStart == false)
             {
                 cam.orthographic = true;
-
-//                Debug.Log(cam.gameObject.transform.rotation);
+                cam.orthographicSize = 7f;
+                
 
                 transform.rotation = Quaternion.Euler(45f, 30f, 0f);
                 cam.gameObject.transform.rotation = transform.rotation;
-//                Debug.Log(cam.gameObject.transform.rotation);
+              
 
                 openingStart = true;
             }
             
             transform.position = Vector3.Lerp(transform.position, tutoM.selectUnit.transform.position, 8.0f * Time.deltaTime);
-            //cam.gameObject.transform.position = new Vector3(transform.position.x + 0f,  transform.position.y + 1f, transform.position.z - 15f);
-            Debug.Log(cam.gameObject.transform.position);
+            
 
         }
 
