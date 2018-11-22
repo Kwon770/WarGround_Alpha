@@ -18,6 +18,8 @@ public class Manager : MonoBehaviour {
     [SerializeField] AnimationCurve curve;
     [SerializeField] float Speed;
 
+    [HideInInspector] public bool Anim = false;
+
     [HideInInspector] public GameObject Countrys;
     [HideInInspector] public GameObject Troops;
 
@@ -76,7 +78,7 @@ public class Manager : MonoBehaviour {
         float time = 0;
         while (time <= 1)
         {
-            Countrys.GetComponent<RectTransform>().sizeDelta = new Vector2(Mathf.Lerp(600, 215, curve.Evaluate(time)), 700);
+            Countrys.GetComponent<RectTransform>().sizeDelta = new Vector2(Mathf.Lerp(600, 220, curve.Evaluate(time)), 700);
             time += Time.deltaTime * Speed;
             yield return null;
         }
