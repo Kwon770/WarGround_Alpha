@@ -13,13 +13,21 @@ public class Menu : MonoBehaviour {
 
     [SerializeField] MenuControl PlayButton;
     [SerializeField] MenuControl CharacterButton;
+
     public GameObject Partan;
     public GameObject Cora;
+    public GameObject Random;
+    public GameObject Custom;
+    public GameObject Create;
+    public GameObject Join;
 
     [SerializeField] Manager manager;
 
     [SerializeField] AnimationCurve curve;
-    [SerializeField] float Speed;
+    [SerializeField][Tooltip("Fast Spee")]
+    float Speed;
+    [SerializeField][Tooltip("Slow Spee")]
+    float Speed1;
 
     public GameObject Empty_Icons;
 
@@ -32,7 +40,8 @@ public class Menu : MonoBehaviour {
         for (int i = 0; i < 6; i++)
         {
             int num = i;
-            EliteMenu[num].button.onClick.AddListener(new UnityEngine.Events.UnityAction(() =>LobbyNetwork.instance.SetElite(num)));
+            EliteMenu[num].button.onClick.AddListener(new UnityEngine.Events.UnityAction(() => LobbyNetwork.instance.SetElite(num)));
+            EliteMenu[num].button.onClick.AddListener(new UnityEngine.Events.UnityAction(() => IconSelectAnim1()));
         }
 
         StartCoroutine(MenuAnim());
@@ -94,8 +103,8 @@ public class Menu : MonoBehaviour {
         float time = 0;
         while (time <= 1)
         {
-            Partan.GetComponent<RectTransform>().sizeDelta = new Vector2(Mathf.Lerp(0, 215, curve.Evaluate(time)), 700);
-            Cora.GetComponent<RectTransform>().sizeDelta = new Vector2(Mathf.Lerp(0, 215, curve.Evaluate(time)), 700);
+            Partan.GetComponent<RectTransform>().sizeDelta = new Vector2(Mathf.Lerp(0, 220, curve.Evaluate(time)), 700);
+            Cora.GetComponent<RectTransform>().sizeDelta = new Vector2(Mathf.Lerp(0, 220, curve.Evaluate(time)), 700);
             time += Time.deltaTime * Speed;
             yield return null;
         }
@@ -110,18 +119,20 @@ public class Menu : MonoBehaviour {
         float time = 0;
         if(index == 0)
         {
+            Partan.transform.SetAsLastSibling();
             while (time <= 1)
             {
-                Partan.GetComponent<RectTransform>().sizeDelta = new Vector2(Mathf.Lerp(215, 600, curve.Evaluate(time)), 700);
+                Partan.GetComponent<RectTransform>().sizeDelta = new Vector2(Mathf.Lerp(220, 600, curve.Evaluate(time)), 700);
                 time += Time.deltaTime * Speed;
                 yield return null;
             }
         }
         else
         {
+            Cora.transform.SetAsLastSibling();
             while (time <= 1)
             {
-                Cora.GetComponent<RectTransform>().sizeDelta = new Vector2(Mathf.Lerp(215, 600, curve.Evaluate(time)), 700);
+                Cora.GetComponent<RectTransform>().sizeDelta = new Vector2(Mathf.Lerp(220, 600, curve.Evaluate(time)), 700);
                 time += Time.deltaTime * Speed;
                 yield return null;
             }
@@ -137,8 +148,8 @@ public class Menu : MonoBehaviour {
         float time = 0;
         while (time <= 1)
         {
-            Partan.GetComponent<RectTransform>().sizeDelta = new Vector2(Mathf.Lerp(215, 0, curve.Evaluate(time)), 700);
-            Cora.GetComponent<RectTransform>().sizeDelta = new Vector2(Mathf.Lerp(215, 0, curve.Evaluate(time)), 700);
+            Partan.GetComponent<RectTransform>().sizeDelta = new Vector2(Mathf.Lerp(220, 0, curve.Evaluate(time)), 700);
+            Cora.GetComponent<RectTransform>().sizeDelta = new Vector2(Mathf.Lerp(220, 0, curve.Evaluate(time)), 700);
             time += Time.deltaTime * Speed;
             yield return null;
         }
@@ -168,9 +179,20 @@ public class Menu : MonoBehaviour {
 
         Manager.instance.corutine = false;
     }
+
     public IEnumerator MenuReturnAnim()
     {
         Manager.instance.corutine = true;
+        Manager.instance.Anim = false;
+
+        float time = 0;
+        while (time <= 1)
+        {
+            Random.GetComponent<RectTransform>().sizeDelta = new Vector2(700, Mathf.Lerp(700, 0, curve.Evaluate(time)));
+            //Custom.GetComponent<RectTransform>().sizeDelta = new Vector2(Mathf.Lerp(220, 0, curve.Evaluate(time)), 700);
+            time += Time.deltaTime * Speed;
+            yield return null;
+        }
 
         foreach (var button in EliteMenu)
         {
@@ -184,4 +206,82 @@ public class Menu : MonoBehaviour {
 
         Manager.instance.corutine = false;
     }
+
+    public void IconSelectAnim1()
+    {
+        if(!Manager.instance.Anim)
+        {
+            Manager.instance.Anim = true;
+            StartCoroutine(IconSelectAnim2());
+        }
+    }
+    IEnumerator IconSelectAnim2()
+    {
+        Manager.instance.corutine = true;
+
+        Random.SetActive(true);
+        Random.transform.SetAsLastSibling();
+        //Custom.SetActive(true);
+        //Custom.transform.SetAsLastSibling();
+
+        float time = 0;
+        while (time <= 1)
+        {
+            Random.GetComponent<RectTransform>().sizeDelta = new Vector2(700, Mathf.Lerp(0, 700, curve.Evaluate(time)));
+            //Custom.GetComponent<RectTransform>().sizeDelta = new Vector2(Mathf.Lerp(0, 220, curve.Evaluate(time)), 700);
+            time += Time.deltaTime * Speed;
+            yield return null;
+        }
+
+        Manager.instance.corutine = false;
+    }
+
+    /*코루틴 시작, 코루틴
+    public void CustomSelect1()
+    {
+        StartCoroutine(CustomSelect2());
+    }
+    IEnumerator CustomSelect2()
+    {
+        Manager.instance.corutine = true;
+
+        Custom.transform.SetAsLastSibling();
+
+        StartCoroutine(CustomSelect3());
+
+        float time = 0;
+        while (time <= 1)
+        {
+            Custom.GetComponent<RectTransform>().sizeDelta = new Vector2(Mathf.Lerp(220, 600, curve.Evaluate(time)), 700);
+            time += Time.deltaTime * Speed;
+            yield return null;
+        }
+
+        Manager.instance.corutine = false;
+    }
+    IEnumerator CustomSelect3()
+    {
+        Manager.instance.corutine = true;
+
+        Create.SetActive(true);
+        Create.transform.SetAsLastSibling();
+        Join.SetActive(true);
+        Join.transform.SetAsLastSibling();
+
+        float time = 0;
+        while (time <= 1)
+        {
+            Create.GetComponent<RectTransform>().sizeDelta = new Vector2(Mathf.Lerp(0, 220, curve.Evaluate(time)), 700);
+            Create.transform.position = Vector3.Lerp(Create.transform.position, transform.GetChild(0).transform.position, curve.Evaluate(time));
+            Join.GetComponent<RectTransform>().sizeDelta = new Vector2(Mathf.Lerp(0, 220, curve.Evaluate(time)), 700);
+            Join.transform.position = Vector3.Lerp(Join.transform.position, Cora.transform.position, curve.Evaluate(time));
+
+            time += Time.deltaTime * Speed1;
+            yield return null;
+        }
+
+
+        Manager.instance.corutine = false;
+    }
+    */
 }

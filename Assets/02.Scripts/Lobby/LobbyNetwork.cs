@@ -10,8 +10,6 @@ public class LobbyNetwork : Photon.MonoBehaviour
     [SerializeField] public int EliteType;
     [SerializeField] string GameVersion;
     [SerializeField] string UserName;
-    private ManagerLobbyCanvas Canvas;
-    private ManagerLobbySys Sys;
 
     public MatchManager MatchManager;
 
@@ -20,10 +18,8 @@ public class LobbyNetwork : Photon.MonoBehaviour
         UserName = "Guest" + Random.Range(1, 1000);
         PhotonNetwork.playerName = UserName;//이름 지정 다음에 지워야함
         instance = this;//싱글톤
-        ConnectNetwork();//인터넷연결
+//        ConnectNetwork();//인터넷연결
         MatchManager = null;
-        Canvas = gameObject.GetComponent<ManagerLobbyCanvas>();
-        Sys = gameObject.GetComponent<ManagerLobbySys>();
         ConnectNetwork();
     }
 
@@ -120,6 +116,7 @@ public class LobbyNetwork : Photon.MonoBehaviour
 
     private void Update()
     {
+
         if(PhotonNetwork.inRoom)
         {
             Debug.Log(PhotonNetwork.room.Name + " " + PhotonNetwork.room.PlayerCount + " " + PhotonNetwork.playerName);
