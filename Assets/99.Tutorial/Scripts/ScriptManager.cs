@@ -17,7 +17,8 @@ public class ScriptManager : MonoBehaviour {
     [SerializeField] public int textNumber;
 
     //ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ 본게임입니다
-    [SerializeField] PerformanceManager perform;
+    [SerializeField] TutorialManager tutorialManager;
+    [SerializeField] GameObject[] pressEnterText; 
 
     private void Start()
     {
@@ -28,9 +29,28 @@ public class ScriptManager : MonoBehaviour {
     {
         if(Input.GetKeyDown(KeyCode.Return) && canSkip == true)  //0, 1, 5, 6enemy, 13, 14enemy, 15, 17, 20 enter 할 시 씬 종료
         {
-            textNumber++;
-            StartCoroutine(MessagePrint(boxIndex));
-            boxIndex = (boxIndex - 1) * -1;
+           
+            
+                textNumber++;
+                StartCoroutine(MessagePrint(boxIndex));
+                boxIndex = (boxIndex - 1) * -1;
+            
+           
+        }
+
+        if (textNumber != 0 && textNumber != 1 && textNumber != 5 && textNumber != 6 && textNumber != 13 && textNumber != 14 && textNumber != 15 && textNumber != 17)
+        {
+            foreach (GameObject i in pressEnterText)
+            {
+                i.SetActive(true);
+            }
+        }
+        else
+        {
+            foreach(GameObject i in pressEnterText)
+            {
+                i.SetActive(false);
+            }
         }
     }
 
@@ -77,7 +97,7 @@ public class ScriptManager : MonoBehaviour {
         }
         messageBox[(boxIndex - 1) * -1].gameObject.transform.position = new Vector3(boxLoc[0].transform.position.x, boxLoc[0].transform.position.y, boxLoc[0].transform.position.z);
 
-        Debug.Log(textNumber);
+
         if(textNumber != 1 && textNumber != 5 && textNumber != 6 && textNumber != 13 && textNumber != 14 && textNumber != 15 && textNumber != 17)
         {
             canSkip = true;
@@ -85,5 +105,5 @@ public class ScriptManager : MonoBehaviour {
         Debug.Log(canSkip);
 
         yield return null;
-    }
+    } //리스트에 있는 텍스트 출력 함수
 }

@@ -16,6 +16,7 @@ public class PerformanceManager : MonoBehaviour {
     [SerializeField] Coroutine openingCoroutine; //오프닝 코루틴 멈추기
 
     [SerializeField] GameObject unit;
+    [SerializeField] GameObject enemy;
     [SerializeField] GameObject scriptManager;
     [SerializeField] GameObject openingScript;
     [SerializeField] bool opening;
@@ -56,7 +57,7 @@ public class PerformanceManager : MonoBehaviour {
     IEnumerator PerformanceSequence()
     {
         int i = 0;
-        Debug.Log("a");
+
         
 
         yield return new WaitForSeconds(1.0f);
@@ -111,13 +112,13 @@ public class PerformanceManager : MonoBehaviour {
             anim.SetBool("openingCam", false);
             StopCoroutine(openingCoroutine);
             tutorialStart();
-
+            button.SetActive(true);
 
             opening = false;
         }
 
         yield return null;
-    }   //오프닝 시퀀스
+    }   //오프닝 시퀀스, 당
 
     
 
@@ -159,6 +160,7 @@ public class PerformanceManager : MonoBehaviour {
         openingScript.SetActive(false);
         
         unit.SetActive(true);
+        enemy.SetActive(true);
 
         scriptManager.SetActive(true);
 

@@ -19,6 +19,10 @@ public class TileInfoTutorial : MonoBehaviour {
    
     Renderer mat;
 
+    // ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ 본게임
+
+    [SerializeField] public int occupation;
+
     private void Start()
     {
         mat = transform.GetChild(0).gameObject.GetComponent<Renderer>();
@@ -41,9 +45,31 @@ public class TileInfoTutorial : MonoBehaviour {
         {
             mat.material.color = Color.red;
         }
-        else
+
+        else if (occupation == 2)
+        {
+            mat.material.color = new Color(255f / 240f, 255f / 20f, 255f / 35f, 1f);
+            
+        }
+        else if (occupation == 1)
+        {
+            mat.material.color = new Color(255f / 125f, 255f / 255f, 255f / 1f, 1f);
+        }
+        else if (occupation == 0)
         {
             mat.material.color = Color.white;
+        }
+        else if (occupation == -1)
+        {
+            mat.material.color = new Color(255f / 1f, 255f / 255f, 255f / 125f, 1f);
+        }
+        else if (occupation == -2)
+        {
+            mat.material.color = new Color(255f / 35f, 255f / 20f, 255f / 240f, 1f);
+        }
+        else
+        {
+           // mat.material.color = Color.white;
         }
     }
 

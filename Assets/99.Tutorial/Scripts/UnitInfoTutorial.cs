@@ -17,6 +17,7 @@ public class UnitInfoTutorial : MonoBehaviour {
     [SerializeField] Animator anim;
 
     [SerializeField] ScriptManager scriptManager;
+    [SerializeField] TutorialManager tutorialManager;
 
     private void Start()
     {
@@ -47,7 +48,7 @@ public class UnitInfoTutorial : MonoBehaviour {
             anim.SetBool("MOVE", true);
             while (time <= 1)
             {
-                Debug.Log("회전중");
+
                 transform.rotation = Quaternion.Lerp(startRot, endRot, time);
                 time += Time.deltaTime * 5;
                 yield return null;
@@ -55,7 +56,7 @@ public class UnitInfoTutorial : MonoBehaviour {
             time = 0;
             while (time <= 1)
             {
-                Debug.Log("이동중");
+              
                 transform.position = Vector3.Lerp(startPos, endPos, time);
                 time += Time.deltaTime * 1f;
                 yield return null;
@@ -64,6 +65,13 @@ public class UnitInfoTutorial : MonoBehaviour {
             yield return new WaitForSeconds(0.5f);
         }
         movingEnd = true;
+        if(tutorialManager.selectUnit == tutorialManager.enemy)
+        {
+            tutorialManager.selectUnit = tutorialManager.unit;
+        }
+        
+        //일단은 이동 튜토리얼 끝나면 바로 메세지 넘어가게 하기는 했지만 추후 조치가 필요해보임 임시 땜빵
+
         scriptManager.canSkip = true;
         scriptManager.textNumber++;
         scriptManager.StartCoroutine(scriptManager.MessagePrint(scriptManager.boxIndex));
