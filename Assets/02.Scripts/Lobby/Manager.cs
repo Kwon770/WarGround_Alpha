@@ -13,8 +13,14 @@ public class Manager : MonoBehaviour {
     //로비씬 나가면 터트리기 가능?
 
     public GameObject Empty_Icons;
+    public GameObject PanelPos;
+    public GameObject PanelChar;
+    public GameObject AlarmPos1;
+    public GameObject AlarmPos2;
+    public GameObject PanelAlarm;
 
     [SerializeField] Menu menu;
+    [SerializeField] LoadTutorial tutorial;
     [SerializeField] AnimationCurve curve;
     [SerializeField] float Speed;
 
@@ -29,12 +35,19 @@ public class Manager : MonoBehaviour {
         Play,
         Character,
         Country,
-        Troop
+        Troop,
+        Description
     }
+
     [HideInInspector] public int scene = 0;
     [HideInInspector] public int index;
     [HideInInspector] public bool corutine = false;
-       
+
+
+    private void Start()
+    {
+        StartCoroutine(AlarmPanel());
+    }
 
     void Update () {
 		
@@ -54,19 +67,62 @@ public class Manager : MonoBehaviour {
                 StartCoroutine(menu.CountryReturnAnim());
                 scene = (int)Menunum.Home;
             }
-            else if (scene == (int)Menunum.Country)
-            {
-                StartCoroutine(CountrysReturn());
-                scene = (int)Menunum.Character;
-            }
             else if (scene == (int)Menunum.Troop)
             {
-                TroopsReturnFunc(index);
-                scene = (int)Menunum.Country;
+                ReturnTroop(index);
+                scene = (int)Menunum.Character;
+            }
+            else if(scene == (int)Menunum.Description)
+            {
+                StartCoroutine(ReturnPanel());
+                scene = (int)Menunum.Troop;
             }
         }
 	}
+    
 
+    public void Loading()
+    {
+        PanelAlarm.SetActive(false);
+        tutorial.gameObject.SetActive(true);
+        tutorial.Loading();
+    }
+
+    public void DescriptionBack()
+    {
+        StartCoroutine(ReturnPanel());
+        scene = (int)Menunum.Troop;
+    }
+
+    IEnumerator ReturnPanel()
+    {
+        corutine = true;
+        scene = (int)Menunum.Description;
+
+        Vector3 startPos = transform.position;
+        Vector3 endPos = PanelPos.transform.position;
+
+        float time = 0;
+
+        while (time <= 1)
+        {
+            PanelChar.transform.position = Vector3.Lerp(startPos, endPos, curve.Evaluate(time));
+            time += Time.deltaTime * Speed;
+            yield return null;
+        }
+
+        ToTroop(index);
+
+        corutine = false;
+    }
+
+    void ToTroop(int index)
+    {
+        for (int i = 0 + (3 * index); i < 3 + (3 * index); i++)
+        {
+            Empty_Icons.transform.GetChild(i).GetComponent<MenuControl>().Move();
+        }
+    }
 
     IEnumerator CountrysReturn()
     {
@@ -86,15 +142,41 @@ public class Manager : MonoBehaviour {
         corutine = false;
     }
 
-    void TroopsReturnFunc(int index)
+    void ReturnTroop(int index)
     {
         for(int i = 0 + (3*index); i < 3 + (3*index); i++)
         {
-            if(i != Troops.transform.GetSiblingIndex())
-            {
-                Empty_Icons.transform.GetChild(i).GetComponent<MenuControl>().Move();
-            }
+            Empty_Icons.transform.GetChild(i).GetComponent<MenuControl>().Back();
         }
-        Troops.GetComponent<IconControl>().CancelBack();
+
+        StartCoroutine(CountrysReturn());
+    }
+
+    IEnumerator AlarmPanel()
+    {
+        Vector3 startPos, endPos;
+        startPos = AlarmPos1.transform.position;
+        endPos = AlarmPos2.transform.position;
+
+        float time = 0;
+        while (time <= 1)
+        {
+            PanelAlarm.transform.position = Vector3.Lerp(startPos, endPos, curve.Evaluate(time));
+            time += Time.deltaTime * Speed;
+            yield return null;
+        }
+
+        yield return new WaitForSeconds(5);
+
+        startPos = AlarmPos2.transform.position;
+        endPos = AlarmPos1.transform.position;
+
+        time = 0;
+        while (time <= 1)
+        {
+            PanelAlarm.transform.position = Vector3.Lerp(startPos, endPos, curve.Evaluate(time));
+            time += Time.deltaTime * Speed;
+            yield return null;
+        }
     }
 }

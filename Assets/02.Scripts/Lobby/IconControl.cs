@@ -5,44 +5,45 @@ using UnityEngine.UI;
 
 public class IconControl : MonoBehaviour {
 
-    [SerializeField] GameObject SelectPos;
     [SerializeField] GameObject Pos;
-
+    
     [SerializeField] float Speed;
     [SerializeField] AnimationCurve curve;
 
-    public void SelectMove()
+    [SerializeField] TeamStory Story;
+
+    public GameObject Empty_Char;
+    public GameObject Panel_Char;
+    public GameObject Menu;
+    public GameObject PanelPos;
+
+
+
+    public void PanelMove1(int teamIndex)
     {
-        Manager.instance.scene = (int)Manager.Menunum.Troop;
+        Story.Story(teamIndex);
 
-        Vector3 startPos, endPos;
-        startPos = transform.position;
-        endPos = SelectPos.transform.position;
+        for(int i = 0; i < 6; i++)
+        {
+            Empty_Char.transform.GetChild(i).gameObject.SetActive(false);
+        }
+        Empty_Char.transform.GetChild(teamIndex).gameObject.SetActive(true);
 
-        for(int i = 0; i < transform.GetSiblingIndex(); i++) transform.parent.GetChild(i).GetComponent<MenuControl>().Back();
-        for (int i = transform.GetSiblingIndex() + 1; i < 6; i++) transform.parent.GetChild(i).GetComponent<MenuControl>().Back();
-
-        StartCoroutine(Anim(startPos, endPos, 300, 500));
+        StartCoroutine(PanelMove2());
     }
-    public void CancelBack()
-    {
-        Vector3 startPos, endPos;
-        startPos = transform.position;
-        endPos = Pos.transform.position;
 
-        StartCoroutine(Anim(startPos, endPos, 500, 300));
-    }
-    public IEnumerator Anim(Vector3 startPos, Vector3 endPos, int from, int to)
+    IEnumerator PanelMove2()
     {
         Manager.instance.corutine = true;
-        Manager.instance.Troops = gameObject;
+        Manager.instance.scene = (int)Manager.Menunum.Description;
 
+        Vector3 startPos = PanelPos.transform.position;
+        Vector3 endPos = Menu.transform.position;
         float time = 0;
 
         while (time <= 1)
         {
-            transform.position = Vector3.Lerp(startPos, endPos, curve.Evaluate(time));
-            transform.GetComponent<RectTransform>().sizeDelta = new Vector2(Mathf.Lerp(from, to, curve.Evaluate(time)), Mathf.Lerp(from, to, curve.Evaluate(time)));
+            Panel_Char.transform.position = Vector3.Lerp(startPos, endPos, curve.Evaluate(time));
             time += Time.deltaTime * Speed;
             yield return null;
         }

@@ -24,9 +24,9 @@ public class Menu : MonoBehaviour {
     [SerializeField] Manager manager;
 
     [SerializeField] AnimationCurve curve;
-    [SerializeField][Tooltip("Fast Spee")]
+    [SerializeField][Tooltip("Fast Speed")]
     float Speed;
-    [SerializeField][Tooltip("Slow Spee")]
+    [SerializeField][Tooltip("Slow Speed")]
     float Speed1;
 
     public GameObject Empty_Icons;
@@ -40,6 +40,7 @@ public class Menu : MonoBehaviour {
         for (int i = 0; i < 6; i++)
         {
             int num = i;
+            EliteMenu[num].button.onClick.RemoveAllListeners();
             EliteMenu[num].button.onClick.AddListener(new UnityEngine.Events.UnityAction(() => LobbyNetwork.instance.SetElite(num)));
             EliteMenu[num].button.onClick.AddListener(new UnityEngine.Events.UnityAction(() => IconSelectAnim1()));
         }
@@ -51,13 +52,9 @@ public class Menu : MonoBehaviour {
         Manager.instance.scene = (int)Manager.Menunum.Character;
         Empty_Icons.SetActive(true);
 
-        for (int i = 0; i < 6; i++)
-        {
-            int num = i;
-            EliteMenu[num].button.onClick.AddListener(new UnityEngine.Events.UnityAction(() => EliteIcon[num].SelectMove()));
-        }
-
+        Partan.GetComponent<Button>().onClick.RemoveAllListeners();
         Partan.GetComponent<Button>().onClick.AddListener(new UnityEngine.Events.UnityAction(() => CountrySelect(0)));
+        Cora.GetComponent<Button>().onClick.RemoveAllListeners();
         Cora.GetComponent<Button>().onClick.AddListener(new UnityEngine.Events.UnityAction(() => CountrySelect(1)));
 
         StartCoroutine(CountryAnim());
@@ -70,11 +67,24 @@ public class Menu : MonoBehaviour {
     {
         Manager.instance.scene = (int)Manager.Menunum.Country;
         Manager.instance.index = index;
+
         if (index == 0) Manager.instance.Countrys = Partan;
         else Manager.instance.Countrys = Cora;
 
         for (int i = 0 + (3*index); i < 3 + (3*index); i++)
         {
+            int num2 = i;
+            EliteMenu[num2].button.onClick.RemoveAllListeners();
+
+            //클릭시 그 나라의 아이콘만 Back 애니메이션
+            for (int o = 0 + (3 * index); o < 3 + (3 * index); o++)
+            {
+                int num1 = o;
+                EliteMenu[i].button.onClick.AddListener(new UnityEngine.Events.UnityAction(() => EliteMenu[num1].Back()));
+            }
+
+            //패널 조정
+            EliteMenu[i].button.onClick.AddListener(new UnityEngine.Events.UnityAction(() => EliteIcon[num2].PanelMove1(num2)));
             EliteMenu[i].Move();
         }
 

@@ -19,7 +19,6 @@ public class MenuControl : MonoBehaviour {
         startPos = transform.position;
         endPos = Pos.transform.position;
 
-        StopAllCoroutines();
         StartCoroutine(Anim(startPos, endPos));
     }
     public void Back()
@@ -28,7 +27,6 @@ public class MenuControl : MonoBehaviour {
         startPos = transform.position;
         endPos = home.transform.position;
 
-        StopAllCoroutines();
         StartCoroutine(Anim(startPos, endPos));
     }
     public IEnumerator Anim(Vector3 startPos, Vector3 endPos)
