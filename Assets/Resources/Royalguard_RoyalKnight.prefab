@@ -147,7 +147,7 @@ GameObject:
   - component: {fileID: 114700447552427916}
   - component: {fileID: 114774081643065282}
   m_Layer: 0
-  m_Name: Royalguard_Royal Knight
+  m_Name: Royalguard_RoyalKnight
   m_TagString: Unit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1277,6 +1277,7 @@ MonoBehaviour:
   Owner: 
   x: 0
   y: 0
+  dieTrigger: 0
   Kinds: RoyalKnight
   CanSpawn: 1
   delay: 1.2

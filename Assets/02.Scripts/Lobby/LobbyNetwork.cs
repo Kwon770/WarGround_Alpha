@@ -138,6 +138,7 @@ public class LobbyNetwork : Photon.MonoBehaviour
     // 1. savage, merica, kami, pluto, brown, royal
     public void SetElite(int type)
     {
+        Debug.Log(type);
         EliteType = type;
     }
     public void ResetInfo()

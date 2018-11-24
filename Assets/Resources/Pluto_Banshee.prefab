@@ -1289,7 +1289,7 @@ MonoBehaviour:
   x: 0
   y: 0
   dieTrigger: 0
-  Kinds: Pluto_Banshee
+  Kinds: Banshee
   CanSpawn: 0
   delay: 1.4
   ATK: 4

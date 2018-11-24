@@ -1350,6 +1350,7 @@ MonoBehaviour:
   Owner: 
   x: 0
   y: 0
+  dieTrigger: 0
   Kinds: Mars
   CanSpawn: 1
   delay: 1
@@ -1387,7 +1388,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Units:
-  - Royalguard_Royal Knight
+  - Royalguard_RoyalKnight
   - Royalguard_Guarder
   - Royalguard_Healer
   - Partan_Warrior

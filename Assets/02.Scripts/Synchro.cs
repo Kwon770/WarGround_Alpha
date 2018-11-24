@@ -37,12 +37,19 @@ public class Synchro : MonoBehaviour {
     }
     public IEnumerator Move(TileInfo EndPos)
     {
-        if (posX == EndPos.x && posY == EndPos.y)
+        if(posX == 0 && posY == 0)
+        {
+            moveTrigger = false;
+            posX = unitinfo.x;
+            posY = unitinfo.y;
+            yield break;
+        }
+        if(posX == EndPos.x && posY == EndPos.y) 
         {
             moveTrigger = false;
             yield break;
         }
-        Debug.Log("이동시작");
+        Debug.Log("이동시작" + posX + "," + posY + " : " + unitinfo.x + "," + unitinfo.y);
 
         Vector3 endPos;
         Vector3 startPos;

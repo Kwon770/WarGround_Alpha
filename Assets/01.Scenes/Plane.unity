@@ -1600,7 +1600,8 @@ MonoBehaviour:
   y: 1
   cost: 1
   idlecost: 1
-  Switch: 0
+  occupyPoint: 0
+  ChangeSpeed: 0
 --- !u!1001 &37716260
 Prefab:
   m_ObjectHideFlags: 0
@@ -2182,7 +2183,8 @@ MonoBehaviour:
   y: 3
   cost: 1
   idlecost: 1
-  Switch: 0
+  occupyPoint: 0
+  ChangeSpeed: 0
 --- !u!1001 &71196706
 Prefab:
   m_ObjectHideFlags: 0
@@ -2541,7 +2543,8 @@ MonoBehaviour:
   y: 10
   cost: 1
   idlecost: 1
-  Switch: 0
+  occupyPoint: 0
+  ChangeSpeed: 0
 --- !u!1001 &81362664
 Prefab:
   m_ObjectHideFlags: 0
@@ -3143,7 +3146,8 @@ MonoBehaviour:
   y: 10
   cost: 1
   idlecost: 1
-  Switch: 0
+  occupyPoint: 0
+  ChangeSpeed: 0
 --- !u!1001 &102760278
 Prefab:
   m_ObjectHideFlags: 0
@@ -3610,7 +3614,8 @@ MonoBehaviour:
   y: 9
   cost: 1
   idlecost: 1
-  Switch: 0
+  occupyPoint: 0
+  ChangeSpeed: 0
 --- !u!1001 &122520923
 Prefab:
   m_ObjectHideFlags: 0
@@ -4154,7 +4159,8 @@ MonoBehaviour:
   y: 8
   cost: 1
   idlecost: 1
-  Switch: 0
+  occupyPoint: 0
+  ChangeSpeed: 0
 --- !u!4 &138218970 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4163286683390128, guid: 9665f445a55a44cab92df0e7afa0f4b3,
@@ -4401,7 +4407,8 @@ MonoBehaviour:
   y: 3
   cost: 1
   idlecost: 1
-  Switch: 0
+  occupyPoint: 0
+  ChangeSpeed: 0
 --- !u!1001 &149205301
 Prefab:
   m_ObjectHideFlags: 0
@@ -5015,7 +5022,8 @@ MonoBehaviour:
   y: 12
   cost: 1
   idlecost: 1
-  Switch: 0
+  occupyPoint: 0
+  ChangeSpeed: 0
 --- !u!1001 &166250916
 Prefab:
   m_ObjectHideFlags: 0
@@ -5651,7 +5659,8 @@ MonoBehaviour:
   y: 6
   cost: 100
   idlecost: 100
-  Switch: 0
+  occupyPoint: 0
+  ChangeSpeed: 0
 --- !u!1 &187540157
 GameObject:
   m_ObjectHideFlags: 0
@@ -5715,7 +5724,8 @@ MonoBehaviour:
   y: 9
   cost: 1
   idlecost: 1
-  Switch: 0
+  occupyPoint: 0
+  ChangeSpeed: 0
 --- !u!1 &187911015
 GameObject:
   m_ObjectHideFlags: 0
@@ -5779,7 +5789,8 @@ MonoBehaviour:
   y: 5
   cost: 1
   idlecost: 1
-  Switch: 0
+  occupyPoint: 0
+  ChangeSpeed: 0
 --- !u!1001 &188403755
 Prefab:
   m_ObjectHideFlags: 0
@@ -6162,7 +6173,8 @@ MonoBehaviour:
   y: 11
   cost: 1
   idlecost: 1
-  Switch: 0
+  occupyPoint: 0
+  ChangeSpeed: 0
 --- !u!1001 &207331639
 Prefab:
   m_ObjectHideFlags: 0
@@ -7276,7 +7288,8 @@ MonoBehaviour:
   y: 9
   cost: 1
   idlecost: 1
-  Switch: 0
+  occupyPoint: 0
+  ChangeSpeed: 0
 --- !u!4 &245489577 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4163286683390128, guid: 9665f445a55a44cab92df0e7afa0f4b3,
@@ -9059,7 +9072,8 @@ MonoBehaviour:
   y: 6
   cost: 100
   idlecost: 100
-  Switch: 0
+  occupyPoint: 0
+  ChangeSpeed: 0
 --- !u!4 &320077498 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4532420643061024, guid: 21a9d6d4f59c245a49685a980c33e3fa,
@@ -10783,7 +10797,8 @@ MonoBehaviour:
   y: 2
   cost: 1
   idlecost: 1
-  Switch: 0
+  occupyPoint: 0
+  ChangeSpeed: 0
 --- !u!1001 &359744423
 Prefab:
   m_ObjectHideFlags: 0
@@ -11422,7 +11437,8 @@ MonoBehaviour:
   y: 5
   cost: 1
   idlecost: 1
-  Switch: 0
+  occupyPoint: 0
+  ChangeSpeed: 0
 --- !u!1001 &372232576
 Prefab:
   m_ObjectHideFlags: 0
@@ -11688,7 +11704,8 @@ MonoBehaviour:
   y: 10
   cost: 1
   idlecost: 1
-  Switch: 0
+  occupyPoint: 0
+  ChangeSpeed: 0
 --- !u!4 &384025711 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4163286683390128, guid: 9665f445a55a44cab92df0e7afa0f4b3,
@@ -12325,7 +12342,8 @@ MonoBehaviour:
   y: 9
   cost: 1
   idlecost: 1
-  Switch: 0
+  occupyPoint: 0
+  ChangeSpeed: 0
 --- !u!4 &404006074 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4569790774807770, guid: 71adee09944e4416bbe3ddb1e6bcdefb,
@@ -13325,7 +13343,8 @@ MonoBehaviour:
   y: 7
   cost: 1
   idlecost: 1
-  Switch: 0
+  occupyPoint: 0
+  ChangeSpeed: 0
 --- !u!1001 &453981211
 Prefab:
   m_ObjectHideFlags: 0
@@ -14375,7 +14394,8 @@ MonoBehaviour:
   y: 11
   cost: 1
   idlecost: 1
-  Switch: 0
+  occupyPoint: 0
+  ChangeSpeed: 0
 --- !u!1001 &511950448
 Prefab:
   m_ObjectHideFlags: 0
@@ -14600,7 +14620,8 @@ MonoBehaviour:
   y: 2
   cost: 1
   idlecost: 1
-  Switch: 0
+  occupyPoint: 0
+  ChangeSpeed: 0
 --- !u!1001 &523494593
 Prefab:
   m_ObjectHideFlags: 0
@@ -14829,7 +14850,8 @@ MonoBehaviour:
   y: 7
   cost: 1
   idlecost: 1
-  Switch: 0
+  occupyPoint: 0
+  ChangeSpeed: 0
 --- !u!1001 &541660853
 Prefab:
   m_ObjectHideFlags: 0
@@ -14945,7 +14967,8 @@ MonoBehaviour:
   y: 2
   cost: 1
   idlecost: 1
-  Switch: 0
+  occupyPoint: 0
+  ChangeSpeed: 0
 --- !u!1001 &543653786
 Prefab:
   m_ObjectHideFlags: 0
@@ -15103,7 +15126,8 @@ MonoBehaviour:
   y: 8
   cost: 1
   idlecost: 1
-  Switch: 0
+  occupyPoint: 0
+  ChangeSpeed: 0
 --- !u!4 &551979352 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4532420643061024, guid: 21a9d6d4f59c245a49685a980c33e3fa,
@@ -17671,7 +17695,8 @@ MonoBehaviour:
   y: 3
   cost: 1
   idlecost: 1
-  Switch: 0
+  occupyPoint: 0
+  ChangeSpeed: 0
 --- !u!1001 &651068074
 Prefab:
   m_ObjectHideFlags: 0
@@ -18302,7 +18327,8 @@ MonoBehaviour:
   y: 5
   cost: 1
   idlecost: 1
-  Switch: 0
+  occupyPoint: 0
+  ChangeSpeed: 0
 --- !u!1 &677614775
 GameObject:
   m_ObjectHideFlags: 0
@@ -18366,7 +18392,8 @@ MonoBehaviour:
   y: 8
   cost: 1
   idlecost: 1
-  Switch: 0
+  occupyPoint: 0
+  ChangeSpeed: 0
 --- !u!1001 &678587070
 Prefab:
   m_ObjectHideFlags: 0
@@ -19118,7 +19145,8 @@ MonoBehaviour:
   y: 1
   cost: 1
   idlecost: 1
-  Switch: 0
+  occupyPoint: 0
+  ChangeSpeed: 0
 --- !u!1001 &713148942
 Prefab:
   m_ObjectHideFlags: 0
@@ -19495,7 +19523,8 @@ MonoBehaviour:
   y: 2
   cost: 1
   idlecost: 1
-  Switch: 0
+  occupyPoint: 0
+  ChangeSpeed: 0
 --- !u!4 &729156985 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4399618948696068, guid: aa35b9b48e01949829454aec1d420341,
@@ -19629,7 +19658,8 @@ MonoBehaviour:
   y: 6
   cost: 100
   idlecost: 100
-  Switch: 0
+  occupyPoint: 0
+  ChangeSpeed: 0
 --- !u!1 &732791930
 GameObject:
   m_ObjectHideFlags: 0
@@ -20705,7 +20735,8 @@ MonoBehaviour:
   y: 4
   cost: 1
   idlecost: 1
-  Switch: 0
+  occupyPoint: 0
+  ChangeSpeed: 0
 --- !u!4 &778599610 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4000012839737448, guid: 785a22577de6142249ef38671555cbee,
@@ -21048,7 +21079,8 @@ MonoBehaviour:
   y: 4
   cost: 1
   idlecost: 1
-  Switch: 0
+  occupyPoint: 0
+  ChangeSpeed: 0
 --- !u!4 &792150933 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4163286683390128, guid: 9665f445a55a44cab92df0e7afa0f4b3,
@@ -21117,7 +21149,8 @@ MonoBehaviour:
   y: 10
   cost: 1
   idlecost: 1
-  Switch: 0
+  occupyPoint: 0
+  ChangeSpeed: 0
 --- !u!4 &793797373 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4569790774807770, guid: 71adee09944e4416bbe3ddb1e6bcdefb,
@@ -21771,7 +21804,8 @@ MonoBehaviour:
   y: 4
   cost: 1
   idlecost: 1
-  Switch: 0
+  occupyPoint: 0
+  ChangeSpeed: 0
 --- !u!1001 &834121534
 Prefab:
   m_ObjectHideFlags: 0
@@ -21986,7 +22020,8 @@ MonoBehaviour:
   y: 2
   cost: 1
   idlecost: 1
-  Switch: 0
+  occupyPoint: 0
+  ChangeSpeed: 0
 --- !u!1001 &837785087
 Prefab:
   m_ObjectHideFlags: 0
@@ -23538,7 +23573,8 @@ MonoBehaviour:
   y: 7
   cost: 100
   idlecost: 100
-  Switch: 0
+  occupyPoint: 0
+  ChangeSpeed: 0
 --- !u!1 &901836382
 GameObject:
   m_ObjectHideFlags: 0
@@ -23915,7 +23951,8 @@ MonoBehaviour:
   y: 5
   cost: 1
   idlecost: 1
-  Switch: 0
+  occupyPoint: 0
+  ChangeSpeed: 0
 --- !u!4 &912327780 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4399618948696068, guid: aa35b9b48e01949829454aec1d420341,
@@ -24031,7 +24068,8 @@ MonoBehaviour:
   y: 3
   cost: 1
   idlecost: 1
-  Switch: 0
+  occupyPoint: 0
+  ChangeSpeed: 0
 --- !u!1001 &918873264
 Prefab:
   m_ObjectHideFlags: 0
@@ -25124,7 +25162,8 @@ MonoBehaviour:
   y: 9
   cost: 1
   idlecost: 1
-  Switch: 0
+  occupyPoint: 0
+  ChangeSpeed: 0
 --- !u!4 &950755274 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4590548825544618, guid: 0d2f88d3b70194d29935d52a0437c7ed,
@@ -25307,7 +25346,8 @@ MonoBehaviour:
   y: 5
   cost: 1
   idlecost: 1
-  Switch: 0
+  occupyPoint: 0
+  ChangeSpeed: 0
 --- !u!4 &955525895 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4532420643061024, guid: 21a9d6d4f59c245a49685a980c33e3fa,
@@ -25625,7 +25665,8 @@ MonoBehaviour:
   y: 2
   cost: 1
   idlecost: 1
-  Switch: 0
+  occupyPoint: 0
+  ChangeSpeed: 0
 --- !u!1001 &963064758
 Prefab:
   m_ObjectHideFlags: 0
@@ -25840,7 +25881,8 @@ MonoBehaviour:
   y: 9
   cost: 1
   idlecost: 1
-  Switch: 0
+  occupyPoint: 0
+  ChangeSpeed: 0
 --- !u!1001 &970745029
 Prefab:
   m_ObjectHideFlags: 0
@@ -25993,7 +26035,8 @@ MonoBehaviour:
   y: 8
   cost: 1
   idlecost: 1
-  Switch: 0
+  occupyPoint: 0
+  ChangeSpeed: 0
 --- !u!1 &975093060
 GameObject:
   m_ObjectHideFlags: 0
@@ -26296,7 +26339,8 @@ MonoBehaviour:
   y: 3
   cost: 1
   idlecost: 1
-  Switch: 0
+  occupyPoint: 0
+  ChangeSpeed: 0
 --- !u!1001 &998510383
 Prefab:
   m_ObjectHideFlags: 0
@@ -29741,7 +29785,8 @@ MonoBehaviour:
   y: 6
   cost: 1
   idlecost: 1
-  Switch: 0
+  occupyPoint: 0
+  ChangeSpeed: 0
 --- !u!1001 &1114010911
 Prefab:
   m_ObjectHideFlags: 0
@@ -30266,7 +30311,8 @@ MonoBehaviour:
   y: 9
   cost: 1
   idlecost: 1
-  Switch: 0
+  occupyPoint: 0
+  ChangeSpeed: 0
 --- !u!4 &1135089353 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4532420643061024, guid: 21a9d6d4f59c245a49685a980c33e3fa,
@@ -30793,7 +30839,8 @@ MonoBehaviour:
   y: 7
   cost: 1
   idlecost: 1
-  Switch: 0
+  occupyPoint: 0
+  ChangeSpeed: 0
 --- !u!1001 &1165739678
 Prefab:
   m_ObjectHideFlags: 0
@@ -31006,7 +31053,8 @@ MonoBehaviour:
   y: 8
   cost: 1
   idlecost: 1
-  Switch: 0
+  occupyPoint: 0
+  ChangeSpeed: 0
 --- !u!1001 &1174523470
 Prefab:
   m_ObjectHideFlags: 0
@@ -31517,7 +31565,8 @@ MonoBehaviour:
   y: 3
   cost: 1
   idlecost: 1
-  Switch: 0
+  occupyPoint: 0
+  ChangeSpeed: 0
 --- !u!1001 &1191626912
 Prefab:
   m_ObjectHideFlags: 0
@@ -31925,7 +31974,8 @@ MonoBehaviour:
   y: 6
   cost: 100
   idlecost: 100
-  Switch: 0
+  occupyPoint: 0
+  ChangeSpeed: 0
 --- !u!4 &1207200426 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4532420643061024, guid: 21a9d6d4f59c245a49685a980c33e3fa,
@@ -33071,7 +33121,8 @@ MonoBehaviour:
   y: 6
   cost: 1
   idlecost: 1
-  Switch: 0
+  occupyPoint: 0
+  ChangeSpeed: 0
 --- !u!1001 &1251535081
 Prefab:
   m_ObjectHideFlags: 0
@@ -33445,7 +33496,8 @@ MonoBehaviour:
   y: 4
   cost: 1
   idlecost: 1
-  Switch: 0
+  occupyPoint: 0
+  ChangeSpeed: 0
 --- !u!1 &1270487763
 GameObject:
   m_ObjectHideFlags: 0
@@ -33494,7 +33546,8 @@ MonoBehaviour:
   y: 8
   cost: 100
   idlecost: 100
-  Switch: 0
+  occupyPoint: 0
+  ChangeSpeed: 0
 --- !u!64 &1270487766
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -34140,7 +34193,8 @@ MonoBehaviour:
   y: 7
   cost: 1
   idlecost: 1
-  Switch: 0
+  occupyPoint: 0
+  ChangeSpeed: 0
 --- !u!1001 &1294189808
 Prefab:
   m_ObjectHideFlags: 0
@@ -34820,7 +34874,8 @@ MonoBehaviour:
   y: 10
   cost: 1
   idlecost: 1
-  Switch: 0
+  occupyPoint: 0
+  ChangeSpeed: 0
 --- !u!1001 &1321957568
 Prefab:
   m_ObjectHideFlags: 0
@@ -34948,7 +35003,8 @@ MonoBehaviour:
   y: 10
   cost: 1
   idlecost: 1
-  Switch: 0
+  occupyPoint: 0
+  ChangeSpeed: 0
 --- !u!4 &1327676787 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4569790774807770, guid: 71adee09944e4416bbe3ddb1e6bcdefb,
@@ -36078,7 +36134,8 @@ MonoBehaviour:
   y: 9
   cost: 1
   idlecost: 1
-  Switch: 0
+  occupyPoint: 0
+  ChangeSpeed: 0
 --- !u!1001 &1387139752
 Prefab:
   m_ObjectHideFlags: 0
@@ -36194,7 +36251,8 @@ MonoBehaviour:
   y: 3
   cost: 1
   idlecost: 1
-  Switch: 0
+  occupyPoint: 0
+  ChangeSpeed: 0
 --- !u!1001 &1389228397
 Prefab:
   m_ObjectHideFlags: 0
@@ -36564,7 +36622,8 @@ MonoBehaviour:
   y: 7
   cost: 100
   idlecost: 100
-  Switch: 0
+  occupyPoint: 0
+  ChangeSpeed: 0
 --- !u!4 &1402102786 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4569790774807770, guid: 71adee09944e4416bbe3ddb1e6bcdefb,
@@ -36680,7 +36739,8 @@ MonoBehaviour:
   y: 10
   cost: 1
   idlecost: 1
-  Switch: 0
+  occupyPoint: 0
+  ChangeSpeed: 0
 --- !u!1001 &1407822134
 Prefab:
   m_ObjectHideFlags: 0
@@ -36793,6 +36853,8 @@ MonoBehaviour:
   Map: {fileID: 1976405837}
   Tiles: []
   Units: []
+  enemyColor: {r: 0.5882353, g: 0.6, b: 1, a: 1}
+  teamColor: {r: 1, g: 0.6392157, b: 0.19215687, a: 1}
 --- !u!114 &1409132580
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38323,7 +38385,8 @@ MonoBehaviour:
   y: 7
   cost: 100
   idlecost: 100
-  Switch: 0
+  occupyPoint: 0
+  ChangeSpeed: 0
 --- !u!4 &1476203985 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4569790774807770, guid: 71adee09944e4416bbe3ddb1e6bcdefb,
@@ -38993,7 +39056,8 @@ MonoBehaviour:
   y: 4
   cost: 1
   idlecost: 1
-  Switch: 0
+  occupyPoint: 0
+  ChangeSpeed: 0
 --- !u!1001 &1520151088
 Prefab:
   m_ObjectHideFlags: 0
@@ -39409,7 +39473,8 @@ MonoBehaviour:
   y: 3
   cost: 1
   idlecost: 1
-  Switch: 0
+  occupyPoint: 0
+  ChangeSpeed: 0
 --- !u!1001 &1543521202
 Prefab:
   m_ObjectHideFlags: 0
@@ -41106,7 +41171,8 @@ MonoBehaviour:
   y: 9
   cost: 1
   idlecost: 1
-  Switch: 0
+  occupyPoint: 0
+  ChangeSpeed: 0
 --- !u!4 &1607027770 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4532420643061024, guid: 21a9d6d4f59c245a49685a980c33e3fa,
@@ -41714,7 +41780,8 @@ MonoBehaviour:
   y: 5
   cost: 1
   idlecost: 1
-  Switch: 0
+  occupyPoint: 0
+  ChangeSpeed: 0
 --- !u!1001 &1638007996
 Prefab:
   m_ObjectHideFlags: 0
@@ -42610,7 +42677,8 @@ MonoBehaviour:
   y: 11
   cost: 1
   idlecost: 1
-  Switch: 0
+  occupyPoint: 0
+  ChangeSpeed: 0
 --- !u!1001 &1664550921
 Prefab:
   m_ObjectHideFlags: 0
@@ -43880,7 +43948,8 @@ MonoBehaviour:
   y: 4
   cost: 100
   idlecost: 100
-  Switch: 0
+  occupyPoint: 0
+  ChangeSpeed: 0
 --- !u!4 &1721010828 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4000013110968550, guid: d5136fda620444d1b87076335c563350,
@@ -44123,7 +44192,8 @@ MonoBehaviour:
   y: 8
   cost: 1
   idlecost: 1
-  Switch: 0
+  occupyPoint: 0
+  ChangeSpeed: 0
 --- !u!4 &1731349653 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4163286683390128, guid: 9665f445a55a44cab92df0e7afa0f4b3,
@@ -45356,7 +45426,8 @@ MonoBehaviour:
   y: 3
   cost: 1
   idlecost: 1
-  Switch: 0
+  occupyPoint: 0
+  ChangeSpeed: 0
 --- !u!1001 &1797493033
 Prefab:
   m_ObjectHideFlags: 0
@@ -46183,7 +46254,8 @@ MonoBehaviour:
   y: 6
   cost: 1
   idlecost: 1
-  Switch: 0
+  occupyPoint: 0
+  ChangeSpeed: 0
 --- !u!1001 &1831679920
 Prefab:
   m_ObjectHideFlags: 0
@@ -46695,7 +46767,8 @@ MonoBehaviour:
   y: 5
   cost: 1
   idlecost: 1
-  Switch: 0
+  occupyPoint: 0
+  ChangeSpeed: 0
 --- !u!1001 &1867277821
 Prefab:
   m_ObjectHideFlags: 0
@@ -47632,7 +47705,8 @@ MonoBehaviour:
   y: 5
   cost: 1
   idlecost: 1
-  Switch: 0
+  occupyPoint: 0
+  ChangeSpeed: 0
 --- !u!1 &1889247829
 GameObject:
   m_ObjectHideFlags: 0
@@ -47696,7 +47770,8 @@ MonoBehaviour:
   y: 8
   cost: 1
   idlecost: 1
-  Switch: 0
+  occupyPoint: 0
+  ChangeSpeed: 0
 --- !u!1001 &1891813212
 Prefab:
   m_ObjectHideFlags: 0
@@ -48396,7 +48471,8 @@ MonoBehaviour:
   y: 10
   cost: 1
   idlecost: 1
-  Switch: 0
+  occupyPoint: 0
+  ChangeSpeed: 0
 --- !u!1 &1917524121
 GameObject:
   m_ObjectHideFlags: 0
@@ -48536,7 +48612,8 @@ MonoBehaviour:
   y: 1
   cost: 1
   idlecost: 1
-  Switch: 0
+  occupyPoint: 0
+  ChangeSpeed: 0
 --- !u!4 &1923884464 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4569790774807770, guid: 71adee09944e4416bbe3ddb1e6bcdefb,
@@ -49225,7 +49302,8 @@ MonoBehaviour:
   y: 6
   cost: 1
   idlecost: 1
-  Switch: 0
+  occupyPoint: 0
+  ChangeSpeed: 0
 --- !u!1 &1954323322
 GameObject:
   m_ObjectHideFlags: 0
@@ -49289,7 +49367,8 @@ MonoBehaviour:
   y: 4
   cost: 1
   idlecost: 1
-  Switch: 0
+  occupyPoint: 0
+  ChangeSpeed: 0
 --- !u!4 &1954373929 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4532420643061024, guid: 21a9d6d4f59c245a49685a980c33e3fa,
@@ -49467,7 +49546,8 @@ MonoBehaviour:
   y: 11
   cost: 1
   idlecost: 1
-  Switch: 0
+  occupyPoint: 0
+  ChangeSpeed: 0
 --- !u!1001 &1961799776
 Prefab:
   m_ObjectHideFlags: 0
@@ -50051,7 +50131,8 @@ MonoBehaviour:
   y: 6
   cost: 100
   idlecost: 100
-  Switch: 0
+  occupyPoint: 0
+  ChangeSpeed: 0
 --- !u!1001 &1981135833
 Prefab:
   m_ObjectHideFlags: 0
@@ -50541,7 +50622,8 @@ MonoBehaviour:
   y: 4
   cost: 1
   idlecost: 1
-  Switch: 0
+  occupyPoint: 0
+  ChangeSpeed: 0
 --- !u!1001 &1998526672
 Prefab:
   m_ObjectHideFlags: 0
@@ -50651,7 +50733,8 @@ MonoBehaviour:
   y: 7
   cost: 1
   idlecost: 1
-  Switch: 0
+  occupyPoint: 0
+  ChangeSpeed: 0
 --- !u!1001 &2002174591
 Prefab:
   m_ObjectHideFlags: 0
@@ -50861,7 +50944,8 @@ MonoBehaviour:
   y: 5
   cost: 100
   idlecost: 100
-  Switch: 0
+  occupyPoint: 0
+  ChangeSpeed: 0
 --- !u!64 &2020603999
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -50954,7 +51038,8 @@ MonoBehaviour:
   y: 2
   cost: 1
   idlecost: 1
-  Switch: 0
+  occupyPoint: 0
+  ChangeSpeed: 0
 --- !u!4 &2029071993 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4000014269573868, guid: bafc95cdb045e4bb3969ef9676abab65,
@@ -51844,7 +51929,8 @@ MonoBehaviour:
   y: 7
   cost: 1
   idlecost: 1
-  Switch: 0
+  occupyPoint: 0
+  ChangeSpeed: 0
 --- !u!4 &2090681775 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4000012839737448, guid: 785a22577de6142249ef38671555cbee,
@@ -52107,7 +52193,8 @@ MonoBehaviour:
   y: 10
   cost: 1
   idlecost: 1
-  Switch: 0
+  occupyPoint: 0
+  ChangeSpeed: 0
 --- !u!1001 &2104164486
 Prefab:
   m_ObjectHideFlags: 0
@@ -52489,7 +52576,8 @@ MonoBehaviour:
   y: 11
   cost: 1
   idlecost: 1
-  Switch: 0
+  occupyPoint: 0
+  ChangeSpeed: 0
 --- !u!1001 &2114382469
 Prefab:
   m_ObjectHideFlags: 0
@@ -52727,7 +52815,8 @@ MonoBehaviour:
   y: 8
   cost: 1
   idlecost: 1
-  Switch: 0
+  occupyPoint: 0
+  ChangeSpeed: 0
 --- !u!1 &2125152214
 GameObject:
   m_ObjectHideFlags: 0
@@ -53276,7 +53365,8 @@ MonoBehaviour:
   y: 4
   cost: 1
   idlecost: 1
-  Switch: 0
+  occupyPoint: 0
+  ChangeSpeed: 0
 --- !u!1001 &2144799809
 Prefab:
   m_ObjectHideFlags: 0

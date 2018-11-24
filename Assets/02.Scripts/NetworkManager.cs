@@ -44,7 +44,7 @@ public class NetworkManager : Photon.MonoBehaviour {
     {
         while (true)
         {
-            if (SceneManager.GetActiveScene().name != "Lobby")
+            if (SceneManager.GetActiveScene().name != "Lobby_Renewal")
             {
                 var EndButton = GameObject.Find("EndButton");
                 EndTurnButton = EndButton.GetComponent<Image>();
@@ -58,8 +58,9 @@ public class NetworkManager : Photon.MonoBehaviour {
     }
 
     //턴종료 버튼
-    void EndTurn(string client)
+    public void EndTurn(string client)
     {
+        Debug.Log(client);
         if (turnOwner == client)
         {
             photonView.RPC("ChangeOwner", PhotonTargets.MasterClient, client);
@@ -77,8 +78,9 @@ public class NetworkManager : Photon.MonoBehaviour {
             }
         }
         turnOwner = UserList[index];
-        photonView.RPC("SetOwnerUI", PhotonTargets.All, turnOwner);
-        if (turnOwner == PhotonNetwork.playerName) photonView.RPC("TurnSet", PhotonTargets.All);
+        
+        if (turnOwner == PhotonNetwork.playerName) photonView.RPC("TurnSet", PhotonTargets.All, turnOwner);
+        else photonView.RPC("SetOwnerUI", PhotonTargets.All, turnOwner);
     }
     [PunRPC]
     public void SetOwnerUI(string user)
@@ -95,12 +97,55 @@ public class NetworkManager : Photon.MonoBehaviour {
         }
     }
     //턴셋팅
-    public void TurnSet()
+    [PunRPC]
+    public void TurnSet(string user)
     {
         Debug.Log("턴셋팅");
-
+        StartCoroutine("TurnSetting", user);
     }
-    
+    IEnumerator TurnSetting(string user)
+    {
+        foreach (var unit in GameData.data.Units)
+        {
+            //내 유닛일경우
+            if (unit.Owner == PhotonNetwork.playerName)
+            {
+                if ((unit.Kinds == "Harrier" && unit.Act > 0) || unit.Act != unit.MaxAct)
+                {
+                    TileInfo SP = GameData.data.FindTile(unit.x, unit.y);
+                    List<TileInfo> tiles = Calculator.Calc.GetInrangeTile(SP, 1);
+                    foreach (var tile in tiles)
+                    {
+                        Debug.Log(tile);
+                        tile.GetOcccupy();
+                    }
+                    SP.GetOcccupy();
+                }
+            }
+
+            //내 유닛이 아닌경유
+            else
+            {
+                if ((unit.Kinds == "Harrier" && unit.Act > 0) || unit.Act != unit.MaxAct)
+                {
+                    TileInfo SP = GameData.data.FindTile(unit.x, unit.y);
+                    List<TileInfo> tiles = Calculator.Calc.GetInrangeTile(SP, 1);
+                    foreach (var tile in tiles)
+                    {
+                        tile.LoseOcccupy();
+                    }
+                    SP.LoseOcccupy();
+                }
+            }
+        }
+        yield return null;
+        SetOwnerUI(user);
+    }
+
+    private void Update()
+    {
+        Debug.Log("MyName : " + PhotonNetwork.playerName + ",  turnOwner" + turnOwner);
+    }
 
     //동기화
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
