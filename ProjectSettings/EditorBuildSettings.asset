@@ -5,10 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/01.Scenes/Lobby.unity
     guid: 5f04202b4a2e78c46b4ac9af75d1c9d2
   - enabled: 0
     path: Assets/01.Scenes/Plane.unity
     guid: 2dbe01035eb7b4542872cc83bc0fa450
+  - enabled: 1
+    path: Assets/01.Scenes/TutorialRemake1114.unity
+    guid: 10b3f57663a1d2a4ab3b86c3b66ac97c
   m_configObjects: {}

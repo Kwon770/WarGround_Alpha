@@ -1,15 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TutorialManager : MonoBehaviour
 {
     
 
-
-    [SerializeField] int myTurn = 0;      //0 : 아무것도 못함
-
-    [SerializeField] UnitInfoTutorial unit;
+    [SerializeField] public UnitInfoTutorial unit;
     [SerializeField] int startLocX = 0;    //현재 선택한 유닛이 있는 타일의 좌표, 시작점
     [SerializeField] int startLocY = 0;
 
@@ -22,13 +20,30 @@ public class TutorialManager : MonoBehaviour
 
     [SerializeField] GameObject[] tileSave = new GameObject[34];
     [SerializeField] TileInfoTutorial[] tileSaveInfo = new TileInfoTutorial[34];
-    [SerializeField] UnitInfoTutorial selectUnit; // 지금 현재 고른 유닛 표시
+    [SerializeField] public UnitInfoTutorial selectUnit; // 지금 현재 고른 유닛 표시
+
+    [SerializeField] public bool canClick = true;
+
+
+    // ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ 이제부터 본 게임
+    [SerializeField] ScriptManager scriptManager;
+    [SerializeField] public UnitInfoTutorial enemy; // 지금 현재 고른 유닛 표시
+    [SerializeField] GameObject selectEffect;
+    [SerializeField] Camera mainCam;
+    [SerializeField] GameObject warrior;
+    [SerializeField] bool attackSwitch;
+    [SerializeField] Text actPointText;
+    [SerializeField] Text actPointParent;
+
+    [SerializeField] int myTurn = 0;      //0 :내턴   1: 니턴
+
 
 
     enum selectButton { Atk, Move };
 
     private void Start()
     {
+
         for (int i = 0; i < 34; i++)
         {
             tileSaveInfo[i] = tileSave[i].GetComponent<TileInfoTutorial>();
@@ -38,10 +53,24 @@ public class TutorialManager : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space) && selectUnit.movingEnd == true)
+        /*if(Input.GetKeyDown(KeyCode.Space) && selectUnit.movingEnd == true) 이제는 쓸모없는 친구
         {
             GetGotoTile(selectUnit.startPoint, selectUnit.actPoint);
+        }*/
+
+        if(selectUnit != enemy)
+        {
+            actPointParent.gameObject.SetActive(true);
+            actPointText.text = selectUnit.actPoint.ToString();
         }
+        else
+        {
+            actPointParent.gameObject.SetActive(false);
+        }
+        
+
+        selectEffect.transform.position = selectUnit.transform.position;
+        
 
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
@@ -51,21 +80,63 @@ public class TutorialManager : MonoBehaviour
             {
                 if (hit.transform.tag == "Tile")
                 {
-                    TileInfoTutorial rayTile = hit.transform.GetComponent<TileInfoTutorial>();
+                   
 
-                    Debug.Log("a");
+                    TileInfoTutorial rayTile = hit.transform.GetComponent<TileInfoTutorial>();
+                    
 
                     if (rayTile.selectTile == true)
                     {
-                        AfterBfsMove(rayTile, rayTile.stage);
-                        AllTileBreak();
+                        if(scriptManager.textNumber == 15)
+                        {
+                            AllTileBreak();
+
+                            warrior.SetActive(true);
+                            unit.actPoint--;
+                            scriptManager.canSkip = true;
+                            scriptManager.textNumber++;
+                            scriptManager.StartCoroutine(scriptManager.MessagePrint(scriptManager.boxIndex));
+                            scriptManager.boxIndex = (scriptManager.boxIndex - 1) * -1;
+                        }
+                        else if(scriptManager.textNumber == 17)
+                        {
+                            AllTileBreak();
+                            
+                            enemy.StartCoroutine(enemy.Damaged());
+                            enemy.StartCoroutine(unit.Attack());
+                            Debug.Log("17발동 타일 눌러서");
+                        }
+                        else
+                        {
+                            AfterBfsMove(rayTile, rayTile.stage);
+                            AllTileBreak();
+                        }
+                        
                     }
                     
                     
                 }
-                if (hit.transform.tag == "Unit")
+                if (hit.transform.tag == "Unit" )
                 {
-                    selectUnit = hit.transform.GetComponent<UnitInfoTutorial>();
+                    if (scriptManager.textNumber == 1 || scriptManager.textNumber == 15)
+                    {
+                        return;
+                        
+                    }
+                    else if (scriptManager.textNumber == 17)
+                    {
+                        AllTileBreak();
+                        
+                        enemy.StartCoroutine(enemy.Damaged());
+                        enemy.StartCoroutine(unit.Attack());
+                        Debug.Log("17발동 유닛 눌러서");
+                    }
+                    else
+                    {
+                        selectUnit = hit.transform.GetComponent<UnitInfoTutorial>();
+                    }
+
+                    
                     
                 }
             }
@@ -75,7 +146,7 @@ public class TutorialManager : MonoBehaviour
     }
 
 
-    void GetGotoTile(TileInfoTutorial startTile, int actPoint)
+    public void GetGotoTile(TileInfoTutorial startTile, int actPoint)
     {
 
 
@@ -246,12 +317,35 @@ public class TutorialManager : MonoBehaviour
 
 
             tempStage++;
-            Debug.Log("tttt" + tempStage);
+            
         }
 
 
         startTile.firstTile = false;
-    }
+
+
+        if (scriptManager.textNumber == 6)
+        {
+            AfterBfsMove(tileSaveInfo[18], tileSaveInfo[18].stage);
+            AllTileBreak();
+        }
+        else if(scriptManager.textNumber == 14)
+        {
+            AfterBfsMove(tileSaveInfo[17], tileSaveInfo[17].stage);
+            AllTileBreak();
+        }
+        else
+        {
+            for (int i = 0; i < 34; i++)
+            {
+                if (i != 16)
+                {
+                    tileSaveInfo[i].selectTile = false;
+                }
+            }
+        }
+        
+    } //범위를 잡아줌
 
 
 
@@ -264,51 +358,26 @@ public class TutorialManager : MonoBehaviour
         if(tileStage == 0)
         {
             tileList.Add(pathSave);
+            selectUnit.actPoint--;
             Debug.Log("aaa");
         }
         else
         {
             tileList.Add(pathSave);
+            selectUnit.actPoint--;
             for (int i = 0; i < tileStage; i++)
             {
                 tileList.Add(pathSave.path);
+
+                selectUnit.actPoint--;
                 pathSave = pathSave.path;
             }
         }
-        /*else if(tileStage == 1)
-        {
-            tileList.Add(pathSave);
-            tileList.Add(pathSave.path);
-
-        }*/
-
-        StartCoroutine(UnitMove(tileList, tileStage, selectUnit));
         
-    }
 
-    IEnumerator UnitMove(List<TileInfoTutorial> moveList, int tileStage, UnitInfoTutorial moveUnit)   //유닛이 이동하는데 딜레이 있게 이동한다
-    {
-        if (tileStage == 0)
-        {
-            moveUnit.endPoint = moveList[0];
-            moveUnit.movingEnd = false;
-            yield return new WaitForSeconds(1.0f);
-            moveUnit.movingEnd = true;
-        }
-        else
-        {
-            for (int i = tileStage; i >= 0; i--)
-            {
-                moveUnit.movingEnd = false;
-                
-                moveUnit.endPoint = moveList[i];
-                yield return new WaitForSeconds(1.0f);
-            }
-            moveUnit.movingEnd = true;
-        }
+        StartCoroutine(selectUnit.UnitMove(tileList, tileStage, selectUnit));
         
-        
-    }
+    } //실제 최소 경로 찾아 이동시켜줌
 
     void AllTileBreak()   //명령 후 모든 타일 초기화
     {
@@ -317,4 +386,141 @@ public class TutorialManager : MonoBehaviour
             tileSaveInfo[i].selectTile = false;
         }
     }
+
+
+    public void ClickMoveButton()
+    {
+        if (canClick != true || scriptManager.textNumber != 0 || selectUnit == enemy)
+        {
+            Debug.Log("클릭 안됨 이동");
+            return;
+        }
+
+        if (selectUnit.movingEnd != true)
+        {
+            return;
+        }
+
+        
+
+        GetGotoTile(selectUnit.startPoint, selectUnit.actPoint);
+
+        //여기도 임시 땜빵 일단 쓰고 있으셈
+        scriptManager.canSkip = true;
+        scriptManager.textNumber++;
+        scriptManager.StartCoroutine(scriptManager.MessagePrint(scriptManager.boxIndex));
+        scriptManager.boxIndex = (scriptManager.boxIndex - 1) * -1;
+    }
+
+    public void ClickTurnButton()
+    {
+        if (canClick != true)
+        {
+            Debug.Log("클릭 안됨");
+            return;
+        }
+
+        if (selectUnit.movingEnd != true)
+        {
+            return;
+        }
+        Debug.Log("클릭됨");
+
+        if (scriptManager.textNumber == 5)
+        {
+            scriptManager.canSkip = true;
+            scriptManager.textNumber++;
+            scriptManager.StartCoroutine(scriptManager.MessagePrint(scriptManager.boxIndex));
+            scriptManager.boxIndex = (scriptManager.boxIndex - 1) * -1;
+            selectUnit = enemy;
+            GetGotoTile(selectUnit.startPoint,selectUnit.actPoint);
+
+            unit.actPoint = 3;
+            enemy.actPoint = 2;
+        }
+        else if (scriptManager.textNumber == 13)
+        {
+            scriptManager.canSkip = true;
+            scriptManager.textNumber++;
+            scriptManager.StartCoroutine(scriptManager.MessagePrint(scriptManager.boxIndex));
+            scriptManager.boxIndex = (scriptManager.boxIndex - 1) * -1;
+
+            tileSaveInfo[16].occupation = 2;
+            /*tileSaveInfo[8].occupation = 1; 
+            tileSaveInfo[9].occupation = 1;
+            tileSaveInfo[17].occupation = 1;
+            tileSaveInfo[24].occupation = 1;*/
+
+
+            selectUnit = enemy;
+            GetGotoTile(selectUnit.startPoint, selectUnit.actPoint);
+
+            unit.actPoint = 0;
+        }
+        else
+        {
+            return;
+        }
+
+
+    }
+
+    public void ClickWarriorButton()
+    {
+        if (canClick != true || selectUnit == enemy)
+        {
+            Debug.Log("클릭 안됨");
+            return;
+        }
+
+        if (selectUnit.movingEnd != true)
+        {
+            return;
+        }
+        Debug.Log("클릭됨");
+
+        if (scriptManager.textNumber == 15)
+        {
+
+            
+            tileSaveInfo[24].selectTile = true;
+        }
+        
+        else
+        {
+            return;
+        }
+
+
+    }
+
+    public void ClickAttackButton()
+    {
+        if (canClick != true || selectUnit == enemy)
+        {
+            
+            return;
+        }
+
+        if (selectUnit.movingEnd != true)
+        {
+            return;
+        }
+        
+
+        if (scriptManager.textNumber == 17 && selectUnit == unit && attackSwitch == false)
+        {
+
+            attackSwitch = true;
+            tileSaveInfo[17].selectTile = true;
+        }
+
+        else
+        {
+            return;
+        }
+
+
+    }
+
 }

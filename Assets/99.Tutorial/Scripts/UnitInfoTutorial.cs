@@ -13,40 +13,103 @@ public class UnitInfoTutorial : MonoBehaviour {
     [SerializeField] bool moving = false;   //애니메이션 전용
     [SerializeField] public bool movingEnd = true;    //이동 중 명력 중복 수행 방지 전용, true= 버튼 누를수잇음, false = 못 누름
 
+
+    [SerializeField] Animator anim;
+
+    [SerializeField] ScriptManager scriptManager;
+    [SerializeField] TutorialManager tutorialManager;
+
     private void Start()
     {
         transform.position = new Vector3(startPoint.transform.position.x, startPoint.transform.position.y, startPoint.transform.position.z);
         
     }
-
-    private void Update()
+    public IEnumerator UnitMove(List<TileInfoTutorial> path, int tileStage, UnitInfoTutorial moveUnit)   //유닛이 이동하는데 딜레이 있게 이동한다
     {
-        endPoint.firstTile = true;
+        movingEnd = false;
+        Debug.Log(path.Count);
+        path.Reverse();
+        Vector3 endPos;
+        Vector3 startPos;
+        Quaternion startRot;
+        Quaternion endRot;
 
-        if (startPoint != endPoint)
+        for (int i = 0; i < path.Count; i++)
         {
-            if(moving == false)
+            float time = 0;
+            endPos = path[i].transform.position;
+            startPos = transform.position;
+
+            endRot = Quaternion.LookRotation(path[i].transform.position - transform.position);
+            startRot = transform.rotation;
+
+            startPoint = path[i];
+
+            anim.SetBool("MOVE", true);
+            while (time <= 1)
             {
-                moving = true;
-                StartCoroutine(StopMoving());
+
+                transform.rotation = Quaternion.Lerp(startRot, endRot, time);
+                time += Time.deltaTime * 5;
+                yield return null;
             }
-
-            transform.position = Vector3.MoveTowards(transform.position, endPoint.transform.position, 8.0f * Time.deltaTime);
+            time = 0;
+            while (time <= 1)
+            {
+              
+                transform.position = Vector3.Lerp(startPos, endPos, time);
+                time += Time.deltaTime * 1f;
+                yield return null;
+            }
+            anim.SetBool("MOVE", false);
+            yield return new WaitForSeconds(0.5f);
         }
-        else
+        movingEnd = true;
+        if(tutorialManager.selectUnit == tutorialManager.enemy)
         {
-            moving = false;
-            
+            tutorialManager.selectUnit = tutorialManager.unit;
+           
         }
-
+        if(scriptManager.textNumber == 14)
+        {
+            tutorialManager.unit.actPoint = 3;
+        }
         
+        //일단은 이동 튜토리얼 끝나면 바로 메세지 넘어가게 하기는 했지만 추후 조치가 필요해보임 임시 땜빵
+
+        scriptManager.canSkip = true;
+        scriptManager.textNumber++;
+        scriptManager.StartCoroutine(scriptManager.MessagePrint(scriptManager.boxIndex));
+        scriptManager.boxIndex = (scriptManager.boxIndex - 1) * -1;
+    }
+    
+    public IEnumerator Attack()
+    {
+        float time = 0;
+        while (time <= 1)
+        {
+
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(transform.rotation.x, 87f, transform.rotation.z), time);
+            time += Time.deltaTime * 5;
+            yield return null;
+        }
+        
+        anim.SetTrigger("ATTACK");
+        tutorialManager.unit.actPoint = 0;
+        yield return new WaitForSeconds(3.5f);
+        scriptManager.canSkip = true;
+        scriptManager.textNumber++;
+        scriptManager.StartCoroutine(scriptManager.MessagePrint(scriptManager.boxIndex));
+        scriptManager.boxIndex = (scriptManager.boxIndex - 1) * -1;
+        yield return null;
     }
 
-    IEnumerator StopMoving()
+    public IEnumerator Damaged()
     {
-        yield return new WaitForSeconds(0.5f);
-        moving = false;
-        startPoint = endPoint;
+        yield return new WaitForSeconds(1.4f);
+        anim.SetTrigger("DIE");
+        Debug.Log("공격당함");
+        yield return null;
     }
 }
 
