@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
 
@@ -81,38 +82,36 @@ public class GameManager : MonoBehaviour {
         //유닛 클릭했을때
         if (hit.collider.tag == "Unit")
         {
+            UnitInfo unit = hit.collider.GetComponent<UnitInfo>();
+            
             Debug.Log("유닛클릭 : " + hit.collider.gameObject + " " + trigger);
             //공격 할때
-            if (Obj != null && !enemy && trigger == Trigger.Attack)
+            if (Obj != null && !enemy && trigger == Trigger.Attack && CheckOwner())
             {
                 //Obj->hit.transform.gameObject 공격
                 Attack(Obj, hit.transform.gameObject);
                 ResetTrigger();
                 return;
             }
+
+            ResetTrigger();
+
             enemy = hit.transform.GetComponent<UnitInfo>().Owner == PhotonNetwork.playerName ? false : true;
             Type = ObjTpye.Unit;
             Obj = hit.transform.gameObject;
 
-            //적 클릭했을때
-            if (enemy)
-            {
-                //적 정보 UI보여주기
-                ResetTrigger();
-            }
-            //아군 클릭했을때
-            else
-            {
-                Obj.GetComponent<UnitInfo>().UI();
-                //아군 UI보여주기
-            }
+            //UI보여주기
+
+
+            //아군 공격 이동 스폰 버튼
+            if (!enemy && CheckOwner()) Obj.GetComponent<UnitInfo>().UI();
         }
 
         //타일 클릭했을때
         else if (hit.collider.tag == "Tile")
         {
             //이동 할때
-            if (Obj != null && !enemy && trigger == Trigger.Move)
+            if (Obj != null && !enemy && trigger == Trigger.Move && CheckOwner())
             {
                 //Obj가 hit.transform.gameObject 으로 이동
                 Move(Obj, hit.transform.gameObject);
@@ -158,8 +157,14 @@ public class GameManager : MonoBehaviour {
             //닌자일 경우
             if (defender.Kinds == "Ninja" && range > 1) defender.anim.photonView.RPC("EVASION", PhotonTargets.All);
 
-            else defender.photonView.RPC("GetDemage", PhotonTargets.All, attacker.ATK + attacker.AddATK);
+            else defender.photonView.RPC("GetDemage", PhotonTargets.All, attacker.ATK + attacker.AddATK, attacker.x, attacker.y);
             attacker.photonView.RPC("Attack", PhotonTargets.All,defender.x,defender.y);
         }
+    }
+
+    //턴 오너 확인
+    bool CheckOwner()
+    {
+        return NetworkManager.network.turnOwner == PhotonNetwork.playerName;
     }
 }

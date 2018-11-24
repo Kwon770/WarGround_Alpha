@@ -187,4 +187,74 @@ public class Calculator : MonoBehaviour {
         return -1;
     }
 
+    public List<TileInfo> GetInrangeTile(TileInfo SP, int range)
+    {
+
+        int s = 0, e = 0;
+        TileInfo tile, temp;
+        List<TileInfo> TileQueue = new List<TileInfo>();
+        List<int> RangeQueue = new List<int>();
+        int[,] check = new int[15, 15];
+
+        TileQueue.Add(SP);
+        RangeQueue.Add(0);
+
+        while (s <= e)
+        {
+            tile = TileQueue[s];
+            int k = tile.x % 2 == 1 ? 1 : 0;
+            
+            temp = GameData.data.FindTile(tile.x, tile.y - 1);
+            if (temp != null && RangeQueue[s] + 1 <= range && check[temp.x,temp.y]==0)
+            {
+                e++;
+                check[temp.x, temp.y] = 1;
+                TileQueue.Add(temp);
+                RangeQueue.Add(RangeQueue[s] + 1);
+            }
+            temp = GameData.data.FindTile(tile.x, tile.y + 1);
+            if (temp != null && RangeQueue[s] + 1 <= range && check[temp.x, temp.y] == 0)
+            {
+                e++;
+                check[temp.x, temp.y] = 1;
+                TileQueue.Add(temp);
+                RangeQueue.Add(RangeQueue[s] + 1);
+            }
+            temp = GameData.data.FindTile(tile.x + 1, tile.y - k);
+            if (temp != null && RangeQueue[s] + 1 <= range && check[temp.x, temp.y] == 0)
+            {
+                e++;
+                check[temp.x, temp.y] = 1;
+                TileQueue.Add(temp);
+                RangeQueue.Add(RangeQueue[s] + 1);
+            }
+            temp = GameData.data.FindTile(tile.x + 1, tile.y + 1 - k);
+            if (temp != null && RangeQueue[s] + 1 <= range && check[temp.x, temp.y] == 0)
+            {
+                e++;
+                check[temp.x, temp.y] = 1;
+                TileQueue.Add(temp);
+                RangeQueue.Add(RangeQueue[s] + 1);
+            }
+            temp = GameData.data.FindTile(tile.x - 1, tile.y - k);
+            if (temp != null && RangeQueue[s] + 1 <= range && check[temp.x, temp.y] == 0)
+            {
+                e++;
+                check[temp.x, temp.y] = 1;
+                TileQueue.Add(temp);
+                RangeQueue.Add(RangeQueue[s] + 1);
+            }
+            temp = GameData.data.FindTile(tile.x - 1, tile.y + 1 - k);
+            if (temp != null && RangeQueue[s] + 1 <= range && check[temp.x, temp.y] == 0)
+            {
+                e++;
+                check[temp.x, temp.y] = 1;
+                TileQueue.Add(temp);
+                RangeQueue.Add(RangeQueue[s] + 1);
+            }
+            s++;
+        }
+        return TileQueue;
+    }
+
 }

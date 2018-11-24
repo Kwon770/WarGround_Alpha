@@ -13,8 +13,11 @@ public class GameData : MonoBehaviour {
     public TileInfo[] Tiles;
     public List<UnitInfo> Units;
 
+    [SerializeField] public Color enemyColor;
+    [SerializeField] public Color teamColor;
+
     //초기화
-	void Awake () {
+    void Awake () {
         data = this;
         
         Tiles = new TileInfo[Map.childCount];

@@ -10,21 +10,51 @@ public class TileInfo : MonoBehaviour {
     [SerializeField] public int cost;
     [SerializeField] public int idlecost;
 
-    public bool Switch;
+    [SerializeField] public int occupyPoint;
 
-    private void OnMouseDown()
+    [SerializeField] float ChangeSpeed;
+
+    Coroutine coroutine;
+
+    public void GetOcccupy()
     {
-        if (!Switch) return;
+        occupyPoint = occupyPoint < 2 ? occupyPoint + 1 : occupyPoint;
+        if (occupyPoint != 2) return;
+        
+        if (coroutine != null) StopCoroutine(coroutine);
+        Color currentColor = transform.GetChild(0).GetComponent<Renderer>().material.color;
+        coroutine = StartCoroutine(changeColor(currentColor, GameData.data.teamColor));
     }
+    public void LoseOcccupy()
+    {
+        occupyPoint = occupyPoint > -2 ? occupyPoint - 1 : occupyPoint;
+        if (occupyPoint != -2) return;
+
+        if (coroutine != null) StopCoroutine(coroutine);
+        Color currentColor = GetComponent<Renderer>().material.color;
+        coroutine = StartCoroutine(changeColor(currentColor, GameData.data.teamColor));
+    }
+
+    IEnumerator changeColor(Color startColor, Color endColor)
+    {
+        float time = 0;
+        while (time <= 1) {
+            Color.Lerp(startColor,endColor,time);
+            time += Time.deltaTime * ChangeSpeed;
+            yield return null;
+        }
+        yield break;
+    }
+
+
 
     public void CanUse()
     {
-        Switch = true;
         //타일 하이라이트 표시
     }
     public void ResetUse()
     {
-        Switch = false;
+        //타일 하이라이트 제거
     }
 
     public int GetX()

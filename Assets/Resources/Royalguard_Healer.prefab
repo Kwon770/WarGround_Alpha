@@ -1276,7 +1276,8 @@ MonoBehaviour:
   Owner: 
   x: 0
   y: 0
-  Kinds: Miko
+  dieTrigger: 0
+  Kinds: Healer
   CanSpawn: 0
   delay: 0
   ATK: -2

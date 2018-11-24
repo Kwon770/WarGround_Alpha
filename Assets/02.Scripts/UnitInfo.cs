@@ -93,14 +93,16 @@ public class UnitInfo : Photon.MonoBehaviour {
 
     //데미지받기
     [PunRPC]
-    public void GetDemage(int demage)
+    public void GetDemage(int demage, int x, int y)
     {
+        UnitInfo attacker = GameData.data.FindUnit(x, y);
 //        if (!photonView.isMine) return;
 
         //방어 무시일 경우
-        if (demage < 0)
+        if (attacker.Kinds == "Boatswain")
         {
-            HP += demage;
+            HP -= demage;
+            if (HP <= 0) dieTrigger = true;
             return;
         }
 
@@ -128,6 +130,9 @@ public class UnitInfo : Photon.MonoBehaviour {
     //애니매이션 재생
     IEnumerator Animation(float delayTime, UnitInfo temp)
     {
+        Debug.Log(temp.transform.position + " " + transform.position);
+        Debug.Log(temp);
+
         float time = 0;
         Quaternion startRot1 = transform.rotation;
         Quaternion endRot1 = Quaternion.LookRotation(temp.transform.position - transform.position);
@@ -167,8 +172,12 @@ public class UnitInfo : Photon.MonoBehaviour {
         Quaternion startRot;
         Quaternion endRot;
 
+        Act -= (path.Count - 1);
+
         for (int i = 1; i < path.Count; i++)
         {
+            if(Kinds == "ChiefMate") GameData.data.FindTile(path[i - 1].x, path[i - 1].y).cost=0;
+
             float time = 0;
             endPos = path[i].transform.position;
             startPos = transform.position;
@@ -204,7 +213,6 @@ public class UnitInfo : Photon.MonoBehaviour {
     //피가 0 이하일때
     public void DIE()
     {
-        Debug.Log("DDDd");
         anim.DIE();
         if (!photonView.isMine) return;
         if (Banshee())
@@ -231,18 +239,21 @@ public class UnitInfo : Photon.MonoBehaviour {
     //부활 관련 코드
     public bool Banshee()
     {
+        Debug.Log("부활확인");
         // 밴시 부활 여부 확인
         foreach (UnitInfo unit in GameData.data.Units)
         {
+
+            Debug.Log(unit.Kinds + " : " + (unit.Owner != Owner) + " : " + unit.gameObject);
             if (Kinds == "SkullKnight") break;
-            if (unit.Kinds == "Pluto_Banshee" && unit.Owner != Owner)
+            if (unit.Kinds == "Banshee" && unit.Owner != Owner)
             {
 
                 int range = Calculator.Calc.Range(GameData.data.FindTile(x, y), GameData.data.FindTile(unit.x, unit.y), 2);
 
                 Debug.Log(range);
 
-                if (range <= 2)
+                if (range <= 2 && range != -1) 
                 {
                     return true;
                 }

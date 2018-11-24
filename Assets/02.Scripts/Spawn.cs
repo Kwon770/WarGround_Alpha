@@ -6,10 +6,16 @@ using UnityEngine.UI;
 public class Spawn : Photon.MonoBehaviour {
 
     public static Spawn spawn;
+    public UnitInfo self;
 
     [SerializeField] string[] Units;
 
     public string unitName;
+
+    private void Awake()
+    {
+        self = GetComponent<UnitInfo>();
+    }
 
     public void Setting()
     {
@@ -29,15 +35,18 @@ public class Spawn : Photon.MonoBehaviour {
 
     public void UnitSpawn(TileInfo tile)
     {
+        if (Calculator.Calc.Range(tile, GameData.data.FindTile(self.x, self.y), 1) == -1) return;
+
         Vector3 spawnPos=tile.transform.position;
         UnitInfo unit = PhotonNetwork.Instantiate(unitName, spawnPos, transform.rotation, 0).GetComponent<UnitInfo>();
 
-
+        self.Act--;
 
         unit.SetOwner(PhotonNetwork.playerName);
         unit.x = tile.x;
         unit.y = tile.y;
-        if (GetComponent<UnitInfo>().Kinds == "Mars")
+
+        if (self.Kinds == "Mars")
         {
             unit.SHD += 1;
         }

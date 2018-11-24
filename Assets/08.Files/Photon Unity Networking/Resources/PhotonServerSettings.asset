@@ -56,4 +56,5 @@ MonoBehaviour:
   - Rise
   - DestroyUnit
   - Check
+  - TurnSet
   DisableAutoOpenWizard: 1
