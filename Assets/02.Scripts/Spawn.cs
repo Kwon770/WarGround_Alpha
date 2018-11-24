@@ -9,8 +9,10 @@ public class Spawn : Photon.MonoBehaviour {
     public UnitInfo self;
 
     [SerializeField] string[] Units;
+    [SerializeField] int[] Cost;
 
     public string unitName;
+    public int cost;
 
     private void Awake()
     {
@@ -30,17 +32,23 @@ public class Spawn : Photon.MonoBehaviour {
             var cachedI = i; // Cache for Lambda
             temp.onClick.AddListener(new UnityEngine.Events.UnityAction(() => spawn.SetName(Units[cachedI])));
             temp.onClick.AddListener(new UnityEngine.Events.UnityAction(() => GameManager.manager.SetTrigger("Spawn")));
+            cost = Cost[i];
         }
     }
 
     public void UnitSpawn(TileInfo tile)
     {
         if (Calculator.Calc.Range(tile, GameData.data.FindTile(self.x, self.y), 1) == -1) return;
+        if (cost > GameData.data.bitinium && GameData.data.LeaderShip >= GameData.data.MaxLeaderShip) return;
 
         Vector3 spawnPos=tile.transform.position;
         UnitInfo unit = PhotonNetwork.Instantiate(unitName, spawnPos, transform.rotation, 0).GetComponent<UnitInfo>();
 
         self.Act--;
+        GameData.data.LeaderShip++;
+        GameData.data.bitinium -= cost;
+        InfoBar.bar.SetLeadership();
+        InfoBar.bar.SetBit();
 
         unit.SetOwner(PhotonNetwork.playerName);
         unit.x = tile.x;

@@ -1302,13 +1302,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53a6ced5ea913be4298572ba1dbea0f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  self: {fileID: 0}
   Units:
   - Pirates_Boatswain
   - Pirates_ChiefMate
   - Pirates_Harrier
   - Partan_Warrior
   - 
+  Cost: 0500000004000000040000000300000000000000
   unitName: 
+  cost: 0
 --- !u!114 &114757456527828966
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour {
 
     public static GameManager manager;
-
+    
     [SerializeField] public Transform SpawnButton;
     [SerializeField] public GameObject AttackButton;
     [SerializeField] public GameObject MoveButton;
@@ -91,6 +91,7 @@ public class GameManager : MonoBehaviour {
                 //Obj->hit.transform.gameObject 공격
                 Attack(Obj, hit.transform.gameObject);
                 ResetTrigger();
+                InfoBar.bar.ResetUI();
                 return;
             }
 
@@ -101,7 +102,7 @@ public class GameManager : MonoBehaviour {
             Obj = hit.transform.gameObject;
 
             //UI보여주기
-
+            InfoBar.bar.SetUI(unit.Kinds, unit.ATK, unit.HP, unit.SHD, unit.Act);
 
             //아군 공격 이동 스폰 버튼
             if (!enemy && CheckOwner()) Obj.GetComponent<UnitInfo>().UI();
@@ -116,12 +117,14 @@ public class GameManager : MonoBehaviour {
                 //Obj가 hit.transform.gameObject 으로 이동
                 Move(Obj, hit.transform.gameObject);
                 ResetTrigger();
+                InfoBar.bar.ResetUI();
                 return;
             }
             else if(Obj != null && !enemy && trigger == Trigger.Spawn)
             {
                 Spawn.spawn.UnitSpawn(hit.transform.GetComponent<TileInfo>());
                 ResetTrigger();
+                InfoBar.bar.ResetUI();
                 return;
             }
             if (Obj == null)
