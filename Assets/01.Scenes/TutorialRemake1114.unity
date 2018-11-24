@@ -1131,7 +1131,7 @@ MonoBehaviour:
   path: {fileID: 0}
   stage: 0
   selectUnit: {fileID: 0}
-  occupation: 2
+  occupation: 0
 --- !u!64 &64111653
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -5312,6 +5312,7 @@ RectTransform:
   - {fileID: 1277944013}
   - {fileID: 445099589}
   - {fileID: 1249647178}
+  - {fileID: 1167713699}
   m_Father: {fileID: 817820107}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5958,7 +5959,7 @@ MonoBehaviour:
   path: {fileID: 0}
   stage: 0
   selectUnit: {fileID: 0}
-  occupation: 2
+  occupation: 0
 --- !u!64 &437735564
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -6502,6 +6503,7 @@ MonoBehaviour:
   opening: 0
   sceneNum: 0
   button: {fileID: 385552620}
+  selectButton: {fileID: 926789918}
 --- !u!1 &467722625
 GameObject:
   m_ObjectHideFlags: 0
@@ -11028,7 +11030,7 @@ MonoBehaviour:
   alphaSpeed: 0.03
   guideText:
   - Press MOVE button.
-  - Press red tile to move unit.
+  - Press pink tile to move unit.
   - All your act point has been consumed.
   - Act point is a necessary resource for moving, attacking and spawning.
   - The unit can't act now because he consumes all his act point.
@@ -13069,7 +13071,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!136 &926789919
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -14849,6 +14851,80 @@ Transform:
   m_PrefabParentObject: {fileID: 4569790774807770, guid: 64ad523b8d019471988932267f33b756,
     type: 2}
   m_PrefabInternal: {fileID: 1018304346}
+--- !u!1 &1011348665
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1011348666}
+  - component: {fileID: 1011348668}
+  - component: {fileID: 1011348667}
+  m_Layer: 5
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1011348666
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1011348665}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1167713699}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -21.6}
+  m_SizeDelta: {x: 160, y: 66.6}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1011348667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1011348665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 48
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 4
+    m_MaxSize: 48
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 3
+--- !u!222 &1011348668
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1011348665}
 --- !u!4 &1013135915 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4569790774807770, guid: 64ad523b8d019471988932267f33b756,
@@ -15666,7 +15742,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1562351998}
-        m_MethodName: MoveButtonAct
+        m_MethodName: ClickAttackButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -17455,6 +17531,81 @@ Transform:
   m_Father: {fileID: 1341713598}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1167713698
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1167713699}
+  - component: {fileID: 1167713701}
+  - component: {fileID: 1167713700}
+  m_Layer: 5
+  m_Name: ActPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1167713699
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1167713698}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1011348666}
+  m_Father: {fileID: 385552621}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 179.67, y: -12.4}
+  m_SizeDelta: {x: 208.34, y: 102.2}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1167713700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1167713698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 32
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 3
+    m_MaxSize: 48
+    m_Alignment: 1
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Act Point
+--- !u!222 &1167713701
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1167713698}
 --- !u!1001 &1169555549
 Prefab:
   m_ObjectHideFlags: 0
@@ -19176,9 +19327,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c066e538b29465f4ebdfc9c859740fa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  endPoint: {fileID: 2077470149}
-  startPoint: {fileID: 2077470149}
-  actPoint: 2
+  endPoint: {fileID: 925047374}
+  startPoint: {fileID: 925047374}
+  actPoint: 3
   moving: 0
   movingEnd: 1
   anim: {fileID: 1268205453}
@@ -20080,7 +20231,7 @@ MonoBehaviour:
   path: {fileID: 0}
   stage: 0
   selectUnit: {fileID: 0}
-  occupation: 0
+  occupation: 2
 --- !u!64 &1322932243
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -20403,7 +20554,7 @@ MonoBehaviour:
   path: {fileID: 0}
   stage: 0
   selectUnit: {fileID: 0}
-  occupation: 2
+  occupation: 0
 --- !u!64 &1352972934
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -23683,6 +23834,9 @@ MonoBehaviour:
   selectEffect: {fileID: 926789918}
   mainCam: {fileID: 1348255028}
   warrior: {fileID: 1279649615}
+  attackSwitch: 0
+  actPointText: {fileID: 1011348667}
+  actPointParent: {fileID: 1167713700}
   myTurn: 0
 --- !u!1001 &1563408188
 Prefab:
@@ -26417,7 +26571,7 @@ MonoBehaviour:
   path: {fileID: 0}
   stage: 0
   selectUnit: {fileID: 0}
-  occupation: -1
+  occupation: -2
 --- !u!64 &1737376422
 MeshCollider:
   m_ObjectHideFlags: 0

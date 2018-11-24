@@ -68,6 +68,11 @@ public class UnitInfoTutorial : MonoBehaviour {
         if(tutorialManager.selectUnit == tutorialManager.enemy)
         {
             tutorialManager.selectUnit = tutorialManager.unit;
+           
+        }
+        if(scriptManager.textNumber == 14)
+        {
+            tutorialManager.unit.actPoint = 3;
         }
         
         //일단은 이동 튜토리얼 끝나면 바로 메세지 넘어가게 하기는 했지만 추후 조치가 필요해보임 임시 땜빵
@@ -78,6 +83,34 @@ public class UnitInfoTutorial : MonoBehaviour {
         scriptManager.boxIndex = (scriptManager.boxIndex - 1) * -1;
     }
     
+    public IEnumerator Attack()
+    {
+        float time = 0;
+        while (time <= 1)
+        {
+
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(transform.rotation.x, 87f, transform.rotation.z), time);
+            time += Time.deltaTime * 5;
+            yield return null;
+        }
+        
+        anim.SetTrigger("ATTACK");
+        tutorialManager.unit.actPoint = 0;
+        yield return new WaitForSeconds(3.5f);
+        scriptManager.canSkip = true;
+        scriptManager.textNumber++;
+        scriptManager.StartCoroutine(scriptManager.MessagePrint(scriptManager.boxIndex));
+        scriptManager.boxIndex = (scriptManager.boxIndex - 1) * -1;
+        yield return null;
+    }
+
+    public IEnumerator Damaged()
+    {
+        yield return new WaitForSeconds(1.4f);
+        anim.SetTrigger("DIE");
+        Debug.Log("공격당함");
+        yield return null;
+    }
 }
 
 

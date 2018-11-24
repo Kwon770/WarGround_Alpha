@@ -43,7 +43,7 @@ public class TileInfoTutorial : MonoBehaviour {
 
         if( selectTile == true )
         {
-            mat.material.color = Color.red;
+            mat.material.color = new Color(255f / 20f, 255f / 0f, 255f / 255f, 1f);
         }
 
         else if (occupation == 2)

@@ -29,11 +29,18 @@ public class ScriptManager : MonoBehaviour {
     {
         if(Input.GetKeyDown(KeyCode.Return) && canSkip == true)  //0, 1, 5, 6enemy, 13, 14enemy, 15, 17, 20 enter 할 시 씬 종료
         {
-           
-            
+                if(textNumber == 20)
+                {
+                Debug.Log("튜토리얼 종료");
+                }
+                else
+                {
                 textNumber++;
                 StartCoroutine(MessagePrint(boxIndex));
                 boxIndex = (boxIndex - 1) * -1;
+                }
+            
+                
             
            
         }

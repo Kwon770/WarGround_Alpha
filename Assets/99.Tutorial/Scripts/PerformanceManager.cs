@@ -24,6 +24,7 @@ public class PerformanceManager : MonoBehaviour {
     // ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ 여기서부턴 본게임
     [SerializeField] int sceneNum;
     [SerializeField] GameObject button;
+    [SerializeField] GameObject selectButton;
 
 
 
@@ -153,6 +154,7 @@ public class PerformanceManager : MonoBehaviour {
 
     void tutorialStart()
     {
+        selectButton.SetActive(true);
         cam.GetComponent<CameraManager>().opening = false;
 
         Destroy(mainCam.GetComponent<Animator>());
