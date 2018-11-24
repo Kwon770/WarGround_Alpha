@@ -11030,13 +11030,13 @@ MonoBehaviour:
   alphaSpeed: 0.03
   guideText:
   - Press MOVE button.
-  - Press pink tile to move unit.
+  - Press pink tile to move unit. Move needs a 1 act point per tile.
   - All your act point has been consumed.
-  - Act point is a necessary resource for moving, attacking and spawning.
+  - Act point is a necessary resource for move, attack and spawn.
   - The unit can't act now because he consumes all his act point.
   - Press the button in the lower right corner to turn over.
   - (Enemy's turn)
-  - Now let me introuce about occupation.
+  - Next is occupation.
   - Many units are advantageous for combat. You need Bitinium to spawn them.
   - Occupation is an important action to get Bitinium and win the game.
   - It is possible when your all act point remained.
@@ -11045,11 +11045,11 @@ MonoBehaviour:
   - These occupied tiles increase the amount of Bitinium given per turn.
   - End your turn to occupation.
   - (Enemy's turn)
-  - 'Let''s spawn a [Warrior] to help your battle. He doesn''t have a special ability,
-    but he is brave. '
+  - Let's spawn a [Warrior] to help your battle. Spawn needs a 1 act point.
   - 'Spawned unit have no act point on the first turn. He doesn''t seem to be able
     to solve this situation. '
-  - Let's show a dignity of Elite. Press the Attack button and attack an enemy.
+  - Let's show a dignity of Elite. Press the Attack button and attack an enemy. Attack
+    needs 2 act point.
   - The enemy fell. You won the battle.
   - In this way, if you knock down the enemy's elite or if you have more than your
     enemy's tile, you will win.

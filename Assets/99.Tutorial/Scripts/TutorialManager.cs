@@ -92,7 +92,7 @@ public class TutorialManager : MonoBehaviour
                             AllTileBreak();
 
                             warrior.SetActive(true);
-
+                            unit.actPoint--;
                             scriptManager.canSkip = true;
                             scriptManager.textNumber++;
                             scriptManager.StartCoroutine(scriptManager.MessagePrint(scriptManager.boxIndex));
@@ -101,6 +101,7 @@ public class TutorialManager : MonoBehaviour
                         else if(scriptManager.textNumber == 17)
                         {
                             AllTileBreak();
+                            
                             enemy.StartCoroutine(enemy.Damaged());
                             enemy.StartCoroutine(unit.Attack());
                             Debug.Log("17발동 타일 눌러서");
@@ -125,6 +126,7 @@ public class TutorialManager : MonoBehaviour
                     else if (scriptManager.textNumber == 17)
                     {
                         AllTileBreak();
+                        
                         enemy.StartCoroutine(enemy.Damaged());
                         enemy.StartCoroutine(unit.Attack());
                         Debug.Log("17발동 유닛 눌러서");
@@ -480,7 +482,7 @@ public class TutorialManager : MonoBehaviour
         if (scriptManager.textNumber == 15)
         {
 
-            unit.actPoint--;
+            
             tileSaveInfo[24].selectTile = true;
         }
         
