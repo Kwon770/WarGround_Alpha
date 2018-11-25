@@ -1315,6 +1315,7 @@ MonoBehaviour:
   Owner: 
   x: 0
   y: 0
+  dieTrigger: 0
   Kinds: Dokugawa
   CanSpawn: 1
   delay: 1.8
@@ -1339,13 +1340,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53a6ced5ea913be4298572ba1dbea0f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  self: {fileID: 0}
   Units:
   - Kamiken_Samurai
   - Kamiken_Ninja
   - Kamiken_Miko
   - Cora_Warrior
   - 
+  Cost: 0500000004000000050000000300000000000000
   unitName: 
+  cost: 0
 --- !u!136 &136133998904690796
 CapsuleCollider:
   m_ObjectHideFlags: 1

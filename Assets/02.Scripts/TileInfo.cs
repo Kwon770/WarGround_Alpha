@@ -14,32 +14,57 @@ public class TileInfo : MonoBehaviour {
 
     [SerializeField] float ChangeSpeed;
 
+    MeshRenderer currentColor;
+    Color ResetColor;
+
     Coroutine coroutine;
+
+    private void Awake()
+    {
+        currentColor = transform.GetChild(0).GetComponent<MeshRenderer>();
+        ResetColor = currentColor.material.color;
+    }
 
     public void GetOcccupy()
     {
-        occupyPoint = occupyPoint < 2 ? occupyPoint + 1 : occupyPoint;
-        if (occupyPoint != 2) return;
-        
-        if (coroutine != null) StopCoroutine(coroutine);
-        Color currentColor = transform.GetChild(0).GetComponent<Renderer>().material.color;
-        coroutine = StartCoroutine(changeColor(currentColor, GameData.data.teamColor));
+        occupyPoint++;
+
+        if (occupyPoint >= 2)
+        {
+            if (coroutine != null) StopCoroutine(coroutine);
+            Color startColor = currentColor.material.color;
+            coroutine = StartCoroutine(changeColor(startColor, GameData.data.teamColor));
+        }
+        else
+        {
+            if (coroutine != null) StopCoroutine(coroutine);
+            Color startColor = currentColor.material.color;
+            coroutine = StartCoroutine(changeColor(startColor, ResetColor));
+        }
     }
     public void LoseOcccupy()
     {
-        occupyPoint = occupyPoint > -2 ? occupyPoint - 1 : occupyPoint;
-        if (occupyPoint != -2) return;
-
-        if (coroutine != null) StopCoroutine(coroutine);
-        Color currentColor = GetComponent<Renderer>().material.color;
-        coroutine = StartCoroutine(changeColor(currentColor, GameData.data.teamColor));
+        occupyPoint--;
+        if (occupyPoint <= -2)
+        {
+            if (coroutine != null) StopCoroutine(coroutine);
+            Color startColor = currentColor.material.color;
+            coroutine = StartCoroutine(changeColor(startColor, GameData.data.enemyColor));
+        }
+        else
+        {
+            if (coroutine != null) StopCoroutine(coroutine);
+            Color startColor = currentColor.material.color;
+            coroutine = StartCoroutine(changeColor(startColor, ResetColor));
+        }
     }
 
     IEnumerator changeColor(Color startColor, Color endColor)
     {
+        Debug.Log("색상변경");
         float time = 0;
         while (time <= 1) {
-            Color.Lerp(startColor,endColor,time);
+            currentColor.material.color = Color.Lerp(startColor,endColor,time);
             time += Time.deltaTime * ChangeSpeed;
             yield return null;
         }

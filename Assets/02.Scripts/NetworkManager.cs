@@ -105,15 +105,20 @@ public class NetworkManager : Photon.MonoBehaviour {
     }
     IEnumerator TurnSetting(string user)
     {
+        int myTerritory=0;
         foreach (var unit in GameData.data.Units)
         {
+            Debug.Log(unit);
+
             //내 유닛일경우
             if (unit.Owner == PhotonNetwork.playerName)
             {
-                if ((unit.Kinds == "Harrier" && unit.Act > 0) || unit.Act != unit.MaxAct)
+                if ((unit.Kinds == "Harrier" && unit.Act > 0) || unit.Act == unit.MaxAct)
                 {
                     TileInfo SP = GameData.data.FindTile(unit.x, unit.y);
                     List<TileInfo> tiles = Calculator.Calc.GetInrangeTile(SP, 1);
+
+                    Debug.Log(unit + " " + tiles.Count);
                     foreach (var tile in tiles)
                     {
                         Debug.Log(tile);
@@ -126,10 +131,12 @@ public class NetworkManager : Photon.MonoBehaviour {
             //내 유닛이 아닌경유
             else
             {
-                if ((unit.Kinds == "Harrier" && unit.Act > 0) || unit.Act != unit.MaxAct)
+                if ((unit.Kinds == "Harrier" && unit.Act > 0) || unit.Act == unit.MaxAct)
                 {
                     TileInfo SP = GameData.data.FindTile(unit.x, unit.y);
                     List<TileInfo> tiles = Calculator.Calc.GetInrangeTile(SP, 1);
+
+                    Debug.Log(unit + " " + tiles.Count);
                     foreach (var tile in tiles)
                     {
                         tile.LoseOcccupy();
@@ -137,7 +144,19 @@ public class NetworkManager : Photon.MonoBehaviour {
                     SP.LoseOcccupy();
                 }
             }
+
+            unit.Act = unit.MaxAct;
         }
+        foreach(var tile in GameData.data.Tiles)
+        {
+            tile.cost = tile.idlecost;
+            if (tile.occupyPoint > 2) tile.occupyPoint = 2;
+            if (tile.occupyPoint < -2) tile.occupyPoint = -2;
+            if (tile.occupyPoint == 2) myTerritory++;
+
+        }
+        GameData.data.SetBitinium(myTerritory / 4);
+        InfoBar.bar.SetLeadership();
         yield return null;
         SetOwnerUI(user);
     }

@@ -72,6 +72,29 @@ public class MatchManager : Photon.MonoBehaviour {
         yield return async;
         
         Debug.Log(LobbyNetwork.instance.EliteType);
+
+        if (LobbyNetwork.instance.EliteType == 4)
+        {
+            GameData.data.Maxbitinium = 13;
+            GameData.data.MaxLeaderShip = 6;
+
+            InfoBar.bar.Setting(13, 6);
+        }
+        else if (LobbyNetwork.instance.EliteType == 0)
+        {
+            GameData.data.Maxbitinium = 10;
+            GameData.data.MaxLeaderShip = 7;
+
+            InfoBar.bar.Setting(10, 7);
+        }
+        else
+        {
+            GameData.data.Maxbitinium = 10;
+            GameData.data.MaxLeaderShip = 6;
+
+            InfoBar.bar.Setting(10, 6);
+        }
+
         //각자 지정한 엘리트 스폰
         GameObject unit = PhotonNetwork.Instantiate(Elite[LobbyNetwork.instance.EliteType], MapSet.instance.SpawnPoint[PhotonNetwork.player.ID - 1].transform.position, MapSet.instance.SpawnRotation[PhotonNetwork.player.ID - 1], 0);
         unit.GetComponent<UnitInfo>().SetOwner(PhotonNetwork.playerName);

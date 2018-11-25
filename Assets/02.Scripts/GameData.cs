@@ -16,6 +16,12 @@ public class GameData : MonoBehaviour {
     [SerializeField] public Color enemyColor;
     [SerializeField] public Color teamColor;
 
+
+    [SerializeField] public int bitinium;
+    [SerializeField] public int Maxbitinium;
+    [SerializeField] public int LeaderShip;
+    [SerializeField] public int MaxLeaderShip;
+
     //초기화
     void Awake () {
         data = this;
@@ -60,5 +66,12 @@ public class GameData : MonoBehaviour {
             if (tile.x == x && tile.y == y) return tile;
         }
         return null;
+    }
+
+    //비티늄 셋팅
+    public void SetBitinium(int point)
+    {
+        bitinium += point;
+        if (bitinium > Maxbitinium) bitinium = Maxbitinium;
     }
 }

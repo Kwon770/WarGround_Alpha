@@ -2955,6 +2955,7 @@ MonoBehaviour:
   Owner: 
   x: 0
   y: 0
+  dieTrigger: 0
   Kinds: Deathknight
   CanSpawn: 1
   delay: 2
@@ -2979,12 +2980,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53a6ced5ea913be4298572ba1dbea0f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  self: {fileID: 0}
   Units:
   - Pluto_Banshee
   - 
   - Partan_Warrior
   - 
+  Cost: 05000000000000000300000000000000
   unitName: 
+  cost: 0
 --- !u!114 &114481321846019034
 MonoBehaviour:
   m_ObjectHideFlags: 1
