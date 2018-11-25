@@ -31,7 +31,10 @@ public class ScriptManager : MonoBehaviour {
         {
                 if(textNumber == 20)
                 {
-                Debug.Log("튜토리얼 종료");
+                GameObject Canvas;
+                Canvas = GameObject.Find("LoadingCanvas");
+                Canvas.SetActive(true);
+                Canvas.GetComponent<LoadTutorial>().Exiting();
                 }
                 else
                 {

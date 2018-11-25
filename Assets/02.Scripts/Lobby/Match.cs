@@ -14,7 +14,7 @@ public class Match : MonoBehaviour {
 
     public Image[] anim;
 
-    string[] hex = { "#FFAAAA", "#90D7FF", "#8FFF91", "#E38FFF", "#8FFFCE", "#FF8FA5" };
+    string[] hex = { "#FFAAAA", "#90D7FF", "#8FFF91", "#E38FFF", "#8FFFCE", "#FF8FA5", "DBAAFF", "E5FFAA", "FFAAC1" };
 
     private void Update()
     {
@@ -40,6 +40,8 @@ public class Match : MonoBehaviour {
     {
         match.SetActive(true);
         LobbyNetwork.instance.JoinRandom();
+
+        StartCoroutine(Anim());
 
         myName.text = PhotonNetwork.playerName;
         
@@ -75,18 +77,19 @@ public class Match : MonoBehaviour {
 
     IEnumerator Anim()
     {
-        string Hex = hex[Random.Range(0, 6)];
-
-        for (int i = 0; i < 6; i++)
+        while(true)
         {
-            Debug.Log(Hex);
+            string Hex = hex[Random.Range(0, 9)];
+            
+            for (int i = 0; i < 6; i++)
+            {
+                Color animColor = new Color();
+                ColorUtility.TryParseHtmlString(Hex, out animColor);
 
-            Color animColor = new Color();
-            ColorUtility.TryParseHtmlString(Hex, out animColor);
+                anim[i].color = animColor;
 
-            anim[i].color = animColor;
-
-            yield return new WaitForSeconds(0.5f);
+                yield return new WaitForSeconds(0.5f);
+            }
         }
     }
 }

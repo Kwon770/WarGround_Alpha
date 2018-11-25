@@ -8,16 +8,9 @@ public class LoadTutorial : MonoBehaviour {
 
     public Image[] anim;
 
-    string[] hex = { "#FFAAAA", "#90D7FF", "#8FFF91", "#E38FFF", "#8FFFCE", "#FF8FA5" };
+    string[] hex = { "#FFAAAA", "#90D7FF", "#8FFF91", "#E38FFF", "#8FFFCE", "#FF8FA5", "DBAAFF", "E5FFAA", "FFAAC1" };
     
     bool ready = false;
-
-
-
-    private void Update()
-    {
-        Debug.Log(SceneManager.GetActiveScene().name);
-    }
 
     public void Loading()
     {
@@ -38,14 +31,36 @@ public class LoadTutorial : MonoBehaviour {
             yield return null;
         }
         async.allowSceneActivation = true;
-        Destroy(this.gameObject);
+        gameObject.SetActive(false);
+    }
+
+    public void Exiting()
+    {
+        StartCoroutine(Anim());
+        StartCoroutine(Exit());
+    }
+
+    IEnumerator Exit()
+    {
+        float time = 0;StartCoroutine(Anim());
+        StartCoroutine(Load());
+        AsyncOperation async = SceneManager.LoadSceneAsync("Lobby_Renewal");
+        async.allowSceneActivation = false;
+
+        while (time <= 3 && !async.isDone)
+        {
+            time += Time.deltaTime;
+            yield return null;
+        }
+        async.allowSceneActivation = true;
+        gameObject.SetActive(false);
     }
 
     IEnumerator Anim()
     {
         while(!ready)
         {
-            string Hex = hex[Random.Range(0, 6)];
+            string Hex = hex[Random.Range(0, 9)];
 
             for (int i = 0; i < 6; i++)
             {
