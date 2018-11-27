@@ -2986,8 +2986,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53a6ced5ea913be4298572ba1dbea0f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  self: {fileID: 0}
   Units: []
+  Cost: 
   unitName: 
+  cost: 0
 --- !u!114 &114922517274042090
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3006,6 +3009,7 @@ MonoBehaviour:
   Owner: 
   x: 0
   y: 0
+  dieTrigger: 0
   Kinds: Ragnarr
   CanSpawn: 1
   delay: 2
@@ -3017,8 +3021,8 @@ MonoBehaviour:
   MaxAct: 3
   Act: 3
   range: 1
-  moveSpeed: 1
-  rotSpeed: 5
+  moveSpeed: 3
+  rotSpeed: 10
 --- !u!136 &136099483496865010
 CapsuleCollider:
   m_ObjectHideFlags: 1

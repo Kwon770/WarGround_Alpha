@@ -1408,7 +1408,7 @@ MonoBehaviour:
   y: 0
   dieTrigger: 0
   Kinds: ChiefMate
-  CanSpawn: 1
+  CanSpawn: 0
   delay: 2
   ATK: 3
   AddATK: 0
@@ -1416,10 +1416,10 @@ MonoBehaviour:
   HP: 4
   SHD: 0
   MaxAct: 2
-  Act: 2
+  Act: 0
   range: 1
-  moveSpeed: 1
-  rotSpeed: 5
+  moveSpeed: 3
+  rotSpeed: 10
 --- !u!136 &136956411760757150
 CapsuleCollider:
   m_ObjectHideFlags: 1

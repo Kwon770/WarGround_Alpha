@@ -2947,12 +2947,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44dc29487264b45488d85297d748679e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 0}
   currrentPos: {x: 0, y: 0, z: 0}
   currentQuater: {x: 0, y: 0, z: 0, w: 0}
   moveTrigger: 0
   Owner: 
   x: 0
   y: 0
+  dieTrigger: 0
   Kinds: Winvelt
   CanSpawn: 1
   delay: 2
@@ -2964,8 +2966,8 @@ MonoBehaviour:
   MaxAct: 3
   Act: 3
   range: 1
-  moveSpeed: 1
-  rotSpeed: 5
+  moveSpeed: 3
+  rotSpeed: 10
 --- !u!114 &114098917206927946
 MonoBehaviour:
   m_ObjectHideFlags: 1

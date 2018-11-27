@@ -1314,6 +1314,7 @@ MonoBehaviour:
   Owner: 
   x: 0
   y: 0
+  dieTrigger: 0
   Kinds: Samurai
   CanSpawn: 0
   delay: 1.1
@@ -1325,8 +1326,8 @@ MonoBehaviour:
   MaxAct: 2
   Act: 2
   range: 1
-  moveSpeed: 1
-  rotSpeed: 5
+  moveSpeed: 3
+  rotSpeed: 10
 --- !u!136 &136949381484345734
 CapsuleCollider:
   m_ObjectHideFlags: 1

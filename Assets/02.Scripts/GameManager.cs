@@ -22,8 +22,7 @@ public class GameManager : MonoBehaviour {
         Attack,
         Move,
         Spawn
-    }
-    Trigger trigger;
+    }Trigger trigger;
     bool enemy;
     GameObject Obj;
 
@@ -38,6 +37,18 @@ public class GameManager : MonoBehaviour {
     }
 
     //입력
+    void Input_Computer()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit, 100))
+            {
+                Click(hit);
+            }
+        }
+    }
     public void SetTrigger(string Type)
     {
         if (Type == "Attack")
@@ -63,18 +74,6 @@ public class GameManager : MonoBehaviour {
         AttackButton.SetActive(false);
         MoveButton.SetActive(false);
     }
-    void Input_Computer()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit, 100))
-            {
-                Click(hit);
-            }
-        }
-    }
 
     //처리
     void Click(RaycastHit hit)
@@ -83,34 +82,33 @@ public class GameManager : MonoBehaviour {
         if (hit.collider.tag == "Unit")
         {
             UnitInfo unit = hit.collider.GetComponent<UnitInfo>();
-            
-            Debug.Log("유닛클릭 : " + hit.collider.gameObject + " " + trigger);
+
             //공격 할때
             if (Obj != null && !enemy && trigger == Trigger.Attack && CheckOwner())
             {
                 //Obj->hit.transform.gameObject 공격
                 Attack(Obj, hit.transform.gameObject);
                 ResetTrigger();
-                InfoBar.bar.ResetUI();
                 return;
             }
 
             ResetTrigger();
-
             enemy = hit.transform.GetComponent<UnitInfo>().Owner == PhotonNetwork.playerName ? false : true;
             Type = ObjTpye.Unit;
             Obj = hit.transform.gameObject;
 
-            //UI보여주기
-            InfoBar.bar.SetUI(unit.Kinds, unit.ATK, unit.HP, unit.SHD, unit.Act);
-
             //아군 공격 이동 스폰 버튼
             if (!enemy && CheckOwner()) Obj.GetComponent<UnitInfo>().UI();
+
+            //UI보여주기
+            InfoBar.bar.SetUI(unit.Kinds, unit.ATK, unit.HP, unit.SHD, unit.Act);
         }
 
         //타일 클릭했을때
         else if (hit.collider.tag == "Tile")
         {
+            TileInfo tile = hit.collider.GetComponent<TileInfo>();
+
             //이동 할때
             if (Obj != null && !enemy && trigger == Trigger.Move && CheckOwner())
             {
@@ -126,10 +124,6 @@ public class GameManager : MonoBehaviour {
                 ResetTrigger();
                 InfoBar.bar.ResetUI();
                 return;
-            }
-            if (Obj == null)
-            {
-                //혹시 예정 된다면 타일 정보 출력
             }
         }
     }
@@ -154,9 +148,20 @@ public class GameManager : MonoBehaviour {
         UnitInfo attacker = Attacker.GetComponent<UnitInfo>();
         UnitInfo defender = Defender.GetComponent<UnitInfo>();
 
+        if (attacker.Act < 2) return;
+        attacker.Act -= 2;
+
+
+
         int range = Calculator.Calc.Range(GameData.data.FindTile(attacker.x, attacker.y), GameData.data.FindTile(defender.x, defender.y), attacker.range);
         if (range <= attacker.range && range !=-1)
         {
+            //이상한놈일경우 공격시 행동력+1
+            //if(attacker=="이상한놈")
+            //{
+            //    attacker.Act++;
+            //}
+
             //닌자일 경우
             if (defender.Kinds == "Ninja" && range > 1) defender.anim.photonView.RPC("EVASION", PhotonTargets.All);
 

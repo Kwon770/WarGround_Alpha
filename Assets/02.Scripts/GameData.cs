@@ -15,6 +15,7 @@ public class GameData : MonoBehaviour {
 
     [SerializeField] public Color enemyColor;
     [SerializeField] public Color teamColor;
+    [SerializeField] public Color CanUseColor;
 
 
     [SerializeField] public int bitinium;

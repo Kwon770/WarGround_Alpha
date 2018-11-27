@@ -36450,7 +36450,7 @@ MonoBehaviour:
   m_Spacing: 0
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
-  m_ChildControlWidth: 0
+  m_ChildControlWidth: 1
   m_ChildControlHeight: 0
 --- !u!1 &1383859764
 GameObject:
@@ -37234,8 +37234,13 @@ MonoBehaviour:
   Map: {fileID: 1976405837}
   Tiles: []
   Units: []
-  enemyColor: {r: 0.5882353, g: 0.6, b: 1, a: 1}
-  teamColor: {r: 1, g: 0.6392157, b: 0.19215687, a: 1}
+  enemyColor: {r: 0.2783019, g: 0.29811326, b: 1, a: 1}
+  teamColor: {r: 1, g: 0.72796893, b: 0.3915094, a: 1}
+  CanUseColor: {r: 1, g: 0, b: 0, a: 1}
+  bitinium: 0
+  Maxbitinium: 0
+  LeaderShip: 0
+  MaxLeaderShip: 0
 --- !u!114 &1409132580
 MonoBehaviour:
   m_ObjectHideFlags: 0

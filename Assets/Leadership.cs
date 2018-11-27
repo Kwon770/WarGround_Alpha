@@ -15,12 +15,13 @@ public class Leadership : MonoBehaviour {
     }
     public void SetUI(int index)
     {
-        for(int i = 0; i < transform.GetChildCount(); i++)
+        for (int i = 0; i < transform.GetChildCount(); i++)
         {
             transform.GetChild(i).GetComponent<OnOff>().OffObj();
         }
-        for (int i = 0; i < GameData.data.Maxbitinium - index; i++)
+        for (int i = 0; i < GameData.data.MaxLeaderShip - index; i++)
         {
+            Debug.Log(i);
             transform.GetChild(i).GetComponent<OnOff>().OnObj();
         }
     }

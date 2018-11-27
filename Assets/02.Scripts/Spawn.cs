@@ -38,17 +38,14 @@ public class Spawn : Photon.MonoBehaviour {
 
     public void UnitSpawn(TileInfo tile)
     {
+        if (self.Act <= 0) return;
+
         if (Calculator.Calc.Range(tile, GameData.data.FindTile(self.x, self.y), 1) == -1) return;
-        if (cost > GameData.data.bitinium && GameData.data.LeaderShip >= GameData.data.MaxLeaderShip) return;
 
         Vector3 spawnPos=tile.transform.position;
         UnitInfo unit = PhotonNetwork.Instantiate(unitName, spawnPos, transform.rotation, 0).GetComponent<UnitInfo>();
 
         self.Act--;
-        GameData.data.LeaderShip++;
-        GameData.data.bitinium -= cost;
-        InfoBar.bar.SetLeadership();
-        InfoBar.bar.SetBit();
 
         unit.SetOwner(PhotonNetwork.playerName);
         unit.x = tile.x;

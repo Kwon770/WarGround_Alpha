@@ -215,7 +215,7 @@ public class UnitInfo : Photon.MonoBehaviour {
     {
         anim.DIE();
         if (!photonView.isMine) return;
-        if (Banshee())
+        if (Banshee() && Kinds != "SkullKnight") 
         {
             //부활
             photonView.RPC("Rise", PhotonTargets.All);
@@ -232,8 +232,6 @@ public class UnitInfo : Photon.MonoBehaviour {
     [PunRPC]
     public void DestroyUnit()
     {
-        if (photonView.isMine && Kinds != "SkullKnight") GameData.data.LeaderShip--;
-
         GameData.data.DelUnit(this);
         Destroy(gameObject, 4f);
     }
@@ -274,7 +272,6 @@ public class UnitInfo : Photon.MonoBehaviour {
     {
         if (GetComponent<Synchro>()==null)
         {
-            GameData.data.LeaderShip--;
             gameObject.AddComponent<Synchro>();
         }
         else

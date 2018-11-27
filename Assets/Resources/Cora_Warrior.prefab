@@ -1368,6 +1368,7 @@ MonoBehaviour:
   Owner: 
   x: 0
   y: 0
+  dieTrigger: 0
   Kinds: Warrior
   CanSpawn: 0
   delay: 1.4
@@ -1377,10 +1378,10 @@ MonoBehaviour:
   HP: 4
   SHD: 0
   MaxAct: 2
-  Act: 2
+  Act: 0
   range: 1
-  moveSpeed: 1
-  rotSpeed: 5
+  moveSpeed: 3
+  rotSpeed: 10
 --- !u!114 &114887759151616846
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -29,7 +29,7 @@ public class TileInfo : MonoBehaviour {
     {
         occupyPoint++;
 
-        if (occupyPoint >= 2)
+        if (occupyPoint >= 1)
         {
             if (coroutine != null) StopCoroutine(coroutine);
             Color startColor = currentColor.material.color;
@@ -45,7 +45,7 @@ public class TileInfo : MonoBehaviour {
     public void LoseOcccupy()
     {
         occupyPoint--;
-        if (occupyPoint <= -2)
+        if (occupyPoint <= -1)
         {
             if (coroutine != null) StopCoroutine(coroutine);
             Color startColor = currentColor.material.color;
@@ -59,6 +59,25 @@ public class TileInfo : MonoBehaviour {
         }
     }
 
+    public void CanUse()
+    {
+        //타일 하이라이트 표시
+
+        Color useColor = GameData.data.CanUseColor;
+        ResetColor = currentColor.material.color;
+
+        if (coroutine != null) StopCoroutine(coroutine);
+        coroutine = StartCoroutine(changeColor(ResetColor, useColor));
+    }
+    public void ResetUse()
+    {
+        //타일 하이라이트 제거
+
+        if (coroutine != null) StopCoroutine(coroutine);
+        Color startColor = ResetColor;
+        coroutine = StartCoroutine(changeColor(startColor, ResetColor));
+    }
+
     IEnumerator changeColor(Color startColor, Color endColor)
     {
         Debug.Log("색상변경");
@@ -69,17 +88,6 @@ public class TileInfo : MonoBehaviour {
             yield return null;
         }
         yield break;
-    }
-
-
-
-    public void CanUse()
-    {
-        //타일 하이라이트 표시
-    }
-    public void ResetUse()
-    {
-        //타일 하이라이트 제거
     }
 
     public int GetX()

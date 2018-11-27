@@ -1362,8 +1362,8 @@ MonoBehaviour:
   MaxAct: 3
   Act: 3
   range: 1
-  moveSpeed: 1
-  rotSpeed: 5
+  moveSpeed: 3
+  rotSpeed: 10
 --- !u!114 &114413277437332228
 MonoBehaviour:
   m_ObjectHideFlags: 1

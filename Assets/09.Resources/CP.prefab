@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 224373462491626000}
   - component: {fileID: 114744977839461450}
   m_Layer: 5
-  m_Name: LeaderShip
+  m_Name: CP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -80,7 +80,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: ceb9144a7ffbd0640a2ff863ed7e836f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e5a2f3409b1e85b4493a8e909771c207, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -120,7 +120,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 9115b33442fea514fb7fcc6db1055583, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5dd4a92a0aaae6340b3c532bfd736fcc, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

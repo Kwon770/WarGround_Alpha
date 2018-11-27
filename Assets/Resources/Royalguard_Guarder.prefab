@@ -1342,6 +1342,7 @@ MonoBehaviour:
   Owner: 
   x: 0
   y: 0
+  dieTrigger: 0
   Kinds: Guarder
   CanSpawn: 0
   delay: 1
@@ -1351,10 +1352,10 @@ MonoBehaviour:
   HP: 4
   SHD: 4
   MaxAct: 2
-  Act: 2
+  Act: 0
   range: 2
-  moveSpeed: 1
-  rotSpeed: 5
+  moveSpeed: 3
+  rotSpeed: 10
 --- !u!114 &114656926010953266
 MonoBehaviour:
   m_ObjectHideFlags: 1

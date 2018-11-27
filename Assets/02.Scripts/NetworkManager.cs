@@ -10,11 +10,10 @@ public class NetworkManager : Photon.MonoBehaviour {
 
     [SerializeField] public string turnOwner;
     [SerializeField] public string[] UserList;
-    Image EndTurnButton;
-    
+    GameObject endButton;
 
     //초기화
-	void Awake ()
+    void Awake ()
     {
         network = this;
         DontDestroyOnLoad(this.gameObject);
@@ -46,9 +45,8 @@ public class NetworkManager : Photon.MonoBehaviour {
         {
             if (SceneManager.GetActiveScene().name != "Lobby_Renewal")
             {
-                var EndButton = GameObject.Find("EndButton");
-                EndTurnButton = EndButton.GetComponent<Image>();
-                EndButton.GetComponent<Button>().onClick.AddListener(new UnityEngine.Events.UnityAction(() => EndTurn(PhotonNetwork.playerName)));
+                endButton = GameObject.Find("EndButton");
+                endButton.GetComponent<Button>().onClick.AddListener(new UnityEngine.Events.UnityAction(() => EndTurn(PhotonNetwork.playerName)));
                 break;
             }
             yield return null;
@@ -63,7 +61,8 @@ public class NetworkManager : Photon.MonoBehaviour {
         Debug.Log(client);
         if (turnOwner == client)
         {
-            photonView.RPC("ChangeOwner", PhotonTargets.MasterClient, client);
+            SetOwnerUI("Not_Mine");
+            photonView.RPC("ChangeOwner", PhotonTargets.MasterClient, turnOwner);
         }
     }
     [PunRPC]
@@ -85,15 +84,16 @@ public class NetworkManager : Photon.MonoBehaviour {
     [PunRPC]
     public void SetOwnerUI(string user)
     {
-        if (user == PhotonNetwork.playerName)
+        Debug.Log("턴오너 : " + user + ", 내이름 : " + PhotonNetwork.playerName + "----" + endButton.transform.GetSiblingIndex());
+        if (user == PhotonNetwork.playerName && endButton.transform.GetSiblingIndex() == 0)
         {
+            endButton.transform.SetSiblingIndex(1);
             //마이턴
-            EndTurnButton.color = Color.blue;
         }
         else
         {
+            endButton.transform.SetSiblingIndex(0);
             //적의턴
-            EndTurnButton.color = Color.red;
         }
     }
     //턴셋팅
@@ -113,57 +113,50 @@ public class NetworkManager : Photon.MonoBehaviour {
             //내 유닛일경우
             if (unit.Owner == PhotonNetwork.playerName)
             {
-                if ((unit.Kinds == "Harrier" && unit.Act > 0) || unit.Act == unit.MaxAct)
-                {
-                    TileInfo SP = GameData.data.FindTile(unit.x, unit.y);
-                    List<TileInfo> tiles = Calculator.Calc.GetInrangeTile(SP, 1);
+                TileInfo SP = GameData.data.FindTile(unit.x, unit.y);
+                List<TileInfo> tiles = Calculator.Calc.GetInrangeTile(SP, 1);
 
-                    Debug.Log(unit + " " + tiles.Count);
-                    foreach (var tile in tiles)
-                    {
-                        Debug.Log(tile);
-                        tile.GetOcccupy();
-                    }
-                    SP.GetOcccupy();
+                foreach (var tile in tiles)
+                {
+                    tile.GetOcccupy();
+                    if(unit.Kinds == "Harrier") tile.GetOcccupy();
                 }
             }
 
             //내 유닛이 아닌경유
             else
             {
-                if ((unit.Kinds == "Harrier" && unit.Act > 0) || unit.Act == unit.MaxAct)
-                {
-                    TileInfo SP = GameData.data.FindTile(unit.x, unit.y);
-                    List<TileInfo> tiles = Calculator.Calc.GetInrangeTile(SP, 1);
+                TileInfo SP = GameData.data.FindTile(unit.x, unit.y);
+                List<TileInfo> tiles = Calculator.Calc.GetInrangeTile(SP, 1);
 
-                    Debug.Log(unit + " " + tiles.Count);
-                    foreach (var tile in tiles)
-                    {
-                        tile.LoseOcccupy();
-                    }
-                    SP.LoseOcccupy();
+                foreach (var tile in tiles)
+                {
+                    tile.LoseOcccupy();
+                    if (unit.Kinds == "Harrier") tile.LoseOcccupy();
                 }
             }
-
             unit.Act = unit.MaxAct;
+
+            yield return null;
         }
         foreach(var tile in GameData.data.Tiles)
         {
             tile.cost = tile.idlecost;
-            if (tile.occupyPoint > 2) tile.occupyPoint = 2;
-            if (tile.occupyPoint < -2) tile.occupyPoint = -2;
-            if (tile.occupyPoint == 2) myTerritory++;
+            if (tile.occupyPoint > 1) tile.occupyPoint = 1;
+            if (tile.occupyPoint < -1) tile.occupyPoint = -1;
+            if (tile.occupyPoint == 1) myTerritory++;
 
         }
-        GameData.data.SetBitinium(myTerritory / 4);
-        InfoBar.bar.SetLeadership();
+
         yield return null;
+
+        Debug.Log("gggggggg");
         SetOwnerUI(user);
     }
 
     private void Update()
     {
-        Debug.Log("MyName : " + PhotonNetwork.playerName + ",  turnOwner" + turnOwner);
+        Debug.Log("MyName : " + PhotonNetwork.playerName + ",  turnOwner : " + turnOwner);
     }
 
     //동기화
