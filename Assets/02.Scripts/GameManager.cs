@@ -131,7 +131,6 @@ public class GameManager : MonoBehaviour {
     //이동 및 공격, 방어 행동 연산
     void Move(GameObject Unit, GameObject Tile)
     {
-        Debug.Log(Unit + " " + Tile);
         UnitInfo unit = Unit.GetComponent<UnitInfo>();
         TileInfo SP = GameData.data.FindTile(unit.x, unit.y);
         TileInfo EP = Tile.GetComponent<TileInfo>();
@@ -150,8 +149,6 @@ public class GameManager : MonoBehaviour {
 
         if (attacker.Act < 2) return;
         attacker.Act -= 2;
-
-
 
         int range = Calculator.Calc.Range(GameData.data.FindTile(attacker.x, attacker.y), GameData.data.FindTile(defender.x, defender.y), attacker.range);
         if (range <= attacker.range && range !=-1)

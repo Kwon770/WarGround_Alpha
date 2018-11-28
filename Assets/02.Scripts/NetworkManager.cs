@@ -58,7 +58,6 @@ public class NetworkManager : Photon.MonoBehaviour {
     //턴종료 버튼
     public void EndTurn(string client)
     {
-        Debug.Log(client);
         if (turnOwner == client)
         {
             SetOwnerUI("Not_Mine");
@@ -84,7 +83,6 @@ public class NetworkManager : Photon.MonoBehaviour {
     [PunRPC]
     public void SetOwnerUI(string user)
     {
-        Debug.Log("턴오너 : " + user + ", 내이름 : " + PhotonNetwork.playerName + "----" + endButton.transform.GetSiblingIndex());
         if (user == PhotonNetwork.playerName && endButton.transform.GetSiblingIndex() == 0)
         {
             endButton.transform.SetSiblingIndex(1);
@@ -100,7 +98,6 @@ public class NetworkManager : Photon.MonoBehaviour {
     [PunRPC]
     public void TurnSet(string user)
     {
-        Debug.Log("턴셋팅");
         StartCoroutine("TurnSetting", user);
     }
     IEnumerator TurnSetting(string user)
@@ -108,8 +105,6 @@ public class NetworkManager : Photon.MonoBehaviour {
         int myTerritory=0;
         foreach (var unit in GameData.data.Units)
         {
-            Debug.Log(unit);
-
             //내 유닛일경우
             if (unit.Owner == PhotonNetwork.playerName)
             {
@@ -148,9 +143,9 @@ public class NetworkManager : Photon.MonoBehaviour {
 
         }
 
-        yield return null;
+        GameData.data.SetBitinium(myTerritory / 4);
 
-        Debug.Log("gggggggg");
+        yield return null;
         SetOwnerUI(user);
     }
 

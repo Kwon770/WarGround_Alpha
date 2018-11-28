@@ -31,19 +31,23 @@ public class Spawn : Photon.MonoBehaviour {
             temp.onClick.RemoveAllListeners();
             var cachedI = i; // Cache for Lambda
             temp.onClick.AddListener(new UnityEngine.Events.UnityAction(() => spawn.SetName(Units[cachedI])));
+            temp.onClick.AddListener(new UnityEngine.Events.UnityAction(() => spawn.SetCost(Cost[cachedI])));
             temp.onClick.AddListener(new UnityEngine.Events.UnityAction(() => GameManager.manager.SetTrigger("Spawn")));
-            cost = Cost[i];
         }
     }
 
     public void UnitSpawn(TileInfo tile)
     {
-        if (self.Act <= 0) return;
+        if (self.Act <= 0 && GameData.data.bitinium < cost) return;
 
         if (Calculator.Calc.Range(tile, GameData.data.FindTile(self.x, self.y), 1) == -1) return;
 
         Vector3 spawnPos=tile.transform.position;
         UnitInfo unit = PhotonNetwork.Instantiate(unitName, spawnPos, transform.rotation, 0).GetComponent<UnitInfo>();
+
+        Debug.Log("dafsdljdfa " + -cost);
+
+        GameData.data.SetBitinium(-cost);
 
         self.Act--;
 
@@ -56,10 +60,15 @@ public class Spawn : Photon.MonoBehaviour {
             unit.SHD += 1;
         }
     }
-    
+
     public void SetName(string name)
     {
         Debug.Log(name);
         unitName = name;
+    }
+    public void SetCost(int cost)
+    {
+        Debug.Log(cost);
+        this.cost = cost;
     }
 }

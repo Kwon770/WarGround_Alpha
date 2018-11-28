@@ -80,7 +80,6 @@ public class TileInfo : MonoBehaviour {
 
     IEnumerator changeColor(Color startColor, Color endColor)
     {
-        Debug.Log("색상변경");
         float time = 0;
         while (time <= 1) {
             currentColor.material.color = Color.Lerp(startColor,endColor,time);

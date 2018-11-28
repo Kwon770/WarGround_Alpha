@@ -72,7 +72,15 @@ public class GameData : MonoBehaviour {
     //비티늄 셋팅
     public void SetBitinium(int point)
     {
+        Debug.Log(point);
         bitinium += point;
         if (bitinium > Maxbitinium) bitinium = Maxbitinium;
+
+        //비티늄 하단바 설정
+    }
+
+    private void Update()
+    {
+        Debug.Log("비티늄 : " + bitinium + "/" + Maxbitinium + ",  지휘력 : " + LeaderShip + "/" + MaxLeaderShip);
     }
 }
