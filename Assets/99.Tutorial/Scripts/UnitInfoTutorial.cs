@@ -19,6 +19,12 @@ public class UnitInfoTutorial : MonoBehaviour {
     [SerializeField] ScriptManager scriptManager;
     [SerializeField] TutorialManager tutorialManager;
 
+    [SerializeField] public int ATK;
+    [SerializeField] public int HP;
+    [SerializeField] public int SHD;
+    [SerializeField] public string unitName;
+
+
     private void Start()
     {
         transform.position = new Vector3(startPoint.transform.position.x, startPoint.transform.position.y, startPoint.transform.position.z);

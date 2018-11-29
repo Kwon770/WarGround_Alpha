@@ -27,7 +27,7 @@ public class TileInfoTutorial : MonoBehaviour {
     private void Start()
     {
         mat = transform.GetChild(0).gameObject.GetComponent<Renderer>();
-        originColor = Color.white;
+        originColor = new Color(255f / 255f, 255f / 255f, 255f / 255f, 1f);
 
     }
 
@@ -45,9 +45,8 @@ public class TileInfoTutorial : MonoBehaviour {
         if( selectTile == true )
         {
 
-
-            //mat.material.color = new Color(255f / 20f, 255f / 0f, 255f / 255f, 1f);
-            mat.material.color = Color.Lerp(mat.material.color, new Color(255f / 20f, 255f / 0f, 255f / 255f, 1f), Time.deltaTime);
+            mat.material.color = new Color(255f / 20f, 255f / 0f, 255f / 255f, 1f);
+            
         }
 
         else if (occupation == 2)
@@ -56,20 +55,14 @@ public class TileInfoTutorial : MonoBehaviour {
             mat.material.color = Color.Lerp(mat.material.color, new Color(255f / 240f, 255f / 20f, 255f / 35f, 1f), Time.deltaTime);
 
         }
-        else if (occupation == 1)
-        {
-            mat.material.color = new Color(255f / 125f, 255f / 255f, 255f / 1f, 1f);
-
-        }
+        
         else if (occupation == 0)
         {
-            //mat.material.color = Color.white;
-            mat.material.color = Color.Lerp(mat.material.color, Color.white, Time.deltaTime);
+            
+            mat.material.color = Color.white;
+            //mat.material.color = Color.Lerp(mat.material.color, new Color(255f / 255f, 255f / 255f, 255f / 255f, 1f), 3.0f * Time.deltaTime);
         }
-        else if (occupation == -1)
-        {
-            mat.material.color = new Color(255f / 1f, 255f / 255f, 255f / 125f, 1f);
-        }
+        
         else if (occupation == -2)
         {
            // mat.material.color = new Color(255f / 35f, 255f / 20f, 255f / 240f, 1f);
@@ -77,7 +70,7 @@ public class TileInfoTutorial : MonoBehaviour {
         }
         else
         {
-           // mat.material.color = Color.white;
+            mat.material.color = Color.white;
         }
     }
 

@@ -32,12 +32,35 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] Camera mainCam;
     [SerializeField] GameObject warrior;
     [SerializeField] bool attackSwitch;
-    [SerializeField] Text actPointText;
-    [SerializeField] Text actPointParent;
+    /*[SerializeField] Text actPointText;
+    [SerializeField] Text actPointParent;*/ //테스트 하고 지우기 11/29
 
     [SerializeField] int myTurn = 0;      //0 :내턴   1: 니턴
+     // ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ UI 전용
 
 
+    [SerializeField] int commandPower = 0;
+    [SerializeField] int bitinium = 0;
+    [SerializeField] int bitiniumRegen = 0;
+
+    [SerializeField] public int ATK;
+    [SerializeField] public int HP;
+    [SerializeField] public int SHD;
+    [SerializeField] public int actPoint;
+    [SerializeField] public string unitName;
+
+    [SerializeField] Text commandPowerText;
+  
+    [SerializeField] Text bitiniumRegenText;
+
+    [SerializeField] Text ATKtext;
+    [SerializeField] Text HPtext;
+    [SerializeField] Text SHDtext;
+    [SerializeField] Text Nametext;
+
+    [SerializeField] GameObject commandUi;
+    [SerializeField] GameObject actPointUi;
+    [SerializeField] GameObject bitiniumUi;
 
     enum selectButton { Atk, Move };
 
@@ -58,19 +81,47 @@ public class TutorialManager : MonoBehaviour
             GetGotoTile(selectUnit.startPoint, selectUnit.actPoint);
         }*/
 
-        if(selectUnit != enemy)
-        {
-            actPointParent.gameObject.SetActive(true);
-            actPointText.text = selectUnit.actPoint.ToString();
-        }
-        else
-        {
-            actPointParent.gameObject.SetActive(false);
-        }
         
+        ATK = selectUnit.ATK;
+        HP = selectUnit.HP;
+        SHD = selectUnit.SHD;
+        actPoint = selectUnit.actPoint;
+        unitName = selectUnit.unitName;
+
+        ATKtext.text = ATK.ToString();
+        HPtext.text = HP.ToString();
+        SHDtext.text = SHD.ToString();
+        bitiniumRegenText.text = bitiniumRegen.ToString();
+        Nametext.text = unitName;
 
         selectEffect.transform.position = selectUnit.transform.position;
-        
+
+        for(int i = 0; i < 3 ; i++)
+        {
+            if (i < actPoint)
+            {
+                actPointUi.transform.GetChild(i).gameObject.SetActive(true);
+            }
+            else
+            {
+                actPointUi.transform.GetChild(i).gameObject.SetActive(false);
+            }
+            
+        }
+
+        for (int i = 0; i < 10; i++)
+        {
+            if (i < bitinium )
+            {
+                bitiniumUi.transform.GetChild(i).gameObject.SetActive(true);
+            }
+            else
+            {
+                bitiniumUi.transform.GetChild(i).gameObject.SetActive(false);
+            }
+
+        }
+
 
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
