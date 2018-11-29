@@ -19,7 +19,7 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] int listSwitch;    //리스트의 시작점을 잡아줌
 
     [SerializeField] GameObject[] tileSave = new GameObject[34];
-    [SerializeField] TileInfoTutorial[] tileSaveInfo = new TileInfoTutorial[34];
+    [SerializeField] public TileInfoTutorial[] tileSaveInfo = new TileInfoTutorial[34];
     [SerializeField] public UnitInfoTutorial selectUnit; // 지금 현재 고른 유닛 표시
 
     [SerializeField] public bool canClick = true;
@@ -445,11 +445,7 @@ public class TutorialManager : MonoBehaviour
             scriptManager.StartCoroutine(scriptManager.MessagePrint(scriptManager.boxIndex));
             scriptManager.boxIndex = (scriptManager.boxIndex - 1) * -1;
 
-            tileSaveInfo[16].occupation = 2;
-            /*tileSaveInfo[8].occupation = 1; 
-            tileSaveInfo[9].occupation = 1;
-            tileSaveInfo[17].occupation = 1;
-            tileSaveInfo[24].occupation = 1;*/
+           
 
 
             selectUnit = enemy;
