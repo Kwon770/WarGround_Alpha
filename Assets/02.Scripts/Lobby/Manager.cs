@@ -124,32 +124,12 @@ public class Manager : MonoBehaviour {
         }
     }
 
-    IEnumerator CountrysReturn()
-    {
-        corutine = true;
-
-        menu.CountryIconBack();
-        yield return new WaitForSeconds(0.1f);
-
-        float time = 0;
-        while (time <= 1)
-        {
-            Countrys.GetComponent<RectTransform>().sizeDelta = new Vector2(Mathf.Lerp(600, 220, curve.Evaluate(time)), 700);
-            time += Time.deltaTime * Speed;
-            yield return null;
-        }
-
-        corutine = false;
-    }
-
     void ReturnTroop(int index)
     {
         for(int i = 0 + (3*index); i < 3 + (3*index); i++)
         {
             Empty_Icons.transform.GetChild(i).GetComponent<MenuControl>().Back();
         }
-
-        StartCoroutine(CountrysReturn());
     }
 
     IEnumerator AlarmPanel()

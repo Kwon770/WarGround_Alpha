@@ -31,7 +31,8 @@ public class ScriptManager : MonoBehaviour {
         {
                 if(textNumber == 20)
                 {
-                Debug.Log("튜토리얼 종료");
+                LoadTutorial.instance.gameObject.SetActive(true);
+                LoadTutorial.instance.Exiting();
                 }
                 else
                 {

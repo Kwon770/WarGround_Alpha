@@ -21,6 +21,10 @@ public class Menu : MonoBehaviour {
     public GameObject Create;
     public GameObject Join;
 
+    public GameObject RandomPos;
+    public GameObject PartanPos;
+    public GameObject CoraPos;
+
     [SerializeField] Manager manager;
 
     [SerializeField] AnimationCurve curve;
@@ -65,12 +69,19 @@ public class Menu : MonoBehaviour {
     // 0 Partan 1 Cora
     void CountrySelect(int index)
     {
-        Manager.instance.scene = (int)Manager.Menunum.Country;
+        Manager.instance.scene = (int)Manager.Menunum.Troop;
         Manager.instance.index = index;
 
         if (index == 0) Manager.instance.Countrys = Partan;
         else Manager.instance.Countrys = Cora;
 
+        //모든 버튼 넣고
+        for(int i = 0; i < 6; i++)
+        {
+            EliteMenu[i].Back();
+        }
+
+        //해당 버튼 노출
         for (int i = 0 + (3*index); i < 3 + (3*index); i++)
         {
             int num2 = i;
@@ -87,9 +98,8 @@ public class Menu : MonoBehaviour {
             EliteMenu[i].button.onClick.AddListener(new UnityEngine.Events.UnityAction(() => EliteIcon[num2].PanelMove1(num2)));
             EliteMenu[i].Move();
         }
-
-        StartCoroutine(CountrySelectAnim(index));
     }
+
     // Manager에서 접근해서 애니메이션 진행
     public void CountryIconBack()
     {
@@ -110,42 +120,17 @@ public class Menu : MonoBehaviour {
         Partan.SetActive(true);
         Cora.SetActive(true);
 
+        Vector3 startPos1 = PartanPos.transform.position;
+        Vector3 startPos2 = CoraPos.transform.position;
+        Vector3 endPos = transform.position;
+
         float time = 0;
         while (time <= 1)
         {
-            Partan.GetComponent<RectTransform>().sizeDelta = new Vector2(Mathf.Lerp(0, 220, curve.Evaluate(time)), 700);
-            Cora.GetComponent<RectTransform>().sizeDelta = new Vector2(Mathf.Lerp(0, 220, curve.Evaluate(time)), 700);
+            Partan.transform.position = Vector3.Lerp(startPos1, endPos, curve.Evaluate(time));
+            Cora.transform.position = Vector3.Lerp(startPos2, endPos, curve.Evaluate(time));
             time += Time.deltaTime * Speed;
             yield return null;
-        }
-
-        Manager.instance.corutine = false;
-    }
-
-    IEnumerator CountrySelectAnim(int index)
-    {
-        Manager.instance.corutine = true;
-
-        float time = 0;
-        if(index == 0)
-        {
-            Partan.transform.SetAsLastSibling();
-            while (time <= 1)
-            {
-                Partan.GetComponent<RectTransform>().sizeDelta = new Vector2(Mathf.Lerp(220, 600, curve.Evaluate(time)), 700);
-                time += Time.deltaTime * Speed;
-                yield return null;
-            }
-        }
-        else
-        {
-            Cora.transform.SetAsLastSibling();
-            while (time <= 1)
-            {
-                Cora.GetComponent<RectTransform>().sizeDelta = new Vector2(Mathf.Lerp(220, 600, curve.Evaluate(time)), 700);
-                time += Time.deltaTime * Speed;
-                yield return null;
-            }
         }
 
         Manager.instance.corutine = false;
@@ -155,11 +140,15 @@ public class Menu : MonoBehaviour {
     {
         Manager.instance.corutine = true;
 
+        Vector3 startPos = transform.position;
+        Vector3 endPos1 = PartanPos.transform.position;
+        Vector3 endPos2 = CoraPos.transform.position;
+
         float time = 0;
         while (time <= 1)
         {
-            Partan.GetComponent<RectTransform>().sizeDelta = new Vector2(Mathf.Lerp(220, 0, curve.Evaluate(time)), 700);
-            Cora.GetComponent<RectTransform>().sizeDelta = new Vector2(Mathf.Lerp(220, 0, curve.Evaluate(time)), 700);
+            Partan.transform.position = Vector3.Lerp(startPos, endPos1, curve.Evaluate(time));
+            Cora.transform.position = Vector3.Lerp(startPos, endPos2, curve.Evaluate(time));
             time += Time.deltaTime * Speed;
             yield return null;
         }
@@ -193,15 +182,22 @@ public class Menu : MonoBehaviour {
     public IEnumerator MenuReturnAnim()
     {
         Manager.instance.corutine = true;
-        Manager.instance.Anim = false;
 
-        float time = 0;
-        while (time <= 1)
+        if(Manager.instance.Anim)
         {
-            Random.GetComponent<RectTransform>().sizeDelta = new Vector2(700, Mathf.Lerp(700, 0, curve.Evaluate(time)));
-            //Custom.GetComponent<RectTransform>().sizeDelta = new Vector2(Mathf.Lerp(220, 0, curve.Evaluate(time)), 700);
-            time += Time.deltaTime * Speed;
-            yield return null;
+            Vector3 startPos = transform.position;
+            Vector3 endPos = RandomPos.transform.position;
+
+            float time = 0;
+            while (time <= 1)
+            {
+                Random.transform.position = Vector3.Lerp(startPos, endPos, curve.Evaluate(time));
+                //Custom.GetComponent<RectTransform>().sizeDelta = new Vector2(Mathf.Lerp(220, 0, curve.Evaluate(time)), 700);
+                time += Time.deltaTime * Speed;
+                yield return null;
+            }
+
+            Manager.instance.Anim = false;
         }
 
         foreach (var button in EliteMenu)
@@ -231,13 +227,17 @@ public class Menu : MonoBehaviour {
 
         Random.SetActive(true);
         Random.transform.SetAsLastSibling();
+
+        Vector3 startPos = RandomPos.transform.position;
+        Vector3 endPos = transform.position;
+
         //Custom.SetActive(true);
         //Custom.transform.SetAsLastSibling();
 
         float time = 0;
         while (time <= 1)
         {
-            Random.GetComponent<RectTransform>().sizeDelta = new Vector2(700, Mathf.Lerp(0, 700, curve.Evaluate(time)));
+            Random.transform.position = Vector3.Lerp(startPos, endPos, curve.Evaluate(time));
             //Custom.GetComponent<RectTransform>().sizeDelta = new Vector2(Mathf.Lerp(0, 220, curve.Evaluate(time)), 700);
             time += Time.deltaTime * Speed;
             yield return null;
