@@ -71,6 +71,10 @@ public class GameManager : MonoBehaviour {
 
         //모든 UI제거
         SpawnButton.gameObject.SetActive(false);
+        for(int i=0; i < SpawnButton.GetSiblingIndex(); i++)
+        {
+            SpawnButton.transform.GetChild(i).gameObject.SetActive(false);
+        }
         AttackButton.SetActive(false);
         MoveButton.SetActive(false);
     }

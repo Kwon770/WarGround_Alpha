@@ -42,9 +42,9 @@ public class InfoBar : MonoBehaviour {
         this.SHD.text = "-";
         this.act.ResetUI();
     }
-    public void SetBit()
+    public void SetBit(int point)
     {
-        bitinium.SetUI(GameData.data.bitinium);
+        bitinium.SetUI(point);
     }
     public void SetLeadership()
     {

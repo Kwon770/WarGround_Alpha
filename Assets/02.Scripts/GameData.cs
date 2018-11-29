@@ -77,6 +77,7 @@ public class GameData : MonoBehaviour {
         if (bitinium > Maxbitinium) bitinium = Maxbitinium;
 
         //비티늄 하단바 설정
+        InfoBar.bar.SetBit(bitinium);
     }
 
     private void Update()

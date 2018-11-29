@@ -13,6 +13,15 @@ public class ActBar : MonoBehaviour {
     {
         for (int i = 1; i <= IdleAct; i++) Instantiate(Bar).transform.parent = transform;
     }
+
+    public void ResetUI()
+    {
+        for (int i = 0; i < transform.GetChildCount(); i++)
+        {
+            transform.GetChild(i).GetComponent<OnOff>().OffObj();
+        }
+    }
+
     public void SetUI(int index)
     {
         for (int i = 0; i < transform.GetChildCount(); i++)
@@ -22,13 +31,6 @@ public class ActBar : MonoBehaviour {
         for (int i = 0; i < index; i++)
         {
             transform.GetChild(i).GetComponent<OnOff>().OnObj();
-        }
-    }
-    public void ResetUI()
-    {
-        for (int i = 0; i < transform.GetChildCount(); i++)
-        {
-            transform.GetChild(i).GetComponent<OnOff>().OffObj();
         }
     }
 }

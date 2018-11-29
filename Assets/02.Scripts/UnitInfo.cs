@@ -80,7 +80,6 @@ public class UnitInfo : Photon.MonoBehaviour {
         GameManager.manager.MoveButton.SetActive(true);
         if (CanSpawn)
         {
-            GameManager.manager.SpawnButton.gameObject.SetActive(true);
             GetComponent<Spawn>().Setting();
         }
     }

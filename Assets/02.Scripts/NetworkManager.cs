@@ -10,7 +10,7 @@ public class NetworkManager : Photon.MonoBehaviour {
 
     [SerializeField] public string turnOwner;
     [SerializeField] public string[] UserList;
-    GameObject endButton;
+    EndTurn endButton;
 
     //초기화
     void Awake ()
@@ -45,8 +45,9 @@ public class NetworkManager : Photon.MonoBehaviour {
         {
             if (SceneManager.GetActiveScene().name != "Lobby_Renewal")
             {
-                endButton = GameObject.Find("EndButton");
-                endButton.GetComponent<Button>().onClick.AddListener(new UnityEngine.Events.UnityAction(() => EndTurn(PhotonNetwork.playerName)));
+                endButton = GameObject.Find("EndButton").GetComponent<EndTurn>();
+                Debug.Log(GameObject.Find("MyTurn"));
+                GameObject.Find("MyTurn").GetComponent<Button>().onClick.AddListener(new UnityEngine.Events.UnityAction(() => EndTurnClick(PhotonNetwork.playerName)));
                 break;
             }
             yield return null;
@@ -56,7 +57,7 @@ public class NetworkManager : Photon.MonoBehaviour {
     }
 
     //턴종료 버튼
-    public void EndTurn(string client)
+    public void EndTurnClick(string client)
     {
         if (turnOwner == client)
         {
@@ -83,14 +84,15 @@ public class NetworkManager : Photon.MonoBehaviour {
     [PunRPC]
     public void SetOwnerUI(string user)
     {
-        if (user == PhotonNetwork.playerName && endButton.transform.GetSiblingIndex() == 0)
+        Debug.Log(user);
+        if (user == PhotonNetwork.playerName)
         {
-            endButton.transform.SetSiblingIndex(1);
+            endButton.MyTurn();
             //마이턴
         }
         else
         {
-            endButton.transform.SetSiblingIndex(0);
+            endButton.EnemyTurn();
             //적의턴
         }
     }

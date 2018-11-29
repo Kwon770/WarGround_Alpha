@@ -22,11 +22,12 @@ public class Spawn : Photon.MonoBehaviour {
     public void Setting()
     {
         spawn = this;
-        for(int i = 0; i < Units.Length; i++)
+        for(int i = 5 - Units.Length; i < 5; i++)
         {
             Debug.Log(Units[i] + " " + i);
             Button temp;
             temp = GameManager.manager.SpawnButton.GetChild(i).GetComponent<Button>();
+            temp.gameObject.SetActive(true);
 
             temp.onClick.RemoveAllListeners();
             var cachedI = i; // Cache for Lambda
@@ -38,7 +39,7 @@ public class Spawn : Photon.MonoBehaviour {
 
     public void UnitSpawn(TileInfo tile)
     {
-        if (self.Act <= 0 && GameData.data.bitinium < cost) return;
+        if (self.Act <= 0 || GameData.data.bitinium < cost) return;
 
         if (Calculator.Calc.Range(tile, GameData.data.FindTile(self.x, self.y), 1) == -1) return;
 
