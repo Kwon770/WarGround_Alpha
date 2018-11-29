@@ -31,10 +31,8 @@ public class ScriptManager : MonoBehaviour {
         {
                 if(textNumber == 20)
                 {
-                GameObject Canvas;
-                Canvas = GameObject.Find("LoadingCanvas");
-                Canvas.SetActive(true);
-                Canvas.GetComponent<LoadTutorial>().Exiting();
+                LoadTutorial.instance.gameObject.SetActive(true);
+                LoadTutorial.instance.Exiting();
                 }
                 else
                 {

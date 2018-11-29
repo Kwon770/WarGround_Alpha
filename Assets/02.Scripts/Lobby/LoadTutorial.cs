@@ -6,7 +6,17 @@ using UnityEngine.UI;
 
 public class LoadTutorial : MonoBehaviour {
 
+    public static LoadTutorial instance;
+    private void Start()
+    {
+        instance = this;
+    }
+    /// <summary>
+    ///
+    /// </summary>
+
     public Image[] anim;
+    public Text text;
 
     string[] hex = { "#FFAAAA", "#90D7FF", "#8FFF91", "#E38FFF", "#8FFFCE", "#FF8FA5", "DBAAFF", "E5FFAA", "FFAAC1" };
     
@@ -17,6 +27,8 @@ public class LoadTutorial : MonoBehaviour {
         DontDestroyOnLoad(this);
         StartCoroutine(Anim());
         StartCoroutine(Load());
+
+        text.text = "Tutorial";
     }
 
     IEnumerator Load()
@@ -38,12 +50,13 @@ public class LoadTutorial : MonoBehaviour {
     {
         StartCoroutine(Anim());
         StartCoroutine(Exit());
+
+        text.text = "Lobby";
     }
 
     IEnumerator Exit()
     {
-        float time = 0;StartCoroutine(Anim());
-        StartCoroutine(Load());
+        float time = 0;
         AsyncOperation async = SceneManager.LoadSceneAsync("Lobby_Renewal");
         async.allowSceneActivation = false;
 
