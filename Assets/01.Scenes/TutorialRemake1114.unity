@@ -310,6 +310,7 @@ MonoBehaviour:
   path: {fileID: 0}
   stage: 0
   selectUnit: {fileID: 0}
+  originColor: {r: 0, g: 0, b: 0, a: 0}
   occupation: 0
 --- !u!64 &31518874
 MeshCollider:
@@ -1230,6 +1231,7 @@ MonoBehaviour:
   path: {fileID: 0}
   stage: 0
   selectUnit: {fileID: 0}
+  originColor: {r: 0, g: 0, b: 0, a: 0}
   occupation: 0
 --- !u!64 &64111653
 MeshCollider:
@@ -1299,6 +1301,7 @@ MonoBehaviour:
   path: {fileID: 0}
   stage: 0
   selectUnit: {fileID: 0}
+  originColor: {r: 0, g: 0, b: 0, a: 0}
   occupation: 0
 --- !u!64 &65848543
 MeshCollider:
@@ -3507,6 +3510,7 @@ MonoBehaviour:
   path: {fileID: 0}
   stage: 0
   selectUnit: {fileID: 0}
+  originColor: {r: 0, g: 0, b: 0, a: 0}
   occupation: 0
 --- !u!64 &216568708
 MeshCollider:
@@ -3575,6 +3579,7 @@ MonoBehaviour:
   path: {fileID: 0}
   stage: 0
   selectUnit: {fileID: 0}
+  originColor: {r: 0, g: 0, b: 0, a: 0}
   occupation: 0
 --- !u!64 &222202990
 MeshCollider:
@@ -4603,6 +4608,7 @@ MonoBehaviour:
   path: {fileID: 0}
   stage: 0
   selectUnit: {fileID: 0}
+  originColor: {r: 0, g: 0, b: 0, a: 0}
   occupation: 0
 --- !u!64 &321301468
 MeshCollider:
@@ -5198,6 +5204,7 @@ MonoBehaviour:
   path: {fileID: 0}
   stage: 0
   selectUnit: {fileID: 0}
+  originColor: {r: 0, g: 0, b: 0, a: 0}
   occupation: 0
 --- !u!64 &348453619
 MeshCollider:
@@ -6084,6 +6091,7 @@ MonoBehaviour:
   path: {fileID: 0}
   stage: 0
   selectUnit: {fileID: 0}
+  originColor: {r: 0, g: 0, b: 0, a: 0}
   occupation: 0
 --- !u!64 &427914586
 MeshCollider:
@@ -6157,6 +6165,7 @@ MonoBehaviour:
   path: {fileID: 0}
   stage: 0
   selectUnit: {fileID: 0}
+  originColor: {r: 0, g: 0, b: 0, a: 0}
   occupation: 0
 --- !u!64 &437735564
 MeshCollider:
@@ -8174,6 +8183,7 @@ MonoBehaviour:
   path: {fileID: 0}
   stage: 0
   selectUnit: {fileID: 0}
+  originColor: {r: 0, g: 0, b: 0, a: 0}
   occupation: 2
 --- !u!64 &547324561
 MeshCollider:
@@ -9243,6 +9253,7 @@ MonoBehaviour:
   path: {fileID: 0}
   stage: 0
   selectUnit: {fileID: 0}
+  originColor: {r: 0, g: 0, b: 0, a: 0}
   occupation: 0
 --- !u!64 &598197081
 MeshCollider:
@@ -10041,6 +10052,7 @@ MonoBehaviour:
   path: {fileID: 0}
   stage: 0
   selectUnit: {fileID: 0}
+  originColor: {r: 0, g: 0, b: 0, a: 0}
   occupation: 0
 --- !u!64 &664614202
 MeshCollider:
@@ -10349,6 +10361,7 @@ MonoBehaviour:
   path: {fileID: 0}
   stage: 0
   selectUnit: {fileID: 0}
+  originColor: {r: 0, g: 0, b: 0, a: 0}
   occupation: -2
 --- !u!64 &692036042
 MeshCollider:
@@ -10525,6 +10538,7 @@ MonoBehaviour:
   path: {fileID: 0}
   stage: 0
   selectUnit: {fileID: 0}
+  originColor: {r: 0, g: 0, b: 0, a: 0}
   occupation: 0
 --- !u!64 &697669591
 MeshCollider:
@@ -11097,7 +11111,7 @@ GameObject:
   m_Component:
   - component: {fileID: 754547063}
   m_Layer: 5
-  m_Name: MainBar
+  m_Name: Main
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12115,6 +12129,7 @@ MonoBehaviour:
   path: {fileID: 0}
   stage: 0
   selectUnit: {fileID: 0}
+  originColor: {r: 0, g: 0, b: 0, a: 0}
   occupation: 0
 --- !u!64 &824161311
 MeshCollider:
@@ -12569,6 +12584,7 @@ MonoBehaviour:
   path: {fileID: 0}
   stage: 0
   selectUnit: {fileID: 0}
+  originColor: {r: 0, g: 0, b: 0, a: 0}
   occupation: 0
 --- !u!64 &860502340
 MeshCollider:
@@ -12688,6 +12704,7 @@ MonoBehaviour:
   path: {fileID: 0}
   stage: 0
   selectUnit: {fileID: 0}
+  originColor: {r: 0, g: 0, b: 0, a: 0}
   occupation: 0
 --- !u!64 &867418698
 MeshCollider:
@@ -13430,6 +13447,7 @@ MonoBehaviour:
   path: {fileID: 0}
   stage: 0
   selectUnit: {fileID: 0}
+  originColor: {r: 0, g: 0, b: 0, a: 0}
   occupation: 2
 --- !u!64 &925047375
 MeshCollider:
@@ -15228,6 +15246,7 @@ MonoBehaviour:
   path: {fileID: 0}
   stage: 0
   selectUnit: {fileID: 0}
+  originColor: {r: 0, g: 0, b: 0, a: 0}
   occupation: 2
 --- !u!64 &1007509225
 MeshCollider:
@@ -15347,6 +15366,7 @@ MonoBehaviour:
   path: {fileID: 0}
   stage: 0
   selectUnit: {fileID: 0}
+  originColor: {r: 0, g: 0, b: 0, a: 0}
   occupation: 0
 --- !u!64 &1008793564
 MeshCollider:
@@ -16459,6 +16479,7 @@ MonoBehaviour:
   path: {fileID: 0}
   stage: 0
   selectUnit: {fileID: 0}
+  originColor: {r: 0, g: 0, b: 0, a: 0}
   occupation: 0
 --- !u!64 &1059263025
 MeshCollider:
@@ -19107,6 +19128,7 @@ MonoBehaviour:
   path: {fileID: 0}
   stage: 0
   selectUnit: {fileID: 0}
+  originColor: {r: 0, g: 0, b: 0, a: 0}
   occupation: 0
 --- !u!64 &1222428596
 MeshCollider:
@@ -20944,6 +20966,7 @@ MonoBehaviour:
   path: {fileID: 0}
   stage: 0
   selectUnit: {fileID: 0}
+  originColor: {r: 0, g: 0, b: 0, a: 0}
   occupation: 2
 --- !u!64 &1322932243
 MeshCollider:
@@ -21267,6 +21290,7 @@ MonoBehaviour:
   path: {fileID: 0}
   stage: 0
   selectUnit: {fileID: 0}
+  originColor: {r: 0, g: 0, b: 0, a: 0}
   occupation: 0
 --- !u!64 &1352972934
 MeshCollider:
@@ -21417,7 +21441,8 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1409219940}
   m_Father: {fileID: 544949812}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -22014,6 +22039,80 @@ Transform:
   m_PrefabParentObject: {fileID: 4569790774807770, guid: 64ad523b8d019471988932267f33b756,
     type: 2}
   m_PrefabInternal: {fileID: 1283800774}
+--- !u!1 &1409219939
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1409219940}
+  - component: {fileID: 1409219942}
+  - component: {fileID: 1409219941}
+  m_Layer: 5
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1409219940
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1409219939}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1363905684}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 11, y: 0.0000030994}
+  m_SizeDelta: {x: 126.5, y: 77.6}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1409219941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1409219939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: bba9b6159bf496e4d853007221fb051f, type: 3}
+    m_FontSize: 42
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 48
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 3
+--- !u!222 &1409219942
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1409219939}
 --- !u!1 &1411136890
 GameObject:
   m_ObjectHideFlags: 0
@@ -25352,6 +25451,7 @@ MonoBehaviour:
   path: {fileID: 0}
   stage: 0
   selectUnit: {fileID: 0}
+  originColor: {r: 0, g: 0, b: 0, a: 0}
   occupation: -2
 --- !u!64 &1589655762
 MeshCollider:
@@ -26634,6 +26734,7 @@ MonoBehaviour:
   path: {fileID: 0}
   stage: 0
   selectUnit: {fileID: 0}
+  originColor: {r: 0, g: 0, b: 0, a: 0}
   occupation: 0
 --- !u!64 &1667976789
 MeshCollider:
@@ -27629,6 +27730,7 @@ MonoBehaviour:
   path: {fileID: 0}
   stage: 0
   selectUnit: {fileID: 0}
+  originColor: {r: 0, g: 0, b: 0, a: 0}
   occupation: -2
 --- !u!64 &1737376422
 MeshCollider:
@@ -28590,6 +28692,7 @@ MonoBehaviour:
   path: {fileID: 0}
   stage: 0
   selectUnit: {fileID: 0}
+  originColor: {r: 0, g: 0, b: 0, a: 0}
   occupation: 0
 --- !u!64 &1784793717
 MeshCollider:
@@ -28716,6 +28819,7 @@ MonoBehaviour:
   path: {fileID: 0}
   stage: 0
   selectUnit: {fileID: 0}
+  originColor: {r: 0, g: 0, b: 0, a: 0}
   occupation: 0
 --- !u!64 &1787663917
 MeshCollider:
@@ -30138,6 +30242,7 @@ MonoBehaviour:
   path: {fileID: 0}
   stage: 0
   selectUnit: {fileID: 0}
+  originColor: {r: 0, g: 0, b: 0, a: 0}
   occupation: -2
 --- !u!64 &1902315596
 MeshCollider:
@@ -30577,6 +30682,7 @@ MonoBehaviour:
   path: {fileID: 0}
   stage: 0
   selectUnit: {fileID: 0}
+  originColor: {r: 0, g: 0, b: 0, a: 0}
   occupation: 0
 --- !u!64 &1926955289
 MeshCollider:
@@ -31232,6 +31338,7 @@ MonoBehaviour:
   path: {fileID: 0}
   stage: 0
   selectUnit: {fileID: 0}
+  originColor: {r: 0, g: 0, b: 0, a: 0}
   occupation: 0
 --- !u!64 &1983787574
 MeshCollider:
@@ -32259,6 +32366,7 @@ MonoBehaviour:
   path: {fileID: 0}
   stage: 0
   selectUnit: {fileID: 0}
+  originColor: {r: 0, g: 0, b: 0, a: 0}
   occupation: 0
 --- !u!64 &2024830476
 MeshCollider:
@@ -33006,6 +33114,7 @@ MonoBehaviour:
   path: {fileID: 0}
   stage: 0
   selectUnit: {fileID: 0}
+  originColor: {r: 0, g: 0, b: 0, a: 0}
   occupation: 2
 --- !u!64 &2077470150
 MeshCollider:
