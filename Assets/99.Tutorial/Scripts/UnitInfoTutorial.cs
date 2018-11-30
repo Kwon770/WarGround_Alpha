@@ -33,7 +33,7 @@ public class UnitInfoTutorial : MonoBehaviour {
     public IEnumerator UnitMove(List<TileInfoTutorial> path, int tileStage, UnitInfoTutorial moveUnit)   //유닛이 이동하는데 딜레이 있게 이동한다
     {
         movingEnd = false;
-        Debug.Log(path.Count);
+
         path.Reverse();
         Vector3 endPos;
         Vector3 startPos;
@@ -71,12 +71,14 @@ public class UnitInfoTutorial : MonoBehaviour {
             yield return new WaitForSeconds(0.2f);
         }
         movingEnd = true;
-        if(tutorialManager.selectUnit == tutorialManager.enemy)
+
+        if (tutorialManager.selectUnit == tutorialManager.enemy)
         {
             tutorialManager.selectUnit = tutorialManager.unit;
            
         }
-        if(scriptManager.textNumber == 14)
+       
+        if (scriptManager.textNumber == 14)
         {
             tutorialManager.unit.actPoint = 3;
         }

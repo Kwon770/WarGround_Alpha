@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class TutorialManager : MonoBehaviour
 {
-    
+
 
     [SerializeField] public UnitInfoTutorial unit;
     [SerializeField] int startLocX = 0;    //현재 선택한 유닛이 있는 타일의 좌표, 시작점
@@ -36,7 +36,7 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] Text actPointParent;*/ //테스트 하고 지우기 11/29
 
     [SerializeField] int myTurn = 0;      //0 :내턴   1: 니턴
-     // ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ UI 전용
+                                          // ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ UI 전용
 
 
     [SerializeField] int commandPower = 0;
@@ -50,7 +50,7 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] public string unitName;
 
     [SerializeField] Text commandPowerText;
-  
+
     [SerializeField] Text bitiniumRegenText;
 
     [SerializeField] Text ATKtext;
@@ -62,6 +62,11 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] GameObject actPointUi;
     [SerializeField] GameObject bitiniumUi;
 
+    [SerializeField] public Image[] guidePointer;
+    [SerializeField] public int guideCount;
+    [SerializeField] public int guideSwitch; // 한번만 실행되게
+    [SerializeField] public int attackOnce; // 공격한번만
+
     enum selectButton { Atk, Move };
 
     private void Start()
@@ -71,6 +76,7 @@ public class TutorialManager : MonoBehaviour
         {
             tileSaveInfo[i] = tileSave[i].GetComponent<TileInfoTutorial>();
         }
+        
 
     }
 
@@ -81,7 +87,7 @@ public class TutorialManager : MonoBehaviour
             GetGotoTile(selectUnit.startPoint, selectUnit.actPoint);
         }*/
 
-        
+
         ATK = selectUnit.ATK;
         HP = selectUnit.HP;
         SHD = selectUnit.SHD;
@@ -96,7 +102,7 @@ public class TutorialManager : MonoBehaviour
 
         selectEffect.transform.position = selectUnit.transform.position;
 
-        for(int i = 0; i < 3 ; i++)
+        for (int i = 0; i < 3; i++)
         {
             if (i < actPoint)
             {
@@ -106,12 +112,12 @@ public class TutorialManager : MonoBehaviour
             {
                 actPointUi.transform.GetChild(i).gameObject.SetActive(false);
             }
-            
+
         }
 
         for (int i = 0; i < 10; i++)
         {
-            if (i < bitinium )
+            if (i < bitinium)
             {
                 bitiniumUi.transform.GetChild(i).gameObject.SetActive(true);
             }
@@ -122,23 +128,36 @@ public class TutorialManager : MonoBehaviour
 
         }
 
+        for (int i = 0; i < 5; i++)
+        {
+            if (i < commandPower)
+            {
+                commandUi.transform.GetChild(i).gameObject.SetActive(true);
+            }
+            else
+            {
+                commandUi.transform.GetChild(i).gameObject.SetActive(false);
+            }
+
+        }
+
 
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit))
         {
-            if(Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0))
             {
                 if (hit.transform.tag == "Tile")
                 {
-                   
+
 
                     TileInfoTutorial rayTile = hit.transform.GetComponent<TileInfoTutorial>();
-                    
+
 
                     if (rayTile.selectTile == true)
                     {
-                        if(scriptManager.textNumber == 15)
+                        if (scriptManager.textNumber == 15)
                         {
                             AllTileBreak();
 
@@ -149,50 +168,116 @@ public class TutorialManager : MonoBehaviour
                             scriptManager.StartCoroutine(scriptManager.MessagePrint(scriptManager.boxIndex));
                             scriptManager.boxIndex = (scriptManager.boxIndex - 1) * -1;
                         }
-                        else if(scriptManager.textNumber == 17)
+                        else if (scriptManager.textNumber == 17 && attackOnce == 0)
                         {
                             AllTileBreak();
-                            
+
                             enemy.StartCoroutine(enemy.Damaged());
                             enemy.StartCoroutine(unit.Attack());
-                            Debug.Log("17발동 타일 눌러서");
+                            attackOnce = 1;
+                            
                         }
                         else
                         {
                             AfterBfsMove(rayTile, rayTile.stage);
                             AllTileBreak();
                         }
-                        
+
                     }
-                    
-                    
+
+
                 }
-                if (hit.transform.tag == "Unit" )
+                if (hit.transform.tag == "Unit")
                 {
+                    
+
                     if (scriptManager.textNumber == 1 || scriptManager.textNumber == 15)
                     {
                         return;
-                        
+
                     }
-                    else if (scriptManager.textNumber == 17)
-                    {
-                        AllTileBreak();
-                        
-                        enemy.StartCoroutine(enemy.Damaged());
-                        enemy.StartCoroutine(unit.Attack());
-                        Debug.Log("17발동 유닛 눌러서");
-                    }
+                    
                     else
                     {
                         selectUnit = hit.transform.GetComponent<UnitInfoTutorial>();
                     }
+                }
+                else if (hit.transform.tag == "Enemy" && scriptManager.textNumber == 17 && attackOnce == 0)
+                {
+                    AllTileBreak();
 
-                    
-                    
+                    enemy.StartCoroutine(enemy.Damaged());
+                    enemy.StartCoroutine(unit.Attack());
+                    attackOnce = 1;
                 }
             }
-            
+
         } //stage
+        
+        // 안내 화살표 관련 모든 걸 여기서 처리
+        if(scriptManager.textNumber == 1 && guideSwitch == 0)
+        {
+            outGuidePointer();
+            guideSwitch = 1;
+        }
+        else if(scriptManager.textNumber == 2 && guideSwitch == 1)
+        {
+            guideSwitch = 2;
+            inGuidePointer();
+        }
+        else if(scriptManager.textNumber == 5 && guideSwitch == 2)
+        {
+            guideSwitch = 3;
+            outGuidePointer();
+            inGuidePointer();
+        }
+        else if(scriptManager.textNumber == 6 && guideSwitch == 3)
+        {
+            guideSwitch = 4;
+            outGuidePointer();
+        }
+        else if(scriptManager.textNumber == 7 && guideSwitch == 4)
+        {
+            guideSwitch = 5;
+            inGuidePointer();
+            bitiniumRegen = 2;
+            bitinium = bitinium + bitiniumRegen;
+        }
+        else if (scriptManager.textNumber == 13 && guideSwitch == 5)
+        {
+            guideSwitch = 6;
+            outGuidePointer();
+            inGuidePointer();
+        }
+        else if (scriptManager.textNumber == 15 && guideSwitch == 6)
+        {
+            guideSwitch = 7;
+            outGuidePointer();
+            inGuidePointer();
+            bitiniumRegen = 1;
+            bitinium = bitinium + bitiniumRegen;
+        }
+        else if (scriptManager.textNumber == 16 && guideSwitch == 7)
+        {
+            guideSwitch = 8;
+            outGuidePointer();
+            inGuidePointer();
+            commandPower = 1;
+        }
+        else if (scriptManager.textNumber == 17 && guideSwitch == 8)
+        {
+            guideSwitch = 9;
+            outGuidePointer();
+            inGuidePointer();
+        }
+        else if (scriptManager.textNumber == 18 && guideSwitch == 8)
+        {
+            guideSwitch = 9;
+            outGuidePointer();
+            
+        }
+
+
 
     }
 
@@ -221,19 +306,19 @@ public class TutorialManager : MonoBehaviour
 
         for (int i = 0; i < actPoint; i++) //행동력만큼 반복하며
         {
-            
-           
+
+
 
             for (int j = listSwitch; j < listSize; j++) //리스트에 들어있는 타일을 기준으로 찾으며
             {
                 startLocX = tileList[j].X;
                 startLocY = tileList[j].Y;
-               
+
 
 
                 for (int k = 0; k < 34; k++) //그것을 나의 타일들과 비교하여 맞는 조건의 타일을 구한다
                 {
-                   
+
                     if (tileList[j].X % 2 == 0)
                     {
                         if (tileSaveInfo[k].X == startLocX && tileSaveInfo[k].Y == startLocY - 1 && tileSaveInfo[k].selectTile == false && tileSaveInfo[k].firstTile == false)
@@ -243,28 +328,28 @@ public class TutorialManager : MonoBehaviour
                             tileSaveInfo[k].path = tileList[j];
                             tileSaveInfo[k].stage = tempStage;
                             listFirst++;
-                            
-                            
+
+
                         }
                         if (tileSaveInfo[k].X == startLocX && tileSaveInfo[k].Y == startLocY + 1 && tileSaveInfo[k].selectTile == false && tileSaveInfo[k].firstTile == false)
                         {
-                           
+
                             tileList.Add(tileSaveInfo[k]);
                             tileSaveInfo[k].selectTile = true;
                             tileSaveInfo[k].path = tileList[j];
                             tileSaveInfo[k].stage = tempStage;
                             listFirst++;
-                            
+
 
                         }
-                        if (tileSaveInfo[k].X == startLocX+1 && tileSaveInfo[k].Y == startLocY + 1 && tileSaveInfo[k].selectTile == false && tileSaveInfo[k].firstTile == false)
+                        if (tileSaveInfo[k].X == startLocX + 1 && tileSaveInfo[k].Y == startLocY + 1 && tileSaveInfo[k].selectTile == false && tileSaveInfo[k].firstTile == false)
                         {
                             tileList.Add(tileSaveInfo[k]);
                             tileSaveInfo[k].selectTile = true;
                             tileSaveInfo[k].path = tileList[j];
                             tileSaveInfo[k].stage = tempStage;
                             listFirst++;
-                            
+
 
                         }
                         if (tileSaveInfo[k].X == startLocX + 1 && tileSaveInfo[k].Y == startLocY && tileSaveInfo[k].selectTile == false && tileSaveInfo[k].firstTile == false)
@@ -274,7 +359,7 @@ public class TutorialManager : MonoBehaviour
                             tileSaveInfo[k].path = tileList[j];
                             tileSaveInfo[k].stage = tempStage;
                             listFirst++;
-                            
+
 
                         }
                         if (tileSaveInfo[k].X == startLocX - 1 && tileSaveInfo[k].Y == startLocY + 1 && tileSaveInfo[k].selectTile == false && tileSaveInfo[k].firstTile == false)
@@ -284,7 +369,7 @@ public class TutorialManager : MonoBehaviour
                             tileSaveInfo[k].path = tileList[j];
                             tileSaveInfo[k].stage = tempStage;
                             listFirst++;
-                            
+
 
                         }
                         if (tileSaveInfo[k].X == startLocX - 1 && tileSaveInfo[k].Y == startLocY && tileSaveInfo[k].selectTile == false && tileSaveInfo[k].firstTile == false)
@@ -294,7 +379,7 @@ public class TutorialManager : MonoBehaviour
                             tileSaveInfo[k].path = tileList[j];
                             tileSaveInfo[k].stage = tempStage;
                             listFirst++;
-                            
+
 
                         }
                     }
@@ -308,7 +393,7 @@ public class TutorialManager : MonoBehaviour
                             tileSaveInfo[k].stage = tempStage;
                             listFirst++;
 
-                            
+
                         }
                         if (tileSaveInfo[k].X == startLocX && tileSaveInfo[k].Y == startLocY + 1 && tileSaveInfo[k].selectTile == false && tileSaveInfo[k].firstTile == false)
                         {
@@ -317,7 +402,7 @@ public class TutorialManager : MonoBehaviour
                             tileSaveInfo[k].path = tileList[j];
                             tileSaveInfo[k].stage = tempStage;
                             listFirst++;
-                            
+
                         }
                         if (tileSaveInfo[k].X == startLocX + 1 && tileSaveInfo[k].Y == startLocY - 1 && tileSaveInfo[k].selectTile == false && tileSaveInfo[k].firstTile == false)
                         {
@@ -326,7 +411,7 @@ public class TutorialManager : MonoBehaviour
                             tileSaveInfo[k].path = tileList[j];
                             tileSaveInfo[k].stage = tempStage;
                             listFirst++;
-                            
+
                         }
                         if (tileSaveInfo[k].X == startLocX + 1 && tileSaveInfo[k].Y == startLocY && tileSaveInfo[k].selectTile == false && tileSaveInfo[k].firstTile == false)
                         {
@@ -335,7 +420,7 @@ public class TutorialManager : MonoBehaviour
                             tileSaveInfo[k].path = tileList[j];
                             tileSaveInfo[k].stage = tempStage;
                             listFirst++;
-                            
+
                         }
                         if (tileSaveInfo[k].X == startLocX - 1 && tileSaveInfo[k].Y == startLocY - 1 && tileSaveInfo[k].selectTile == false && tileSaveInfo[k].firstTile == false)
                         {
@@ -344,7 +429,7 @@ public class TutorialManager : MonoBehaviour
                             tileSaveInfo[k].path = tileList[j];
                             tileSaveInfo[k].stage = tempStage;
                             listFirst++;
-                            
+
                         }
                         if (tileSaveInfo[k].X == startLocX - 1 && tileSaveInfo[k].Y == startLocY && tileSaveInfo[k].selectTile == false && tileSaveInfo[k].firstTile == false)
                         {
@@ -353,14 +438,14 @@ public class TutorialManager : MonoBehaviour
                             tileSaveInfo[k].path = tileList[j];
                             tileSaveInfo[k].stage = tempStage;
                             listFirst++;
-                            
+
                         }
                     }
 
 
                 } // 6개 구해주는 for문
 
-                
+
             }
             listSize = tileList.Count;
             listSwitch = listSize - listFirst;
@@ -368,7 +453,7 @@ public class TutorialManager : MonoBehaviour
 
 
             tempStage++;
-            
+
         }
 
 
@@ -380,7 +465,7 @@ public class TutorialManager : MonoBehaviour
             AfterBfsMove(tileSaveInfo[18], tileSaveInfo[18].stage);
             AllTileBreak();
         }
-        else if(scriptManager.textNumber == 14)
+        else if (scriptManager.textNumber == 14)
         {
             AfterBfsMove(tileSaveInfo[17], tileSaveInfo[17].stage);
             AllTileBreak();
@@ -395,18 +480,18 @@ public class TutorialManager : MonoBehaviour
                 }
             }
         }
-        
+
     } //범위를 잡아줌
 
 
 
     void AfterBfsMove(TileInfoTutorial endTile, int tileStage)
     {
-        
+
         TileInfoTutorial pathSave = endTile;
         List<TileInfoTutorial> tileList = new List<TileInfoTutorial>();
 
-        if(tileStage == 0)
+        if (tileStage == 0)
         {
             tileList.Add(pathSave);
             selectUnit.actPoint--;
@@ -424,10 +509,10 @@ public class TutorialManager : MonoBehaviour
                 pathSave = pathSave.path;
             }
         }
-        
+
 
         StartCoroutine(selectUnit.UnitMove(tileList, tileStage, selectUnit));
-        
+
     } //실제 최소 경로 찾아 이동시켜줌
 
     void AllTileBreak()   //명령 후 모든 타일 초기화
@@ -436,6 +521,7 @@ public class TutorialManager : MonoBehaviour
         {
             tileSaveInfo[i].selectTile = false;
         }
+        Debug.Log("지금" + scriptManager.textNumber + "발동");
     }
 
 
@@ -452,8 +538,8 @@ public class TutorialManager : MonoBehaviour
             return;
         }
 
-        
 
+        
         GetGotoTile(selectUnit.startPoint, selectUnit.actPoint);
 
         //여기도 임시 땜빵 일단 쓰고 있으셈
@@ -484,7 +570,7 @@ public class TutorialManager : MonoBehaviour
             scriptManager.StartCoroutine(scriptManager.MessagePrint(scriptManager.boxIndex));
             scriptManager.boxIndex = (scriptManager.boxIndex - 1) * -1;
             selectUnit = enemy;
-            GetGotoTile(selectUnit.startPoint,selectUnit.actPoint);
+            GetGotoTile(selectUnit.startPoint, selectUnit.actPoint);
 
             unit.actPoint = 3;
             enemy.actPoint = 2;
@@ -496,7 +582,7 @@ public class TutorialManager : MonoBehaviour
             scriptManager.StartCoroutine(scriptManager.MessagePrint(scriptManager.boxIndex));
             scriptManager.boxIndex = (scriptManager.boxIndex - 1) * -1;
 
-           
+
 
 
             selectUnit = enemy;
@@ -529,10 +615,10 @@ public class TutorialManager : MonoBehaviour
         if (scriptManager.textNumber == 15)
         {
 
-            
+
             tileSaveInfo[24].selectTile = true;
         }
-        
+
         else
         {
             return;
@@ -543,9 +629,9 @@ public class TutorialManager : MonoBehaviour
 
     public void ClickAttackButton()
     {
-        if (canClick != true || selectUnit == enemy)
+        if (canClick != true || selectUnit == enemy )
         {
-            
+
             return;
         }
 
@@ -553,7 +639,7 @@ public class TutorialManager : MonoBehaviour
         {
             return;
         }
-        
+
 
         if (scriptManager.textNumber == 17 && selectUnit == unit && attackSwitch == false)
         {
@@ -570,4 +656,13 @@ public class TutorialManager : MonoBehaviour
 
     }
 
+    public void outGuidePointer()
+    {
+        guidePointer[guideCount].gameObject.SetActive(false);
+        guideCount++;
+    }
+    public void inGuidePointer()
+    {
+        guidePointer[guideCount].gameObject.SetActive(true);
+    }
 }
