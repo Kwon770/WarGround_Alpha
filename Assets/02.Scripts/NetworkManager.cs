@@ -48,6 +48,9 @@ public class NetworkManager : Photon.MonoBehaviour {
                 endButton = GameObject.Find("EndButton").GetComponent<EndTurn>();
                 Debug.Log(GameObject.Find("MyTurn"));
                 GameObject.Find("MyTurn").GetComponent<Button>().onClick.AddListener(new UnityEngine.Events.UnityAction(() => EndTurnClick(PhotonNetwork.playerName)));
+
+                GameData.data.EnemyName = UserList[0] == PhotonNetwork.playerName ? UserList[1] : UserList[0];
+
                 break;
             }
             yield return null;

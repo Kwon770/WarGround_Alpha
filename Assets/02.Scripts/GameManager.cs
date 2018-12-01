@@ -69,10 +69,11 @@ public class GameManager : MonoBehaviour {
         trigger = Trigger.None;
         Obj = null;
 
+        Debug.Log(SpawnButton.GetSiblingIndex());
         //모든 UI제거
-        SpawnButton.gameObject.SetActive(false);
-        for(int i=0; i < SpawnButton.GetSiblingIndex(); i++)
+        for(int i=0; i < SpawnButton.GetChildCount(); i++)
         {
+            Debug.Log(i + "번째 자식 : " + SpawnButton.transform.GetChild(i).gameObject);
             SpawnButton.transform.GetChild(i).gameObject.SetActive(false);
         }
         AttackButton.SetActive(false);
@@ -153,6 +154,7 @@ public class GameManager : MonoBehaviour {
 
         if (attacker.Act < 2) return;
         attacker.Act -= 2;
+        if (attacker.Kinds == "StrangeOne") attacker.Act++;
 
         int range = Calculator.Calc.Range(GameData.data.FindTile(attacker.x, attacker.y), GameData.data.FindTile(defender.x, defender.y), attacker.range);
         if (range <= attacker.range && range !=-1)

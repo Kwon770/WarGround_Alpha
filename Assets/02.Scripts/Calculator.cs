@@ -257,4 +257,29 @@ public class Calculator : MonoBehaviour {
         return TileQueue;
     }
 
+    //주변에 있는 유닛 확인
+    public bool UnitInRange(string Owner, string Class, int range, TileInfo tile)
+    {
+        int x = tile.x;
+        int y = tile.y;
+        Debug.Log("부활확인");
+        // 밴시 부활 여부 확인
+        foreach (UnitInfo unit in GameData.data.Units)
+        {
+            if (unit.Kinds == Class && unit.Owner == Owner)
+            {
+
+                bool check = Calculator.Calc.Range(GameData.data.FindTile(x, y), GameData.data.FindTile(unit.x, unit.y), range) != -1;
+
+                Debug.Log(range);
+
+                if (check)
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
 }

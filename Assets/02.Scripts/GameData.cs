@@ -6,6 +6,8 @@ public class GameData : MonoBehaviour {
 
     [SerializeField] public Mesh SkullKnight;
 
+    public string EnemyName;
+
     public static GameData data;
     
     [SerializeField] Transform Map;

@@ -45,7 +45,6 @@ public class UnitInfo : Photon.MonoBehaviour {
     //초기화
     void Awake()
     {
-        Debug.Log("셋팅하기" + " " + photonView.isMine);
         StartCoroutine("Setting");
     }
     IEnumerator Setting()
@@ -104,7 +103,18 @@ public class UnitInfo : Photon.MonoBehaviour {
             if (HP <= 0) dieTrigger = true;
             return;
         }
-
+        //힐일때
+        if (attacker.Kinds == "Healer")
+        {
+            HP += demage;
+            HP = MaxHP < HP ? HP : MaxHP;
+            return;
+        }
+        //힘줄끊기
+        if(attacker.Kinds == "Dokugawa")
+        {
+            ATK = 1;
+        }
         //방어무시가 아닐경우
         if (SHD > 0)
         {
@@ -214,7 +224,7 @@ public class UnitInfo : Photon.MonoBehaviour {
     {
         anim.DIE();
         if (!photonView.isMine) return;
-        if (Banshee() && Kinds != "SkullKnight") 
+        if (Calculator.Calc.UnitInRange(GameData.data.EnemyName,"Banshee",2,GameData.data.FindTile(x,y)) && Kinds != "SkullKnight") 
         {
             //부활
             photonView.RPC("Rise", PhotonTargets.All);
@@ -233,32 +243,6 @@ public class UnitInfo : Photon.MonoBehaviour {
     {
         GameData.data.DelUnit(this);
         Destroy(gameObject, 4f);
-    }
-
-    //부활 관련 코드
-    public bool Banshee()
-    {
-        Debug.Log("부활확인");
-        // 밴시 부활 여부 확인
-        foreach (UnitInfo unit in GameData.data.Units)
-        {
-
-            Debug.Log(unit.Kinds + " : " + (unit.Owner != Owner) + " : " + unit.gameObject);
-            if (Kinds == "SkullKnight") break;
-            if (unit.Kinds == "Banshee" && unit.Owner != Owner)
-            {
-
-                int range = Calculator.Calc.Range(GameData.data.FindTile(x, y), GameData.data.FindTile(unit.x, unit.y), 2);
-
-                Debug.Log(range);
-
-                if (range <= 2 && range != -1) 
-                {
-                    return true;
-                }
-            }
-        }
-        return false;
     }
 
     public void ChangeForm()
