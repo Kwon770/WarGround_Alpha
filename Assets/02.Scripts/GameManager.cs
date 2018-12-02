@@ -153,7 +153,9 @@ public class GameManager : MonoBehaviour {
         UnitInfo defender = Defender.GetComponent<UnitInfo>();
 
         if (attacker.Act < 2) return;
-        attacker.Act -= 2;
+        attacker.Act += 1;
+        if (attacker.Kinds == "StrangeOne") attacker.Act -= 2;
+
         if (attacker.Kinds == "StrangeOne") attacker.Act++;
 
         int range = Calculator.Calc.Range(GameData.data.FindTile(attacker.x, attacker.y), GameData.data.FindTile(defender.x, defender.y), attacker.range);
