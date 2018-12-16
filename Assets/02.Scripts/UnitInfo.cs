@@ -103,6 +103,13 @@ public class UnitInfo : Photon.MonoBehaviour {
             if (HP <= 0) dieTrigger = true;
             return;
         }
+
+        //무녀 데미지 경감
+        if (Calculator.Calc.UnitInRange(Owner, "Miko", 1, GameData.data.FindTile(this.x, this.y)))
+        {
+            demage--;
+        }
+
         //힐일때
         if (attacker.Kinds == "Healer")
         {
@@ -110,6 +117,7 @@ public class UnitInfo : Photon.MonoBehaviour {
             HP = MaxHP < HP ? HP : MaxHP;
             return;
         }
+
         //힘줄끊기
         if(attacker.Kinds == "Dokugawa")
         {
@@ -160,8 +168,8 @@ public class UnitInfo : Photon.MonoBehaviour {
         if(temp.dieTrigger) temp.DIE();
         else
         {
-            if (Kinds == "Healer") temp.anim.HEAL();
-            else temp.anim.Block();
+            if (Kinds != "Healer") temp.anim.Block();
+            else temp.anim.HEAL();
         }
     }
 

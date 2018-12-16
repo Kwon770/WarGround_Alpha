@@ -19,11 +19,12 @@ public class GameData : MonoBehaviour {
     [SerializeField] public Color teamColor;
     [SerializeField] public Color CanUseColor;
 
-
     [SerializeField] public int bitinium;
     [SerializeField] public int Maxbitinium;
     [SerializeField] public int LeaderShip;
     [SerializeField] public int MaxLeaderShip;
+    
+    [SerializeField] public int EndTurnValue;
 
     //초기화
     void Awake () {

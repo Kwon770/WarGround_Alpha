@@ -5,7 +5,9 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class MatchManager : Photon.MonoBehaviour {
-    
+
+    public static MatchManager manager;
+
     [SerializeField] public string[] PlayerList;
     [SerializeField] string[] Elite;
     int check;
@@ -14,6 +16,8 @@ public class MatchManager : Photon.MonoBehaviour {
     
     void Awake ()
     {
+        manager = this;
+
         check = 0;
 
         LobbyNetwork.instance.MatchManager = this;
