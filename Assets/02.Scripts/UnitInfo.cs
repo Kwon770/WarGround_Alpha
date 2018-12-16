@@ -138,7 +138,16 @@ public class UnitInfo : Photon.MonoBehaviour {
             }
         }
         HP -= demage;
-        if (HP <= 0) dieTrigger = true;
+        if (HP <= 0)
+        {
+            //attacker가 워락인 경우
+            if (attacker.Kinds == "Warlock")
+            {
+                attacker.AddATK += 1;
+                //attacker.공격력 강화 이펙트
+            }
+            dieTrigger = true;
+        }
 
         Debug.Log(gameObject + " " + dieTrigger);
         if (Kinds == "Guarder") SHD += 2;
