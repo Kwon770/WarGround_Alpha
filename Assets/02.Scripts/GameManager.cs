@@ -54,6 +54,19 @@ public class GameManager : MonoBehaviour {
     {
         if (Type == "Attack")
         {
+            if(this.Type == ObjTpye.Unit)
+            {
+                UnitInfo unit = Obj.GetComponent<UnitInfo>();
+                TileInfo tile = GameData.data.FindTile(unit.x, unit.y);
+                List<TileInfo> tiles = Calculator.Calc.GetInrangeTile(tile, unit.range);
+                foreach (var attackTile in tiles)
+                {
+                    if (GameData.data.FindUnit(attackTile.x, attackTile.y) != null)
+                    {
+                        attackTile.CanUse();
+                    }
+                }
+            }
             trigger = Trigger.Attack;
         }
         else if (Type == "Move")
@@ -86,7 +99,6 @@ public class GameManager : MonoBehaviour {
         //모든 UI제거
         for(int i=0; i < SpawnButton.GetChildCount(); i++)
         {
-            Debug.Log(i + "번째 자식 : " + SpawnButton.transform.GetChild(i).gameObject);
             SpawnButton.transform.GetChild(i).gameObject.SetActive(false);
         }
         AttackButton.SetActive(false);

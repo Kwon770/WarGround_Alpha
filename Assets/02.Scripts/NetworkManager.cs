@@ -22,6 +22,7 @@ public class NetworkManager : Photon.MonoBehaviour {
         UserList = null;
         StartCoroutine("Setting");
 	}
+
     [PunRPC]
     public void SetMaster(string client)
     {
@@ -41,6 +42,7 @@ public class NetworkManager : Photon.MonoBehaviour {
         }
         Debug.Log(UserList.ToString() + " : " + UserList + " : " + UserList.Length);
     }
+
     IEnumerator Setting()
     {
         while (true)
@@ -72,6 +74,7 @@ public class NetworkManager : Photon.MonoBehaviour {
             photonView.RPC("ChangeOwner", PhotonTargets.MasterClient, turnOwner);
         }
     }
+
     [PunRPC]
     public void ChangeOwner(string user)
     {
@@ -88,10 +91,10 @@ public class NetworkManager : Photon.MonoBehaviour {
         if (turnOwner == PhotonNetwork.playerName) photonView.RPC("TurnSet", PhotonTargets.All, turnOwner);
         else photonView.RPC("SetOwnerUI", PhotonTargets.All, turnOwner);
     }
+
     [PunRPC]
     public void SetOwnerUI(string user)
     {
-        Debug.Log(user);
         if (user == PhotonNetwork.playerName)
         {
             endButton.MyTurn();
@@ -103,12 +106,14 @@ public class NetworkManager : Photon.MonoBehaviour {
             //적의턴
         }
     }
+
     //턴셋팅
     [PunRPC]
     public void TurnSet(string user)
     {
         StartCoroutine("TurnSetting", user);
     }
+
     IEnumerator TurnSetting(string user)
     {
         int myTerritory = 0;

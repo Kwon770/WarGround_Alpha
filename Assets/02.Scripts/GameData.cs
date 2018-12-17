@@ -82,9 +82,4 @@ public class GameData : MonoBehaviour {
         //비티늄 하단바 설정
         InfoBar.bar.SetBit(bitinium);
     }
-
-    private void Update()
-    {
-        Debug.Log("비티늄 : " + bitinium + "/" + Maxbitinium + ",  지휘력 : " + LeaderShip + "/" + MaxLeaderShip);
-    }
 }

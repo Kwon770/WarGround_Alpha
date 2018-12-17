@@ -1342,7 +1342,7 @@ MonoBehaviour:
   MaxAct: 2
   Act: 0
   range: 1
-  moveSpeed: 3
+  moveSpeed: 1
   rotSpeed: 10
 --- !u!114 &114545017363217088
 MonoBehaviour:

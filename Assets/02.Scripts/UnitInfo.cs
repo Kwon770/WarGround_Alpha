@@ -156,9 +156,6 @@ public class UnitInfo : Photon.MonoBehaviour {
     //애니매이션 재생
     IEnumerator Animation(float delayTime, UnitInfo temp)
     {
-        Debug.Log(temp.transform.position + " " + transform.position);
-        Debug.Log(temp);
-
         float time = 0;
         Quaternion startRot1 = transform.rotation;
         Quaternion endRot1 = Quaternion.LookRotation(temp.transform.position - transform.position);
@@ -173,7 +170,6 @@ public class UnitInfo : Photon.MonoBehaviour {
         }
         anim.Attack();//가격 애니메이션 실행
         yield return new WaitForSeconds(delayTime);
-        Debug.Log(gameObject + " " + dieTrigger);
         if(temp.dieTrigger) temp.DIE();
         else
         {

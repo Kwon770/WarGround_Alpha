@@ -3004,7 +3004,7 @@ MonoBehaviour:
   MaxAct: 0
   Act: 0
   range: 0
-  moveSpeed: 3
+  moveSpeed: 1
   rotSpeed: 10
 --- !u!136 &136352336824333514
 CapsuleCollider:

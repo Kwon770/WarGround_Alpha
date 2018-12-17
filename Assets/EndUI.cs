@@ -29,7 +29,6 @@ public class EndUI : MonoBehaviour {
         UI = this;
         _myScore = 0;
         _enemyScore = 0;
-        StartCoroutine(EndGame());
     }
 
     public void SetRemainTurn(int turn)

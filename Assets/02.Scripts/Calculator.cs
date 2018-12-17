@@ -190,7 +190,6 @@ public class Calculator : MonoBehaviour {
     //주변 범위 타일 반환
     public List<TileInfo> GetInrangeTile(TileInfo SP, int range)
     {
-
         int s = 0, e = 0;
         TileInfo tile, temp;
         List<TileInfo> TileQueue = new List<TileInfo>();
@@ -343,7 +342,6 @@ public class Calculator : MonoBehaviour {
     {
         int x = tile.x;
         int y = tile.y;
-        Debug.Log("부활확인");
         // 밴시 부활 여부 확인
         foreach (UnitInfo unit in GameData.data.Units)
         {
