@@ -102,7 +102,7 @@ public class ScriptManager : MonoBehaviour {
                 messageBox[(boxIndex - 1) * -1].color = new Color(messageBox[(boxIndex - 1) * -1].color.r, messageBox[(boxIndex - 1) * -1].color.g, messageBox[(boxIndex - 1) * -1].color.b, 0f);
             }
 
-            time += Time.deltaTime * 1.8f;
+            time += Time.deltaTime * 1.65f;
 
             
             yield return null;
