@@ -19,6 +19,12 @@ public class UnitInfoTutorial : MonoBehaviour {
     [SerializeField] ScriptManager scriptManager;
     [SerializeField] TutorialManager tutorialManager;
 
+    [SerializeField] public int ATK;
+    [SerializeField] public int HP;
+    [SerializeField] public int SHD;
+    [SerializeField] public string unitName;
+
+
     private void Start()
     {
         transform.position = new Vector3(startPoint.transform.position.x, startPoint.transform.position.y, startPoint.transform.position.z);
@@ -27,7 +33,7 @@ public class UnitInfoTutorial : MonoBehaviour {
     public IEnumerator UnitMove(List<TileInfoTutorial> path, int tileStage, UnitInfoTutorial moveUnit)   //유닛이 이동하는데 딜레이 있게 이동한다
     {
         movingEnd = false;
-        Debug.Log(path.Count);
+
         path.Reverse();
         Vector3 endPos;
         Vector3 startPos;
@@ -50,7 +56,7 @@ public class UnitInfoTutorial : MonoBehaviour {
             {
 
                 transform.rotation = Quaternion.Lerp(startRot, endRot, time);
-                time += Time.deltaTime * 5;
+                time += Time.deltaTime * 5f;
                 yield return null;
             }
             time = 0;
@@ -58,24 +64,61 @@ public class UnitInfoTutorial : MonoBehaviour {
             {
               
                 transform.position = Vector3.Lerp(startPos, endPos, time);
-                time += Time.deltaTime * 1f;
+                time += Time.deltaTime * 1.8f;
                 yield return null;
             }
             anim.SetBool("MOVE", false);
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.2f);
         }
         movingEnd = true;
-        if(tutorialManager.selectUnit == tutorialManager.enemy)
+
+        if (tutorialManager.selectUnit == tutorialManager.enemy)
         {
             tutorialManager.selectUnit = tutorialManager.unit;
            
         }
-        if(scriptManager.textNumber == 14)
+       
+        if (scriptManager.textNumber == 14)
         {
             tutorialManager.unit.actPoint = 3;
         }
-        
+
         //일단은 이동 튜토리얼 끝나면 바로 메세지 넘어가게 하기는 했지만 추후 조치가 필요해보임 임시 땜빵
+        if (scriptManager.textNumber == 6)
+        {
+            
+
+            tutorialManager.tileSaveInfo[16].occupation = 2;
+            tutorialManager.tileSaveInfo[15].occupation = 2;
+            tutorialManager.tileSaveInfo[8].occupation = 2; 
+            tutorialManager.tileSaveInfo[9].occupation = 2;
+            tutorialManager.tileSaveInfo[24].occupation = 2;
+
+            tutorialManager.tileSaveInfo[18].occupation = 0;
+
+            tutorialManager.tileSaveInfo[18].occupation = -2;
+            tutorialManager.tileSaveInfo[19].occupation = -2;
+            tutorialManager.tileSaveInfo[11].occupation = -2;
+            tutorialManager.tileSaveInfo[25].occupation = -2;
+            tutorialManager.tileSaveInfo[26].occupation = -2;
+        }
+        else if (scriptManager.textNumber == 14)
+        {
+           
+
+            tutorialManager.tileSaveInfo[16].occupation = 2;
+            tutorialManager.tileSaveInfo[8].occupation = 2;
+            
+          
+            tutorialManager.tileSaveInfo[24].occupation = 2;
+
+            tutorialManager.tileSaveInfo[9].occupation = 0;
+            tutorialManager.tileSaveInfo[24].occupation = 0;
+
+            tutorialManager.tileSaveInfo[17].occupation = -2;
+
+
+        }
 
         scriptManager.canSkip = true;
         scriptManager.textNumber++;

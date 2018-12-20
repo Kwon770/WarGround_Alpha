@@ -23,22 +23,26 @@ public class ScriptManager : MonoBehaviour {
     private void Start()
     {
         messageBox[boxIndex].color = new Color(messageBox[boxIndex].color.r, messageBox[boxIndex].color.g, messageBox[boxIndex].color.b, 0f);
+        
+        tutorialManager.inGuidePointer();
     }
 
     private void Update()
     {
         if(Input.GetKeyDown(KeyCode.Return) && canSkip == true)  //0, 1, 5, 6enemy, 13, 14enemy, 15, 17, 20 enter 할 시 씬 종료
         {
-                if(textNumber == 20)
+            
+
+            if (textNumber == 20)
                 {
-                LoadTutorial.instance.gameObject.SetActive(true);
-                LoadTutorial.instance.Exiting();
+                    LoadTutorial.instance.gameObject.SetActive(true);
+                    LoadTutorial.instance.Exiting();
                 }
                 else
                 {
-                textNumber++;
-                StartCoroutine(MessagePrint(boxIndex));
-                boxIndex = (boxIndex - 1) * -1;
+                    textNumber++;
+                    StartCoroutine(MessagePrint(boxIndex));
+                    boxIndex = (boxIndex - 1) * -1;
                 }
             
                 
@@ -98,7 +102,7 @@ public class ScriptManager : MonoBehaviour {
                 messageBox[(boxIndex - 1) * -1].color = new Color(messageBox[(boxIndex - 1) * -1].color.r, messageBox[(boxIndex - 1) * -1].color.g, messageBox[(boxIndex - 1) * -1].color.b, 0f);
             }
 
-            time += Time.deltaTime * 2f;
+            time += Time.deltaTime * 1.65f;
 
             
             yield return null;
@@ -110,7 +114,7 @@ public class ScriptManager : MonoBehaviour {
         {
             canSkip = true;
         }
-        Debug.Log(canSkip);
+       
 
         yield return null;
     } //리스트에 있는 텍스트 출력 함수

@@ -154,7 +154,10 @@ public class PerformanceManager : MonoBehaviour {
 
     void tutorialStart()
     {
-        selectButton.SetActive(true);
+        //selectButton.SetActive(true);
+
+       
+
         cam.GetComponent<CameraManager>().opening = false;
 
         Destroy(mainCam.GetComponent<Animator>());
@@ -165,7 +168,8 @@ public class PerformanceManager : MonoBehaviour {
         enemy.SetActive(true);
 
         scriptManager.SetActive(true);
-
+        
+        
 
     }
 
