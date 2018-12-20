@@ -17,13 +17,11 @@ public class EndTurn : MonoBehaviour {
 
     public void MyTurn()
     {
-        Debug.Log("Mine");
         if (coroutine != null) return;
         coroutine = StartCoroutine(SetButton(myTurn, enemyTurn));
     }
     public void EnemyTurn()
     {
-        Debug.Log("NotMine");
         if (coroutine != null) return;
         coroutine = StartCoroutine(SetButton(enemyTurn, myTurn));
     }

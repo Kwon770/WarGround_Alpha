@@ -93,14 +93,6 @@ public class TileInfo : MonoBehaviour {
         yield break;
     }
 
-    public int GetX()
-    {
-        return x;
-    }
-    public int GetY()
-    {
-        return y;
-    }
     public int GetCost()
     {
         return cost;

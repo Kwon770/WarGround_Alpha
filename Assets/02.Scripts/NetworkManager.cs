@@ -123,8 +123,14 @@ public class NetworkManager : Photon.MonoBehaviour {
 
         foreach (var unit in GameData.data.Units)
         {
+
+            unit.Act = unit.MaxAct;
+            if(unit.Kinds != "Warlock") unit.AddATK = 0;
+
+            if (Calculator.Calc.UnitInRange(PhotonNetwork.playerName, "Ragnarr", 1, GameData.data.FindTile(unit.x, unit.y)) && unit.Kinds != "Ragnarr") unit.AddATK += 2;
+
             //내 유닛일경우
-            if (unit.Owner == PhotonNetwork.playerName)
+                if (unit.Owner == PhotonNetwork.playerName)
             {
                 TileInfo SP = GameData.data.FindTile(unit.x, unit.y);
                 List<TileInfo> tiles = Calculator.Calc.GetInrangeTile(SP, 1);
@@ -148,8 +154,6 @@ public class NetworkManager : Photon.MonoBehaviour {
                     if (unit.Kinds == "Harrier") tile.LoseOcccupy();
                 }
             }
-            unit.Act = unit.MaxAct;
-
             yield return null;
         }
         foreach(var tile in GameData.data.Tiles)
@@ -165,11 +169,6 @@ public class NetworkManager : Photon.MonoBehaviour {
 
         yield return null;
         SetOwnerUI(user);
-    }
-
-    private void Update()
-    {
-        Debug.Log("MyName : " + PhotonNetwork.playerName + ",  turnOwner : " + turnOwner);
     }
 
     //동기화

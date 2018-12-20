@@ -75,7 +75,6 @@ public class GameData : MonoBehaviour {
     //비티늄 셋팅
     public void SetBitinium(int point)
     {
-        Debug.Log(point);
         bitinium += point;
         if (bitinium > Maxbitinium) bitinium = Maxbitinium;
 

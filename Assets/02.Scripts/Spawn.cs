@@ -25,11 +25,9 @@ public class Spawn : Photon.MonoBehaviour {
         spawn = this;
         for(int i = 5 - Units.Length; i < 5; i++)
         {
-            Debug.Log(Units[i] + " " + i);
             Button temp;
             temp = GameManager.manager.SpawnButton.GetChild(i).GetComponent<Button>();
             GameManager.manager.SpawnButton.GetChild(i).gameObject.SetActive(true);
-            Debug.Log(temp.gameObject);
 
             temp.onClick.RemoveAllListeners();
             var cachedI = i; // Cache for Lambda
@@ -47,8 +45,6 @@ public class Spawn : Photon.MonoBehaviour {
 
         Vector3 spawnPos=tile.transform.position;
         UnitInfo unit = PhotonNetwork.Instantiate(unitName, spawnPos, transform.rotation, 0).GetComponent<UnitInfo>();
-
-        Debug.Log("dafsdljdfa " + -cost);
 
         GameData.data.SetBitinium(-cost);
 

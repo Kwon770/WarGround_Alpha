@@ -94,7 +94,6 @@ public class UnitInfo : Photon.MonoBehaviour {
     public void GetDemage(int demage, int x, int y)
     {
         UnitInfo attacker = GameData.data.FindUnit(x, y);
-//        if (!photonView.isMine) return;
 
         //방어 무시일 경우
         if (attacker.Kinds == "Boatswain")
@@ -144,12 +143,18 @@ public class UnitInfo : Photon.MonoBehaviour {
             if (attacker.Kinds == "Warlock")
             {
                 attacker.AddATK += 1;
+                if (attacker.AddATK > 5) attacker.AddATK = 5;
                 //attacker.공격력 강화 이펙트
+            }
+            //defender가 버서커일 경우
+            if(this.Kinds == "Berserker")
+            {
+                HP = 1;
+                ATK += 3;
+                this.Kinds = "Not Berserker ";
             }
             dieTrigger = true;
         }
-
-        Debug.Log(gameObject + " " + dieTrigger);
         if (Kinds == "Guarder") SHD += 2;
     }
 
@@ -236,13 +241,24 @@ public class UnitInfo : Photon.MonoBehaviour {
     public void DIE()
     {
         anim.DIE();
+
         if (!photonView.isMine) return;
-        if (Calculator.Calc.UnitInRange(GameData.data.EnemyName,"Banshee",2,GameData.data.FindTile(x,y)) && Kinds != "SkullKnight") 
+        
+        Debug.Log(HP == 1 || Kinds == " Berserker ");
+        if (HP == 1 || Kinds == " Berserker ")
+        {
+            Debug.Log("부활");
+            //부활
+            photonView.RPC("Rise", PhotonTargets.All);
+            return;
+        }
+        if (Calculator.Calc.UnitInRange(GameData.data.EnemyName, "Banshee", 2, GameData.data.FindTile(x, y)) && Kinds != "SkullKnight")
         {
             //부활
             photonView.RPC("Rise", PhotonTargets.All);
             return;
         }
+
         //사망처리
         else
         {
@@ -260,12 +276,18 @@ public class UnitInfo : Photon.MonoBehaviour {
 
     public void ChangeForm()
     {
+        if (HP > 0) return;
         transform.GetChild(0).GetComponent<SkinnedMeshRenderer>().sharedMesh = GameData.data.SkullKnight;
     }
 
     [PunRPC]
     public void Rise()
     {
+        if (HP == 1)
+        {
+            anim.RISE();
+            return;
+        }
         if (GetComponent<Synchro>()==null)
         {
             gameObject.AddComponent<Synchro>();

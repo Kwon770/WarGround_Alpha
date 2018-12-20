@@ -32,8 +32,8 @@ public class ManagerMapTile : MonoBehaviour {
         {
             if (Tile.Count == 0) break;
 
-            x = Tile.Peek().GetX();
-            y = Tile.Peek().GetY();
+            x = Tile.Peek().x;
+            y = Tile.Peek().y;
 
             int k = x % 2 == 1 ? 1 : 0;
 
@@ -81,7 +81,7 @@ public class ManagerMapTile : MonoBehaviour {
     {
         for (int i = 0; i < transform.childCount; i++)
         {
-            if (Tile[i].GetX() == x && Tile[i].GetY() == y) return Tile[i];
+            if (Tile[i].x == x && Tile[i].y == y) return Tile[i];
         }
         return null;
     }

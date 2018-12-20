@@ -100,6 +100,7 @@ public class LobbyNetwork : Photon.MonoBehaviour
     public void LeaveRoom()
     {
         ResetInfo();
+        if (!PhotonNetwork.inRoom) return;
         PhotonNetwork.LeaveRoom();
     }
 
