@@ -160,15 +160,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f1448e5fc3bbd243a3298259f0df3ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grade: 
-  troop: 
-  name: 
-  cost: 
-  hp: 
-  atk: 
-  shd: 
-  skillName: 
-  skillDescription: 
+  grade: Veteran
+  troop: Merica
+  name: Strange one
+  cost: 4
+  hp: 3
+  atk: 5
+  shd: 0
+  skillName: Shot'N'Roll
+  skillDescription: "When \u2018Strange one\u2019 attack, he receive 1 movement act
+    point. "
   Grade: {fileID: 2125398532}
   Troop: {fileID: 1491692305}
   Name: {fileID: 448563522}
@@ -429,110 +430,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 58352321}
---- !u!1 &80653682
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 80653683}
-  - component: {fileID: 80653686}
-  - component: {fileID: 80653685}
-  - component: {fileID: 80653684}
-  m_Layer: 5
-  m_Name: Image_Normal2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &80653683
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 80653682}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 130684644}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -195.64755, y: 69}
-  m_SizeDelta: {x: 200, y: 200}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &80653684
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 80653682}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f1448e5fc3bbd243a3298259f0df3ad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  grade: 
-  troop: 
-  name: 
-  cost: 
-  hp: 
-  atk: 
-  shd: 
-  skillName: 
-  skillDescription: 
-  Grade: {fileID: 2125398532}
-  Troop: {fileID: 1491692305}
-  Name: {fileID: 448563522}
-  Text1: {fileID: 767988026}
-  Cost: {fileID: 586191380}
-  Text2: {fileID: 1713673854}
-  Hp: {fileID: 1573732372}
-  Text3: {fileID: 1959751384}
-  Atk: {fileID: 1221691426}
-  Text4: {fileID: 1504464842}
-  Shd: {fileID: 603020106}
-  SkillImage: {fileID: 1695229249}
-  SkillName: {fileID: 1328273665}
-  SkillDescription: {fileID: 291340125}
-  Story: {fileID: 1744372652}
---- !u!114 &80653685
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 80653682}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: d8e58ef58aa904842aa375b35d2b97d2, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
---- !u!222 &80653686
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 80653682}
 --- !u!1 &81029569
 GameObject:
   m_ObjectHideFlags: 0
@@ -601,110 +498,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 81029569}
---- !u!1 &88809494
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 88809495}
-  - component: {fileID: 88809498}
-  - component: {fileID: 88809497}
-  - component: {fileID: 88809496}
-  m_Layer: 5
-  m_Name: Image_Normal1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &88809495
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 88809494}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1752811713}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -620, y: -176}
-  m_SizeDelta: {x: 200, y: 200}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &88809496
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 88809494}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f1448e5fc3bbd243a3298259f0df3ad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  grade: 
-  troop: 
-  name: 
-  cost: 
-  hp: 
-  atk: 
-  shd: 
-  skillName: 
-  skillDescription: 
-  Grade: {fileID: 2125398532}
-  Troop: {fileID: 1491692305}
-  Name: {fileID: 448563522}
-  Text1: {fileID: 767988026}
-  Cost: {fileID: 586191380}
-  Text2: {fileID: 1713673854}
-  Hp: {fileID: 1573732372}
-  Text3: {fileID: 1959751384}
-  Atk: {fileID: 1221691426}
-  Text4: {fileID: 1504464842}
-  Shd: {fileID: 603020106}
-  SkillImage: {fileID: 1695229249}
-  SkillName: {fileID: 1328273665}
-  SkillDescription: {fileID: 291340125}
-  Story: {fileID: 1744372652}
---- !u!114 &88809497
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 88809494}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: d8e58ef58aa904842aa375b35d2b97d2, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
---- !u!222 &88809498
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 88809494}
 --- !u!1 &91517448
 GameObject:
   m_ObjectHideFlags: 0
@@ -1081,10 +874,8 @@ RectTransform:
   - {fileID: 1453936824}
   - {fileID: 670944264}
   - {fileID: 1738644197}
-  - {fileID: 1594669341}
-  - {fileID: 80653683}
   m_Father: {fileID: 1589650818}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1279,15 +1070,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f1448e5fc3bbd243a3298259f0df3ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grade: 
-  troop: 
-  name: 
-  cost: 
-  hp: 
-  atk: 
-  shd: 
-  skillName: 
-  skillDescription: 
+  grade: Normal
+  troop: Partan
+  name: Warrior
+  cost: 3
+  hp: 3
+  atk: 4
+  shd: 0
+  skillName: Warrior
+  skillDescription: The brave soldier with a sword.
   Grade: {fileID: 2125398532}
   Troop: {fileID: 1491692305}
   Name: {fileID: 448563522}
@@ -1383,15 +1174,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f1448e5fc3bbd243a3298259f0df3ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grade: 
-  troop: 
-  name: 
-  cost: 
-  hp: 
-  atk: 
-  shd: 
-  skillName: 
-  skillDescription: 
+  grade: Veteran
+  troop: Pluto
+  name: Skull knight
+  cost: 0
+  hp: 2
+  atk: 1
+  shd: 2
+  skillName: Small bone
+  skillDescription: Skull knight does not spend command point.
   Grade: {fileID: 2125398532}
   Troop: {fileID: 1491692305}
   Name: {fileID: 448563522}
@@ -2032,7 +1823,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &291340124
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2160,10 +1951,8 @@ RectTransform:
   - {fileID: 889869901}
   - {fileID: 957416835}
   - {fileID: 520675692}
-  - {fileID: 2142293030}
-  - {fileID: 2110663488}
   m_Father: {fileID: 1589650818}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2199,7 +1988,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1752811713}
-  m_RootOrder: 6
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2627,15 +2416,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f1448e5fc3bbd243a3298259f0df3ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grade: 
-  troop: 
-  name: 
-  cost: 
-  hp: 
-  atk: 
-  shd: 
-  skillName: 
-  skillDescription: 
+  grade: Normal
+  troop: Partan
+  name: Archer
+  cost: 3
+  hp: 2
+  atk: 3
+  shd: 0
+  skillName: Archer
+  skillDescription: The brave soldier with a bow.
   Grade: {fileID: 2125398532}
   Troop: {fileID: 1491692305}
   Name: {fileID: 448563522}
@@ -2667,7 +2456,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &448563521
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2683,8 +2472,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 311.69995, y: 213}
-  m_SizeDelta: {x: 623.4, y: 177.5}
+  m_AnchoredPosition: {x: 464.4, y: 277}
+  m_SizeDelta: {x: 928.8, y: 177.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &448563522
 MonoBehaviour:
@@ -2805,15 +2594,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f1448e5fc3bbd243a3298259f0df3ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grade: 
-  troop: 
-  name: 
-  cost: 
-  hp: 
-  atk: 
-  shd: 
-  skillName: 
-  skillDescription: 
+  grade: Veteran
+  troop: Savageborn
+  name: Shaman
+  cost: 5
+  hp: 2
+  atk: 3
+  shd: 0
+  skillName: Curse
+  skillDescription: Decrease the enemy damage by 2 in the area around 2 tile range
+    of Shaman.
   Grade: {fileID: 2125398532}
   Troop: {fileID: 1491692305}
   Name: {fileID: 448563522}
@@ -3017,7 +2807,7 @@ RectTransform:
   - {fileID: 181653929}
   - {fileID: 426864795}
   m_Father: {fileID: 1589650818}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3071,15 +2861,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f1448e5fc3bbd243a3298259f0df3ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grade: 
-  troop: 
-  name: 
-  cost: 
-  hp: 
-  atk: 
-  shd: 
-  skillName: 
-  skillDescription: 
+  grade: Veteran
+  troop: Brownbeared pirates
+  name: Harrier
+  cost: 4
+  hp: 5
+  atk: 4
+  shd: 0
+  skillName: Looting
+  skillDescription: "Take enemy\u2019s territory immediately."
   Grade: {fileID: 2125398532}
   Troop: {fileID: 1491692305}
   Name: {fileID: 448563522}
@@ -3501,15 +3291,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f1448e5fc3bbd243a3298259f0df3ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grade: 
-  troop: 
-  name: 
-  cost: 
-  hp: 
-  atk: 
-  shd: 
-  skillName: 
-  skillDescription: 
+  grade: Veteran
+  troop: Royal guard
+  name: Royal knight
+  cost: 6
+  hp: 5
+  atk: 4
+  shd: 2
+  skillName: Elite Squad
+  skillDescription: "\u2018Royal Knight\u2019 can spawn a normal unit."
   Grade: {fileID: 2125398532}
   Troop: {fileID: 1491692305}
   Name: {fileID: 448563522}
@@ -3725,7 +3515,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &586191379
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3863,15 +3653,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f1448e5fc3bbd243a3298259f0df3ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grade: 
-  troop: 
-  name: 
-  cost: 
-  hp: 
-  atk: 
-  shd: 
-  skillName: 
-  skillDescription: 
+  grade: Veteran
+  troop: Pluto
+  name: Warlock
+  cost: 5
+  hp: 2
+  atk: 4
+  shd: 0
+  skillName: Craving
+  skillDescription: Each time Warlock kills the unit, his attack point increases by
+    1 . Additional Attack Point can be obtained up to 5.
   Grade: {fileID: 2125398532}
   Troop: {fileID: 1491692305}
   Name: {fileID: 448563522}
@@ -3971,7 +3762,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &603020105
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4245,110 +4036,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 619271563}
---- !u!1 &628485234
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 628485235}
-  - component: {fileID: 628485238}
-  - component: {fileID: 628485237}
-  - component: {fileID: 628485236}
-  m_Layer: 5
-  m_Name: Image_Normal2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &628485235
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 628485234}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 913231442}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -195.64755, y: 69}
-  m_SizeDelta: {x: 200, y: 200}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &628485236
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 628485234}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f1448e5fc3bbd243a3298259f0df3ad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  grade: 
-  troop: 
-  name: 
-  cost: 
-  hp: 
-  atk: 
-  shd: 
-  skillName: 
-  skillDescription: 
-  Grade: {fileID: 2125398532}
-  Troop: {fileID: 1491692305}
-  Name: {fileID: 448563522}
-  Text1: {fileID: 767988026}
-  Cost: {fileID: 586191380}
-  Text2: {fileID: 1713673854}
-  Hp: {fileID: 1573732372}
-  Text3: {fileID: 1959751384}
-  Atk: {fileID: 1221691426}
-  Text4: {fileID: 1504464842}
-  Shd: {fileID: 603020106}
-  SkillImage: {fileID: 1695229249}
-  SkillName: {fileID: 1328273665}
-  SkillDescription: {fileID: 291340125}
-  Story: {fileID: 1744372652}
---- !u!114 &628485237
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 628485234}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: d8e58ef58aa904842aa375b35d2b97d2, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
---- !u!222 &628485238
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 628485234}
 --- !u!1 &629961711
 GameObject:
   m_ObjectHideFlags: 0
@@ -4430,14 +4117,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grade: Elite
-  troop: Pluto of Partan
-  name: Death Knight
+  troop: Pluto
+  name: Death knight
   cost: 0
   hp: 15
   atk: 3
   shd: 20
-  skillName: Mind Control
-  skillDescription: Increase a leadership point by 1
+  skillName: Mind control
+  skillDescription: The maximum number of command points increases by +1.
   Grade: {fileID: 2125398532}
   Troop: {fileID: 1491692305}
   Name: {fileID: 448563522}
@@ -4773,15 +4460,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f1448e5fc3bbd243a3298259f0df3ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grade: 
-  troop: 
-  name: 
-  cost: 
-  hp: 
-  atk: 
-  shd: 
-  skillName: 
-  skillDescription: 
+  grade: Veteran
+  troop: Kamiken
+  name: Samurai
+  cost: 5
+  hp: 3
+  atk: 5
+  shd: 2
+  skillName: Batto
+  skillDescription: "\u2018Samurai\u2019 has act point immediately when spawned."
   Grade: {fileID: 2125398532}
   Troop: {fileID: 1491692305}
   Name: {fileID: 448563522}
@@ -4830,110 +4517,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 670944263}
---- !u!1 &675112095
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 675112096}
-  - component: {fileID: 675112099}
-  - component: {fileID: 675112098}
-  - component: {fileID: 675112097}
-  m_Layer: 5
-  m_Name: Image_Normal2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &675112096
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 675112095}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1752811713}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -195.64755, y: 69}
-  m_SizeDelta: {x: 200, y: 200}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &675112097
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 675112095}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f1448e5fc3bbd243a3298259f0df3ad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  grade: 
-  troop: 
-  name: 
-  cost: 
-  hp: 
-  atk: 
-  shd: 
-  skillName: 
-  skillDescription: 
-  Grade: {fileID: 2125398532}
-  Troop: {fileID: 1491692305}
-  Name: {fileID: 448563522}
-  Text1: {fileID: 767988026}
-  Cost: {fileID: 586191380}
-  Text2: {fileID: 1713673854}
-  Hp: {fileID: 1573732372}
-  Text3: {fileID: 1959751384}
-  Atk: {fileID: 1221691426}
-  Text4: {fileID: 1504464842}
-  Shd: {fileID: 603020106}
-  SkillImage: {fileID: 1695229249}
-  SkillName: {fileID: 1328273665}
-  SkillDescription: {fileID: 291340125}
-  Story: {fileID: 1744372652}
---- !u!114 &675112098
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 675112095}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: d8e58ef58aa904842aa375b35d2b97d2, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
---- !u!222 &675112099
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 675112095}
 --- !u!1 &677672463
 GameObject:
   m_ObjectHideFlags: 0
@@ -5350,15 +4933,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f1448e5fc3bbd243a3298259f0df3ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grade: 
-  troop: 
-  name: 
-  cost: 
-  hp: 
-  atk: 
-  shd: 
-  skillName: 
-  skillDescription: 
+  grade: Veteran
+  troop: Royal guard
+  name: Guarder
+  cost: 6
+  hp: 2
+  atk: 4
+  shd: 4
+  skillName: "Partan\u2019s Shield"
+  skillDescription: Each time an enemy is attacked, guarder gains +1 of shield point.
+    Get as much attack point  as shield.
   Grade: {fileID: 2125398532}
   Troop: {fileID: 1491692305}
   Name: {fileID: 448563522}
@@ -5497,7 +5081,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &767988027
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5707,15 +5291,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f1448e5fc3bbd243a3298259f0df3ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grade: 
-  troop: 
-  name: 
-  cost: 
-  hp: 
-  atk: 
-  shd: 
-  skillName: 
-  skillDescription: 
+  grade: Veteran
+  troop: Pluto
+  name: Banshee
+  cost: 5
+  hp: 4
+  atk: 4
+  shd: 0
+  skillName: Undead queen
+  skillDescription: If unit dies in 1 tile range of Banshee, that unit revive to Skull
+    Knight.
   Grade: {fileID: 2125398532}
   Troop: {fileID: 1491692305}
   Name: {fileID: 448563522}
@@ -6043,14 +5628,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grade: Elite
-  troop: Pluto of Partan
-  name: Death Knight
+  troop: Royal guard
+  name: Mars
   cost: 0
-  hp: 15
-  atk: 3
-  shd: 20
-  skillName: Mind Control
-  skillDescription: Increase a leadership point by 1
+  hp: 5
+  atk: 30
+  shd: 5
+  skillName: Plate Armor
+  skillDescription: "A unit that \u2018Mars\u2019 spawned gains 1 additional shield
+    point."
   Grade: {fileID: 2125398532}
   Troop: {fileID: 1491692305}
   Name: {fileID: 448563522}
@@ -6274,15 +5860,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f1448e5fc3bbd243a3298259f0df3ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grade: 
-  troop: 
-  name: 
-  cost: 
-  hp: 
-  atk: 
-  shd: 
-  skillName: 
-  skillDescription: 
+  grade: Veteran
+  troop: Brownbeared pirates
+  name: boatswain
+  cost: 5
+  hp: 3
+  atk: 5
+  shd: 0
+  skillName: Armor Breaker
+  skillDescription: "The attack of the \u2018Boatswain\u2019 ignores the Shield point."
   Grade: {fileID: 2125398532}
   Troop: {fileID: 1491692305}
   Name: {fileID: 448563522}
@@ -6360,10 +5946,8 @@ RectTransform:
   - {fileID: 1307757931}
   - {fileID: 1206828954}
   - {fileID: 494854363}
-  - {fileID: 1118467751}
-  - {fileID: 628485235}
   m_Father: {fileID: 1589650818}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -6500,15 +6084,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f1448e5fc3bbd243a3298259f0df3ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grade: 
-  troop: 
-  name: 
-  cost: 
-  hp: 
-  atk: 
-  shd: 
-  skillName: 
-  skillDescription: 
+  grade: Veteran
+  troop: Brownbeared pirates
+  name: Chief mate
+  cost: 4
+  hp: 3
+  atk: 4
+  shd: 0
+  skillName: Guide
+  skillDescription: "The tile that \u2018Chief mate\u2019 has moved becomes a tile
+    does not consume any movement action point during that turn."
   Grade: {fileID: 2125398532}
   Troop: {fileID: 1491692305}
   Name: {fileID: 448563522}
@@ -7343,110 +6928,6 @@ MonoBehaviour:
   Panel_Char: {fileID: 1589650817}
   Menu: {fileID: 273062175}
   PanelPos: {fileID: 1238302928}
---- !u!1 &1118467750
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1118467751}
-  - component: {fileID: 1118467754}
-  - component: {fileID: 1118467753}
-  - component: {fileID: 1118467752}
-  m_Layer: 5
-  m_Name: Image_Normal1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1118467751
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1118467750}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 913231442}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -620, y: -176}
-  m_SizeDelta: {x: 200, y: 200}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1118467752
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1118467750}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f1448e5fc3bbd243a3298259f0df3ad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  grade: 
-  troop: 
-  name: 
-  cost: 
-  hp: 
-  atk: 
-  shd: 
-  skillName: 
-  skillDescription: 
-  Grade: {fileID: 2125398532}
-  Troop: {fileID: 1491692305}
-  Name: {fileID: 448563522}
-  Text1: {fileID: 767988026}
-  Cost: {fileID: 586191380}
-  Text2: {fileID: 1713673854}
-  Hp: {fileID: 1573732372}
-  Text3: {fileID: 1959751384}
-  Atk: {fileID: 1221691426}
-  Text4: {fileID: 1504464842}
-  Shd: {fileID: 603020106}
-  SkillImage: {fileID: 1695229249}
-  SkillName: {fileID: 1328273665}
-  SkillDescription: {fileID: 291340125}
-  Story: {fileID: 1744372652}
---- !u!114 &1118467753
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1118467750}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: d8e58ef58aa904842aa375b35d2b97d2, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
---- !u!222 &1118467754
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1118467750}
 --- !u!1 &1198351174
 GameObject:
   m_ObjectHideFlags: 0
@@ -7673,15 +7154,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f1448e5fc3bbd243a3298259f0df3ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grade: 
-  troop: 
-  name: 
-  cost: 
-  hp: 
-  atk: 
-  shd: 
-  skillName: 
-  skillDescription: 
+  grade: Veteran
+  troop: Savageborn
+  name: Valkyrie
+  cost: 4
+  hp: 3
+  atk: 4
+  shd: 2
+  skillName: Warmonger
+  skillDescription: "If \u2018Valkyrie\u2019 attacks an enemy, gain 3 additional attack
+    point on the next turn. However, if the attack is stopped, the effect is reset. "
   Grade: {fileID: 2125398532}
   Troop: {fileID: 1491692305}
   Name: {fileID: 448563522}
@@ -7746,7 +7228,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1221691425
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8304,14 +7786,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grade: Elite
-  troop: Pluto of Partan
-  name: Death Knight
+  troop: Brownbeared pirates
+  name: Brownbeared
   cost: 0
-  hp: 15
-  atk: 3
-  shd: 20
-  skillName: Mind Control
-  skillDescription: Increase a leadership point by 1
+  hp: 5
+  atk: 30
+  shd: 0
+  skillName: Gol.D
+  skillDescription: The maximum amount of Bitinium is 13 bit.
   Grade: {fileID: 2125398532}
   Troop: {fileID: 1491692305}
   Name: {fileID: 448563522}
@@ -8407,15 +7889,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f1448e5fc3bbd243a3298259f0df3ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grade: 
-  troop: 
-  name: 
-  cost: 
-  hp: 
-  atk: 
-  shd: 
-  skillName: 
-  skillDescription: 
+  grade: Veteran
+  troop: Savageborn
+  name: Berserker
+  cost: 5
+  hp: 4
+  atk: 6
+  shd: 1
+  skillName: The last resistance
+  skillDescription: "When \u2018Berserker\u2019 receive an attack that make  health
+    less than one point, gain 1 health point and 3 additional attack poin. However,
+    it is one time."
   Grade: {fileID: 2125398532}
   Troop: {fileID: 1491692305}
   Name: {fileID: 448563522}
@@ -8512,14 +7996,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grade: Elite
-  troop: Pluto of Partan
-  name: Death Knight
+  troop: Merica
+  name: Winvelt
   cost: 0
-  hp: 15
-  atk: 3
-  shd: 20
-  skillName: Mind Control
-  skillDescription: Increase a leadership point by 1
+  hp: 25
+  atk: 5
+  shd: 0
+  skillName: Elite Shooter
+  skillDescription: The attack range is 2 tile range.
   Grade: {fileID: 2125398532}
   Troop: {fileID: 1491692305}
   Name: {fileID: 448563522}
@@ -8577,7 +8061,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1314991445}
   m_Layer: 5
-  m_Name: Infor
+  m_Name: Info
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8616,110 +8100,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &1319010281
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1319010282}
-  - component: {fileID: 1319010285}
-  - component: {fileID: 1319010284}
-  - component: {fileID: 1319010283}
-  m_Layer: 5
-  m_Name: Image_Normal2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1319010282
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1319010281}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1546781108}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -195.64755, y: 69}
-  m_SizeDelta: {x: 200, y: 200}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1319010283
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1319010281}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f1448e5fc3bbd243a3298259f0df3ad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  grade: 
-  troop: 
-  name: 
-  cost: 
-  hp: 
-  atk: 
-  shd: 
-  skillName: 
-  skillDescription: 
-  Grade: {fileID: 2125398532}
-  Troop: {fileID: 1491692305}
-  Name: {fileID: 448563522}
-  Text1: {fileID: 767988026}
-  Cost: {fileID: 586191380}
-  Text2: {fileID: 1713673854}
-  Hp: {fileID: 1573732372}
-  Text3: {fileID: 1959751384}
-  Atk: {fileID: 1221691426}
-  Text4: {fileID: 1504464842}
-  Shd: {fileID: 603020106}
-  SkillImage: {fileID: 1695229249}
-  SkillName: {fileID: 1328273665}
-  SkillDescription: {fileID: 291340125}
-  Story: {fileID: 1744372652}
---- !u!114 &1319010284
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1319010281}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: d8e58ef58aa904842aa375b35d2b97d2, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
---- !u!222 &1319010285
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1319010281}
 --- !u!1 &1328273663
 GameObject:
   m_ObjectHideFlags: 0
@@ -8736,7 +8116,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1328273664
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8752,8 +8132,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 454.8, y: -143}
-  m_SizeDelta: {x: 515.4, y: 148.2}
+  m_AnchoredPosition: {x: 533.9, y: -143}
+  m_SizeDelta: {x: 673.6, y: 148.2}
   m_Pivot: {x: 0.5, y: 0.49999997}
 --- !u!114 &1328273665
 MonoBehaviour:
@@ -8936,110 +8316,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1342784919}
---- !u!1 &1378787941
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1378787942}
-  - component: {fileID: 1378787945}
-  - component: {fileID: 1378787944}
-  - component: {fileID: 1378787943}
-  m_Layer: 5
-  m_Name: Image_Normal1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1378787942
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1378787941}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1546781108}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -620, y: -176}
-  m_SizeDelta: {x: 200, y: 200}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1378787943
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1378787941}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f1448e5fc3bbd243a3298259f0df3ad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  grade: 
-  troop: 
-  name: 
-  cost: 
-  hp: 
-  atk: 
-  shd: 
-  skillName: 
-  skillDescription: 
-  Grade: {fileID: 2125398532}
-  Troop: {fileID: 1491692305}
-  Name: {fileID: 448563522}
-  Text1: {fileID: 767988026}
-  Cost: {fileID: 586191380}
-  Text2: {fileID: 1713673854}
-  Hp: {fileID: 1573732372}
-  Text3: {fileID: 1959751384}
-  Atk: {fileID: 1221691426}
-  Text4: {fileID: 1504464842}
-  Shd: {fileID: 603020106}
-  SkillImage: {fileID: 1695229249}
-  SkillName: {fileID: 1328273665}
-  SkillDescription: {fileID: 291340125}
-  Story: {fileID: 1744372652}
---- !u!114 &1378787944
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1378787941}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: d8e58ef58aa904842aa375b35d2b97d2, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
---- !u!222 &1378787945
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1378787941}
 --- !u!1 &1379294038
 GameObject:
   m_ObjectHideFlags: 0
@@ -9501,15 +8777,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f1448e5fc3bbd243a3298259f0df3ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grade: 
-  troop: 
-  name: 
-  cost: 
-  hp: 
-  atk: 
-  shd: 
-  skillName: 
-  skillDescription: 
+  grade: Veteran
+  troop: Kamiken
+  name: Ninja
+  cost: 4
+  hp: 4
+  atk: 4
+  shd: 0
+  skillName: Evasion
+  skillDescription: Do not take ranged attack (More than 2 tile range).
   Grade: {fileID: 2125398532}
   Troop: {fileID: 1491692305}
   Name: {fileID: 448563522}
@@ -9679,15 +8955,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f1448e5fc3bbd243a3298259f0df3ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grade: 
-  troop: 
-  name: 
-  cost: 
-  hp: 
-  atk: 
-  shd: 
-  skillName: 
-  skillDescription: 
+  grade: Veteran
+  troop: Merica
+  name: Bad one
+  cost: 6
+  hp: 4
+  atk: 4
+  shd: 0
+  skillName: Panning
+  skillDescription: Bad one's attack spend 1 act point. But his move spend 2 act points.
   Grade: {fileID: 2125398532}
   Troop: {fileID: 1491692305}
   Name: {fileID: 448563522}
@@ -9752,7 +9028,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1491692304
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9768,8 +9044,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 549.4, y: 331.5}
-  m_SizeDelta: {x: 600.2, y: 165.9}
+  m_AnchoredPosition: {x: 446.2, y: 371}
+  m_SizeDelta: {x: 892.4, y: 165.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1491692305
 MonoBehaviour:
@@ -9791,13 +9067,13 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: bba9b6159bf496e4d853007221fb051f, type: 3}
-    m_FontSize: 100
+    m_Font: {fileID: 12800000, guid: 8c82f6171b5bdde4a9a247566ba29fd2, type: 3}
+    m_FontSize: 80
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
     m_MaxSize: 300
-    m_Alignment: 7
+    m_Alignment: 6
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -9866,7 +9142,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1504464843
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9953,10 +9229,8 @@ RectTransform:
   - {fileID: 1793328703}
   - {fileID: 1471695384}
   - {fileID: 9578985}
-  - {fileID: 1378787942}
-  - {fileID: 1319010282}
   m_Father: {fileID: 1589650818}
-  m_RootOrder: 1
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -10051,14 +9325,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grade: Elite
-  troop: Pluto of Partan
-  name: Death Knight
+  troop: Savageborn
+  name: Ragnarr
   cost: 0
-  hp: 15
-  atk: 3
-  shd: 20
-  skillName: Mind Control
-  skillDescription: Increase a leadership point by 1
+  hp: 5
+  atk: 30
+  shd: 0
+  skillName: "Viking\u2019s Soul"
+  skillDescription: "Units around 1 Tile Range of \u2018Ragnarr\u2019, gain 2 additional
+    \ attack points."
   Grade: {fileID: 2125398532}
   Troop: {fileID: 1491692305}
   Name: {fileID: 448563522}
@@ -10337,7 +9612,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1573732371
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10422,12 +9697,12 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 500170889}
-  - {fileID: 1546781108}
   - {fileID: 130684644}
-  - {fileID: 913231442}
+  - {fileID: 500170889}
   - {fileID: 343529067}
   - {fileID: 1752811713}
+  - {fileID: 913231442}
+  - {fileID: 1546781108}
   - {fileID: 1314991445}
   m_Father: {fileID: 1991999145}
   m_RootOrder: 10
@@ -10470,110 +9745,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1589650817}
---- !u!1 &1594669340
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1594669341}
-  - component: {fileID: 1594669344}
-  - component: {fileID: 1594669343}
-  - component: {fileID: 1594669342}
-  m_Layer: 5
-  m_Name: Image_Normal1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1594669341
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1594669340}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 130684644}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -620, y: -176}
-  m_SizeDelta: {x: 200, y: 200}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1594669342
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1594669340}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f1448e5fc3bbd243a3298259f0df3ad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  grade: 
-  troop: 
-  name: 
-  cost: 
-  hp: 
-  atk: 
-  shd: 
-  skillName: 
-  skillDescription: 
-  Grade: {fileID: 2125398532}
-  Troop: {fileID: 1491692305}
-  Name: {fileID: 448563522}
-  Text1: {fileID: 767988026}
-  Cost: {fileID: 586191380}
-  Text2: {fileID: 1713673854}
-  Hp: {fileID: 1573732372}
-  Text3: {fileID: 1959751384}
-  Atk: {fileID: 1221691426}
-  Text4: {fileID: 1504464842}
-  Shd: {fileID: 603020106}
-  SkillImage: {fileID: 1695229249}
-  SkillName: {fileID: 1328273665}
-  SkillDescription: {fileID: 291340125}
-  Story: {fileID: 1744372652}
---- !u!114 &1594669343
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1594669340}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: d8e58ef58aa904842aa375b35d2b97d2, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
---- !u!222 &1594669344
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1594669340}
 --- !u!1 &1695229247
 GameObject:
   m_ObjectHideFlags: 0
@@ -10590,7 +9761,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1695229248
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10734,7 +9905,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1713673855
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10907,15 +10078,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f1448e5fc3bbd243a3298259f0df3ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grade: 
-  troop: 
-  name: 
-  cost: 
-  hp: 
-  atk: 
-  shd: 
-  skillName: 
-  skillDescription: 
+  grade: Veteran
+  troop: Kamiken
+  name: Miko
+  cost: 5
+  hp: 3
+  atk: 1
+  shd: 0
+  skillName: Dance of Heal
+  skillDescription: "If a friendly unit in the 1 tile range suffers damage, \u2018Miko\u2019
+    heals friendly unit\u2019s health point by 1  in 1 tile range."
   Grade: {fileID: 2125398532}
   Troop: {fileID: 1491692305}
   Name: {fileID: 448563522}
@@ -10981,7 +10153,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1744372653
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11091,11 +10263,9 @@ RectTransform:
   - {fileID: 1872608296}
   - {fileID: 742866093}
   - {fileID: 546268400}
-  - {fileID: 88809495}
-  - {fileID: 675112096}
   - {fileID: 370686764}
   m_Father: {fileID: 1589650818}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -11345,15 +10515,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f1448e5fc3bbd243a3298259f0df3ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grade: 
-  troop: 
-  name: 
-  cost: 
-  hp: 
-  atk: 
-  shd: 
-  skillName: 
-  skillDescription: 
+  grade: Veteran
+  troop: Merica
+  name: Good one
+  cost: 8
+  hp: 5
+  atk: 2
+  shd: 0
+  skillName: Sniper
+  skillDescription: The attack range is 3 tile range.
   Grade: {fileID: 2125398532}
   Troop: {fileID: 1491692305}
   Name: {fileID: 448563522}
@@ -11518,14 +10688,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grade: Elite
-  troop: Pluto of Partan
-  name: Death Knight
+  troop: Kamiken
+  name: Dokugawa
   cost: 0
-  hp: 15
-  atk: 3
-  shd: 20
-  skillName: Mind Control
-  skillDescription: Increase a leadership point by 1
+  hp: 20
+  atk: 5
+  shd: 10
+  skillName: Tendon cutting
+  skillDescription: Units attacked by Tokugawa reduce their attack power to 1.
   Grade: {fileID: 2125398532}
   Troop: {fileID: 1491692305}
   Name: {fileID: 448563522}
@@ -11888,15 +11058,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f1448e5fc3bbd243a3298259f0df3ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grade: 
-  troop: 
-  name: 
-  cost: 
-  hp: 
-  atk: 
-  shd: 
-  skillName: 
-  skillDescription: 
+  grade: Veteran
+  troop: Royal knight
+  name: Healer
+  cost: 5
+  hp: 2
+  atk: 3
+  shd: 0
+  skillName: Shining of Heal
+  skillDescription: The attack is converted into a health heal magic. The recovered
+    value is equal to the attack point.
   Grade: {fileID: 2125398532}
   Troop: {fileID: 1491692305}
   Name: {fileID: 448563522}
@@ -12210,7 +11381,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1959751385
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13173,110 +12344,6 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 3, y: -3}
   m_UseGraphicAlpha: 1
---- !u!1 &2110663487
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 2110663488}
-  - component: {fileID: 2110663491}
-  - component: {fileID: 2110663490}
-  - component: {fileID: 2110663489}
-  m_Layer: 5
-  m_Name: Image_Normal2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &2110663488
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2110663487}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 343529067}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -195.64755, y: 69}
-  m_SizeDelta: {x: 200, y: 200}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2110663489
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2110663487}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f1448e5fc3bbd243a3298259f0df3ad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  grade: 
-  troop: 
-  name: 
-  cost: 
-  hp: 
-  atk: 
-  shd: 
-  skillName: 
-  skillDescription: 
-  Grade: {fileID: 2125398532}
-  Troop: {fileID: 1491692305}
-  Name: {fileID: 448563522}
-  Text1: {fileID: 767988026}
-  Cost: {fileID: 586191380}
-  Text2: {fileID: 1713673854}
-  Hp: {fileID: 1573732372}
-  Text3: {fileID: 1959751384}
-  Atk: {fileID: 1221691426}
-  Text4: {fileID: 1504464842}
-  Shd: {fileID: 603020106}
-  SkillImage: {fileID: 1695229249}
-  SkillName: {fileID: 1328273665}
-  SkillDescription: {fileID: 291340125}
-  Story: {fileID: 1744372652}
---- !u!114 &2110663490
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2110663487}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: d8e58ef58aa904842aa375b35d2b97d2, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
---- !u!222 &2110663491
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2110663487}
 --- !u!1 &2115166058
 GameObject:
   m_ObjectHideFlags: 0
@@ -13450,7 +12517,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2125398531
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13466,8 +12533,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 232, y: 325.7}
-  m_SizeDelta: {x: 463.9, y: 177.5}
+  m_AnchoredPosition: {x: 305.5, y: 445}
+  m_SizeDelta: {x: 611, y: 177.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2125398532
 MonoBehaviour:
@@ -13508,107 +12575,3 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2125398530}
---- !u!1 &2142293029
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 2142293030}
-  - component: {fileID: 2142293033}
-  - component: {fileID: 2142293032}
-  - component: {fileID: 2142293031}
-  m_Layer: 5
-  m_Name: Image_Normal1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &2142293030
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2142293029}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 343529067}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -620, y: -176}
-  m_SizeDelta: {x: 200, y: 200}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2142293031
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2142293029}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f1448e5fc3bbd243a3298259f0df3ad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  grade: 
-  troop: 
-  name: 
-  cost: 
-  hp: 
-  atk: 
-  shd: 
-  skillName: 
-  skillDescription: 
-  Grade: {fileID: 2125398532}
-  Troop: {fileID: 1491692305}
-  Name: {fileID: 448563522}
-  Text1: {fileID: 767988026}
-  Cost: {fileID: 586191380}
-  Text2: {fileID: 1713673854}
-  Hp: {fileID: 1573732372}
-  Text3: {fileID: 1959751384}
-  Atk: {fileID: 1221691426}
-  Text4: {fileID: 1504464842}
-  Shd: {fileID: 603020106}
-  SkillImage: {fileID: 1695229249}
-  SkillName: {fileID: 1328273665}
-  SkillDescription: {fileID: 291340125}
-  Story: {fileID: 1744372652}
---- !u!114 &2142293032
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2142293029}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: d8e58ef58aa904842aa375b35d2b97d2, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
---- !u!222 &2142293033
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2142293029}
