@@ -11,6 +11,7 @@ public class NetworkManager : Photon.MonoBehaviour {
     [SerializeField] public string turnOwner;
     [SerializeField] public string[] UserList;
     EndTurn endButton;
+    int remainTurn;
 
     //초기화
     void Awake ()
@@ -21,10 +22,11 @@ public class NetworkManager : Photon.MonoBehaviour {
         UserList = null;
         StartCoroutine("Setting");
 	}
+
     [PunRPC]
     public void SetMaster(string client)
     {
-        Debug.Log(client);
+        if (client != PhotonNetwork.playerName) GameData.data.EnemyName = client;
         if (UserList == null)
         {
             UserList = new string[PhotonNetwork.room.PlayerCount];
@@ -38,21 +40,28 @@ public class NetworkManager : Photon.MonoBehaviour {
                 break;
             }
         }
+        Debug.Log(UserList.ToString() + " : " + UserList + " : " + UserList.Length);
     }
+
     IEnumerator Setting()
     {
         while (true)
         {
             if (SceneManager.GetActiveScene().name != "Lobby_Renewal")
             {
+                remainTurn = GameData.data.EndTurnValue;
+                EndUI.UI.SetRemainTurn(remainTurn);
+                EndUI.UI.SetScore(0,0);
+
                 endButton = GameObject.Find("EndButton").GetComponent<EndTurn>();
-                Debug.Log(GameObject.Find("MyTurn"));
                 GameObject.Find("MyTurn").GetComponent<Button>().onClick.AddListener(new UnityEngine.Events.UnityAction(() => EndTurnClick(PhotonNetwork.playerName)));
-                break;
+                if (PhotonNetwork.isMasterClient) endButton.MyTurn();
+
+                    break;
             }
             yield return null;
         }
-        photonView.RPC("SetMaster", PhotonTargets.MasterClient, PhotonNetwork.playerName);
+        photonView.RPC("SetMaster", PhotonTargets.All, PhotonNetwork.playerName);
         yield return null;
     }
 
@@ -65,6 +74,7 @@ public class NetworkManager : Photon.MonoBehaviour {
             photonView.RPC("ChangeOwner", PhotonTargets.MasterClient, turnOwner);
         }
     }
+
     [PunRPC]
     public void ChangeOwner(string user)
     {
@@ -81,10 +91,10 @@ public class NetworkManager : Photon.MonoBehaviour {
         if (turnOwner == PhotonNetwork.playerName) photonView.RPC("TurnSet", PhotonTargets.All, turnOwner);
         else photonView.RPC("SetOwnerUI", PhotonTargets.All, turnOwner);
     }
+
     [PunRPC]
     public void SetOwnerUI(string user)
     {
-        Debug.Log(user);
         if (user == PhotonNetwork.playerName)
         {
             endButton.MyTurn();
@@ -96,15 +106,21 @@ public class NetworkManager : Photon.MonoBehaviour {
             //적의턴
         }
     }
+
     //턴셋팅
     [PunRPC]
     public void TurnSet(string user)
     {
         StartCoroutine("TurnSetting", user);
     }
+
     IEnumerator TurnSetting(string user)
     {
-        int myTerritory=0;
+        int myTerritory = 0;
+        int enemyTerritory = 0;
+
+        EndUI.UI.SetRemainTurn(--remainTurn);
+
         foreach (var unit in GameData.data.Units)
         {
             //내 유닛일경우
@@ -142,9 +158,9 @@ public class NetworkManager : Photon.MonoBehaviour {
             if (tile.occupyPoint > 1) tile.occupyPoint = 1;
             if (tile.occupyPoint < -1) tile.occupyPoint = -1;
             if (tile.occupyPoint == 1) myTerritory++;
-
+            else if (tile.occupyPoint == -1) enemyTerritory++;
         }
-
+        EndUI.UI.SetScore(myTerritory, enemyTerritory);
         GameData.data.SetBitinium(myTerritory / 4);
 
         yield return null;

@@ -187,9 +187,9 @@ public class Calculator : MonoBehaviour {
         return -1;
     }
 
+    //주변 범위 타일 반환
     public List<TileInfo> GetInrangeTile(TileInfo SP, int range)
     {
-
         int s = 0, e = 0;
         TileInfo tile, temp;
         List<TileInfo> TileQueue = new List<TileInfo>();
@@ -255,6 +255,110 @@ public class Calculator : MonoBehaviour {
             s++;
         }
         return TileQueue;
+    }
+
+    //주변 이동가능 타일 반환
+    public List<TileInfo> GetMoveTile(TileInfo SP, int Act)
+    {
+        int s = 0, e = 0, minAct = Act + 1, minActIndex = 0;
+
+        TileInfo tile, temp;
+        List<TileInfo> TileQueue = new List<TileInfo>();
+        List<int> ActQueue = new List<int>();
+        int[,] check = new int[15, 15];
+
+        //초기화
+        for (int i = 0; i < 15; i++)
+        {
+            for (int j = 0; j < 15; j++)
+            {
+                check[i, j] = 999;
+            }
+        }
+        TileQueue.Add(SP);
+        ActQueue.Add(0);
+
+
+        while (s <= e)
+        {
+            tile = TileQueue[s];
+            int k = tile.x % 2 == 1 ? 1 : 0;
+            
+            temp = GameData.data.FindTile(tile.x, tile.y - 1);
+            if (temp != null && ActQueue[s] + temp.cost <= Act && check[temp.x, temp.y] > ActQueue[s] + temp.cost)
+            {
+                check[temp.x, temp.y] = ActQueue[s] + temp.cost;
+                e++;
+                TileQueue.Add(temp);
+                ActQueue.Add(ActQueue[s] + temp.cost);
+            }
+            temp = GameData.data.FindTile(tile.x, tile.y + 1);
+            if (temp != null && ActQueue[s] + temp.cost <= Act && check[temp.x, temp.y] > ActQueue[s] + temp.cost)
+            {
+                check[temp.x, temp.y] = ActQueue[s] + temp.cost;
+                e++;
+                TileQueue.Add(temp);
+                ActQueue.Add(ActQueue[s] + temp.cost);
+            }
+            temp = GameData.data.FindTile(tile.x + 1, tile.y - k);
+            if (temp != null && ActQueue[s] + temp.cost <= Act && check[temp.x, temp.y] > ActQueue[s] + temp.cost)
+            {
+                check[temp.x, temp.y] = ActQueue[s] + temp.cost;
+                e++;
+                TileQueue.Add(temp);
+                ActQueue.Add(ActQueue[s] + temp.cost);
+            }
+            temp = GameData.data.FindTile(tile.x + 1, tile.y + 1 - k);
+            if (temp != null && ActQueue[s] + temp.cost <= Act && check[temp.x, temp.y] > ActQueue[s] + temp.cost)
+            {
+                check[temp.x, temp.y] = ActQueue[s] + temp.cost;
+                e++;
+                TileQueue.Add(temp);
+                ActQueue.Add(ActQueue[s] + temp.cost);
+            }
+            temp = GameData.data.FindTile(tile.x - 1, tile.y - k);
+            if (temp != null && ActQueue[s] + temp.cost <= Act && check[temp.x, temp.y] > ActQueue[s] + temp.cost)
+            {
+                check[temp.x, temp.y] = ActQueue[s] + temp.cost;
+                e++;
+                TileQueue.Add(temp);
+                ActQueue.Add(ActQueue[s] + temp.cost);
+            }
+            temp = GameData.data.FindTile(tile.x - 1, tile.y + 1 - k);
+            if (temp != null && ActQueue[s] + temp.cost <= Act && check[temp.x, temp.y] > ActQueue[s] + temp.cost)
+            {
+                check[temp.x, temp.y] = ActQueue[s] + temp.cost;
+                e++;
+                TileQueue.Add(temp);
+                ActQueue.Add(ActQueue[s] + temp.cost);
+            }
+            s++;
+        }
+        return TileQueue;
+    }
+
+    //주변에 있는 유닛 확인
+    public bool UnitInRange(string Owner, string Class, int range, TileInfo tile)
+    {
+        int x = tile.x;
+        int y = tile.y;
+        // 밴시 부활 여부 확인
+        foreach (UnitInfo unit in GameData.data.Units)
+        {
+            if (unit.Kinds == Class && unit.Owner == Owner)
+            {
+
+                bool check = Calculator.Calc.Range(GameData.data.FindTile(x, y), GameData.data.FindTile(unit.x, unit.y), range) != -1;
+
+                Debug.Log(range);
+
+                if (check)
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
 }

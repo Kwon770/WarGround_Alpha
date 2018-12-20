@@ -6,6 +6,8 @@ public class GameData : MonoBehaviour {
 
     [SerializeField] public Mesh SkullKnight;
 
+    public string EnemyName;
+
     public static GameData data;
     
     [SerializeField] Transform Map;
@@ -17,11 +19,12 @@ public class GameData : MonoBehaviour {
     [SerializeField] public Color teamColor;
     [SerializeField] public Color CanUseColor;
 
-
     [SerializeField] public int bitinium;
     [SerializeField] public int Maxbitinium;
     [SerializeField] public int LeaderShip;
     [SerializeField] public int MaxLeaderShip;
+    
+    [SerializeField] public int EndTurnValue;
 
     //초기화
     void Awake () {
@@ -78,10 +81,5 @@ public class GameData : MonoBehaviour {
 
         //비티늄 하단바 설정
         InfoBar.bar.SetBit(bitinium);
-    }
-
-    private void Update()
-    {
-        Debug.Log("비티늄 : " + bitinium + "/" + Maxbitinium + ",  지휘력 : " + LeaderShip + "/" + MaxLeaderShip);
     }
 }

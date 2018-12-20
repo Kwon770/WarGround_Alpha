@@ -45,7 +45,6 @@ public class UnitInfo : Photon.MonoBehaviour {
     //초기화
     void Awake()
     {
-        Debug.Log("셋팅하기" + " " + photonView.isMine);
         StartCoroutine("Setting");
     }
     IEnumerator Setting()
@@ -105,6 +104,25 @@ public class UnitInfo : Photon.MonoBehaviour {
             return;
         }
 
+        //무녀 데미지 경감
+        if (Calculator.Calc.UnitInRange(Owner, "Miko", 1, GameData.data.FindTile(this.x, this.y)))
+        {
+            demage--;
+        }
+
+        //힐일때
+        if (attacker.Kinds == "Healer")
+        {
+            HP += demage;
+            HP = MaxHP < HP ? HP : MaxHP;
+            return;
+        }
+
+        //힘줄끊기
+        if(attacker.Kinds == "Dokugawa")
+        {
+            ATK = 1;
+        }
         //방어무시가 아닐경우
         if (SHD > 0)
         {
@@ -120,7 +138,16 @@ public class UnitInfo : Photon.MonoBehaviour {
             }
         }
         HP -= demage;
-        if (HP <= 0) dieTrigger = true;
+        if (HP <= 0)
+        {
+            //attacker가 워락인 경우
+            if (attacker.Kinds == "Warlock")
+            {
+                attacker.AddATK += 1;
+                //attacker.공격력 강화 이펙트
+            }
+            dieTrigger = true;
+        }
 
         Debug.Log(gameObject + " " + dieTrigger);
         if (Kinds == "Guarder") SHD += 2;
@@ -129,9 +156,6 @@ public class UnitInfo : Photon.MonoBehaviour {
     //애니매이션 재생
     IEnumerator Animation(float delayTime, UnitInfo temp)
     {
-        Debug.Log(temp.transform.position + " " + transform.position);
-        Debug.Log(temp);
-
         float time = 0;
         Quaternion startRot1 = transform.rotation;
         Quaternion endRot1 = Quaternion.LookRotation(temp.transform.position - transform.position);
@@ -146,12 +170,11 @@ public class UnitInfo : Photon.MonoBehaviour {
         }
         anim.Attack();//가격 애니메이션 실행
         yield return new WaitForSeconds(delayTime);
-        Debug.Log(gameObject + " " + dieTrigger);
         if(temp.dieTrigger) temp.DIE();
         else
         {
-            if (Kinds == "Healer") temp.anim.HEAL();
-            else temp.anim.Block();
+            if (Kinds != "Healer") temp.anim.Block();
+            else temp.anim.HEAL();
         }
     }
 
@@ -214,7 +237,7 @@ public class UnitInfo : Photon.MonoBehaviour {
     {
         anim.DIE();
         if (!photonView.isMine) return;
-        if (Banshee() && Kinds != "SkullKnight") 
+        if (Calculator.Calc.UnitInRange(GameData.data.EnemyName,"Banshee",2,GameData.data.FindTile(x,y)) && Kinds != "SkullKnight") 
         {
             //부활
             photonView.RPC("Rise", PhotonTargets.All);
@@ -233,32 +256,6 @@ public class UnitInfo : Photon.MonoBehaviour {
     {
         GameData.data.DelUnit(this);
         Destroy(gameObject, 4f);
-    }
-
-    //부활 관련 코드
-    public bool Banshee()
-    {
-        Debug.Log("부활확인");
-        // 밴시 부활 여부 확인
-        foreach (UnitInfo unit in GameData.data.Units)
-        {
-
-            Debug.Log(unit.Kinds + " : " + (unit.Owner != Owner) + " : " + unit.gameObject);
-            if (Kinds == "SkullKnight") break;
-            if (unit.Kinds == "Banshee" && unit.Owner != Owner)
-            {
-
-                int range = Calculator.Calc.Range(GameData.data.FindTile(x, y), GameData.data.FindTile(unit.x, unit.y), 2);
-
-                Debug.Log(range);
-
-                if (range <= 2 && range != -1) 
-                {
-                    return true;
-                }
-            }
-        }
-        return false;
     }
 
     public void ChangeForm()

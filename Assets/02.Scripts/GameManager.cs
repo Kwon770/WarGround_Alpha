@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour {
         Move,
         Spawn
     }Trigger trigger;
+
     bool enemy;
     GameObject Obj;
 
@@ -53,10 +54,35 @@ public class GameManager : MonoBehaviour {
     {
         if (Type == "Attack")
         {
+            if(this.Type == ObjTpye.Unit)
+            {
+                UnitInfo unit = Obj.GetComponent<UnitInfo>();
+                TileInfo tile = GameData.data.FindTile(unit.x, unit.y);
+                List<TileInfo> tiles = Calculator.Calc.GetInrangeTile(tile, unit.range);
+                foreach (var attackTile in tiles)
+                {
+                    if (GameData.data.FindUnit(attackTile.x, attackTile.y) != null)
+                    {
+                        attackTile.CanUse();
+                    }
+                }
+            }
             trigger = Trigger.Attack;
         }
         else if (Type == "Move")
         {
+            //타일 하이라이트
+            if (this.Type == ObjTpye.Unit)
+            {
+                UnitInfo unit = Obj.GetComponent<UnitInfo>();
+                TileInfo tile = GameData.data.FindTile(unit.x, unit.y);
+                List<TileInfo> tiles = Calculator.Calc.GetMoveTile(tile, unit.Act);
+                foreach(var moveTile in tiles)
+                {
+                    moveTile.CanUse();
+                }
+            }
+            
             trigger = Trigger.Move;
         }
         else if (Type == "Spawn")
@@ -69,14 +95,20 @@ public class GameManager : MonoBehaviour {
         trigger = Trigger.None;
         Obj = null;
 
+        Debug.Log(SpawnButton.GetSiblingIndex());
         //모든 UI제거
-        SpawnButton.gameObject.SetActive(false);
-        for(int i=0; i < SpawnButton.GetSiblingIndex(); i++)
+        for(int i=0; i < SpawnButton.GetChildCount(); i++)
         {
             SpawnButton.transform.GetChild(i).gameObject.SetActive(false);
         }
         AttackButton.SetActive(false);
         MoveButton.SetActive(false);
+
+        //타일 하이라이트 제거
+        foreach(var tile in GameData.data.Tiles)
+        {
+            tile.ResetUse();
+        }
     }
 
     //처리
@@ -152,17 +184,14 @@ public class GameManager : MonoBehaviour {
         UnitInfo defender = Defender.GetComponent<UnitInfo>();
 
         if (attacker.Act < 2) return;
-        attacker.Act -= 2;
 
         int range = Calculator.Calc.Range(GameData.data.FindTile(attacker.x, attacker.y), GameData.data.FindTile(defender.x, defender.y), attacker.range);
         if (range <= attacker.range && range !=-1)
         {
             //이상한놈일경우 공격시 행동력+1
-            //if(attacker=="이상한놈")
-            //{
-            //    attacker.Act++;
-            //}
-
+            attacker.Act -= 2;
+            if (attacker.Kinds == "StrangeOne") attacker.Act++;
+            
             //닌자일 경우
             if (defender.Kinds == "Ninja" && range > 1) defender.anim.photonView.RPC("EVASION", PhotonTargets.All);
 
