@@ -1,9 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
-public class SoundManager : MonoBehaviour {
 
+public class SoundManager : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+{
     [SerializeField] AudioSource audioSource;
 
     [SerializeField] AudioClip lobbyBGM;
@@ -23,6 +26,25 @@ public class SoundManager : MonoBehaviour {
     [SerializeField] AudioClip drawSwordSecond;
     [SerializeField] AudioClip slashSwordFirst;
     [SerializeField] AudioClip slashSwordSecond;
+
+
+    public Image descript;
+
+    public void OnPointerEnter(PointerEventData data)
+    {
+        descript.gameObject.SetActive(true);
+    }
+
+    public void OnPointerExit(PointerEventData data)
+    {
+        descript.gameObject.SetActive(false);
+    }
+
+
+
+
+
+
 
     public void PlayLobbyBGM(bool playMusic)
     {
