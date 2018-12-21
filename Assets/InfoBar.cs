@@ -7,6 +7,8 @@ public class InfoBar : MonoBehaviour {
 
     public static InfoBar bar;
 
+    [SerializeField] bool active;
+
     [SerializeField] Transform upPos;
     [SerializeField] Transform downPos;
 
@@ -49,7 +51,7 @@ public class InfoBar : MonoBehaviour {
     IEnumerator _SetUI(string name, int ATK, int HP, int SHD, int ACT)
     {
         float time = 0f;
-        while (time < 1f)
+        while (time < 1f && active)
         {
             transform.position = Vector3.Lerp(upPos.position, downPos.position, time);
             time += Time.deltaTime * 2;
@@ -69,6 +71,7 @@ public class InfoBar : MonoBehaviour {
             time += Time.deltaTime * 2;
             yield return null;
         }
+        active = true;
         yield return null;
     }
 
@@ -88,6 +91,8 @@ public class InfoBar : MonoBehaviour {
         this.HP.text = "-";
         this.SHD.text = "-";
         this.act.ResetUI();
+
+        active = false;
     }
 
 }
