@@ -74,6 +74,8 @@ public class Manager : MonoBehaviour {
             }
             else if(scene == (int)Menunum.Description)
             {
+                Debug.Log("ddddddddddddddddd");
+                SoundManager.soundmanager.clickBackLobbyButton();
                 StartCoroutine(ReturnPanel());
                 scene = (int)Menunum.Troop;
             }

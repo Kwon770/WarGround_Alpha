@@ -135,7 +135,7 @@ public class GameManager : MonoBehaviour {
             if (!enemy && CheckOwner()) Obj.GetComponent<UnitInfo>().UI();
 
             //UI보여주기
-            InfoBar.bar.SetUI(unit.Kinds, unit.ATK + unit.AddATK, unit.HP, unit.SHD, unit.Act);
+            InfoBar.bar.SetUI(unit.UnitIcon,unit.SkillIcon,unit.Kinds, unit.ATK + unit.AddATK, unit.HP, unit.SHD, unit.Act);
         }
 
         //타일 클릭했을때

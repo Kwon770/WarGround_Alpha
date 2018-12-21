@@ -21,6 +21,9 @@ public class InfoBar : MonoBehaviour {
     [SerializeField] Text HP;
     [SerializeField] Text SHD;
 
+    [SerializeField] Image UnitIcon;
+    [SerializeField] Image SkillIcon;
+
     private void Awake()
     {
         bar = this;
@@ -31,9 +34,9 @@ public class InfoBar : MonoBehaviour {
         this.leadership.Setting(leadership);
         act.Setting();
     }
-    public void SetUI(string name, int ATK, int HP, int SHD, int ACT)
+    public void SetUI(Sprite unitIcon, Sprite skillIcon, string name, int ATK, int HP, int SHD, int ACT)
     {
-        StartCoroutine(_SetUI(name, ATK, HP, SHD, ACT));
+        StartCoroutine(_SetUI(unitIcon, skillIcon, name, ATK, HP, SHD, ACT));
     }
     public void ResetUI()
     {
@@ -48,7 +51,7 @@ public class InfoBar : MonoBehaviour {
         leadership.SetUI(GameData.data.LeaderShip);
     }
 
-    IEnumerator _SetUI(string name, int ATK, int HP, int SHD, int ACT)
+    IEnumerator _SetUI(Sprite unitIcon,Sprite skillIcon,string name, int ATK, int HP, int SHD, int ACT)
     {
         float time = 0f;
         while (time < 1f && active)
@@ -63,6 +66,9 @@ public class InfoBar : MonoBehaviour {
         this.HP.text = HP.ToString();
         this.SHD.text = SHD.ToString();
         this.act.SetUI(ACT);
+
+        UnitIcon.sprite = unitIcon;
+        SkillIcon.sprite = skillIcon;
 
         time = 0f;
         while (time < 1f)
@@ -91,6 +97,8 @@ public class InfoBar : MonoBehaviour {
         this.HP.text = "-";
         this.SHD.text = "-";
         this.act.ResetUI();
+        UnitIcon = null;
+        SkillIcon = null;
 
         active = false;
     }

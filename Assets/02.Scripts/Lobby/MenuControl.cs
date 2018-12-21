@@ -23,6 +23,7 @@ public class MenuControl : MonoBehaviour {
     }
     public void Back()
     {
+        SoundManager.soundmanager.clickBackLobbyButton();
         Vector3 startPos, endPos;
         startPos = transform.position;
         endPos = home.transform.position;

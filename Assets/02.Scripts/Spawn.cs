@@ -35,6 +35,7 @@ public class Spawn : Photon.MonoBehaviour {
             temp.onClick.AddListener(new UnityEngine.Events.UnityAction(() => spawn.SetName(Units[cachedI])));
             temp.onClick.AddListener(new UnityEngine.Events.UnityAction(() => spawn.SetCost(Cost[cachedI])));
             temp.onClick.AddListener(new UnityEngine.Events.UnityAction(() => GameManager.manager.SetTrigger("Spawn")));
+            temp.onClick.AddListener(new UnityEngine.Events.UnityAction(() => SoundManager.soundmanager.clickIngameButton()));
         }
     }
 

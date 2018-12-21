@@ -40,6 +40,10 @@ public class UnitInfo : Photon.MonoBehaviour {
 
     [SerializeField] public float moveSpeed;
     [SerializeField] public float rotSpeed;
+
+    [SerializeField] public Sprite UnitIcon;
+    [SerializeField] public Sprite SkillIcon;
+
     // Use this for initialization
 
     //초기화
@@ -178,14 +182,22 @@ public class UnitInfo : Photon.MonoBehaviour {
         }
         anim.Attack();//가격 애니메이션 실행
     }
+
     public void hit()
     {
+        //피격음 넣어야됨
+
         if (temp.dieTrigger) temp.DIE();
         else
         {
             if (Kinds != "Healer") temp.anim.Block();
             else temp.anim.HEAL();
         }
+    }
+
+    public void Step()
+    {
+        SoundManager.soundmanager.planeFootStep();
     }
 
     //공격
@@ -206,6 +218,8 @@ public class UnitInfo : Photon.MonoBehaviour {
 
         Act -= (path.Count - 1);
 
+        anim.Move();//이동 애니메이션 시작
+
         for (int i = 1; i < path.Count; i++)
         {
             if(Kinds == "ChiefMate") GameData.data.FindTile(path[i - 1].x, path[i - 1].y).cost=0;
@@ -221,7 +235,6 @@ public class UnitInfo : Photon.MonoBehaviour {
             x = path[i].x;
             y = path[i].y;
 
-            anim.Move();//이동 애니메이션 시작
             time = 0;
             while (time <= 1)
             {
@@ -236,9 +249,10 @@ public class UnitInfo : Photon.MonoBehaviour {
                 time += Time.deltaTime * moveSpeed;
                 yield return null;
             }
-            anim.Stop();//이동 애니메이션 끝
+         
             yield return new WaitForSeconds(0.5f);
         }
+        anim.Stop();//이동 애니메이션 끝
         moveTrigger = false;
     }
 
