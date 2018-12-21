@@ -10,6 +10,8 @@ public class UnitInfo : Photon.MonoBehaviour {
     public Vector3 currrentPos;
     public Quaternion currentQuater;
 
+    UnitInfo temp;
+
     public bool moveTrigger;
     public string Owner;
     public int x;
@@ -22,8 +24,6 @@ public class UnitInfo : Photon.MonoBehaviour {
     [SerializeField] public string Kinds;
 
     [SerializeField] bool CanSpawn;
-
-    [SerializeField] float delay;
 
     [SerializeField] public int ATK;
     [SerializeField] public int AddATK;
@@ -159,9 +159,12 @@ public class UnitInfo : Photon.MonoBehaviour {
     }
 
     //애니매이션 재생
-    IEnumerator Animation(float delayTime, UnitInfo temp)
+    IEnumerator Animation(UnitInfo temp)
     {
         float time = 0;
+
+        this.temp = temp;
+
         Quaternion startRot1 = transform.rotation;
         Quaternion endRot1 = Quaternion.LookRotation(temp.transform.position - transform.position);
         Quaternion startRot2 = temp.transform.rotation;
@@ -174,8 +177,10 @@ public class UnitInfo : Photon.MonoBehaviour {
             yield return null;
         }
         anim.Attack();//가격 애니메이션 실행
-        yield return new WaitForSeconds(delayTime);
-        if(temp.dieTrigger) temp.DIE();
+    }
+    public void hit()
+    {
+        if (temp.dieTrigger) temp.DIE();
         else
         {
             if (Kinds != "Healer") temp.anim.Block();
@@ -188,7 +193,7 @@ public class UnitInfo : Photon.MonoBehaviour {
     public void Attack(int x,int y)
     {
         UnitInfo temp = GameData.data.FindUnit(x, y);
-        StartCoroutine(Animation(delay, temp));
+        StartCoroutine(Animation(temp));
     }
 
     //이동
