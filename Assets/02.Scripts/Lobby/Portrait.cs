@@ -5,10 +5,9 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class Portrait : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
-{ 
-
+{
+    public string story;
     public string grade;
-    public string troop;
     public string name;
     public string cost;
     public string hp;
@@ -17,8 +16,12 @@ public class Portrait : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public string skillName;
     public string skillDescription;
 
+    public GameObject Back3;
+    public GameObject Back4;
+    public GameObject Back5;
+    public GameObject Back6;
+    public Text Story;
     public Text Grade;
-    public Text Troop;
     public Text Name;
     public GameObject Text1;
     public Text Cost;
@@ -32,14 +35,18 @@ public class Portrait : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public Text SkillName;
     public Text SkillDescription;
 
-    public GameObject Story;
+    public GameObject teamStory;
 
     public void OnPointerEnter (PointerEventData eventData)
     {
-        Story.SetActive(false);
+        teamStory.SetActive(false);
 
+        Back3.SetActive(true);
+        Back4.SetActive(true);
+        Back5.SetActive(true);
+        Back6.SetActive(true);
+        Story.gameObject.SetActive(true);
         Grade.gameObject.SetActive(true);
-        Troop.gameObject.SetActive(true);
         Name.gameObject.SetActive(true);
         Text1.SetActive(true);
         Cost.gameObject.SetActive(true);
@@ -54,8 +61,8 @@ public class Portrait : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         SkillDescription.gameObject.SetActive(true);
 
 
+        Story.text = story;
         Grade.text = grade;
-        Troop.text = troop;
         Name.text = name;
         Cost.text = cost;
         Hp.text = hp;
@@ -67,10 +74,14 @@ public class Portrait : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public void OnPointerExit (PointerEventData eventData)
     {
-        Story.SetActive(true);
+        teamStory.SetActive(true);
 
+        Back3.SetActive(false);
+        Back4.SetActive(false);
+        Back5.SetActive(false);
+        Back6.SetActive(false);
+        Story.gameObject.SetActive(false);
         Grade.gameObject.SetActive(false);
-        Troop.gameObject.SetActive(false);
         Name.gameObject.SetActive(false);
         Text1.SetActive(false);
         Cost.gameObject.SetActive(false);
