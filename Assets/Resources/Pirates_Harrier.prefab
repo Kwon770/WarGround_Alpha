@@ -1291,7 +1291,7 @@ MonoBehaviour:
   dieTrigger: 0
   Kinds: Harrier
   CanSpawn: 0
-  delay: 2
+  delay: 0
   ATK: 5
   AddATK: 0
   MaxHP: 4

@@ -1280,7 +1280,7 @@ MonoBehaviour:
   dieTrigger: 0
   Kinds: Deathknight
   CanSpawn: 1
-  delay: 2
+  delay: 0
   ATK: 3
   AddATK: 0
   MaxHP: 15

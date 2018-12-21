@@ -1412,7 +1412,7 @@ MonoBehaviour:
   dieTrigger: 0
   Kinds: Ragnarr
   CanSpawn: 1
-  delay: 2
+  delay: 0
   ATK: 5
   AddATK: 0
   MaxHP: 30

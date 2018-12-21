@@ -1318,7 +1318,7 @@ MonoBehaviour:
   dieTrigger: 0
   Kinds: Dokugawa
   CanSpawn: 1
-  delay: 1.8
+  delay: 0
   ATK: 5
   AddATK: 0
   MaxHP: 20

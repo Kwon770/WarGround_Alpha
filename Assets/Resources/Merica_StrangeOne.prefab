@@ -1383,7 +1383,7 @@ MonoBehaviour:
   dieTrigger: 0
   Kinds: StrangeOne
   CanSpawn: 0
-  delay: 1.15
+  delay: 0
   ATK: 3
   AddATK: 0
   MaxHP: 5

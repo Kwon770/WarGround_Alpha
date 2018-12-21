@@ -1291,7 +1291,7 @@ MonoBehaviour:
   dieTrigger: 0
   Kinds: Banshee
   CanSpawn: 0
-  delay: 1.4
+  delay: 0
   ATK: 4
   AddATK: 0
   MaxHP: 4

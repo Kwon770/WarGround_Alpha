@@ -1317,7 +1317,7 @@ MonoBehaviour:
   dieTrigger: 0
   Kinds: Samurai
   CanSpawn: 0
-  delay: 1.1
+  delay: 0
   ATK: 3
   AddATK: 0
   MaxHP: 5

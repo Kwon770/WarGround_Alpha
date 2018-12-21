@@ -25,12 +25,13 @@ public class Spawn : Photon.MonoBehaviour {
         spawn = this;
         for(int i = 5 - Units.Length; i < 5; i++)
         {
+            Debug.Log(i);
             Button temp;
             temp = GameManager.manager.SpawnButton.GetChild(i).GetComponent<Button>();
             GameManager.manager.SpawnButton.GetChild(i).gameObject.SetActive(true);
 
             temp.onClick.RemoveAllListeners();
-            var cachedI = i; // Cache for Lambda
+            var cachedI = i- 5 + Units.Length; // Cache for Lambda
             temp.onClick.AddListener(new UnityEngine.Events.UnityAction(() => spawn.SetName(Units[cachedI])));
             temp.onClick.AddListener(new UnityEngine.Events.UnityAction(() => spawn.SetCost(Cost[cachedI])));
             temp.onClick.AddListener(new UnityEngine.Events.UnityAction(() => GameManager.manager.SetTrigger("Spawn")));

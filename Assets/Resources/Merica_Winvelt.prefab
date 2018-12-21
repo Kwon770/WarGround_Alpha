@@ -1292,7 +1292,7 @@ MonoBehaviour:
   dieTrigger: 0
   Kinds: Winvelt
   CanSpawn: 1
-  delay: 1
+  delay: 0
   ATK: 5
   AddATK: 0
   MaxHP: 25

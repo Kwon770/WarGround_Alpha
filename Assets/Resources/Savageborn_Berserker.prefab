@@ -1317,7 +1317,7 @@ MonoBehaviour:
   dieTrigger: 0
   Kinds: Berserker
   CanSpawn: 0
-  delay: 0
+  delay: 1
   ATK: 4
   AddATK: 0
   MaxHP: 6

@@ -1345,7 +1345,7 @@ MonoBehaviour:
   dieTrigger: 0
   Kinds: Guarder
   CanSpawn: 0
-  delay: 1
+  delay: 0
   ATK: 2
   AddATK: 0
   MaxHP: 4
