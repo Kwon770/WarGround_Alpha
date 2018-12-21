@@ -2,56 +2,58 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.EventSystems;
 
 
-public class SoundManager : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+
+public class SoundManager : MonoBehaviour
 {
+    public float fxVolume;
+
     [SerializeField] AudioSource audioSource;
 
-    [SerializeField] AudioClip lobbyBGM;
-    [SerializeField] AudioClip inGameBGM;
+    [SerializeField] AudioClip LobbyBGM;
+    [SerializeField] AudioClip PlaneBGM;
+    //Lobby FX
+    [SerializeField] AudioClip ClickLobbyButton;
+    [SerializeField] AudioClip ClickBackLobbyButton;
+    [SerializeField] AudioClip MatchStart;
+    //Plane FX
+    [SerializeField] AudioClip ClickIngameButton;
+    [SerializeField] AudioClip TouchIngameButton;
+    [SerializeField] AudioClip ClickTurnButton;
+    [SerializeField] AudioClip TouchBitiniumBar;
+    [SerializeField] AudioClip EndGame;
 
-    [SerializeField] AudioClip shootArrow;
-    [SerializeField] AudioClip clickFirst;
-    [SerializeField] AudioClip clickSecond;
-    [SerializeField] AudioClip footStep;
-    [SerializeField] AudioClip shootGunFirst;
-    [SerializeField] AudioClip shootGunSecond;
-    [SerializeField] AudioClip reloadGun;
-    [SerializeField] AudioClip matchClick;
-    [SerializeField] AudioClip matchCatch;
-    [SerializeField] AudioClip useBitinium;
-    [SerializeField] AudioClip drawSwordFirst;
-    [SerializeField] AudioClip drawSwordSecond;
-    [SerializeField] AudioClip slashSwordFirst;
-    [SerializeField] AudioClip slashSwordSecond;
+    [SerializeField] AudioClip PlaneFootStep;
 
+    [SerializeField] AudioClip SwingWeapon;
+    [SerializeField] AudioClip ShortSword;
+    [SerializeField] AudioClip SmallSword;
+    [SerializeField] AudioClip BigSword;
+    [SerializeField] AudioClip ArcherAttack;
+    [SerializeField] AudioClip MagicAttack;
+    [SerializeField] AudioClip ReloadGun;
+    [SerializeField] AudioClip ShootGun;
+    [SerializeField] AudioClip ShootLongRifle;
+    [SerializeField] AudioClip Hammer;
+    [SerializeField] AudioClip Spear;
+    [SerializeField] AudioClip Heal;
 
-    public Image descript;
+    public static SoundManager soundmanager;
 
-    public void OnPointerEnter(PointerEventData data)
+    private void Awake()
     {
-        descript.gameObject.SetActive(true);
+        SoundManager.soundmanager = this;
+        DontDestroyOnLoad(gameObject);
     }
 
-    public void OnPointerExit(PointerEventData data)
-    {
-        descript.gameObject.SetActive(false);
-    }
-
-
-
-
-
-
-
-    public void PlayLobbyBGM(bool playMusic)
+    public void lobbyBGM(bool playMusic)
     {
         
         if(playMusic == true)
         {
-            audioSource.clip = lobbyBGM;
+            soundFadeIn(audioSource);
+            audioSource.clip = LobbyBGM;
             audioSource.loop = true;
             audioSource.Play();
         }
@@ -62,12 +64,12 @@ public class SoundManager : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
        
     }
 
-    public void PlayInGameBGM(bool playMusic)
+    public void planeBGM(bool playMusic)
     {
 
         if (playMusic == true)
         {
-            audioSource.clip = inGameBGM;
+            audioSource.clip = PlaneBGM;
             audioSource.loop = true;
             audioSource.Play();
         }
@@ -78,74 +80,103 @@ public class SoundManager : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
     }
 
-    public void ShootArrow()
+    // 여기부턴 효과음
+
+    public void clickLobbyButton()
     {
-        audioSource.PlayOneShot(shootArrow);
+        audioSource.PlayOneShot(ClickLobbyButton, fxVolume);
+    }
+    public void clickBackLobbyButton()
+    {
+        audioSource.PlayOneShot(ClickBackLobbyButton, fxVolume);
+    }
+    public void matchStart()
+    {
+        audioSource.PlayOneShot(MatchStart, fxVolume);
+    }
+    public void clickIngameButton()
+    {
+        audioSource.PlayOneShot(ClickIngameButton, fxVolume);
+    }
+    public void touchIngameButton()
+    {
+        audioSource.PlayOneShot(TouchIngameButton, fxVolume);
+    }
+    public void clickTurnButton()
+    {
+        audioSource.PlayOneShot(ClickTurnButton, fxVolume);
+    }
+    public void touchBitiniumBar()
+    {
+        audioSource.PlayOneShot(TouchBitiniumBar, fxVolume);
+    }
+    public void endGame()
+    {
+        audioSource.PlayOneShot(EndGame, fxVolume);
+    }
+    public void planeFootStep()
+    {
+        audioSource.PlayOneShot(PlaneFootStep, fxVolume);
+    }
+    public void swingWeapon()
+    {
+        audioSource.PlayOneShot(SwingWeapon, fxVolume);
+    }
+    public void shortSword()
+    {
+        audioSource.PlayOneShot(ShortSword, fxVolume);
+    }
+    public void smallSword()
+    {
+        audioSource.PlayOneShot(SmallSword, fxVolume);
+    }
+    public void bigSword()
+    {
+        audioSource.PlayOneShot(BigSword, fxVolume);
+    }
+    public void archerAttack()
+    {
+        audioSource.PlayOneShot(ArcherAttack, fxVolume);
+    }
+    public void magicAttack()
+    {
+        audioSource.PlayOneShot(MagicAttack, fxVolume);
+    }
+    public void reloadGun()
+    {
+        audioSource.PlayOneShot(ReloadGun, fxVolume);
+    }
+    public void shootGun()
+    {
+        audioSource.PlayOneShot(ShootGun, fxVolume);
+    }
+    public void shootLongRifle()
+    {
+        audioSource.PlayOneShot(ShootLongRifle, fxVolume);
+    }
+    public void hammer()
+    {
+        audioSource.PlayOneShot(Hammer, fxVolume);
+    }
+    public void heal()
+    {
+        audioSource.PlayOneShot(Heal, fxVolume);
+    }
+    public void spear()
+    {
+        audioSource.PlayOneShot(Spear, fxVolume);
     }
 
-    public void ClickFirst()
+    IEnumerator soundFadeIn(AudioSource sound)
     {
-        audioSource.PlayOneShot(clickFirst);
-    }
-
-    public void ClickSecond()
-    {
-        audioSource.PlayOneShot(clickSecond);
-    }
-
-    public void FootStep()
-    {
-        audioSource.PlayOneShot(footStep);
-    }
-
-    public void ShootGunFirst()
-    {
-        audioSource.PlayOneShot(shootGunFirst);
-    }
-
-    public void ShootGunSecond()
-    {
-        audioSource.PlayOneShot(shootGunSecond);
-    }
-
-    public void ReloadGun()
-    {
-        audioSource.PlayOneShot(reloadGun);
-    }
-
-    public void MatchClick()
-    {
-        audioSource.PlayOneShot(matchClick);
-    }
-
-    public void MatchCatch()
-    {
-        audioSource.PlayOneShot(matchCatch);
-    }
-
-    public void UseBitinium()
-    {
-        audioSource.PlayOneShot(useBitinium);
-    }
-
-    public void DrawSwordFirst()
-    {
-        audioSource.PlayOneShot(drawSwordFirst);
-    }
-
-    public void DrawSwordSecond()
-    {
-        audioSource.PlayOneShot(drawSwordSecond);
-    }
-
-    public void SlashSwordFirst()
-    {
-        audioSource.PlayOneShot(slashSwordFirst);
-    }
-
-    public void SlashSwordSecond()
-    {
-        audioSource.PlayOneShot(slashSwordSecond);
+        float time = 0;
+        sound.volume = 0f;
+        while (time != 1)
+        {
+            sound.volume += time;
+            time += Time.deltaTime;
+            yield return null;
+        }
     }
 
 }
