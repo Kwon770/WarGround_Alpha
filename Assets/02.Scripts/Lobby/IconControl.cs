@@ -10,8 +10,6 @@ public class IconControl : MonoBehaviour {
     [SerializeField] float Speed;
     [SerializeField] AnimationCurve curve;
 
-    [SerializeField] TeamStory Story;
-
     public GameObject Empty_Char;
     public GameObject Panel_Char;
     public GameObject Menu;
@@ -21,13 +19,12 @@ public class IconControl : MonoBehaviour {
 
     public void PanelMove1(int teamIndex)
     {
-        Story.Story(teamIndex);
-
+        // 배경 오브젝트 뛰어넘을려면 +6
         for(int i = 0; i < 6; i++)
         {
-            Empty_Char.transform.GetChild(i).gameObject.SetActive(false);
+            Empty_Char.transform.GetChild(i + 6).gameObject.SetActive(false);
         }
-        Empty_Char.transform.GetChild(teamIndex).gameObject.SetActive(true);
+        Empty_Char.transform.GetChild(teamIndex + 6).gameObject.SetActive(true);
 
         StartCoroutine(PanelMove2());
     }
