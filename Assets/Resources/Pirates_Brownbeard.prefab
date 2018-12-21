@@ -1280,7 +1280,7 @@ MonoBehaviour:
   dieTrigger: 0
   Kinds: Brownbeard
   CanSpawn: 1
-  delay: 0
+  delay: 15
   ATK: 5
   AddATK: 0
   MaxHP: 30
