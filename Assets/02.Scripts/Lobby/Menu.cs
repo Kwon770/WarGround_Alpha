@@ -84,18 +84,14 @@ public class Menu : MonoBehaviour {
         //해당 버튼 노출
         for (int i = 0 + (3*index); i < 3 + (3*index); i++)
         {
-            int num2 = i;
-            EliteMenu[num2].button.onClick.RemoveAllListeners();
+            int num = i;
+            EliteMenu[num].button.onClick.RemoveAllListeners();
 
             //클릭시 그 나라의 아이콘만 Back 애니메이션
-            for (int o = 0 + (3 * index); o < 3 + (3 * index); o++)
-            {
-                int num1 = o;
-                EliteMenu[i].button.onClick.AddListener(new UnityEngine.Events.UnityAction(() => EliteMenu[num1].Back()));
-            }
+            EliteMenu[i].button.onClick.AddListener(new UnityEngine.Events.UnityAction(() => EliteMenu[num].Back()));
 
             //패널 조정
-            EliteMenu[i].button.onClick.AddListener(new UnityEngine.Events.UnityAction(() => EliteIcon[num2].PanelMove1(num2)));
+            EliteMenu[i].button.onClick.AddListener(new UnityEngine.Events.UnityAction(() => EliteIcon[num].PanelMove1(num)));
             EliteMenu[i].Move();
         }
     }
