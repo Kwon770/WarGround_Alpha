@@ -43,13 +43,12 @@ public class SoundManager : MonoBehaviour
 
     private void Awake()
     {
-        SoundManager.soundmanager = this;
+        soundmanager = this;
         DontDestroyOnLoad(gameObject);
     }
 
     public void lobbyBGM(bool playMusic)
     {
-        
         if(playMusic == true)
         {
             soundFadeIn(audioSource);
@@ -61,12 +60,10 @@ public class SoundManager : MonoBehaviour
         {
             audioSource.Stop();
         }
-       
     }
 
     public void planeBGM(bool playMusic)
     {
-
         if (playMusic == true)
         {
             audioSource.clip = PlaneBGM;
@@ -77,7 +74,6 @@ public class SoundManager : MonoBehaviour
         {
             audioSource.Stop();
         }
-
     }
 
     // 여기부턴 효과음
@@ -180,3 +176,10 @@ public class SoundManager : MonoBehaviour
     }
 
 }
+/*
+ 소리 빠진것들
+ 유닛 클릭소리
+ 피격소리
+ 총소리
+ 비티늄은 따로 소리 있는데 다른것들은 소리 따로 없음?
+ */

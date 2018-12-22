@@ -9,8 +9,8 @@ public class Synchro : MonoBehaviour {
     [SerializeField] int posX;
     [SerializeField] int posY;
 
-    [SerializeField] float synchroMoveSpeed = 5f;
-    [SerializeField] float synchroRotSpeed = 5f;
+    [SerializeField] float synchroMoveSpeed;
+    [SerializeField] float synchroRotSpeed;
 
     Coroutine coroutine;
 
@@ -33,7 +33,9 @@ public class Synchro : MonoBehaviour {
             if(coroutine!=null) StopCoroutine(coroutine);
 
             coroutine = StartCoroutine(Move(GameData.data.FindTile(unitinfo.x, unitinfo.y)));
+            return;
         }
+        anim.Stop();//이동 애니메이션 끝
     }
     public IEnumerator Move(TileInfo EndPos)
     {

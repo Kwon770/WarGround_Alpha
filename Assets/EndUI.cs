@@ -51,6 +51,8 @@ public class EndUI : MonoBehaviour {
 
     IEnumerator EndGame()
     {
+        SoundManager.soundmanager.endGame();
+
         endMyScore.text = _myScore.ToString();
         endEnemyScore.text = _enemyScore.ToString();
         if (_myScore < _enemyScore) gameResult.text = "You Lose!";

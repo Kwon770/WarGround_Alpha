@@ -16,6 +16,7 @@ public class MatchManager : Photon.MonoBehaviour {
     
     void Awake ()
     {
+        SoundManager.soundmanager.matchStart();
         manager = this;
 
         check = 0;
@@ -74,9 +75,8 @@ public class MatchManager : Photon.MonoBehaviour {
     {
         AsyncOperation async = SceneManager.LoadSceneAsync(MapType);
         yield return async;
-        
-        Debug.Log(LobbyNetwork.instance.EliteType);
 
+        SoundManager.soundmanager.planeBGM(true);
         if (LobbyNetwork.instance.EliteType == 4)
         {
             GameData.data.Maxbitinium = 13;

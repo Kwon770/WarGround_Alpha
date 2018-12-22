@@ -30,6 +30,8 @@ public class EndTurn : MonoBehaviour {
         yield return null;
         float time = 0;
 
+        SoundManager.soundmanager.clickTurnButton();
+
         while (time <= 1)
         {
             if (time > 0.3 && setButton.GetSiblingIndex() == 0) setButton.SetSiblingIndex(1);
