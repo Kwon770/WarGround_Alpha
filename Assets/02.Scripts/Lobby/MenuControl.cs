@@ -32,7 +32,8 @@ public class MenuControl : MonoBehaviour {
     }
     public IEnumerator Anim(Vector3 startPos, Vector3 endPos)
     {
-        Manager.instance.corutine = true;
+        if(gameObject.name == "Option") SoundManager.soundmanager.clickIngameButton();
+        if (Manager.instance != null) Manager.instance.corutine = true;
 
         float time = 0;
 
@@ -43,6 +44,6 @@ public class MenuControl : MonoBehaviour {
             yield return null;
         }
 
-        Manager.instance.corutine = false;
+        if (Manager.instance != null) Manager.instance.corutine = false;
     }
 }

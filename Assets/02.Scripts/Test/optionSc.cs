@@ -4,13 +4,11 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class optionSc : MonoBehaviour {
-
-    [SerializeField] SoundManager soundManager;
+    
     [SerializeField] Slider fxVolume;
     [SerializeField] Slider bgmVolume;
     [SerializeField] Slider masterVolume;
-
-    [SerializeField] Dropdown screenSize;
+    
     [SerializeField] int screenWidth;
     [SerializeField] int screenHeight;
     [SerializeField] Toggle isFullScreenToggle;
@@ -34,22 +32,41 @@ public class optionSc : MonoBehaviour {
             isFullScreen = false;
         }
 
-        screenWidth = PlayerPrefs.GetInt("screenWidthSave", screenWidth);
-        screenHeight = PlayerPrefs.GetInt("screenHeightSave", screenHeight);
+        if (PlayerPrefs.HasKey("screenWidthSave"))
+        {
+            screenWidth = PlayerPrefs.GetInt("screenWidthSave", screenWidth);
+            screenHeight = PlayerPrefs.GetInt("screenHeightSave", screenHeight);
+        }
+        
         Debug.Log(screenWidth + " + " + screenHeight);
 
         Screen.SetResolution(screenWidth, screenHeight, isFullScreen);
         setFirstUi();
 
-        fxVolume.value = soundManager.fxVolume;  
+        if (PlayerPrefs.HasKey("fxVolumeSave"))
+        {
+            SoundManager.fxVolume = PlayerPrefs.GetFloat("fxVolumeSave", fxVolume.value);
+        }
+        else SoundManager.fxVolume = 1;
+        if (PlayerPrefs.HasKey("bgmVolumeSave"))
+        {
+            SoundManager.bgmVolume = PlayerPrefs.GetFloat("bgmVolumeSave", bgmVolume.value);
+        }
+        else SoundManager.bgmVolume = 1;
+        if (PlayerPrefs.HasKey("masterVolumeSave"))
+        {
+            SoundManager.masterVolume = PlayerPrefs.GetFloat("masterVolumeSave", masterVolume.value);
+        }
+        else SoundManager.masterVolume = 1;
+
+
+        fxVolume.value = SoundManager.fxVolume;
+        bgmVolume.value = SoundManager.bgmVolume;
+        masterVolume.value = SoundManager.masterVolume;
     }
 
     private void Update()
     {
-        sliderFxVolume();
-        //sliderBgmVolume();
-        //sliderMaserVolume();
-
         if (Input.GetKeyDown(KeyCode.F12))
         {
             PlayerPrefs.DeleteAll();
@@ -58,38 +75,31 @@ public class optionSc : MonoBehaviour {
 
     public void sliderFxVolume() // FX 볼륨 슬라이더, 사운드 매니저와 값 동기화
     {
-        soundManager.fxVolume = fxVolume.value; 
+        SoundManager.fxVolume = fxVolume.value;
+        PlayerPrefs.SetFloat("fxVolumeSave", fxVolume.value);
+        PlayerPrefs.Save();
     }
 
-    /*public void sliderBgmVolume()   // BGM 볼륨 슬라이더, 사운드 매니저와 값 동기화, SoundManager에 해당 값을 만든 후 주석 해제해주세요
+    public void sliderBgmVolume()   // BGM 볼륨 슬라이더, 사운드 매니저와 값 동기화, SoundManager에 해당 값을 만든 후 주석 해제해주세요
     {
-        soundManager.bgmVolume = bgmVolume.value;
-    }*/
+        SoundManager.bgmVolume = bgmVolume.value;
+        SoundManager.soundmanager.bgmSource.volume = SoundManager.bgmVolume * SoundManager.masterVolume * 0.5f;
+        PlayerPrefs.SetFloat("bgmVolumeSave", bgmVolume.value);
+        PlayerPrefs.Save();
+//        Debug.Log(SoundManager.soundmanager.bgmSource.volume);
+    }
 
-    /*public void sliderMaserVolume() // 마스터 볼륨 슬라이더, 사운드 매니저와 값 동기화, SoundManager에 해당 값을 만든 후 주석 해제해주세요
+    public void sliderMaserVolume() // 마스터 볼륨 슬라이더, 사운드 매니저와 값 동기화, SoundManager에 해당 값을 만든 후 주석 해제해주세요
     {
-        soundManager.masterVolume = masterVolume.value;
-    }*/
+        SoundManager.masterVolume = masterVolume.value;
+        PlayerPrefs.SetFloat("masterVolumeSave", masterVolume.value);
+        PlayerPrefs.Save();
+        sliderBgmVolume();
+    }
 
+    // 저장되있는 값을 불러와 그에 맞게 UI를 대응합니다.
     public void setFirstUi()
     {
-        if(screenWidth == 1920)
-        {
-            screenSize.value = 3;
-        }
-        else if (screenWidth == 1600)
-        {
-            screenSize.value = 2;
-        }
-        else if (screenWidth == 1280)
-        {
-            screenSize.value = 1;
-        }
-        else
-        {
-            screenSize.value = 0;
-        }
-
         if(isFullScreen == true)
         {
             isFullScreenToggle.isOn = true;
@@ -98,32 +108,32 @@ public class optionSc : MonoBehaviour {
         {
             isFullScreenToggle.isOn = false;
         }
-    }   // 저장되있는 값을 불러와 그에 맞게 UI를 대응합니다.
+    }
 
-    public void setDropdownScreenSize()
+    public void setScreenSize(int index)
     {
-        if (screenSize.value == 0)
+        if (index == 0)
         {
             screenWidth = 960;
             screenHeight = 540;
             Screen.SetResolution(screenWidth, screenHeight, isFullScreen);
             saveScreenSize();
         }
-        if (screenSize.value == 1)
+        if (index == 1)
         {
             screenWidth = 1280;
             screenHeight = 720;
             Screen.SetResolution(screenWidth, screenHeight, isFullScreen);
             saveScreenSize();
         }
-        if (screenSize.value == 2)
+        if (index == 2)
         {
             screenWidth = 1600;
             screenHeight = 900;
             Screen.SetResolution(screenWidth, screenHeight, isFullScreen);
             saveScreenSize();
         }
-        if (screenSize.value == 3)
+        if (index == 3)
         {
             screenWidth = 1920;
             screenHeight = 1080;
@@ -135,21 +145,25 @@ public class optionSc : MonoBehaviour {
 
     public void setIsFullscreen()
     {
-      if(isFullScreenToggle.isOn == false && isChangeFullScreen == true)
+
+        if(isFullScreenToggle.isOn == false && isChangeFullScreen == true)
         {
             isFullScreen = false;
             PlayerPrefs.SetString("isFullScreenSave", isFullScreen.ToString());
+            Screen.SetResolution(screenWidth, screenHeight, isFullScreen);
             PlayerPrefs.Save();
         }
-      else if (isFullScreenToggle.isOn == true && isChangeFullScreen == true)
+        else if (isFullScreenToggle.isOn == true && isChangeFullScreen == true)
         {
             isFullScreen = true;
             PlayerPrefs.SetString("isFullScreenSave", isFullScreen.ToString());
+            Screen.SetResolution(screenWidth, screenHeight, isFullScreen);
             PlayerPrefs.Save();
         }
-      else
+        else
         {
             isFullScreen = false;
+            Screen.SetResolution(screenWidth, screenHeight, isFullScreen);
         }
     }
 
