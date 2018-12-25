@@ -35,7 +35,7 @@ public class Synchro : MonoBehaviour {
             coroutine = StartCoroutine(Move(GameData.data.FindTile(unitinfo.x, unitinfo.y)));
             return;
         }
-        anim.Stop();//이동 애니메이션 끝
+        if(coroutine == null)anim.Stop();//이동 애니메이션 끝
     }
     public IEnumerator Move(TileInfo EndPos)
     {
@@ -89,5 +89,6 @@ public class Synchro : MonoBehaviour {
 
 //        anim.Stop();//이동 애니메이션 끝
         moveTrigger = false;
+        coroutine = null;
     }
 }

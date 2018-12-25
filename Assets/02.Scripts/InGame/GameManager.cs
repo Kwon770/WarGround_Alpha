@@ -58,7 +58,15 @@ public class GameManager : MonoBehaviour {
             {
                 UnitInfo unit = Obj.GetComponent<UnitInfo>();
                 TileInfo tile = GameData.data.FindTile(unit.x, unit.y);
-                List<TileInfo> tiles = Calculator.Calc.GetInrangeTile(tile, unit.range);
+                List<TileInfo> tiles = Calculator.Calc.GetInrangeTile(tile, unit.range); ;
+                if (unit.Kinds == "BadOne" && unit.Act <= 0)
+                {
+                    return;
+                }
+                else if(unit.Kinds != "BadOne" && unit.Act < 2)
+                {
+                    return;
+                }
                 foreach (var attackTile in tiles)
                 {
                     if (GameData.data.FindUnit(attackTile.x, attackTile.y) != null)
@@ -76,8 +84,16 @@ public class GameManager : MonoBehaviour {
             {
                 UnitInfo unit = Obj.GetComponent<UnitInfo>();
                 TileInfo tile = GameData.data.FindTile(unit.x, unit.y);
-                List<TileInfo> tiles = Calculator.Calc.GetMoveTile(tile, unit.Act);
-                foreach(var moveTile in tiles)
+                List<TileInfo> tiles;
+                if (unit.Kinds == "BadOne")
+                {
+                    tiles = Calculator.Calc.GetMoveTile(tile, unit.Act/2);
+                }
+                else
+                {
+                    tiles = Calculator.Calc.GetMoveTile(tile, unit.Act);
+                }
+                foreach (var moveTile in tiles)
                 {
                     moveTile.CanUse();
                 }
@@ -169,8 +185,16 @@ public class GameManager : MonoBehaviour {
         TileInfo SP = GameData.data.FindTile(unit.x, unit.y);
         TileInfo EP = Tile.GetComponent<TileInfo>();
 
-        List<TileInfo> path = Calculator.Calc.Move(SP, EP, unit.Act);
+        List<TileInfo> path;
 
+        if (unit.Kinds == "BadOne")
+        {
+            path = Calculator.Calc.Move(SP, EP, unit.Act/2);
+        }
+        else
+        {
+            path = Calculator.Calc.Move(SP, EP, unit.Act);
+        }
         Debug.Log(path);
         if (path == null) return;
         if (unit.move != null) StopCoroutine(unit.move);
@@ -188,7 +212,7 @@ public class GameManager : MonoBehaviour {
         {
             //이상한놈일경우 공격시 행동력+1
             attacker.Act -= 2;
-            if (attacker.Kinds == "StrangeOne") attacker.Act++;
+            if (attacker.Kinds == "StrangeOne" || attacker.Kinds == "BadOne") attacker.Act++;
             
             //닌자일 경우
             if (defender.Kinds == "Ninja" && range > 1) defender.anim.photonView.RPC("EVASION", PhotonTargets.All);

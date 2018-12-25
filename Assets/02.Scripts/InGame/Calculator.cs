@@ -51,7 +51,7 @@ public class Calculator : MonoBehaviour {
             
 
             temp = GameData.data.FindTile(tile.x, tile.y - 1);
-            if (temp != null && ActQueue[s]+temp.cost<=Act && check[temp.x,temp.y] > ActQueue[s] + temp.cost)
+            if (temp != null && ActQueue[s]+temp.cost<=Act && check[temp.x,temp.y] > ActQueue[s] + temp.cost && GameData.data.FindUnit(temp.x, temp.y) == null)
             {
                 check[temp.x, temp.y] = ActQueue[s] + temp.cost;
                 e++;
@@ -60,7 +60,7 @@ public class Calculator : MonoBehaviour {
                 PathQueue.Add(s);
             }
             temp = GameData.data.FindTile(tile.x, tile.y + 1);
-            if (temp != null && ActQueue[s] + temp.cost <= Act && check[temp.x, temp.y] > ActQueue[s] + temp.cost)
+            if (temp != null && ActQueue[s] + temp.cost <= Act && check[temp.x, temp.y] > ActQueue[s] + temp.cost && GameData.data.FindUnit(temp.x, temp.y) == null)
             {
                 check[temp.x, temp.y] = ActQueue[s] + temp.cost;
                 e++;
@@ -69,7 +69,7 @@ public class Calculator : MonoBehaviour {
                 PathQueue.Add(s);
             }
             temp = GameData.data.FindTile(tile.x + 1, tile.y - k);
-            if (temp != null && ActQueue[s] + temp.cost <= Act && check[temp.x, temp.y] > ActQueue[s] + temp.cost)
+            if (temp != null && ActQueue[s] + temp.cost <= Act && check[temp.x, temp.y] > ActQueue[s] + temp.cost && GameData.data.FindUnit(temp.x, temp.y) == null)
             {
                 check[temp.x, temp.y] = ActQueue[s] + temp.cost;
                 e++;
@@ -78,7 +78,7 @@ public class Calculator : MonoBehaviour {
                 PathQueue.Add(s);
             }
             temp = GameData.data.FindTile(tile.x + 1, tile.y + 1 - k);
-            if (temp != null && ActQueue[s] + temp.cost <= Act && check[temp.x, temp.y] > ActQueue[s] + temp.cost)
+            if (temp != null && ActQueue[s] + temp.cost <= Act && check[temp.x, temp.y] > ActQueue[s] + temp.cost && GameData.data.FindUnit(temp.x, temp.y) == null)
             {
                 check[temp.x, temp.y] = ActQueue[s] + temp.cost;
                 e++;
@@ -87,7 +87,7 @@ public class Calculator : MonoBehaviour {
                 PathQueue.Add(s);
             }
             temp = GameData.data.FindTile(tile.x - 1, tile.y - k);
-            if (temp != null && ActQueue[s] + temp.cost <= Act && check[temp.x, temp.y] > ActQueue[s] + temp.cost)
+            if (temp != null && ActQueue[s] + temp.cost <= Act && check[temp.x, temp.y] > ActQueue[s] + temp.cost && GameData.data.FindUnit(temp.x, temp.y) == null)
             {
                 check[temp.x, temp.y] = ActQueue[s] + temp.cost;
                 e++;
@@ -96,7 +96,7 @@ public class Calculator : MonoBehaviour {
                 PathQueue.Add(s);
             }
             temp = GameData.data.FindTile(tile.x - 1, tile.y + 1 - k);
-            if (temp != null && ActQueue[s] + temp.cost <= Act && check[temp.x, temp.y] > ActQueue[s] + temp.cost)
+            if (temp != null && ActQueue[s] + temp.cost <= Act && check[temp.x, temp.y] > ActQueue[s] + temp.cost && GameData.data.FindUnit(temp.x, temp.y) == null)
             {
                 check[temp.x, temp.y] = ActQueue[s] + temp.cost;
                 e++;
@@ -285,7 +285,7 @@ public class Calculator : MonoBehaviour {
             int k = tile.x % 2 == 1 ? 1 : 0;
             
             temp = GameData.data.FindTile(tile.x, tile.y - 1);
-            if (temp != null && ActQueue[s] + temp.cost <= Act && check[temp.x, temp.y] > ActQueue[s] + temp.cost)
+            if (temp != null && ActQueue[s] + temp.cost <= Act && check[temp.x, temp.y] > ActQueue[s] + temp.cost && GameData.data.FindUnit(temp.x,temp.y) == null)
             {
                 check[temp.x, temp.y] = ActQueue[s] + temp.cost;
                 e++;
@@ -293,7 +293,7 @@ public class Calculator : MonoBehaviour {
                 ActQueue.Add(ActQueue[s] + temp.cost);
             }
             temp = GameData.data.FindTile(tile.x, tile.y + 1);
-            if (temp != null && ActQueue[s] + temp.cost <= Act && check[temp.x, temp.y] > ActQueue[s] + temp.cost)
+            if (temp != null && ActQueue[s] + temp.cost <= Act && check[temp.x, temp.y] > ActQueue[s] + temp.cost && GameData.data.FindUnit(temp.x, temp.y) == null)
             {
                 check[temp.x, temp.y] = ActQueue[s] + temp.cost;
                 e++;
@@ -301,7 +301,7 @@ public class Calculator : MonoBehaviour {
                 ActQueue.Add(ActQueue[s] + temp.cost);
             }
             temp = GameData.data.FindTile(tile.x + 1, tile.y - k);
-            if (temp != null && ActQueue[s] + temp.cost <= Act && check[temp.x, temp.y] > ActQueue[s] + temp.cost)
+            if (temp != null && ActQueue[s] + temp.cost <= Act && check[temp.x, temp.y] > ActQueue[s] + temp.cost && GameData.data.FindUnit(temp.x, temp.y) == null)
             {
                 check[temp.x, temp.y] = ActQueue[s] + temp.cost;
                 e++;
@@ -309,7 +309,7 @@ public class Calculator : MonoBehaviour {
                 ActQueue.Add(ActQueue[s] + temp.cost);
             }
             temp = GameData.data.FindTile(tile.x + 1, tile.y + 1 - k);
-            if (temp != null && ActQueue[s] + temp.cost <= Act && check[temp.x, temp.y] > ActQueue[s] + temp.cost)
+            if (temp != null && ActQueue[s] + temp.cost <= Act && check[temp.x, temp.y] > ActQueue[s] + temp.cost && GameData.data.FindUnit(temp.x, temp.y) == null)
             {
                 check[temp.x, temp.y] = ActQueue[s] + temp.cost;
                 e++;
@@ -317,7 +317,7 @@ public class Calculator : MonoBehaviour {
                 ActQueue.Add(ActQueue[s] + temp.cost);
             }
             temp = GameData.data.FindTile(tile.x - 1, tile.y - k);
-            if (temp != null && ActQueue[s] + temp.cost <= Act && check[temp.x, temp.y] > ActQueue[s] + temp.cost)
+            if (temp != null && ActQueue[s] + temp.cost <= Act && check[temp.x, temp.y] > ActQueue[s] + temp.cost && GameData.data.FindUnit(temp.x, temp.y) == null)
             {
                 check[temp.x, temp.y] = ActQueue[s] + temp.cost;
                 e++;
@@ -325,7 +325,7 @@ public class Calculator : MonoBehaviour {
                 ActQueue.Add(ActQueue[s] + temp.cost);
             }
             temp = GameData.data.FindTile(tile.x - 1, tile.y + 1 - k);
-            if (temp != null && ActQueue[s] + temp.cost <= Act && check[temp.x, temp.y] > ActQueue[s] + temp.cost)
+            if (temp != null && ActQueue[s] + temp.cost <= Act && check[temp.x, temp.y] > ActQueue[s] + temp.cost && GameData.data.FindUnit(temp.x, temp.y) == null)
             {
                 check[temp.x, temp.y] = ActQueue[s] + temp.cost;
                 e++;

@@ -161,7 +161,21 @@ public class NetworkManager : Photon.MonoBehaviour {
             tile.cost = tile.idlecost;
             if (tile.occupyPoint > 1) tile.occupyPoint = 1;
             if (tile.occupyPoint < -1) tile.occupyPoint = -1;
-            if (tile.occupyPoint == 1) myTerritory++;
+            if (tile.occupyPoint == 1)
+            {
+                if (tile.Type == 1)
+                {
+                    foreach (var temp in Calculator.Calc.GetInrangeTile(tile, 2))
+                    {
+                        temp.cost = 0;
+                    }
+                }
+                else if (tile.Type == 2)
+                {
+                    myTerritory += 4;   
+                }
+                myTerritory++;
+            }
             else if (tile.occupyPoint == -1) enemyTerritory++;
         }
         EndUI.UI.SetScore(myTerritory, enemyTerritory);

@@ -83,7 +83,7 @@ public class EndUI : MonoBehaviour {
         if (NetworkManager.network != null) Destroy(NetworkManager.network.gameObject);
         StartCoroutine("Loading");
     }
-    IEnumerator Loading()
+    public IEnumerator Loading()
     {
         AsyncOperation async = SceneManager.LoadSceneAsync(0);
         async.allowSceneActivation = false;

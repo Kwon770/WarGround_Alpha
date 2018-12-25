@@ -254,13 +254,14 @@ public class UnitInfo : Photon.MonoBehaviour {
         Quaternion startRot;
         Quaternion endRot;
 
-        Act -= (path.Count - 1);
-
-        anim.Move();//이동 애니메이션 시작
-
+        if (Kinds == "ChiefMate") GameData.data.FindTile(path[0].x, path[0].y).cost = 0;
+        
         for (int i = 1; i < path.Count; i++)
         {
-            if(Kinds == "ChiefMate") GameData.data.FindTile(path[i - 1].x, path[i - 1].y).cost=0;
+            Act -= path[i].cost;
+            if (Kinds == "BadOne") Act -= path[i].cost;
+
+            if (Kinds == "ChiefMate") GameData.data.FindTile(path[i - 1].x, path[i - 1].y).cost=0;
 
             float time = 0;
             endPos = path[i].transform.position;
@@ -280,6 +281,7 @@ public class UnitInfo : Photon.MonoBehaviour {
                 time += Time.deltaTime * rotSpeed;
                 yield return null;
             }
+            anim.Move();//이동 애니메이션 시작
             time = 0;
             while (time <= 1)
             {
@@ -287,8 +289,7 @@ public class UnitInfo : Photon.MonoBehaviour {
                 time += Time.deltaTime * moveSpeed;
                 yield return null;
             }
-         
-            yield return new WaitForSeconds(0.5f);
+            anim.Stop();//이동 애니메이션 끝
         }
         anim.Stop();//이동 애니메이션 끝
         moveTrigger = false;
