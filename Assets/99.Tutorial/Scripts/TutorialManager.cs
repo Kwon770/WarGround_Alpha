@@ -21,6 +21,7 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] GameObject[] tileSave = new GameObject[34];
     [SerializeField] public TileInfoTutorial[] tileSaveInfo = new TileInfoTutorial[34];
     [SerializeField] public UnitInfoTutorial selectUnit; // 지금 현재 고른 유닛 표시
+    [SerializeField] public UnitInfoTutorial mars; // 지금 현재 고른 유닛 표시
 
     [SerializeField] public bool canClick = true;
 
@@ -88,11 +89,11 @@ public class TutorialManager : MonoBehaviour
         }*/
 
 
-        ATK = selectUnit.ATK;
-        HP = selectUnit.HP;
-        SHD = selectUnit.SHD;
-        actPoint = selectUnit.actPoint;
-        unitName = selectUnit.unitName;
+        ATK = mars.ATK;
+        HP = mars.HP;
+        SHD = mars.SHD;
+        actPoint = mars.actPoint;
+        unitName = mars.unitName;
 
         ATKtext.text = ATK.ToString();
         HPtext.text = HP.ToString();
