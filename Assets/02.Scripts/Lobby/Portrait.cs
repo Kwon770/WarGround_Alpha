@@ -39,6 +39,9 @@ public class Portrait : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public void OnPointerEnter (PointerEventData eventData)
     {
+        Debug.Log("dddddddddddd");
+        SoundManager.soundmanager.touchIngameButton();
+
         teamStory.SetActive(false);
 
         Back3.SetActive(true);

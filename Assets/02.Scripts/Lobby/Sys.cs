@@ -9,8 +9,8 @@ public class Sys : MonoBehaviour {
     public Image profileImage;
 
 	void Start () {
-
         StartCoroutine(WriteProfile());
+        SoundManager.soundmanager.lobbyBGM(true);
     }
 	
 	IEnumerator WriteProfile()

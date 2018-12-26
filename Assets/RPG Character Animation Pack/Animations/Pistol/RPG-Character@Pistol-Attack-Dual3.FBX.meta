@@ -292,20 +292,6 @@ ModelImporter:
       curves: []
       events:
       - time: 0.32319587
-        functionName: Shoot
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.45706886
-        functionName: Shoot
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.4611111
         functionName: hit
         data: 
         objectReferenceParameter: {instanceID: 0}

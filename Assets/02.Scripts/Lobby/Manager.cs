@@ -10,8 +10,6 @@ public class Manager : MonoBehaviour {
         instance = this;
     }
 
-    //로비씬 나가면 터트리기 가능?
-
     public GameObject Empty_Icons;
     public GameObject PanelPos;
     public GameObject PanelChar;
@@ -53,6 +51,12 @@ public class Manager : MonoBehaviour {
 		
         if(Input.GetKeyDown(KeyCode.Escape) && !corutine)
         {
+            if (menu.optionStatement)
+            {
+                menu.Option();
+            }
+
+
             if (scene == (int)Menunum.Home)
             {
 
@@ -74,6 +78,8 @@ public class Manager : MonoBehaviour {
             }
             else if(scene == (int)Menunum.Description)
             {
+                Debug.Log("ddddddddddddddddd");
+                SoundManager.soundmanager.clickBackLobbyButton();
                 StartCoroutine(ReturnPanel());
                 scene = (int)Menunum.Troop;
             }

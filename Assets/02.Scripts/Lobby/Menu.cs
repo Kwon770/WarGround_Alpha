@@ -13,6 +13,7 @@ public class Menu : MonoBehaviour {
 
     [SerializeField] MenuControl PlayButton;
     [SerializeField] MenuControl CharacterButton;
+    [SerializeField] MenuControl OptionPanel;
 
     public GameObject Partan;
     public GameObject Cora;
@@ -25,6 +26,8 @@ public class Menu : MonoBehaviour {
     public GameObject PartanPos;
     public GameObject CoraPos;
 
+    [HideInInspector] public bool optionStatement = false;
+
     [SerializeField] Manager manager;
 
     [SerializeField] AnimationCurve curve;
@@ -35,6 +38,17 @@ public class Menu : MonoBehaviour {
 
     public GameObject Empty_Icons;
 
+
+
+
+    public void Option()
+    {
+        if (optionStatement) OptionPanel.Back();
+        else OptionPanel.Move();
+
+        SoundManager.soundmanager.clickLobbyButton();
+        optionStatement = optionStatement ? false : true;
+    }
 
     public void Play()
     {

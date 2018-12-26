@@ -7,9 +7,12 @@ using UnityEngine.UI;
 
 public class SoundManager : MonoBehaviour
 {
-    public float fxVolume;
+    [SerializeField] public static float fxVolume;
+    [SerializeField] public static float bgmVolume;
+    [SerializeField] public static float masterVolume;
 
-    [SerializeField] AudioSource audioSource;
+    [SerializeField] public AudioSource fxSource;
+    [SerializeField] public AudioSource bgmSource;
 
     [SerializeField] AudioClip LobbyBGM;
     [SerializeField] AudioClip PlaneBGM;
@@ -43,137 +46,142 @@ public class SoundManager : MonoBehaviour
 
     private void Awake()
     {
-        SoundManager.soundmanager = this;
+        if (SoundManager.soundmanager != null)
+        {
+            Destroy(SoundManager.soundmanager.gameObject);
+        }
+        soundmanager = this;
         DontDestroyOnLoad(gameObject);
     }
 
     public void lobbyBGM(bool playMusic)
     {
-        
         if(playMusic == true)
         {
-            soundFadeIn(audioSource);
-            audioSource.clip = LobbyBGM;
-            audioSource.loop = true;
-            audioSource.Play();
+            Debug.Log(bgmVolume + " " + masterVolume);
+            StartCoroutine(soundFadeIn(bgmSource));
+            bgmSource.clip = LobbyBGM;
+            //SoundManager.soundmanager.bgmSource.volume = bgmVolume.value * masterVolume.value *0.5f;
+            bgmSource.volume = bgmVolume * masterVolume * 0.5f;
+            bgmSource.loop = true;
+            bgmSource.Play();
         }
         else
         {
-            audioSource.Stop();
+            bgmSource.Stop();
         }
-       
     }
 
     public void planeBGM(bool playMusic)
     {
-
         if (playMusic == true)
         {
-            audioSource.clip = PlaneBGM;
-            audioSource.loop = true;
-            audioSource.Play();
+            bgmSource.clip = PlaneBGM;
+            bgmSource.volume = bgmVolume * masterVolume * 0.5f;
+            bgmSource.loop = true;
+            bgmSource.Play();
         }
         else
         {
-            audioSource.Stop();
+            bgmSource.Stop();
         }
-
     }
 
     // 여기부턴 효과음
 
     public void clickLobbyButton()
     {
-        audioSource.PlayOneShot(ClickLobbyButton, fxVolume);
+        fxSource.PlayOneShot(ClickLobbyButton, fxVolume * masterVolume);
     }
     public void clickBackLobbyButton()
     {
-        audioSource.PlayOneShot(ClickBackLobbyButton, fxVolume);
+        fxSource.PlayOneShot(ClickBackLobbyButton, fxVolume * masterVolume);
     }
     public void matchStart()
     {
-        audioSource.PlayOneShot(MatchStart, fxVolume);
+        fxSource.PlayOneShot(MatchStart, fxVolume * masterVolume);
     }
     public void clickIngameButton()
     {
-        audioSource.PlayOneShot(ClickIngameButton, fxVolume);
+        fxSource.PlayOneShot(ClickIngameButton, fxVolume * masterVolume);
     }
     public void touchIngameButton()
     {
-        audioSource.PlayOneShot(TouchIngameButton, fxVolume);
+        fxSource.PlayOneShot(TouchIngameButton, fxVolume * masterVolume);
     }
     public void clickTurnButton()
     {
-        audioSource.PlayOneShot(ClickTurnButton, fxVolume);
+        fxSource.PlayOneShot(ClickTurnButton, fxVolume * masterVolume);
     }
     public void touchBitiniumBar()
     {
-        audioSource.PlayOneShot(TouchBitiniumBar, fxVolume);
+        fxSource.PlayOneShot(TouchBitiniumBar, fxVolume * masterVolume);
     }
     public void endGame()
     {
-        audioSource.PlayOneShot(EndGame, fxVolume);
+        fxSource.PlayOneShot(EndGame, fxVolume * masterVolume);
     }
     public void planeFootStep()
     {
-        audioSource.PlayOneShot(PlaneFootStep, fxVolume);
+        fxSource.PlayOneShot(PlaneFootStep, fxVolume * masterVolume);
     }
     public void swingWeapon()
     {
-        audioSource.PlayOneShot(SwingWeapon, fxVolume);
+        fxSource.PlayOneShot(SwingWeapon, fxVolume * masterVolume);
     }
     public void shortSword()
     {
-        audioSource.PlayOneShot(ShortSword, fxVolume);
+        fxSource.PlayOneShot(ShortSword, fxVolume * masterVolume);
     }
     public void smallSword()
     {
-        audioSource.PlayOneShot(SmallSword, fxVolume);
+        fxSource.PlayOneShot(SmallSword, fxVolume * masterVolume);
     }
     public void bigSword()
     {
-        audioSource.PlayOneShot(BigSword, fxVolume);
+        fxSource.PlayOneShot(BigSword, fxVolume * masterVolume);
     }
     public void archerAttack()
     {
-        audioSource.PlayOneShot(ArcherAttack, fxVolume);
+        fxSource.PlayOneShot(ArcherAttack, fxVolume * masterVolume);
     }
     public void magicAttack()
     {
-        audioSource.PlayOneShot(MagicAttack, fxVolume);
+        fxSource.PlayOneShot(MagicAttack, fxVolume * masterVolume);
     }
     public void reloadGun()
     {
-        audioSource.PlayOneShot(ReloadGun, fxVolume);
+        fxSource.PlayOneShot(ReloadGun, fxVolume * masterVolume);
     }
     public void shootGun()
     {
-        audioSource.PlayOneShot(ShootGun, fxVolume);
+        fxSource.PlayOneShot(ShootGun, fxVolume * masterVolume);
     }
     public void shootLongRifle()
     {
-        audioSource.PlayOneShot(ShootLongRifle, fxVolume);
+        fxSource.PlayOneShot(ShootLongRifle, fxVolume * masterVolume);
     }
     public void hammer()
     {
-        audioSource.PlayOneShot(Hammer, fxVolume);
+        fxSource.PlayOneShot(Hammer, fxVolume * masterVolume);
     }
     public void heal()
     {
-        audioSource.PlayOneShot(Heal, fxVolume);
+        fxSource.PlayOneShot(Heal, fxVolume * masterVolume);
     }
     public void spear()
     {
-        audioSource.PlayOneShot(Spear, fxVolume);
+        fxSource.PlayOneShot(Spear, fxVolume * masterVolume);
     }
 
     IEnumerator soundFadeIn(AudioSource sound)
     {
+        Debug.Log("a");
         float time = 0;
         sound.volume = 0f;
-        while (time != 1)
+        while (time <= 1f)
         {
-            sound.volume += time;
+            sound.volume = time * bgmVolume * masterVolume * 0.5f;
             time += Time.deltaTime;
             yield return null;
         }
