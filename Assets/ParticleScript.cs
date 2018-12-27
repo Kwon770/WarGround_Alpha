@@ -17,7 +17,6 @@ public class ParticleScript : MonoBehaviour {
     {
         particleSys = GetComponent<ParticleSystem>();
         particle = GetComponent<ParticleSystemRenderer>();
-        Debug.Log(particle);
     }
 
     public void DemagePlay()

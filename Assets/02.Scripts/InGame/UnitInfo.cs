@@ -61,6 +61,15 @@ public class UnitInfo : Photon.MonoBehaviour {
         DontDestroyOnLoad(gameObject);
         moveTrigger = false;
 
+        if (photonView.isMine)
+        {
+            transform.Find("EnemyTag").gameObject.SetActive(false);
+        }
+        else
+        {
+            transform.Find("TeamTag").gameObject.SetActive(false);
+        }
+
         if (!photonView.isMine)
         {
             gameObject.AddComponent<Synchro>();
@@ -366,10 +375,15 @@ public class UnitInfo : Photon.MonoBehaviour {
         }
         if (GetComponent<Synchro>() == null)
         {
+            transform.Find("EnemyTag").gameObject.SetActive(true);
+            transform.Find("TeamTag").gameObject.SetActive(false);
             gameObject.AddComponent<Synchro>();
         }
         else
         {
+            transform.Find("EnemyTag").gameObject.SetActive(false);
+            transform.Find("TeamTag").gameObject.SetActive(true);
+
             photonView.RequestOwnership();
             Destroy(GetComponent<Synchro>());
             Kinds = "SkullKnight";

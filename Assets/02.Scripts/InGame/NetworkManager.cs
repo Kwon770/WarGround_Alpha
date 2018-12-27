@@ -40,7 +40,6 @@ public class NetworkManager : Photon.MonoBehaviour {
                 break;
             }
         }
-        Debug.Log(UserList.ToString() + " : " + UserList + " : " + UserList.Length);
     }
 
     IEnumerator Setting()
