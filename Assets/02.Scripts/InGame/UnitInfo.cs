@@ -157,10 +157,9 @@ public class UnitInfo : Photon.MonoBehaviour {
             //defender가 버서커일 경우
             if(this.Kinds == "Berserker")
             {
-                Debug.Log("ddddddddddddddddddddddddddddddddddddddddddddddddddd");
+                Debug.Log("버서커 패시브 발동");
                 HP = 1;
                 ATK += 3;
-                this.Kinds = " Berserker ";
             }
             dieTrigger = true;
         }
@@ -170,6 +169,10 @@ public class UnitInfo : Photon.MonoBehaviour {
     //애니매이션 재생
     IEnumerator Animation(UnitInfo temp)
     {
+        if(Kinds == "Valkyrie")
+        {
+            AddATK++;
+        }
         float time = 0;
 
         this.temp = temp;
@@ -253,7 +256,13 @@ public class UnitInfo : Photon.MonoBehaviour {
         Vector3 startPos;
         Quaternion startRot;
         Quaternion endRot;
+        //발키리 공격력 초기화
 
+        if(Kinds == "Valkyrie")
+        {
+            AddATK--;
+            if (AddATK < 0) AddATK = 0;
+        }
         if (Kinds == "ChiefMate") GameData.data.FindTile(path[0].x, path[0].y).cost = 0;
         
         for (int i = 1; i < path.Count; i++)
@@ -302,20 +311,25 @@ public class UnitInfo : Photon.MonoBehaviour {
 
         if (!photonView.isMine) return;
 
-        if (HP == 1 && Kinds == " Berserker ")
+        if (Kinds == "Dokugawa" || Kinds == "Winvelt" || Kinds == "Brownbeard" || Kinds == "Deathknight" || Kinds == "Mars" || Kinds == "Ragnarr")
         {
+            photonView.RPC("DestroyUnit", PhotonTargets.All);
+        }
+
+        else if (Kinds == "Berserker")
+        {
+            Kinds = " Berserker ";
             Debug.Log("부활");
             //부활
             photonView.RPC("Rise", PhotonTargets.All);
             return;
         }
-        if (Calculator.Calc.UnitInRange(GameData.data.EnemyName, "Banshee", 2, GameData.data.FindTile(x, y)) && Kinds != "SkullKnight")
+        else if (Calculator.Calc.UnitInRange(GameData.EnemyName, "Banshee", 2, GameData.data.FindTile(x, y)) && Kinds != "SkullKnight")
         {
             //부활
             photonView.RPC("Rise", PhotonTargets.All);
             return;
         }
-
         //사망처리
         else
         {
@@ -333,8 +347,11 @@ public class UnitInfo : Photon.MonoBehaviour {
 
     public void ChangeForm()
     {
-        Debug.Log(HP);
-        if (HP != 2) return;
+        if (HP != 2)
+        {
+            particle.GaurdPlay();
+            return;
+        }
         particle.DeadPlay();
         transform.GetChild(0).GetComponent<SkinnedMeshRenderer>().sharedMesh = GameData.data.SkullKnight;
     }
@@ -353,11 +370,12 @@ public class UnitInfo : Photon.MonoBehaviour {
         }
         else
         {
-            Destroy(GetComponent<Synchro>());
             photonView.RequestOwnership();
+            Destroy(GetComponent<Synchro>());
             Kinds = "SkullKnight";
             Owner = PhotonNetwork.playerName;
             if (ATK == -2) ATK = -1;
+            else ATK = 2;
             HP = 2; MaxHP = 2; SHD = 2; range = 1; AddATK = 0; MaxAct = 2;
         }
         anim.RISE();
@@ -381,7 +399,11 @@ public class UnitInfo : Photon.MonoBehaviour {
             stream.SendNext(HP);
             stream.SendNext(SHD);
             stream.SendNext(Act);
+            stream.SendNext(ATK);
+            stream.SendNext(AddATK);
             stream.SendNext(Owner);
+            stream.SendNext(Kinds);
+
         }
         else
         {
@@ -393,7 +415,10 @@ public class UnitInfo : Photon.MonoBehaviour {
             HP = (int)stream.ReceiveNext();
             SHD = (int)stream.ReceiveNext();
             Act = (int)stream.ReceiveNext();
+            ATK = (int)stream.ReceiveNext();
+            AddATK = (int)stream.ReceiveNext();
             Owner = (string)stream.ReceiveNext();
+            Kinds = (string)stream.ReceiveNext();
         }
     }
 }

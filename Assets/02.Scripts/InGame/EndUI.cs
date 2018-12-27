@@ -22,8 +22,8 @@ public class EndUI : MonoBehaviour {
 
 
     //값
-    int _myScore;
-    int _enemyScore;
+    [HideInInspector] public int _myScore;
+    [HideInInspector] public int _enemyScore;
     private void Awake()
     {
         UI = this;
@@ -33,7 +33,7 @@ public class EndUI : MonoBehaviour {
 
     public void SetRemainTurn(int turn)
     {
-        if (turn == 0)
+        if (turn <= 0)
         {
             StartCoroutine("EndGame");
             return;
