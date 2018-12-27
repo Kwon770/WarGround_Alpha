@@ -61,6 +61,15 @@ public class UnitInfo : Photon.MonoBehaviour {
         DontDestroyOnLoad(gameObject);
         moveTrigger = false;
 
+        if (photonView.isMine)
+        {
+            Destroy(transform.Find("EnemyTag").gameObject);
+        }
+        else
+        {
+            Destroy(transform.Find("TeamTag").gameObject);
+        }
+
         if (!photonView.isMine)
         {
             gameObject.AddComponent<Synchro>();
