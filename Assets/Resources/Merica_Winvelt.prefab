@@ -1469,8 +1469,8 @@ MonoBehaviour:
   range: 2
   moveSpeed: 1
   rotSpeed: 10
-  UnitIcon: {fileID: 21300000, guid: c79a7a302f3d3a34ca95791150f11a13, type: 3}
-  SkillIcon: {fileID: 21300000, guid: 491c0020368b616449b6c609350292b5, type: 3}
+  UnitIcon: {fileID: 21300000, guid: ccdca4d6de5206249acbf4b7ef4bd38a, type: 3}
+  SkillIcon: {fileID: 21300000, guid: 2142595ba8bce844ba58ff2608a45c78, type: 3}
 --- !u!114 &114883651227986232
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1489,13 +1489,13 @@ MonoBehaviour:
   - Merica_StrangeOne
   - Cora_Warrior
   - Cora_Archer
-  Cost: 0800000006000000040000000300000000000000
+  Cost: 0800000006000000040000000300000003000000
   Icon:
-  - {fileID: 21300000, guid: 84154cff0b75a254bbbe3ee1a1ab5819, type: 3}
-  - {fileID: 21300000, guid: 682b6519f8974a24cb0ced14187152e4, type: 3}
-  - {fileID: 21300000, guid: 71c36ec60cf57b44fbda26674c23114b, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: d679bd43866671947a78fb476dbebb38, type: 3}
+  - {fileID: 21300000, guid: 3e1f464c851b6a3488628e9f236cfbac, type: 3}
+  - {fileID: 21300000, guid: a03a434cb86475646a42a8a055f37f2c, type: 3}
+  - {fileID: 21300000, guid: 2f7d0b05a6983bf4c91d55771891d550, type: 3}
+  - {fileID: 21300000, guid: f7cc758189e5fcf4486b9528f4f1ae42, type: 3}
   unitName: 
   cost: 0
 --- !u!114 &114899796083603306

@@ -1554,13 +1554,13 @@ MonoBehaviour:
   - Savageborn_Shaman
   - Cora_Warrior
   - Cora_Archer
-  Cost: 0000000000000000000000000000000000000000
+  Cost: 0500000004000000050000000300000003000000
   Icon:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: dc7fc49c7dd6f99469de98edf5b0f27e, type: 3}
+  - {fileID: 21300000, guid: e9d7525ea0959474886c76687f2f5456, type: 3}
+  - {fileID: 21300000, guid: d7a8473c946f01e46885c1aede09ba5d, type: 3}
+  - {fileID: 21300000, guid: 2f7d0b05a6983bf4c91d55771891d550, type: 3}
+  - {fileID: 21300000, guid: f7cc758189e5fcf4486b9528f4f1ae42, type: 3}
   unitName: 0
   cost: 0
 --- !u!114 &114922517274042090
@@ -1595,8 +1595,8 @@ MonoBehaviour:
   range: 1
   moveSpeed: 1
   rotSpeed: 10
-  UnitIcon: {fileID: 21300000, guid: 628c43b6da9f1044283dd003707e48a0, type: 3}
-  SkillIcon: {fileID: 21300000, guid: 364f6bb9139a23c42943ef6eee6a68b8, type: 3}
+  UnitIcon: {fileID: 21300000, guid: 7e0e9b8663d9dd849a6cab428943fcd7, type: 3}
+  SkillIcon: {fileID: 21300000, guid: 9380b4322d3099e419f66f4c401edae4, type: 3}
 --- !u!136 &136099483496865010
 CapsuleCollider:
   m_ObjectHideFlags: 1

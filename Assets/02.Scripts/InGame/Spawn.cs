@@ -28,6 +28,7 @@ public class Spawn : Photon.MonoBehaviour {
             Button temp;
             temp = GameManager.manager.SpawnButton.GetChild(i).GetComponent<Button>();
             GameManager.manager.SpawnButton.GetChild(i).gameObject.SetActive(true);
+            temp.transform.GetChild(1).GetComponent<Text>().text = Cost[i - 5 + Units.Length].ToString();
             GameManager.manager.SpawnButton.GetChild(i).GetComponent<Image>().sprite = Icon[i - 5 + Units.Length];
 
             temp.onClick.RemoveAllListeners();

@@ -1515,8 +1515,8 @@ MonoBehaviour:
   range: 1
   moveSpeed: 1
   rotSpeed: 10
-  UnitIcon: {fileID: 21300000, guid: 628c43b6da9f1044283dd003707e48a0, type: 3}
-  SkillIcon: {fileID: 21300000, guid: 364f6bb9139a23c42943ef6eee6a68b8, type: 3}
+  UnitIcon: {fileID: 21300000, guid: 1ce03bcbfde51f54c801bbb3810d7b49, type: 3}
+  SkillIcon: {fileID: 21300000, guid: cc1670c41c5898743a44abfb3b486732, type: 3}
 --- !u!114 &114413277437332228
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1562,13 +1562,13 @@ MonoBehaviour:
   - Royalguard_Healer
   - Partan_Warrior
   - Partan_Archer
-  Cost: 0600000006000000050000000300000000000000
+  Cost: 0600000006000000050000000300000003000000
   Icon:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: db28c3dddfb0a304e87e44fdaab9a9bb, type: 3}
+  - {fileID: 21300000, guid: d393db0a69ab8534cbd06235b403a34e, type: 3}
+  - {fileID: 21300000, guid: 281bfd6af0761e94593a13f8af168051, type: 3}
+  - {fileID: 21300000, guid: 2f7d0b05a6983bf4c91d55771891d550, type: 3}
+  - {fileID: 21300000, guid: f7cc758189e5fcf4486b9528f4f1ae42, type: 3}
   unitName: 
   cost: 0
 --- !u!114 &114778693038925688

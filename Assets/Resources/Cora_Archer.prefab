@@ -1494,8 +1494,8 @@ MonoBehaviour:
   range: 2
   moveSpeed: 1
   rotSpeed: 10
-  UnitIcon: {fileID: 0}
-  SkillIcon: {fileID: 0}
+  UnitIcon: {fileID: 21300000, guid: f7cc758189e5fcf4486b9528f4f1ae42, type: 3}
+  SkillIcon: {fileID: 21300000, guid: f7cc758189e5fcf4486b9528f4f1ae42, type: 3}
 --- !u!136 &136517041292481920
 CapsuleCollider:
   m_ObjectHideFlags: 1

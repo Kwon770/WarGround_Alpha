@@ -184,6 +184,14 @@ public class NetworkManager : Photon.MonoBehaviour {
         SetOwnerUI(user);
     }
 
+
+    // 상대의 접속이 끊겼을 때 
+    public void OnPhotonPlayerDisconnected(PhotonPlayer other)
+    {
+        EndUI.UI._enemyScore = 0;
+        EndUI.UI.SetRemainTurn(0);
+    }
+
     //동기화
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {

@@ -1442,8 +1442,8 @@ MonoBehaviour:
   range: 1
   moveSpeed: 1
   rotSpeed: 10
-  UnitIcon: {fileID: 21300000, guid: dcbb9d48b04b92843a0cbe2c6364222b, type: 3}
-  SkillIcon: {fileID: 21300000, guid: c0aba5e0bdac1264db413a6a90966d61, type: 3}
+  UnitIcon: {fileID: 21300000, guid: 67cc3343ac01f7b439270a63dd6bccb7, type: 3}
+  SkillIcon: {fileID: 21300000, guid: 761f9eacd718b514dbfb30e17f720573, type: 3}
 --- !u!114 &114661125957113992
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1477,13 +1477,13 @@ MonoBehaviour:
   - Pirates_Harrier
   - Partan_Warrior
   - Partan_Archer
-  Cost: 0500000004000000040000000300000000000000
+  Cost: 0500000004000000040000000300000003000000
   Icon:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: f3bc0cf133ea1b249b924f6c1602e79b, type: 3}
+  - {fileID: 21300000, guid: 9334c68ce8aaf1343beaac35f4632a6d, type: 3}
+  - {fileID: 21300000, guid: 79831d078f201444aabc6fa5781c3b0f, type: 3}
+  - {fileID: 21300000, guid: 2f7d0b05a6983bf4c91d55771891d550, type: 3}
+  - {fileID: 21300000, guid: f7cc758189e5fcf4486b9528f4f1ae42, type: 3}
   unitName: 
   cost: 0
 --- !u!114 &114757456527828966

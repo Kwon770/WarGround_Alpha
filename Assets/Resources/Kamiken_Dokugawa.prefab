@@ -1480,8 +1480,8 @@ MonoBehaviour:
   range: 2
   moveSpeed: 1
   rotSpeed: 10
-  UnitIcon: {fileID: 21300000, guid: 628c43b6da9f1044283dd003707e48a0, type: 3}
-  SkillIcon: {fileID: 21300000, guid: 364f6bb9139a23c42943ef6eee6a68b8, type: 3}
+  UnitIcon: {fileID: 21300000, guid: d5562c96148dae7419ede15c7a6fdcb3, type: 3}
+  SkillIcon: {fileID: 21300000, guid: 6062996237fea5643b08e4226fb6c5d2, type: 3}
 --- !u!114 &114751844232181834
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1500,13 +1500,13 @@ MonoBehaviour:
   - Kamiken_Miko
   - Cora_Warrior
   - Cora_Archer
-  Cost: 0500000004000000050000000300000000000000
+  Cost: 0500000004000000050000000300000003000000
   Icon:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: 1b859ac2bf33ee148878803d3b89d31f, type: 3}
+  - {fileID: 21300000, guid: d5d7c46927bf485449dc025190bec404, type: 3}
+  - {fileID: 21300000, guid: c90253433882ca9438f18a2bbf4f428f, type: 3}
+  - {fileID: 21300000, guid: 2f7d0b05a6983bf4c91d55771891d550, type: 3}
+  - {fileID: 21300000, guid: f7cc758189e5fcf4486b9528f4f1ae42, type: 3}
   unitName: 
   cost: 0
 --- !u!114 &114773745465395660

@@ -1442,8 +1442,8 @@ MonoBehaviour:
   range: 1
   moveSpeed: 1
   rotSpeed: 10
-  UnitIcon: {fileID: 21300000, guid: 628c43b6da9f1044283dd003707e48a0, type: 3}
-  SkillIcon: {fileID: 21300000, guid: 364f6bb9139a23c42943ef6eee6a68b8, type: 3}
+  UnitIcon: {fileID: 21300000, guid: db28c3dddfb0a304e87e44fdaab9a9bb, type: 3}
+  SkillIcon: {fileID: 21300000, guid: dac384590fba4cf4fb5fcda707c3be8a, type: 3}
 --- !u!114 &114450636106568870
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1498,7 +1498,9 @@ MonoBehaviour:
   - Partan_Warrior
   - 
   Cost: 0300000003000000
-  Icon: []
+  Icon:
+  - {fileID: 21300000, guid: 2f7d0b05a6983bf4c91d55771891d550, type: 3}
+  - {fileID: 21300000, guid: f7cc758189e5fcf4486b9528f4f1ae42, type: 3}
   unitName: 
   cost: 0
 --- !u!114 &114918419369406288

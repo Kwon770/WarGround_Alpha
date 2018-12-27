@@ -1442,8 +1442,8 @@ MonoBehaviour:
   range: 1
   moveSpeed: 1
   rotSpeed: 10
-  UnitIcon: {fileID: 21300000, guid: 628c43b6da9f1044283dd003707e48a0, type: 3}
-  SkillIcon: {fileID: 21300000, guid: 364f6bb9139a23c42943ef6eee6a68b8, type: 3}
+  UnitIcon: {fileID: 21300000, guid: 0111305c41858ef4086064359f11d113, type: 3}
+  SkillIcon: {fileID: 21300000, guid: 7406d8f0aaf95c34d838b0d534ffdcbd, type: 3}
 --- !u!114 &114466645844938696
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1461,13 +1461,12 @@ MonoBehaviour:
   - Pluto_Warlock
   - Partan_Warrior
   - Partan_Archer
-  Cost: 05000000000000000300000000000000
+  Cost: 05000000050000000300000003000000
   Icon:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: e6eddf6d402a26c48826b3c1963153a5, type: 3}
+  - {fileID: 21300000, guid: e6b161631dc28fb45920422abbc2c13d, type: 3}
+  - {fileID: 21300000, guid: 2f7d0b05a6983bf4c91d55771891d550, type: 3}
+  - {fileID: 21300000, guid: f7cc758189e5fcf4486b9528f4f1ae42, type: 3}
   unitName: 
   cost: 0
 --- !u!114 &114481321846019034
