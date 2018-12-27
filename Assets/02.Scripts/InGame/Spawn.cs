@@ -10,6 +10,7 @@ public class Spawn : Photon.MonoBehaviour {
 
     [SerializeField] string[] Units;
     [SerializeField] int[] Cost;
+    [SerializeField] Sprite[] Icon;
 
     public string unitName;
     public int cost;
@@ -28,6 +29,7 @@ public class Spawn : Photon.MonoBehaviour {
             Debug.Log(i);
             Button temp;
             temp = GameManager.manager.SpawnButton.GetChild(i).GetComponent<Button>();
+            GameManager.manager.SpawnButton.GetChild(i).GetComponent<Image>().sprite = Icon[i];
             GameManager.manager.SpawnButton.GetChild(i).gameObject.SetActive(true);
 
             temp.onClick.RemoveAllListeners();

@@ -2992,8 +2992,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 171, y: -714}
-  m_SizeDelta: {x: 136, y: 156}
+  m_AnchoredPosition: {x: 188, y: -710}
+  m_SizeDelta: {x: 150, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &94258545
 MonoBehaviour:
@@ -3055,7 +3055,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 840f476932deb4d4daee8d8f8e96c0ab, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 30e29982ab58446459620ab13d3ede5a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -11132,8 +11132,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 68, y: -613}
-  m_SizeDelta: {x: 136, y: 156}
+  m_AnchoredPosition: {x: 103, y: -591}
+  m_SizeDelta: {x: 150, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &351155641
 MonoBehaviour:
@@ -11195,7 +11195,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 840f476932deb4d4daee8d8f8e96c0ab, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 30e29982ab58446459620ab13d3ede5a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -27146,8 +27146,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 171, y: -515}
-  m_SizeDelta: {x: 136, y: 156}
+  m_AnchoredPosition: {x: 188, y: -473}
+  m_SizeDelta: {x: 150, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &927677576
 MonoBehaviour:
@@ -27209,7 +27209,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 840f476932deb4d4daee8d8f8e96c0ab, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 30e29982ab58446459620ab13d3ede5a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -27708,8 +27708,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 68, y: -418}
-  m_SizeDelta: {x: 136, y: 156}
+  m_AnchoredPosition: {x: 103, y: -357}
+  m_SizeDelta: {x: 150, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &939278460
 MonoBehaviour:
@@ -27771,7 +27771,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 840f476932deb4d4daee8d8f8e96c0ab, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 30e29982ab58446459620ab13d3ede5a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -40716,7 +40716,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SkullKnight: {fileID: 4300030, guid: e6f8c6b4cd0c5d24fbefebd224edfdb5, type: 3}
-  EnemyName: 
   Map: {fileID: 1976405837}
   Tiles: []
   Units: []
@@ -40881,8 +40880,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 171, y: -241}
-  m_SizeDelta: {x: 136, y: 156}
+  m_AnchoredPosition: {x: 188, y: -139}
+  m_SizeDelta: {x: 150, y: 200}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1415518607
 MonoBehaviour:
@@ -40944,7 +40943,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 840f476932deb4d4daee8d8f8e96c0ab, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 30e29982ab58446459620ab13d3ede5a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -55744,6 +55743,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  _myScore: 0
+  _enemyScore: 0
 --- !u!1001 &1985568981
 Prefab:
   m_ObjectHideFlags: 0

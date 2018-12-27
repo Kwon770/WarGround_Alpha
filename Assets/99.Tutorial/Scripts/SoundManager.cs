@@ -99,7 +99,7 @@ public class SoundManager : MonoBehaviour
     }
     public void matchStart()
     {
-        fxSource.PlayOneShot(MatchStart, fxVolume * masterVolume);
+        fxSource.PlayOneShot(MatchStart, fxVolume * masterVolume * 2f);
     }
     public void clickIngameButton()
     {

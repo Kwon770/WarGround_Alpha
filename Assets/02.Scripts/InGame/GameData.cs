@@ -6,7 +6,7 @@ public class GameData : MonoBehaviour {
 
     [SerializeField] public Mesh SkullKnight;
 
-    public string EnemyName;
+    public static string EnemyName;
 
     public static GameData data;
     
@@ -49,6 +49,18 @@ public class GameData : MonoBehaviour {
     //유닛 데이터에서 삭제
     public void DelUnit(UnitInfo unit)
     {
+        if(unit.Kinds== "Dokugawa" || unit.Kinds == "Winvelt" || unit.Kinds == "Brownbeard" || unit.Kinds == "Deathknight" || unit.Kinds == "Mars" || unit.Kinds == "Ragnarr")
+        {
+            if (unit.photonView.isMine)
+            {
+                EndUI.UI._myScore = 0;
+            }
+            else
+            {
+                EndUI.UI._enemyScore = 0;
+            }
+            EndUI.UI.SetRemainTurn(0);
+        }
         Units.Remove(unit);
     }
 

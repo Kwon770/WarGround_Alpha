@@ -26,7 +26,7 @@ public class NetworkManager : Photon.MonoBehaviour {
     [PunRPC]
     public void SetMaster(string client)
     {
-        if (client != PhotonNetwork.playerName) GameData.data.EnemyName = client;
+        if (client != PhotonNetwork.playerName) GameData.EnemyName = client;
         if (UserList == null)
         {
             UserList = new string[PhotonNetwork.room.PlayerCount];
@@ -125,9 +125,9 @@ public class NetworkManager : Photon.MonoBehaviour {
         {
 
             unit.Act = unit.MaxAct;
-            if(unit.Kinds != "Warlock") unit.AddATK = 0;
+            if(unit.Kinds != "Warlock" && unit.Kinds != "Valkyrie") unit.AddATK = 0;
 
-            if (Calculator.Calc.UnitInRange(PhotonNetwork.playerName, "Ragnarr", 1, GameData.data.FindTile(unit.x, unit.y)) && unit.Kinds != "Ragnarr") unit.AddATK += 2;
+            if (Calculator.Calc.UnitInRange(PhotonNetwork.playerName, "Ragnarr", 1, GameData.data.FindTile(unit.x, unit.y)) && (unit.Kinds != "Ragnarr" && unit.Kinds != "Valkyrie")) unit.AddATK += 2;
 
             //내 유닛일경우
                 if (unit.Owner == PhotonNetwork.playerName)

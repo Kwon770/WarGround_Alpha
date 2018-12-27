@@ -181,6 +181,8 @@ public class GameManager : MonoBehaviour {
     //이동 및 공격, 방어 행동 연산
     void Move(GameObject Unit, GameObject Tile)
     {
+        ResetTrigger();
+
         UnitInfo unit = Unit.GetComponent<UnitInfo>();
         TileInfo SP = GameData.data.FindTile(unit.x, unit.y);
         TileInfo EP = Tile.GetComponent<TileInfo>();
@@ -202,10 +204,12 @@ public class GameManager : MonoBehaviour {
     }
     void Attack(GameObject Attacker,GameObject Defender)
     {
+        ResetTrigger();
+
         UnitInfo attacker = Attacker.GetComponent<UnitInfo>();
         UnitInfo defender = Defender.GetComponent<UnitInfo>();
 
-        if (attacker.Act < 2) return;
+        if (attacker.Act < 2 || (attacker.Act!=0 && attacker.Kinds== "BadOne")) return;
 
         int range = Calculator.Calc.Range(GameData.data.FindTile(attacker.x, attacker.y), GameData.data.FindTile(defender.x, defender.y), attacker.range);
         if (range <= attacker.range && range !=-1)
@@ -214,8 +218,14 @@ public class GameManager : MonoBehaviour {
             attacker.Act -= 2;
             if (attacker.Kinds == "StrangeOne" || attacker.Kinds == "BadOne") attacker.Act++;
             
+
             //닌자일 경우
             if (defender.Kinds == "Ninja" && range > 1) defender.anim.photonView.RPC("EVASION", PhotonTargets.All);
+
+            else if (Calculator.Calc.UnitInRange(GameData.EnemyName, "Shaman", 3, GameData.data.FindTile(attacker.x, attacker.y)))
+            {
+                defender.photonView.RPC("GetDemage", PhotonTargets.All, attacker.ATK + attacker.AddATK - 2, attacker.x, attacker.y);
+            }
 
             else defender.photonView.RPC("GetDemage", PhotonTargets.All, attacker.ATK + attacker.AddATK, attacker.x, attacker.y);
             attacker.photonView.RPC("Attack", PhotonTargets.All,defender.x,defender.y);

@@ -896,7 +896,7 @@ Transform:
   m_GameObject: {fileID: 1442080730569888}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1143.2935, y: 1418.1058, z: -1540.997}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_Children:
   - {fileID: 4914793547941040}
   - {fileID: 4099267511033696}
@@ -1312,7 +1312,7 @@ MonoBehaviour:
   - Pluto_Banshee
   - Pluto_Warlock
   - Partan_Warrior
-  - 
+  - Partan_Archer
   Cost: 05000000000000000300000000000000
   unitName: 
   cost: 0

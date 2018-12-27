@@ -11,9 +11,10 @@ public class Sys : MonoBehaviour {
 	void Start () {
         StartCoroutine(WriteProfile());
         SoundManager.soundmanager.lobbyBGM(true);
+        Application.runInBackground = true;
     }
-	
-	IEnumerator WriteProfile()
+
+    IEnumerator WriteProfile()
     {
         while (profileName.text == "")
         {
