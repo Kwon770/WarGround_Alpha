@@ -22,15 +22,13 @@ public class Spawn : Photon.MonoBehaviour {
 
     public void Setting()
     {
-        Debug.Log("ddd");
         spawn = this;
         for(int i = 5 - Units.Length; i < 5; i++)
         {
-            Debug.Log(i);
             Button temp;
             temp = GameManager.manager.SpawnButton.GetChild(i).GetComponent<Button>();
-            GameManager.manager.SpawnButton.GetChild(i).GetComponent<Image>().sprite = Icon[i];
             GameManager.manager.SpawnButton.GetChild(i).gameObject.SetActive(true);
+            GameManager.manager.SpawnButton.GetChild(i).GetComponent<Image>().sprite = Icon[i - 5 + Units.Length];
 
             temp.onClick.RemoveAllListeners();
             var cachedI = i- 5 + Units.Length; // Cache for Lambda

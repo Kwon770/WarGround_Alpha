@@ -1501,7 +1501,12 @@ MonoBehaviour:
   - Cora_Warrior
   - Cora_Archer
   Cost: 0500000004000000050000000300000000000000
-  Icon: []
+  Icon:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   unitName: 
   cost: 0
 --- !u!114 &114773745465395660

@@ -1462,7 +1462,12 @@ MonoBehaviour:
   - Partan_Warrior
   - Partan_Archer
   Cost: 05000000000000000300000000000000
-  Icon: []
+  Icon:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   unitName: 
   cost: 0
 --- !u!114 &114481321846019034

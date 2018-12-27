@@ -197,7 +197,6 @@ public class GameManager : MonoBehaviour {
         {
             path = Calculator.Calc.Move(SP, EP, unit.Act);
         }
-        Debug.Log(path);
         if (path == null) return;
         if (unit.move != null) StopCoroutine(unit.move);
         unit.move = StartCoroutine(unit.Move(path));
