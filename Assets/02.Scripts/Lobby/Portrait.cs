@@ -31,6 +31,7 @@ public class Portrait : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public Text Atk;
     public GameObject Text4;
     public Text Shd;
+    public Sprite Skill;
     public Image SkillImage;
     public Text SkillName;
     public Text SkillDescription;
@@ -39,13 +40,10 @@ public class Portrait : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public void OnPointerEnter (PointerEventData eventData)
     {
-        Debug.Log("dddddddddddd");
         SoundManager.soundmanager.touchIngameButton();
 
         teamStory.SetActive(false);
 
-        Back3.SetActive(true);
-        Back4.SetActive(true);
         Back5.SetActive(true);
         Back6.SetActive(true);
         Story.gameObject.SetActive(true);
@@ -59,9 +57,17 @@ public class Portrait : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         Atk.gameObject.SetActive(true);
         Text4.SetActive(true);
         Shd.gameObject.SetActive(true);
-        SkillImage.gameObject.SetActive(true);
-        SkillName.gameObject.SetActive(true);
-        SkillDescription.gameObject.SetActive(true);
+
+        // 특수 유닛일시에만 스킬항목 켬
+        if(Skill != null)
+        {
+            Back3.SetActive(true);
+            Back4.SetActive(true);
+            SkillImage.GetComponent<Image>().sprite = Skill;
+            SkillImage.gameObject.SetActive(true);
+            SkillName.gameObject.SetActive(true);
+            SkillDescription.gameObject.SetActive(true);
+        }
 
 
         Story.text = story;
