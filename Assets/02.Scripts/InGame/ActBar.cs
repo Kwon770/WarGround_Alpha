@@ -11,7 +11,13 @@ public class ActBar : MonoBehaviour {
 
     public void Setting()
     {
-        for (int i = 1; i <= IdleAct; i++) Instantiate(Bar).transform.parent = transform;
+        GameObject temp;
+        for (int i = 1; i <= IdleAct; i++)
+        {
+            temp = Instantiate(Bar);
+            temp.transform.parent = transform;
+            //temp.transform.localScale *= (Screen.width / 1600);
+        }
     }
 
     public void ResetUI()

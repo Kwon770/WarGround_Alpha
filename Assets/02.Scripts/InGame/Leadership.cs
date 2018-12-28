@@ -8,7 +8,13 @@ public class Leadership : MonoBehaviour {
 
     public void Setting(int Leadership)
     {
-        for (int i = 1; i <= Leadership; i++) Instantiate(Bar).transform.parent = transform;
+        GameObject temp;
+        for (int i = 1; i <= Leadership; i++)
+        {
+            temp = Instantiate(Bar);
+            temp.transform.parent = transform;
+//            temp.transform.localScale *= (Screen.width / 1600 * 0.8f);
+        }
     }
 
     public void SetUI(int index)

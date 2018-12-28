@@ -10,7 +10,13 @@ public class Bitinium : MonoBehaviour {
 
     public void Setting(int Bit)
     {
-        for(int i = 1; i <= Bit; i++) Instantiate(Bar).transform.parent = transform;
+        GameObject temp;
+        for (int i = 1; i <= Bit; i++)
+        {
+            temp = Instantiate(Bar);
+            temp.transform.parent = transform;
+//            temp.transform.localScale *= (Screen.width / 1600);
+        }
     }
     public void SetUI(int point)
     {
