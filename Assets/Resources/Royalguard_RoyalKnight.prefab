@@ -1444,6 +1444,8 @@ MonoBehaviour:
   rotSpeed: 10
   UnitIcon: {fileID: 21300000, guid: db28c3dddfb0a304e87e44fdaab9a9bb, type: 3}
   SkillIcon: {fileID: 21300000, guid: dac384590fba4cf4fb5fcda707c3be8a, type: 3}
+  SkillName: Elite Squad
+  SkillInfo: "Royal Knight\u2019 can spawn a normal unit"
 --- !u!114 &114450636106568870
 MonoBehaviour:
   m_ObjectHideFlags: 1

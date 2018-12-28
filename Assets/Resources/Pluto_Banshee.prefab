@@ -1455,6 +1455,8 @@ MonoBehaviour:
   rotSpeed: 10
   UnitIcon: {fileID: 21300000, guid: e6eddf6d402a26c48826b3c1963153a5, type: 3}
   SkillIcon: {fileID: 21300000, guid: e6f6af9f5a0fa6a44840f328dd9e2b9c, type: 3}
+  SkillName: Undead Queen
+  SkillInfo: If unit dies in 1 tile range of Banshee, that unit revive to Skull Knight
 --- !u!114 &114526444887270384
 MonoBehaviour:
   m_ObjectHideFlags: 1

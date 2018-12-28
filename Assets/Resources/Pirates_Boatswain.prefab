@@ -1469,6 +1469,8 @@ MonoBehaviour:
   rotSpeed: 10
   UnitIcon: {fileID: 21300000, guid: f3bc0cf133ea1b249b924f6c1602e79b, type: 3}
   SkillIcon: {fileID: 21300000, guid: 591b02a24c637dc4bb1dfdb3f291d4e9, type: 3}
+  SkillName: Armor Breaker
+  SkillInfo: "The attack of the \u2018Boatswain\u2019 ignores the Shield point"
 --- !u!114 &114420656755357668
 MonoBehaviour:
   m_ObjectHideFlags: 1

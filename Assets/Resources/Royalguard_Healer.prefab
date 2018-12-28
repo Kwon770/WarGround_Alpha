@@ -1458,6 +1458,9 @@ MonoBehaviour:
   rotSpeed: 10
   UnitIcon: {fileID: 21300000, guid: 281bfd6af0761e94593a13f8af168051, type: 3}
   SkillIcon: {fileID: 21300000, guid: b4f065f029deab646a626b249fca59ca, type: 3}
+  SkillName: Shining of Heal
+  SkillInfo: The attack is converted into a health heal magic. The recovered value
+    is equal to the attack point
 --- !u!114 &114623092125007796
 MonoBehaviour:
   m_ObjectHideFlags: 1

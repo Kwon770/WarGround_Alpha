@@ -1509,6 +1509,8 @@ MonoBehaviour:
   rotSpeed: 10
   UnitIcon: {fileID: 21300000, guid: d393db0a69ab8534cbd06235b403a34e, type: 3}
   SkillIcon: {fileID: 21300000, guid: 05fdb955119dd5a4bb23369e50f89240, type: 3}
+  SkillName: "Partan\u2019s Shield"
+  SkillInfo: Each time an enemy is attacked, guarder gains +1 of shield point
 --- !u!114 &114573726610247620
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -1516,6 +1516,9 @@ MonoBehaviour:
   rotSpeed: 10
   UnitIcon: {fileID: 21300000, guid: e9d7525ea0959474886c76687f2f5456, type: 3}
   SkillIcon: {fileID: 21300000, guid: fc9ca7fd21652984b801e46226187d9b, type: 3}
+  SkillName: Warmonger
+  SkillInfo: "If \u2018Valkyrie\u2019 attacks an enemy, gain 3 additional attack point
+    on the next turn. However, if the attack is stopped, the effect is reset"
 --- !u!114 &114249724608909838
 MonoBehaviour:
   m_ObjectHideFlags: 1

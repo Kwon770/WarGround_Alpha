@@ -1512,6 +1512,8 @@ MonoBehaviour:
   rotSpeed: 10
   UnitIcon: {fileID: 21300000, guid: 2f7d0b05a6983bf4c91d55771891d550, type: 3}
   SkillIcon: {fileID: 21300000, guid: 2f7d0b05a6983bf4c91d55771891d550, type: 3}
+  SkillName: Warrior
+  SkillInfo: The brave soldier with a sword
 --- !u!114 &114545017363217088
 MonoBehaviour:
   m_ObjectHideFlags: 1

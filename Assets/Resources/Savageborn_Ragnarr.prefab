@@ -1597,6 +1597,9 @@ MonoBehaviour:
   rotSpeed: 10
   UnitIcon: {fileID: 21300000, guid: 7e0e9b8663d9dd849a6cab428943fcd7, type: 3}
   SkillIcon: {fileID: 21300000, guid: 9380b4322d3099e419f66f4c401edae4, type: 3}
+  SkillName: "Viking\u2019s Soul"
+  SkillInfo: "Units around 1 Tile Range of \u2018Ragnarr\u2019, gain 2 additional
+    \ attack points"
 --- !u!136 &136099483496865010
 CapsuleCollider:
   m_ObjectHideFlags: 1

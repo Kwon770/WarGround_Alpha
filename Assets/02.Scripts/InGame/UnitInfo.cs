@@ -46,6 +46,9 @@ public class UnitInfo : Photon.MonoBehaviour {
     [SerializeField] public Sprite UnitIcon;
     [SerializeField] public Sprite SkillIcon;
 
+    [SerializeField] public string SkillName;
+    [SerializeField] public string SkillInfo;
+
     // Use this for initialization
 
     //초기화
@@ -361,6 +364,10 @@ public class UnitInfo : Photon.MonoBehaviour {
             particle.GaurdPlay();
             return;
         }
+
+        SkillName = "Small Bone";
+        SkillInfo = "Skull knight does not spend command point";
+
         particle.DeadPlay();
         transform.GetChild(0).GetComponent<SkinnedMeshRenderer>().sharedMesh = GameData.data.SkullKnight;
     }

@@ -1517,6 +1517,8 @@ MonoBehaviour:
   rotSpeed: 10
   UnitIcon: {fileID: 21300000, guid: 1ce03bcbfde51f54c801bbb3810d7b49, type: 3}
   SkillIcon: {fileID: 21300000, guid: cc1670c41c5898743a44abfb3b486732, type: 3}
+  SkillName: Plate Armor
+  SkillInfo: "A unit that \u2018Mars\u2019 spawned gains 1 additional shield point"
 --- !u!114 &114413277437332228
 MonoBehaviour:
   m_ObjectHideFlags: 1

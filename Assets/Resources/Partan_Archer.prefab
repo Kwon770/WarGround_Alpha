@@ -1470,6 +1470,8 @@ MonoBehaviour:
   rotSpeed: 10
   UnitIcon: {fileID: 21300000, guid: f7cc758189e5fcf4486b9528f4f1ae42, type: 3}
   SkillIcon: {fileID: 21300000, guid: f7cc758189e5fcf4486b9528f4f1ae42, type: 3}
+  SkillName: Archer
+  SkillInfo: The brave soldier with a bow
 --- !u!114 &114276557266893620
 MonoBehaviour:
   m_ObjectHideFlags: 1

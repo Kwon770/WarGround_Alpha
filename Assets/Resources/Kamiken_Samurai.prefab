@@ -1481,6 +1481,8 @@ MonoBehaviour:
   rotSpeed: 10
   UnitIcon: {fileID: 21300000, guid: 1b859ac2bf33ee148878803d3b89d31f, type: 3}
   SkillIcon: {fileID: 21300000, guid: f0f9f62a4a692a1499d84f4a74116206, type: 3}
+  SkillName: Batto
+  SkillInfo: "Samurai\u2019 has act point immediately when spawned"
 --- !u!114 &114834797898725626
 MonoBehaviour:
   m_ObjectHideFlags: 1

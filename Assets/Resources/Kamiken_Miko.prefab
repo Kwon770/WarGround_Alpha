@@ -1404,6 +1404,9 @@ MonoBehaviour:
   rotSpeed: 10
   UnitIcon: {fileID: 21300000, guid: c90253433882ca9438f18a2bbf4f428f, type: 3}
   SkillIcon: {fileID: 21300000, guid: 87498880b63a27f4196c4fea77418858, type: 3}
+  SkillName: Dance of Heal
+  SkillInfo: "If a friendly unit in the 1 tile range suffers damage, \u2018Miko\u2019
+    heals friendly unit\u2019s health point by 1  in 1 tile range"
 --- !u!136 &136846289171392404
 CapsuleCollider:
   m_ObjectHideFlags: 1

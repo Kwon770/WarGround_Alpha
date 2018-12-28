@@ -1482,6 +1482,8 @@ MonoBehaviour:
   rotSpeed: 10
   UnitIcon: {fileID: 21300000, guid: d5562c96148dae7419ede15c7a6fdcb3, type: 3}
   SkillIcon: {fileID: 21300000, guid: 6062996237fea5643b08e4226fb6c5d2, type: 3}
+  SkillName: Tendon Cutting
+  SkillInfo: Units attacked by Tokugawa reduce their attack point  to 1
 --- !u!114 &114751844232181834
 MonoBehaviour:
   m_ObjectHideFlags: 1

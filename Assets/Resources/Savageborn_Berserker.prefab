@@ -1496,6 +1496,10 @@ MonoBehaviour:
   rotSpeed: 10
   UnitIcon: {fileID: 21300000, guid: dc7fc49c7dd6f99469de98edf5b0f27e, type: 3}
   SkillIcon: {fileID: 21300000, guid: ac1fbdc854992e54d92ced054142d118, type: 3}
+  SkillName: The last resistance
+  SkillInfo: "When \u2018Berserker\u2019 receive an attack that make  health less
+    than one point, gain 1 health point and 3 additional attack poin. However, it
+    is one time"
 --- !u!136 &136157645653225674
 CapsuleCollider:
   m_ObjectHideFlags: 1

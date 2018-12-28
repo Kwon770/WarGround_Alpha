@@ -1588,6 +1588,9 @@ MonoBehaviour:
   rotSpeed: 10
   UnitIcon: {fileID: 21300000, guid: 9334c68ce8aaf1343beaac35f4632a6d, type: 3}
   SkillIcon: {fileID: 21300000, guid: e4664b64209bf4a4d9ee33514c385b0b, type: 3}
+  SkillName: Guide
+  SkillInfo: "The tile that \u2018Chief mate\u2019 has moved becomes a tile does not
+    consume any movement action point during that turn"
 --- !u!136 &136956411760757150
 CapsuleCollider:
   m_ObjectHideFlags: 1

@@ -1443,6 +1443,8 @@ MonoBehaviour:
   rotSpeed: 10
   UnitIcon: {fileID: 21300000, guid: d5d7c46927bf485449dc025190bec404, type: 3}
   SkillIcon: {fileID: 21300000, guid: 372b0c54fe7f0aa4d84d11c38768416c, type: 3}
+  SkillName: Evasion
+  SkillInfo: ' Do not take damage by attack that is More than 2 tile range attack'
 --- !u!114 &114358497224957596
 MonoBehaviour:
   m_ObjectHideFlags: 1
