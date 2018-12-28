@@ -42,10 +42,10 @@ public class Manager : MonoBehaviour {
     [HideInInspector] public bool corutine = false;
 
 
-    //private void Start()
-    //{
-    //    StartCoroutine(AlarmPanel());
-    //}
+    private void Start()
+    {
+        StartCoroutine(AlarmPanel());
+    }
 
     void Update () {
 		
@@ -137,7 +137,7 @@ public class Manager : MonoBehaviour {
         }
     }
 
-    public IEnumerator AlarmPanel()
+    IEnumerator AlarmPanel()
     {
         Debug.Log("Alarm");
 
