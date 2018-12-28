@@ -19,48 +19,33 @@ public class Match : MonoBehaviour {
 
     string[] hex = { "#FFAAAA", "#90D7FF", "#8FFF91", "#E38FFF", "#8FFFCE", "#FF8FA5", "DBAAFF", "E5FFAA", "FFAAC1" };
 
-    private void Update()
+    public void LoadEnemyInfo(string name, int kinds)
     {
-        if (PhotonNetwork.inRoom)
-        {
-            //방에들어왔을때
-            if (LobbyNetwork.instance.MatchManager != null)
-            {
-                //두명일때
-                foreach (string player in LobbyNetwork.instance.MatchManager.PlayerList)
-                {
-                    if(player != null && player != myName + "")
-                    {
-                        // 적 이름 작성
-                        enemyname.text = player;
+        // 적 이름 작성
+        enemyname.text = name;
 
-                        // 적 캐릭터 작성
-                        switch (LobbyNetwork.instance.EliteType)
-                        {
-                            case 0:
-                                enemyChar.text = "Partan - Pluto";
-                                break;
-                            case 1:
-                                enemyChar.text = "Partan - Brownbeard Pirates";
-                                break;
-                            case 2:
-                                enemyChar.text = "Cora - Royal Guard";
-                                break;
-                            case 3:
-                                enemyChar.text = "Partan - Merica";
-                                break;
-                            case 4:
-                                enemyChar.text = "Cora - Kamiken";
-                                break;
-                            case 5:
-                                enemyChar.text = "Cora - Savageborn";
-                                break;
-                        }
-                    }
-                }
-            }
+        // 적 캐릭터 작성
+        switch (LobbyNetwork.instance.EliteType)
+        {
+            case 0:
+                enemyChar.text = "Partan - Pluto";
+                break;
+            case 1:
+                enemyChar.text = "Partan - Brownbeard Pirates";
+                break;
+            case 2:
+                enemyChar.text = "Cora - Royal Guard";
+                break;
+            case 3:
+                enemyChar.text = "Partan - Merica";
+                break;
+            case 4:
+                enemyChar.text = "Cora - Kamiken";
+                break;
+            case 5:
+                enemyChar.text = "Cora - Savageborn";
+                break;
         }
-        
     }
 
     // 시작 버튼 함수

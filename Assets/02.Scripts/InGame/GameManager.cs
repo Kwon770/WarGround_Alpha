@@ -54,7 +54,7 @@ public class GameManager : MonoBehaviour {
     {
         if (Type == "Attack")
         {
-            if(this.Type == ObjTpye.Unit)
+            if (this.Type == ObjTpye.Unit)
             {
                 UnitInfo unit = Obj.GetComponent<UnitInfo>();
                 TileInfo tile = GameData.data.FindTile(unit.x, unit.y);
@@ -63,7 +63,7 @@ public class GameManager : MonoBehaviour {
                 {
                     return;
                 }
-                else if(unit.Kinds != "BadOne" && unit.Act < 2)
+                else if (unit.Kinds != "BadOne" && unit.Act < 2)
                 {
                     return;
                 }
@@ -87,7 +87,7 @@ public class GameManager : MonoBehaviour {
                 List<TileInfo> tiles;
                 if (unit.Kinds == "BadOne")
                 {
-                    tiles = Calculator.Calc.GetMoveTile(tile, unit.Act/2);
+                    tiles = Calculator.Calc.GetMoveTile(tile, unit.Act / 2);
                 }
                 else
                 {
@@ -98,11 +98,17 @@ public class GameManager : MonoBehaviour {
                     moveTile.CanUse();
                 }
             }
-            
+
             trigger = Trigger.Move;
         }
         else if (Type == "Spawn")
         {
+            UnitInfo Temp =Obj.GetComponent<UnitInfo>();
+            foreach (var tile in Calculator.Calc.GetInrangeTile(GameData.data.FindTile(Temp.x, Temp.y), 1))
+            {
+                if (tile.idlecost == 100) continue;
+                tile.CanUse();
+            }
             trigger = Trigger.Spawn;
         }
     }
@@ -151,7 +157,7 @@ public class GameManager : MonoBehaviour {
             if (!enemy && CheckOwner()) Obj.GetComponent<UnitInfo>().UI();
 
             //UI보여주기
-            InfoBar.bar.SetUI(unit.UnitIcon,unit.SkillIcon,unit.Kinds, unit.ATK + unit.AddATK, unit.HP, unit.SHD, unit.Act);
+            InfoBar.bar.SetUI(unit.UnitIcon,unit.SkillIcon,unit.Kinds, unit.ATK + unit.AddATK, unit.HP, unit.SHD, unit.Act,unit.SkillName,unit.SkillInfo);
         }
 
         //타일 클릭했을때
@@ -170,9 +176,11 @@ public class GameManager : MonoBehaviour {
             }
             else if(Obj != null && !enemy && trigger == Trigger.Spawn)
             {
-                Spawn.spawn.UnitSpawn(hit.transform.GetComponent<TileInfo>());
                 ResetTrigger();
                 InfoBar.bar.ResetUI();
+                TileInfo temp = hit.transform.GetComponent<TileInfo>();
+                if (GameData.data.FindUnit(temp.x, temp.y) != null) return;
+                Spawn.spawn.UnitSpawn(temp);
                 return;
             }
         }

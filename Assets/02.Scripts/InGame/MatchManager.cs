@@ -28,13 +28,18 @@ public class MatchManager : Photon.MonoBehaviour {
         sceneCheck = true;
         
         MapType = "Plane";
-        photonView.RPC("GetUserID", PhotonTargets.All, PhotonNetwork.playerName);
+        photonView.RPC("GetUserID", PhotonTargets.All, PhotonNetwork.playerName, LobbyNetwork.instance.EliteType);
     }
  
     //id 갱신
     [PunRPC]
-    public void GetUserID(string name)
+    public void GetUserID(string name, int kinds)
     {
+        if (name != PhotonNetwork.playerName)
+        {
+            Debug.Log(name);
+            FindObjectOfType<Match>().LoadEnemyInfo(name,kinds);
+        }
         for (int i = 0; i < PhotonNetwork.room.MaxPlayers; i++)
         {
             if (PlayerList[i] == null)

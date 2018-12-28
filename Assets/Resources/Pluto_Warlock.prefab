@@ -1436,6 +1436,9 @@ MonoBehaviour:
   rotSpeed: 10
   UnitIcon: {fileID: 21300000, guid: e6b161631dc28fb45920422abbc2c13d, type: 3}
   SkillIcon: {fileID: 21300000, guid: a899f015f3fc7ea4ebd1d5718ee341f5, type: 3}
+  SkillName: Craving
+  SkillInfo: Each time Warlock kills the unit, his attack point increases by 1 . Additional
+    Attack Point can be obtained up to 5
 --- !u!114 &114958972190565296
 MonoBehaviour:
   m_ObjectHideFlags: 1

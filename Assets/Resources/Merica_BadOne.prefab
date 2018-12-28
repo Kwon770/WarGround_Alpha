@@ -1443,6 +1443,8 @@ MonoBehaviour:
   rotSpeed: 10
   UnitIcon: {fileID: 21300000, guid: 3e1f464c851b6a3488628e9f236cfbac, type: 3}
   SkillIcon: {fileID: 21300000, guid: 8adefad7646821c4fb99c3187428cedb, type: 3}
+  SkillName: Panning
+  SkillInfo: "Bad one\u2019s attack spend 1 act point. But his move spend 2 act points"
 --- !u!114 &114439422674671722
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -166,6 +166,7 @@ public class NetworkManager : Photon.MonoBehaviour {
                 {
                     foreach (var temp in Calculator.Calc.GetInrangeTile(tile, 2))
                     {
+                        if (temp.idlecost == 100) continue;
                         temp.cost = 0;
                     }
                 }

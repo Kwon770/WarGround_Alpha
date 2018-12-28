@@ -1562,6 +1562,8 @@ MonoBehaviour:
   rotSpeed: 10
   UnitIcon: {fileID: 21300000, guid: a03a434cb86475646a42a8a055f37f2c, type: 3}
   SkillIcon: {fileID: 21300000, guid: c665d055893ff4e48bd3e4c835b0a410, type: 3}
+  SkillName: "Shot\u2019N\u2018Roll"
+  SkillInfo: "When \u2018Strange one\u2019 attack, he receive 1 movement act point"
 --- !u!114 &114828670051406620
 MonoBehaviour:
   m_ObjectHideFlags: 1

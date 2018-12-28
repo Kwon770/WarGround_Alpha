@@ -1627,6 +1627,8 @@ MonoBehaviour:
   rotSpeed: 10
   UnitIcon: {fileID: 21300000, guid: d7a8473c946f01e46885c1aede09ba5d, type: 3}
   SkillIcon: {fileID: 21300000, guid: c38cc558f2200014aa808ee6919a001b, type: 3}
+  SkillName: Curse
+  SkillInfo: Decrease the enemy damage by 2 in the area around 2 tile range of Shaman
 --- !u!114 &114431570986081486
 MonoBehaviour:
   m_ObjectHideFlags: 1
