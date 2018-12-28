@@ -85,7 +85,7 @@ public class EndUI : MonoBehaviour {
     }
     public IEnumerator Loading()
     {
-        AsyncOperation async = SceneManager.LoadSceneAsync(0);
+        AsyncOperation async = SceneManager.LoadSceneAsync(1);
         async.allowSceneActivation = false;
 
         float time = 0f;

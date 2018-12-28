@@ -35,11 +35,6 @@ public class MatchManager : Photon.MonoBehaviour {
     [PunRPC]
     public void GetUserID(string name, int kinds)
     {
-        if (name != PhotonNetwork.playerName)
-        {
-            Debug.Log(name);
-            FindObjectOfType<Match>().LoadEnemyInfo(name,kinds);
-        }
         for (int i = 0; i < PhotonNetwork.room.MaxPlayers; i++)
         {
             if (PlayerList[i] == null)
@@ -47,6 +42,11 @@ public class MatchManager : Photon.MonoBehaviour {
                 PlayerList[i] = name;
                 break;
             }
+        }
+        if (name != PhotonNetwork.playerName)
+        {
+            Debug.Log(name);
+            FindObjectOfType<Match>().LoadEnemyInfo(name, kinds);
         }
     }
 
