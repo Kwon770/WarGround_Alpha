@@ -16,7 +16,6 @@ public class MatchManager : Photon.MonoBehaviour {
     
     void Awake ()
     {
-        SoundManager.soundmanager.matchStart();
         manager = this;
 
         check = 0;
@@ -78,6 +77,8 @@ public class MatchManager : Photon.MonoBehaviour {
     //씬로드
     IEnumerator SceneLoad()
     {
+        yield return new WaitForSeconds(5);
+
         AsyncOperation async = SceneManager.LoadSceneAsync(MapType);
         yield return async;
 
