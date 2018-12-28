@@ -14,6 +14,10 @@ public class Match : MonoBehaviour {
     public Text enemyChar;
     public Image EnemyProfile;
 
+    public GameObject Complete;
+    public GameObject Timer;
+    public Text textTime;
+
 
     public Image[] anim;
 
@@ -46,6 +50,19 @@ public class Match : MonoBehaviour {
                 enemyChar.text = "Cora - Savageborn";
                 break;
         }
+
+        // 매칭 소리 재생
+        SoundManager.soundmanager.matchStart();
+
+        // 매칭 완료 UI
+        Complete.SetActive(true);
+
+        // 매칭 에니메이션 종료
+        StopCoroutine(Anim());
+
+        // 타이머 애니메이션
+        //Timer.SetActive(true);
+        //StartCoroutine(TimerAnim());
     }
 
     // 시작 버튼 함수
@@ -101,6 +118,17 @@ public class Match : MonoBehaviour {
     {
         MyProfile.sprite = PlayerImg;
         EnemyProfile.sprite = EnemyImg;
+    }
+
+    IEnumerator TimerAnim()
+    {
+        int _time = 5;
+        if(_time != 0)
+        {
+            textTime.text = _time + "";
+            yield return new WaitForSeconds(1);
+            _time--;
+        }
     }
 
     IEnumerator Anim()
