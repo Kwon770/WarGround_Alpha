@@ -42,10 +42,10 @@ public class Manager : MonoBehaviour {
     [HideInInspector] public bool corutine = false;
 
 
-    private void Start()
-    {
-        StartCoroutine(AlarmPanel());
-    }
+    //private void Start()
+    //{
+    //    StartCoroutine(AlarmPanel());
+    //}
 
     void Update () {
 		
@@ -78,7 +78,6 @@ public class Manager : MonoBehaviour {
             }
             else if(scene == (int)Menunum.Description)
             {
-                Debug.Log("ddddddddddddddddd");
                 SoundManager.soundmanager.clickBackLobbyButton();
                 StartCoroutine(ReturnPanel());
                 scene = (int)Menunum.Troop;
@@ -138,8 +137,10 @@ public class Manager : MonoBehaviour {
         }
     }
 
-    IEnumerator AlarmPanel()
+    public IEnumerator AlarmPanel()
     {
+        Debug.Log("Alarm");
+
         Vector3 startPos, endPos;
         startPos = AlarmPos1.transform.position;
         endPos = AlarmPos2.transform.position;
@@ -152,7 +153,7 @@ public class Manager : MonoBehaviour {
             yield return null;
         }
 
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(7);
 
         startPos = AlarmPos2.transform.position;
         endPos = AlarmPos1.transform.position;

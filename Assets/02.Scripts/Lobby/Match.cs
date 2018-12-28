@@ -9,8 +9,11 @@ public class Match : MonoBehaviour {
 
     public Text myName;
     public Text myChar;
+    public Image MyProfile;
     public Text enemyname;
     public Text enemyChar;
+    public Image EnemyProfile;
+
 
     public Image[] anim;
 
@@ -28,7 +31,31 @@ public class Match : MonoBehaviour {
                 {
                     if(player != null && player != myName + "")
                     {
+                        // 적 이름 작성
                         enemyname.text = player;
+
+                        // 적 캐릭터 작성
+                        switch (LobbyNetwork.instance.EliteType)
+                        {
+                            case 0:
+                                enemyChar.text = "Partan - Pluto";
+                                break;
+                            case 1:
+                                enemyChar.text = "Partan - Brownbeard Pirates";
+                                break;
+                            case 2:
+                                enemyChar.text = "Cora - Royal Guard";
+                                break;
+                            case 3:
+                                enemyChar.text = "Partan - Merica";
+                                break;
+                            case 4:
+                                enemyChar.text = "Cora - Kamiken";
+                                break;
+                            case 5:
+                                enemyChar.text = "Cora - Savageborn";
+                                break;
+                        }
                     }
                 }
             }
@@ -36,44 +63,60 @@ public class Match : MonoBehaviour {
         
     }
 
+    // 시작 버튼 함수
     public void RandomMatch()
     {
+        // Esc 키 무효화
+        Manager.instance.corutine = true;
+
         match.SetActive(true);
         LobbyNetwork.instance.JoinRandom();
 
         StartCoroutine(Anim());
 
+        // 내 이름 작성
         myName.text = PhotonNetwork.playerName;
         
+        // 내 캐릭터 작성
         switch (LobbyNetwork.instance.EliteType)
         {
             case 0:
                 myChar.text = "Partan - Pluto";
                 break;
             case 1:
-                myChar.text = "Partan - Merica";
-                break;
-            case 2:
-                myChar.text = "Cora - Kamiken";
-                break;
-            case 3:
-                myChar.text = "Cora - Savageborn";
-                break;
-            case 4:
                 myChar.text = "Partan - Brownbeard Pirates";
                 break;
-            case 5:
+            case 2:
                 myChar.text = "Cora - Royal Guard";
+                break;
+            case 3:
+                myChar.text = "Partan - Merica";
+                break;
+            case 4:
+                myChar.text = "Cora - Kamiken";
+                break;
+            case 5:
+                myChar.text = "Cora - Savageborn";
                 break;
         }
     }
 
+    //취소 버튼
     public void Cancel()
     {
+        // Esc 키 무효화 취소
+        Manager.instance.corutine = false;
+
         match.SetActive(false);
         LobbyNetwork.instance.LeaveRoom();
     }
 
+    // 프로필 사진 로드
+    public void LoadProfileImg(Sprite PlayerImg, Sprite EnemyImg)
+    {
+        MyProfile.sprite = PlayerImg;
+        EnemyProfile.sprite = EnemyImg;
+    }
 
     IEnumerator Anim()
     {

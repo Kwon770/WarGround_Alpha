@@ -10,7 +10,7 @@ public class Sys : MonoBehaviour {
 
 	void Start () {
         StartCoroutine(WriteProfile());
-        SoundManager.soundmanager.lobbyBGM(true);
+        //SoundManager.soundmanager.lobbyBGM(true);
         Application.runInBackground = true;
     }
 

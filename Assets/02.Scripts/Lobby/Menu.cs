@@ -28,7 +28,6 @@ public class Menu : MonoBehaviour {
 
     [HideInInspector] public bool optionStatement = false;
 
-    [SerializeField] Manager manager;
 
     [SerializeField] AnimationCurve curve;
     [SerializeField][Tooltip("Fast Speed")]
