@@ -7,7 +7,7 @@ public class Exit : MonoBehaviour
 
     public void ClickExit()
     {
-        if (Application.loadedLevel == 0)
+        if (Application.loadedLevel == 1)
         {
             Application.Quit();
         }
