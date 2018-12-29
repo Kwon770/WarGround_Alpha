@@ -5,6 +5,10 @@ using UnityEngine.UI;
 
 public class Match : MonoBehaviour {
 
+    [SerializeField] float Speed;
+    [SerializeField] AnimationCurve curve;
+    public GameObject Pos;
+
     public GameObject match;
 
     public Text myName;
@@ -15,8 +19,7 @@ public class Match : MonoBehaviour {
     public Image EnemyProfile;
 
     public GameObject Complete;
-    public GameObject Timer;
-    public Text textTime;
+    public GameObject Error;
 
 
     public Image[] anim;
@@ -68,6 +71,9 @@ public class Match : MonoBehaviour {
     // 시작 버튼 함수
     public void RandomMatch()
     {
+        // 오류 확인
+        StartCoroutine(CheckConnection());
+
         // Esc 키 무효화
         Manager.instance.corutine = true;
 
@@ -120,14 +126,56 @@ public class Match : MonoBehaviour {
         EnemyProfile.sprite = EnemyImg;
     }
 
-    IEnumerator TimerAnim()
+    IEnumerator CheckConnection()
     {
-        int _time = 5;
-        if(_time != 0)
+        float time = 0f;
+        while(time < 5f)
         {
-            textTime.text = _time + "";
-            yield return new WaitForSeconds(1);
-            _time--;
+            time += Time.deltaTime;
+            if (PhotonNetwork.inRoom)
+            {
+                yield break;
+            }
+            yield return null;
+        }
+
+        // 오류 출력
+        match.SetActive(false);
+        Error.SetActive(true);
+
+        yield return new WaitForSeconds(2);
+
+        Error.SetActive(false);
+    }
+
+    IEnumerator PanelMove()
+    {
+        Manager.instance.corutine = true;
+
+        Vector3 startPos = Pos.transform.position;
+        Vector3 endPos = Complete.transform.position;
+        float time = 0;
+
+        while (time <= 1)
+        {
+            Error.transform.position = Vector3.Lerp(startPos, endPos, curve.Evaluate(time));
+            time += Time.deltaTime * Speed;
+            yield return null;
+        }
+
+        yield return new WaitForSeconds(2);
+
+        Manager.instance.corutine = false;
+
+        startPos = Complete.transform.position;
+        endPos = Pos.transform.position;
+        time = 0;
+
+        while (time <= 1)
+        {
+            Error.transform.position = Vector3.Lerp(startPos, endPos, curve.Evaluate(time));
+            time += Time.deltaTime * Speed;
+            yield return null;
         }
     }
 

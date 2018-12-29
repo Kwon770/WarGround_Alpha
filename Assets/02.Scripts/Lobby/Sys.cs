@@ -9,6 +9,10 @@ public class Sys : MonoBehaviour {
     public Image profileImage;
 
 	void Start () {
+
+        if (MatchManager.manager != null)
+            Destroy(MatchManager.manager.gameObject);
+
         StartCoroutine(WriteProfile());
         SoundManager.soundmanager.lobbyBGM(true);
         Application.runInBackground = true;
