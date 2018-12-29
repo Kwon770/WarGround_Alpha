@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class EndUI : MonoBehaviour {
+public class EndUI : Photon.MonoBehaviour {
 
     public static EndUI UI;
 
@@ -63,6 +63,7 @@ public class EndUI : MonoBehaviour {
         Vector3 startPos = EndCanvas.position;
         Vector3 endPos = EndCanvas.parent.position;
 
+
         while (time <= 1f)
         {
             EndCanvas.position = Vector3.LerpUnclamped(startPos, endPos, curve.Evaluate(time));
@@ -70,6 +71,8 @@ public class EndUI : MonoBehaviour {
             yield return null;
         }
         yield return null;
+
+        PhotonNetwork.LeaveRoom();
     }
     public void LoadScene()
     {

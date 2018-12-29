@@ -15,6 +15,8 @@ public class LobbyNetwork : Photon.MonoBehaviour
 
     void Start()
     {
+        if (!PhotonNetwork.inRoom) LeaveRoom();
+
         UserName = "Guest" + Random.Range(1, 1000);
         PhotonNetwork.playerName = UserName;//이름 지정 다음에 지워야함
         instance = this;//싱글톤

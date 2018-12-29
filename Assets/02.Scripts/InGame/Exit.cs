@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class Exit : MonoBehaviour
 {
-
     public void ClickExit()
     {
+        Debug.Log(Application.loadedLevel);
         if (Application.loadedLevel == 1)
         {
             Application.Quit();
         }
-        else
+        else if(Application.loadedLevel == 3)
         {
-            FindObjectOfType<EndUI>().StartCoroutine("Loading");
+            EndUI.UI._myScore = 0;
+            EndUI.UI.SetRemainTurn(0);
         }
     }
 	
