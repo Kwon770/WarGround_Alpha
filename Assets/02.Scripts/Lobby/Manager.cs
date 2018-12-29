@@ -139,7 +139,7 @@ public class Manager : MonoBehaviour {
 
     IEnumerator AlarmPanel()
     {
-        Debug.Log("Alarm");
+        yield return new WaitForSeconds(1);
 
         Vector3 startPos, endPos;
         startPos = AlarmPos1.transform.position;
