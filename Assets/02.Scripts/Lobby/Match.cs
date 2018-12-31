@@ -141,14 +141,10 @@ public class Match : MonoBehaviour {
 
         // 오류 출력
         match.SetActive(false);
-        Error.SetActive(true);
-
-        yield return new WaitForSeconds(2);
-
-        Error.SetActive(false);
+        StartCoroutine(ErrorMove());
     }
 
-    IEnumerator PanelMove()
+    IEnumerator ErrorMove()
     {
         Manager.instance.corutine = true;
 
