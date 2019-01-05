@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class REunitBehaviour : MonoBehaviour {
 
-    public float MoveSpeed { get; private set; }
+    public float MoveSpeed;
+    [SerializeField] REunitInfo unitInfo;
+ 
 
     public IEnumerator MovePlayer(REtileInfo startPos, REtileInfo endPos, int cost)
     {
@@ -14,6 +16,8 @@ public class REunitBehaviour : MonoBehaviour {
         REtileInfo End = endPos;
 
         Stack<REtileInfo> tileStack = new Stack<REtileInfo>();
+        tileStack.Push(RouteFinder);
+
         for (int i = 0; i < cost - 1; i++)
         {
             tileStack.Push(RouteFinder.RouteTile);
@@ -25,10 +29,10 @@ public class REunitBehaviour : MonoBehaviour {
             float time = 0;
 
             End = tileStack.Pop();
+            Quaternion endRot = Quaternion.LookRotation(End.transform.position - transform.position);
             Quaternion startRot = transform.rotation;
-            Quaternion endRot = End.transform.rotation;
 
-            while(time <= 1)
+            while (time <= 1)
             {
                 transform.rotation = Quaternion.Lerp(startRot, endRot, time);
                 time += 5 * Time.deltaTime;
@@ -38,6 +42,8 @@ public class REunitBehaviour : MonoBehaviour {
 
             time = 0;
 
+            
+            
             while(time <= 1)
             {
                 transform.position = Vector3.Lerp(Start.transform.position, End.transform.position, time);
@@ -46,9 +52,13 @@ public class REunitBehaviour : MonoBehaviour {
                 yield return null;
             }
 
+            yield return new WaitForSeconds(0.2f);
             Start = End;
         }
 
+        GetComponent<REunitInfo>().unitTile.NullUnit();
+        GetComponent<REunitInfo>().unitTile = End;
+        End.OnUnit = GetComponent<REunitInfo>();
         yield return null;
     }
 }

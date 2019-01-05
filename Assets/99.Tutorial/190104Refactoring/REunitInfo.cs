@@ -5,19 +5,28 @@ using UnityEngine;
 public class REunitInfo : MonoBehaviour {
 
 
+    public REtileInfo unitTile;
+
     //유닛 상태
-    public int UnitHP { get; private set; }
+    public int UnitHP;
 
-    public int UnitATK { get; private set; }
+    public int UnitATK;
 
-    public int UnitSHD { get; private set; }
+    public int UnitSHD;
 
-    public bool IsDie { get; private set; }
+    public bool IsDie;
 
-    public int UnitActPoint { get; private set; }
-
-    //시스템 관련
+    public int UnitActPoint;
     public bool proceedScript { get; private set; }
+
+
+    private void Start()
+    {
+        transform.position = unitTile.transform.position;
+    }
+
+
+
 
     public void GetDamage(int damage)
     {

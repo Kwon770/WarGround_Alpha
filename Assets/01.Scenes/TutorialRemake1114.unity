@@ -299,19 +299,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 31518871}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57662d09ca3a9874f9c036f33676071c, type: 3}
+  m_Script: {fileID: 11500000, guid: b2841408651d8854fa1e686a3b1ef394, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  X: 1
-  Y: 5
-  cost: 1
-  selectTile: 0
-  firstTile: 1
-  path: {fileID: 0}
-  stage: 0
-  selectUnit: {fileID: 0}
-  originColor: {r: 0, g: 0, b: 0, a: 0}
-  occupation: 0
+  tileX: 1
+  tileY: 5
+  tileCost: 0
+  occupyStatus: 0
+  NoTouch: 1
+  OnUnit: {fileID: 0}
+  Selecting: 0
+  RouteTile: {fileID: 0}
 --- !u!64 &31518874
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1198,6 +1196,7 @@ Transform:
   - {fileID: 1557297630}
   - {fileID: 1169685160}
   - {fileID: 262287211}
+  - {fileID: 513913288}
   m_Father: {fileID: 715704323}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1288,19 +1287,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 64111650}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57662d09ca3a9874f9c036f33676071c, type: 3}
+  m_Script: {fileID: 11500000, guid: b2841408651d8854fa1e686a3b1ef394, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  X: 3
-  Y: 1
-  cost: 1
-  selectTile: 0
-  firstTile: 0
-  path: {fileID: 0}
-  stage: 0
-  selectUnit: {fileID: 0}
-  originColor: {r: 0, g: 0, b: 0, a: 0}
-  occupation: 0
+  tileX: 3
+  tileY: 1
+  tileCost: 0
+  occupyStatus: 0
+  NoTouch: 0
+  OnUnit: {fileID: 0}
+  Selecting: 0
+  RouteTile: {fileID: 0}
 --- !u!64 &64111653
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1426,19 +1423,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 65848540}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57662d09ca3a9874f9c036f33676071c, type: 3}
+  m_Script: {fileID: 11500000, guid: b2841408651d8854fa1e686a3b1ef394, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  X: 1
-  Y: 7
-  cost: 1
-  selectTile: 0
-  firstTile: 0
-  path: {fileID: 0}
-  stage: 0
-  selectUnit: {fileID: 0}
-  originColor: {r: 0, g: 0, b: 0, a: 0}
-  occupation: 0
+  tileX: 1
+  tileY: 7
+  tileCost: 0
+  occupyStatus: 0
+  NoTouch: 0
+  OnUnit: {fileID: 0}
+  Selecting: 0
+  RouteTile: {fileID: 0}
 --- !u!64 &65848543
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -3846,19 +3841,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 216568705}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57662d09ca3a9874f9c036f33676071c, type: 3}
+  m_Script: {fileID: 11500000, guid: b2841408651d8854fa1e686a3b1ef394, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  X: 4
-  Y: 2
-  cost: 1
-  selectTile: 0
-  firstTile: 0
-  path: {fileID: 0}
-  stage: 0
-  selectUnit: {fileID: 0}
-  originColor: {r: 0, g: 0, b: 0, a: 0}
-  occupation: 0
+  tileX: 4
+  tileY: 2
+  tileCost: 0
+  occupyStatus: 0
+  NoTouch: 0
+  OnUnit: {fileID: 0}
+  Selecting: 0
+  RouteTile: {fileID: 0}
 --- !u!64 &216568708
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -4070,19 +4063,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 222202987}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57662d09ca3a9874f9c036f33676071c, type: 3}
+  m_Script: {fileID: 11500000, guid: b2841408651d8854fa1e686a3b1ef394, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  X: 0
-  Y: 5
-  cost: 1
-  selectTile: 0
-  firstTile: 0
-  path: {fileID: 0}
-  stage: 0
-  selectUnit: {fileID: 0}
-  originColor: {r: 0, g: 0, b: 0, a: 0}
-  occupation: 0
+  tileX: 0
+  tileY: 5
+  tileCost: 0
+  occupyStatus: 0
+  NoTouch: 0
+  OnUnit: {fileID: 0}
+  Selecting: 0
+  RouteTile: {fileID: 0}
 --- !u!64 &222202990
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -4276,6 +4267,39 @@ Transform:
   m_PrefabParentObject: {fileID: 4569790774807770, guid: 64ad523b8d019471988932267f33b756,
     type: 2}
   m_PrefabInternal: {fileID: 1373175213}
+--- !u!1 &240422684
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 240422685}
+  m_Layer: 5
+  m_Name: '-------------------Trash'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &240422685
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 240422684}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 909, y: 368}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &241442997
 GameObject:
   m_ObjectHideFlags: 0
@@ -5254,19 +5278,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 321301465}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57662d09ca3a9874f9c036f33676071c, type: 3}
+  m_Script: {fileID: 11500000, guid: b2841408651d8854fa1e686a3b1ef394, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  X: 0
-  Y: 2
-  cost: 1
-  selectTile: 0
-  firstTile: 1
-  path: {fileID: 0}
-  stage: 0
-  selectUnit: {fileID: 0}
-  originColor: {r: 0, g: 0, b: 0, a: 0}
-  occupation: 0
+  tileX: 0
+  tileY: 2
+  tileCost: 0
+  occupyStatus: 0
+  NoTouch: 1
+  OnUnit: {fileID: 0}
+  Selecting: 0
+  RouteTile: {fileID: 0}
 --- !u!64 &321301468
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -5850,19 +5872,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 348453616}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57662d09ca3a9874f9c036f33676071c, type: 3}
+  m_Script: {fileID: 11500000, guid: b2841408651d8854fa1e686a3b1ef394, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  X: 4
-  Y: 5
-  cost: 1
-  selectTile: 0
-  firstTile: 0
-  path: {fileID: 0}
-  stage: 0
-  selectUnit: {fileID: 0}
-  originColor: {r: 0, g: 0, b: 0, a: 0}
-  occupation: 0
+  tileX: 4
+  tileY: 5
+  tileCost: 0
+  occupyStatus: 0
+  NoTouch: 0
+  OnUnit: {fileID: 0}
+  Selecting: 0
+  RouteTile: {fileID: 0}
 --- !u!64 &348453619
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -6811,19 +6831,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 427914583}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57662d09ca3a9874f9c036f33676071c, type: 3}
+  m_Script: {fileID: 11500000, guid: b2841408651d8854fa1e686a3b1ef394, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  X: 3
-  Y: 4
-  cost: 1
-  selectTile: 0
-  firstTile: 0
-  path: {fileID: 0}
-  stage: 0
-  selectUnit: {fileID: 0}
-  originColor: {r: 0, g: 0, b: 0, a: 0}
-  occupation: 0
+  tileX: 3
+  tileY: 4
+  tileCost: 0
+  occupyStatus: 0
+  NoTouch: 0
+  OnUnit: {fileID: 0}
+  Selecting: 0
+  RouteTile: {fileID: 0}
 --- !u!64 &427914586
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -6885,19 +6903,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 437735561}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57662d09ca3a9874f9c036f33676071c, type: 3}
+  m_Script: {fileID: 11500000, guid: b2841408651d8854fa1e686a3b1ef394, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  X: 2
-  Y: 2
-  cost: 1
-  selectTile: 0
-  firstTile: 0
-  path: {fileID: 0}
-  stage: 0
-  selectUnit: {fileID: 0}
-  originColor: {r: 0, g: 0, b: 0, a: 0}
-  occupation: 0
+  tileX: 2
+  tileY: 2
+  tileCost: 0
+  occupyStatus: 0
+  NoTouch: 0
+  OnUnit: {fileID: 0}
+  Selecting: 0
+  RouteTile: {fileID: 0}
 --- !u!64 &437735564
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -7141,7 +7157,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1562351998}
+      - m_Target: {fileID: 0}
         m_MethodName: ClickTurnButton
         m_Mode: 1
         m_Arguments:
@@ -7525,7 +7541,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &467578390
 GameObject:
@@ -7542,7 +7558,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &467578391
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7555,7 +7571,7 @@ RectTransform:
   m_Children:
   - {fileID: 817820107}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -7598,7 +7614,7 @@ MonoBehaviour:
   - {fileID: 0}
   cam: {fileID: 553336137}
   mainCam: {fileID: 1348255028}
-  anim: {fileID: 1348255030}
+  anim: {fileID: 0}
   unit: {fileID: 1268205450}
   enemy: {fileID: 940991055}
   scriptManager: {fileID: 765821855}
@@ -8222,7 +8238,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &494584883
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8266,7 +8282,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &494899383
 Prefab:
@@ -8596,7 +8612,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 467722625}
   m_LocalRotation: {x: -0.0000000018626449, y: 0.3524134, z: 2.3283062e-10, w: 0.9358444}
-  m_LocalPosition: {x: -29.99, y: 0.1, z: -36.77}
+  m_LocalPosition: {x: -29.98999, y: 0.099975586, z: -36.77}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1807611577}
@@ -8604,8 +8620,8 @@ Transform:
   - {fileID: 851659464}
   - {fileID: 2135964766}
   - {fileID: 28126824}
-  m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_Father: {fileID: 58893712}
+  m_RootOrder: 354
   m_LocalEulerAnglesHint: {x: 0, y: 41.27, z: 0}
 --- !u!1 &514802136
 GameObject:
@@ -9136,19 +9152,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 547324558}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57662d09ca3a9874f9c036f33676071c, type: 3}
+  m_Script: {fileID: 11500000, guid: b2841408651d8854fa1e686a3b1ef394, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  X: 1
-  Y: 2
-  cost: 1
-  selectTile: 0
-  firstTile: 0
-  path: {fileID: 0}
-  stage: 0
-  selectUnit: {fileID: 0}
-  originColor: {r: 0, g: 0, b: 0, a: 0}
-  occupation: 2
+  tileX: 1
+  tileY: 2
+  tileCost: 0
+  occupyStatus: 0
+  NoTouch: 0
+  OnUnit: {fileID: 0}
+  Selecting: 0
+  RouteTile: {fileID: 0}
 --- !u!64 &547324561
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -9237,8 +9251,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 553336137}
-  m_LocalRotation: {x: 0.016038889, y: 0.18418409, z: -0.0030059416, w: 0.9827563}
-  m_LocalPosition: {x: -25.3, y: -0.1, z: -29.8}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -10.75, y: 9, z: -7.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1348255029}
@@ -9253,21 +9267,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 553336137}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55e484e4c1c22a545b98dc3b293e605b, type: 3}
+  m_Script: {fileID: 11500000, guid: 24609bdb9c1b5044da8705d456cb4ca6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 1348255028}
-  tutoM: {fileID: 1562351998}
-  opening: 0
-  ship: {fileID: 467722625}
-  shipAndCamDistance: {x: 0, y: 0, z: 0}
-  sceneNumber: 0
-  openingStart: 0
-  sceneLoc:
-  - {fileID: 2048014708}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!1 &554928779
 GameObject:
   m_ObjectHideFlags: 0
@@ -10349,19 +10352,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 598197078}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57662d09ca3a9874f9c036f33676071c, type: 3}
+  m_Script: {fileID: 11500000, guid: b2841408651d8854fa1e686a3b1ef394, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  X: 4
-  Y: 5
-  cost: 1
-  selectTile: 0
-  firstTile: 1
-  path: {fileID: 0}
-  stage: 0
-  selectUnit: {fileID: 0}
-  originColor: {r: 0, g: 0, b: 0, a: 0}
-  occupation: 0
+  tileX: 4
+  tileY: 6
+  tileCost: 0
+  occupyStatus: 0
+  NoTouch: 1
+  OnUnit: {fileID: 0}
+  Selecting: 0
+  RouteTile: {fileID: 0}
 --- !u!64 &598197081
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -11346,19 +11347,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 664614199}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57662d09ca3a9874f9c036f33676071c, type: 3}
+  m_Script: {fileID: 11500000, guid: b2841408651d8854fa1e686a3b1ef394, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  X: 4
-  Y: 4
-  cost: 1
-  selectTile: 0
-  firstTile: 1
-  path: {fileID: 0}
-  stage: 0
-  selectUnit: {fileID: 0}
-  originColor: {r: 0, g: 0, b: 0, a: 0}
-  occupation: 0
+  tileX: 4
+  tileY: 4
+  tileCost: 0
+  occupyStatus: 0
+  NoTouch: 1
+  OnUnit: {fileID: 0}
+  Selecting: 0
+  RouteTile: {fileID: 0}
 --- !u!64 &664614202
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -11723,19 +11722,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 692036039}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57662d09ca3a9874f9c036f33676071c, type: 3}
+  m_Script: {fileID: 11500000, guid: b2841408651d8854fa1e686a3b1ef394, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  X: 2
-  Y: 6
-  cost: 1
-  selectTile: 0
-  firstTile: 0
-  path: {fileID: 0}
-  stage: 0
-  selectUnit: {fileID: 0}
-  originColor: {r: 0, g: 0, b: 0, a: 0}
-  occupation: -2
+  tileX: 2
+  tileY: 6
+  tileCost: 0
+  occupyStatus: 0
+  NoTouch: 0
+  OnUnit: {fileID: 0}
+  Selecting: 0
+  RouteTile: {fileID: 0}
 --- !u!64 &692036042
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -11900,19 +11897,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 697669588}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57662d09ca3a9874f9c036f33676071c, type: 3}
+  m_Script: {fileID: 11500000, guid: b2841408651d8854fa1e686a3b1ef394, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  X: 1
-  Y: 3
-  cost: 1
-  selectTile: 0
-  firstTile: 0
-  path: {fileID: 0}
-  stage: 0
-  selectUnit: {fileID: 0}
-  originColor: {r: 0, g: 0, b: 0, a: 0}
-  occupation: 0
+  tileX: 1
+  tileY: 3
+  tileCost: 0
+  occupyStatus: 0
+  NoTouch: 0
+  OnUnit: {fileID: 0}
+  Selecting: 0
+  RouteTile: {fileID: 0}
 --- !u!64 &697669591
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -12012,7 +12007,7 @@ Transform:
   - {fileID: 1068723314}
   - {fileID: 58893712}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &716831276
 Prefab:
@@ -12717,7 +12712,7 @@ MonoBehaviour:
   - 
   - 
   textNumber: 0
-  tutorialManager: {fileID: 1562351998}
+  tutorialManager: {fileID: 0}
   pressEnterText:
   - {fileID: 1834079042}
   - {fileID: 974949037}
@@ -13094,6 +13089,101 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 796372709}
   m_Mesh: {fileID: 4300000, guid: 93f911cc43c3a4871aca89bad1a6693d, type: 3}
+--- !u!1 &798285299
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 798285303}
+  - component: {fileID: 798285302}
+  - component: {fileID: 798285301}
+  - component: {fileID: 798285300}
+  m_Layer: 5
+  m_Name: Canvas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &798285300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 798285299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1301386320, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+--- !u!114 &798285301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 798285299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 0
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 800, y: 600}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
+--- !u!223 &798285302
+Canvas:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 798285299}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 0
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
+--- !u!224 &798285303
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 798285299}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_Children:
+  - {fileID: 1572493514}
+  - {fileID: 1473437089}
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0, y: 0}
 --- !u!1001 &799704379
 Prefab:
   m_ObjectHideFlags: 0
@@ -13480,19 +13570,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 824161308}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57662d09ca3a9874f9c036f33676071c, type: 3}
+  m_Script: {fileID: 11500000, guid: b2841408651d8854fa1e686a3b1ef394, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  X: 0
-  Y: 3
-  cost: 1
-  selectTile: 0
-  firstTile: 0
-  path: {fileID: 0}
-  stage: 0
-  selectUnit: {fileID: 0}
-  originColor: {r: 0, g: 0, b: 0, a: 0}
-  occupation: 0
+  tileX: 0
+  tileY: 3
+  tileCost: 0
+  occupyStatus: 0
+  NoTouch: 0
+  OnUnit: {fileID: 0}
+  Selecting: 0
+  RouteTile: {fileID: 0}
 --- !u!64 &824161311
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -14003,19 +14091,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 860502337}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57662d09ca3a9874f9c036f33676071c, type: 3}
+  m_Script: {fileID: 11500000, guid: b2841408651d8854fa1e686a3b1ef394, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  X: 3
-  Y: 3
-  cost: 1
-  selectTile: 0
-  firstTile: 1
-  path: {fileID: 0}
-  stage: 0
-  selectUnit: {fileID: 0}
-  originColor: {r: 0, g: 0, b: 0, a: 0}
-  occupation: 0
+  tileX: 3
+  tileY: 3
+  tileCost: 0
+  occupyStatus: 0
+  NoTouch: 1
+  OnUnit: {fileID: 0}
+  Selecting: 0
+  RouteTile: {fileID: 0}
 --- !u!64 &860502340
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -14123,19 +14209,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 867418695}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57662d09ca3a9874f9c036f33676071c, type: 3}
+  m_Script: {fileID: 11500000, guid: b2841408651d8854fa1e686a3b1ef394, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  X: 1
-  Y: 4
-  cost: 1
-  selectTile: 0
-  firstTile: 1
-  path: {fileID: 0}
-  stage: 0
-  selectUnit: {fileID: 0}
-  originColor: {r: 0, g: 0, b: 0, a: 0}
-  occupation: 0
+  tileX: 1
+  tileY: 4
+  tileCost: 0
+  occupyStatus: 0
+  NoTouch: 1
+  OnUnit: {fileID: 0}
+  Selecting: 0
+  RouteTile: {fileID: 0}
 --- !u!64 &867418698
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -14997,19 +15081,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 925047372}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57662d09ca3a9874f9c036f33676071c, type: 3}
+  m_Script: {fileID: 11500000, guid: b2841408651d8854fa1e686a3b1ef394, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  X: 1
-  Y: 1
-  cost: 1
-  selectTile: 0
-  firstTile: 0
-  path: {fileID: 0}
-  stage: 0
-  selectUnit: {fileID: 0}
-  originColor: {r: 0, g: 0, b: 0, a: 0}
-  occupation: 2
+  tileX: 1
+  tileY: 1
+  tileCost: 0
+  occupyStatus: 0
+  NoTouch: 0
+  OnUnit: {fileID: 0}
+  Selecting: 0
+  RouteTile: {fileID: 0}
 --- !u!64 &925047375
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -15160,7 +15242,7 @@ Transform:
   m_LocalScale: {x: 1.3, y: 0.01, z: 1.3}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -0.1}
 --- !u!1001 &927579723
 Prefab:
@@ -15417,7 +15499,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!136 &940991056
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -15458,15 +15540,15 @@ Transform:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 940991055}
-  m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
-  m_LocalPosition: {x: -0.15122604, y: 0, z: 0.06}
+  m_LocalRotation: {x: 0, y: -0.9626918, z: 0, w: 0.27060053}
+  m_LocalPosition: {x: 2.5, y: 0, z: 0.71}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1546250290}
   - {fileID: 2007589353}
   m_Father: {fileID: 0}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -148.6, z: 0}
 --- !u!114 &940991059
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15475,21 +15557,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 940991055}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c066e538b29465f4ebdfc9c859740fa5, type: 3}
+  m_Script: {fileID: 11500000, guid: 3106d8127a69eb24a937cdd99c623869, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  endPoint: {fileID: 1902315595}
-  startPoint: {fileID: 1902315595}
-  actPoint: 2
-  moving: 0
-  movingEnd: 1
-  anim: {fileID: 940991057}
-  scriptManager: {fileID: 765821857}
-  tutorialManager: {fileID: 1562351998}
-  ATK: 3
-  HP: 4
-  SHD: 0
-  unitName: Warrior
+  unitTile: {fileID: 1902315595}
+  UnitHP: 3
+  UnitATK: 4
+  UnitSHD: 0
+  IsDie: 0
+  UnitActPoint: 2
 --- !u!1001 &941964955
 Prefab:
   m_ObjectHideFlags: 0
@@ -16794,19 +16870,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1007509222}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57662d09ca3a9874f9c036f33676071c, type: 3}
+  m_Script: {fileID: 11500000, guid: b2841408651d8854fa1e686a3b1ef394, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  X: 2
-  Y: 0
-  cost: 1
-  selectTile: 0
-  firstTile: 0
-  path: {fileID: 0}
-  stage: 0
-  selectUnit: {fileID: 0}
-  originColor: {r: 0, g: 0, b: 0, a: 0}
-  occupation: 2
+  tileX: 2
+  tileY: 0
+  tileCost: 0
+  occupyStatus: 0
+  NoTouch: 0
+  OnUnit: {fileID: 0}
+  Selecting: 0
+  RouteTile: {fileID: 0}
 --- !u!64 &1007509225
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -16914,19 +16988,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1008793561}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57662d09ca3a9874f9c036f33676071c, type: 3}
+  m_Script: {fileID: 11500000, guid: b2841408651d8854fa1e686a3b1ef394, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  X: 4
-  Y: 3
-  cost: 1
-  selectTile: 0
-  firstTile: 0
-  path: {fileID: 0}
-  stage: 0
-  selectUnit: {fileID: 0}
-  originColor: {r: 0, g: 0, b: 0, a: 0}
-  occupation: 0
+  tileX: 4
+  tileY: 3
+  tileCost: 0
+  occupyStatus: 0
+  NoTouch: 0
+  OnUnit: {fileID: 0}
+  Selecting: 0
+  RouteTile: {fileID: 0}
 --- !u!64 &1008793564
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -17949,7 +18021,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1562351998}
+      - m_Target: {fileID: 0}
         m_MethodName: ClickAttackButton
         m_Mode: 1
         m_Arguments:
@@ -18041,19 +18113,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1059263022}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57662d09ca3a9874f9c036f33676071c, type: 3}
+  m_Script: {fileID: 11500000, guid: b2841408651d8854fa1e686a3b1ef394, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  X: 1
-  Y: 6
-  cost: 1
-  selectTile: 0
-  firstTile: 0
-  path: {fileID: 0}
-  stage: 0
-  selectUnit: {fileID: 0}
-  originColor: {r: 0, g: 0, b: 0, a: 0}
-  occupation: 0
+  tileX: 1
+  tileY: 6
+  tileCost: 0
+  occupyStatus: 0
+  NoTouch: 0
+  OnUnit: {fileID: 0}
+  Selecting: 0
+  RouteTile: {fileID: 0}
 --- !u!64 &1059263025
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -18307,6 +18377,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1068723314}
+  - component: {fileID: 1068723315}
   m_Layer: 0
   m_Name: Tile
   m_TagString: Untagged
@@ -18361,6 +18432,18 @@ Transform:
   m_Father: {fileID: 715704323}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1068723315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1068723313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e057bfb82392dff4c87e2975592e035a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tileList: []
 --- !u!1001 &1069348896
 Prefab:
   m_ObjectHideFlags: 0
@@ -20842,19 +20925,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1222428593}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57662d09ca3a9874f9c036f33676071c, type: 3}
+  m_Script: {fileID: 11500000, guid: b2841408651d8854fa1e686a3b1ef394, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  X: 3
-  Y: 5
-  cost: 1
-  selectTile: 0
-  firstTile: 0
-  path: {fileID: 0}
-  stage: 0
-  selectUnit: {fileID: 0}
-  originColor: {r: 0, g: 0, b: 0, a: 0}
-  occupation: 0
+  tileX: 3
+  tileY: 5
+  tileCost: 0
+  occupyStatus: 0
+  NoTouch: 0
+  OnUnit: {fileID: 0}
+  Selecting: 0
+  RouteTile: {fileID: 0}
 --- !u!64 &1222428596
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -21544,7 +21625,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1562351998}
+      - m_Target: {fileID: 0}
         m_MethodName: ClickWarriorButton
         m_Mode: 1
         m_Arguments:
@@ -21904,14 +21985,15 @@ GameObject:
   - component: {fileID: 1268205454}
   - component: {fileID: 1268205453}
   - component: {fileID: 1268205452}
+  - component: {fileID: 1268205455}
   - component: {fileID: 1268205451}
   m_Layer: 0
   m_Name: Royalguard_Mars (1)
-  m_TagString: Unit
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1268205451
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21920,21 +22002,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1268205450}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c066e538b29465f4ebdfc9c859740fa5, type: 3}
+  m_Script: {fileID: 11500000, guid: 22ca6e4776b202544a950a2dd9c26f97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  endPoint: {fileID: 925047374}
-  startPoint: {fileID: 925047374}
-  actPoint: 3
-  moving: 0
-  movingEnd: 1
-  anim: {fileID: 1268205453}
-  scriptManager: {fileID: 765821857}
-  tutorialManager: {fileID: 1562351998}
-  ATK: 5
-  HP: 30
-  SHD: 5
-  unitName: Mars
+  MoveSpeed: 1.8
+  unitInfo: {fileID: 0}
 --- !u!136 &1268205452
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -21976,7 +22048,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1268205450}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -6.94, y: 0, z: -0.6232417}
+  m_LocalPosition: {x: -6.92805, y: 0, z: -0.6232417}
   m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_Children:
   - {fileID: 1649736183}
@@ -21984,6 +22056,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!114 &1268205455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1268205450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3106d8127a69eb24a937cdd99c623869, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitTile: {fileID: 2077470149}
+  UnitHP: 15
+  UnitATK: 3
+  UnitSHD: 15
+  IsDie: 0
+  UnitActPoint: 3
 --- !u!1 &1269219335
 GameObject:
   m_ObjectHideFlags: 0
@@ -22095,7 +22184,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1562351998}
+      - m_Target: {fileID: 0}
         m_MethodName: ClickMoveButton
         m_Mode: 1
         m_Arguments:
@@ -22214,7 +22303,6 @@ GameObject:
   - component: {fileID: 1279649619}
   - component: {fileID: 1279649618}
   - component: {fileID: 1279649617}
-  - component: {fileID: 1279649616}
   m_Layer: 0
   m_Name: Partan_Warrior
   m_TagString: Unit
@@ -22222,29 +22310,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!114 &1279649616
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1279649615}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c066e538b29465f4ebdfc9c859740fa5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  endPoint: {fileID: 427914585}
-  startPoint: {fileID: 427914585}
-  actPoint: 0
-  moving: 0
-  movingEnd: 1
-  anim: {fileID: 1279649618}
-  scriptManager: {fileID: 765821857}
-  tutorialManager: {fileID: 1562351998}
-  ATK: 3
-  HP: 4
-  SHD: 0
-  unitName: Warrior
 --- !u!136 &1279649617
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -22823,19 +22888,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1322932240}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57662d09ca3a9874f9c036f33676071c, type: 3}
+  m_Script: {fileID: 11500000, guid: b2841408651d8854fa1e686a3b1ef394, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  X: 0
-  Y: 1
-  cost: 1
-  selectTile: 0
-  firstTile: 0
-  path: {fileID: 0}
-  stage: 0
-  selectUnit: {fileID: 0}
-  originColor: {r: 0, g: 0, b: 0, a: 0}
-  occupation: 2
+  tileX: 0
+  tileY: 1
+  tileCost: 0
+  occupyStatus: 0
+  NoTouch: 0
+  OnUnit: {fileID: 0}
+  Selecting: 0
+  RouteTile: {fileID: 0}
 --- !u!64 &1322932243
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -23085,7 +23148,6 @@ GameObject:
   - component: {fileID: 1348255028}
   - component: {fileID: 1348255027}
   - component: {fileID: 1348255026}
-  - component: {fileID: 1348255030}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -23126,7 +23188,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 25.2
-  orthographic: 0
+  orthographic: 1
   orthographic size: 5
   m_Depth: -1
   m_CullingMask:
@@ -23149,31 +23211,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1348255025}
-  m_LocalRotation: {x: -0.38268343, y: 0, z: 0, w: 0.92387956}
-  m_LocalPosition: {x: 0, y: 1, z: -15}
+  m_LocalRotation: {x: 0.36964378, y: 0.23911767, z: -0.09904577, w: 0.89239913}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 553336138}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -45, y: 0, z: 0}
---- !u!95 &1348255030
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1348255025}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: aab896792324e1c46bae9de7ee87c7c6, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_LocalEulerAnglesHint: {x: 45, y: 30, z: 0}
 --- !u!1 &1352972931
 GameObject:
   m_ObjectHideFlags: 0
@@ -23215,19 +23259,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1352972931}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57662d09ca3a9874f9c036f33676071c, type: 3}
+  m_Script: {fileID: 11500000, guid: b2841408651d8854fa1e686a3b1ef394, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  X: 3
-  Y: 2
-  cost: 1
-  selectTile: 0
-  firstTile: 0
-  path: {fileID: 0}
-  stage: 0
-  selectUnit: {fileID: 0}
-  originColor: {r: 0, g: 0, b: 0, a: 0}
-  occupation: 0
+  tileX: 3
+  tileY: 2
+  tileCost: 0
+  occupyStatus: 0
+  NoTouch: 0
+  OnUnit: {fileID: 0}
+  Selecting: 0
+  RouteTile: {fileID: 0}
 --- !u!64 &1352972934
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -25392,6 +25434,40 @@ Transform:
   m_PrefabParentObject: {fileID: 4977097514023898, guid: e2d5f2c17373d4052bfec3aed5666cc6,
     type: 2}
   m_PrefabInternal: {fileID: 1826205838}
+--- !u!1 &1473437088
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1473437089}
+  m_Layer: 5
+  m_Name: MainBar
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1473437089
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1473437088}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2096667136}
+  m_Father: {fileID: 798285303}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!4 &1473836482 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4569790774807770, guid: 64ad523b8d019471988932267f33b756,
@@ -26453,7 +26529,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1562351998}
+      - m_Target: {fileID: 0}
         m_MethodName: ClickTurnButton
         m_Mode: 1
         m_Arguments:
@@ -27223,7 +27299,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1562351998
 MonoBehaviour:
@@ -27233,126 +27309,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1562351996}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e7f472dbb5d3aa4c9e06125a261025f, type: 3}
+  m_Script: {fileID: 11500000, guid: 105d112a51f3b2546bf36150bd4f336c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unit: {fileID: 1268205451}
-  startLocX: 0
-  startLocY: 0
-  goToLocX: 0
-  goToLocY: 0
-  listFirst: 0
-  listSize: 1
-  listSwitch: 0
-  tileSave:
-  - {fileID: 1322932240}
-  - {fileID: 321301465}
-  - {fileID: 824161308}
-  - {fileID: 1784793714}
-  - {fileID: 222202987}
-  - {fileID: 2024830473}
-  - {fileID: 925047372}
-  - {fileID: 547324558}
-  - {fileID: 697669588}
-  - {fileID: 867418695}
-  - {fileID: 31518871}
-  - {fileID: 1059263022}
-  - {fileID: 65848540}
-  - {fileID: 1007509222}
-  - {fileID: 2077470147}
-  - {fileID: 437735561}
-  - {fileID: 1667976786}
-  - {fileID: 1983787571}
-  - {fileID: 1926955286}
-  - {fileID: 692036039}
-  - {fileID: 1589655759}
-  - {fileID: 64111650}
-  - {fileID: 1352972931}
-  - {fileID: 860502337}
-  - {fileID: 427914583}
-  - {fileID: 1222428593}
-  - {fileID: 1737376419}
-  - {fileID: 1902315593}
-  - {fileID: 1787663914}
-  - {fileID: 216568705}
-  - {fileID: 1008793561}
-  - {fileID: 664614199}
-  - {fileID: 348453616}
-  - {fileID: 598197078}
-  tileSaveInfo:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  selectUnit: {fileID: 1268205451}
-  mars: {fileID: 1268205451}
-  canClick: 1
-  scriptManager: {fileID: 765821857}
-  enemy: {fileID: 940991059}
-  selectEffect: {fileID: 926789918}
-  mainCam: {fileID: 1348255028}
-  warrior: {fileID: 1279649615}
-  attackSwitch: 0
-  myTurn: 0
-  commandPower: 0
+  MarsInfo: {fileID: 1268205455}
+  MarsBehave: {fileID: 1268205451}
+  EnemeyBehave: {fileID: 0}
+  cameraMoveUnit: {fileID: 1268205455}
+  tileController: {fileID: 1068723315}
+  camera: {fileID: 553336139}
   bitinium: 0
-  bitiniumRegen: 1
-  ATK: 0
-  HP: 0
-  SHD: 0
-  actPoint: 0
-  unitName: 
-  commandPowerText: {fileID: 0}
-  bitiniumRegenText: {fileID: 361904438}
-  ATKtext: {fileID: 1409219941}
-  HPtext: {fileID: 1608482080}
-  SHDtext: {fileID: 1450203280}
-  Nametext: {fileID: 1521862360}
-  commandUi: {fileID: 1675728488}
-  actPointUi: {fileID: 77073133}
-  bitiniumUi: {fileID: 607425850}
-  guidePointer:
-  - {fileID: 1073323280}
-  - {fileID: 220959444}
-  - {fileID: 2018362874}
-  - {fileID: 599778346}
-  - {fileID: 2018362874}
-  - {fileID: 262269949}
-  - {fileID: 1048629125}
-  - {fileID: 2104234030}
-  guideCount: 0
-  guideSwitch: 0
-  attackOnce: 0
+  commandPower: 0
 --- !u!1001 &1563408188
 Prefab:
   m_ObjectHideFlags: 0
@@ -27556,6 +27523,74 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 64ad523b8d019471988932267f33b756, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1572493513
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1572493514}
+  - component: {fileID: 1572493516}
+  - component: {fileID: 1572493515}
+  m_Layer: 5
+  m_Name: Script
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1572493514
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1572493513}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 798285303}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 585, y: 381}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1572493515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1572493513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: b7d019ea6448b5344943a632b321b686, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &1572493516
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1572493513}
 --- !u!4 &1572558979 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4000012839737448, guid: 7465eb0cc8d61452a8697f909e8fbabc,
@@ -27891,19 +27926,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1589655759}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57662d09ca3a9874f9c036f33676071c, type: 3}
+  m_Script: {fileID: 11500000, guid: b2841408651d8854fa1e686a3b1ef394, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  X: 2
-  Y: 7
-  cost: 1
-  selectTile: 0
-  firstTile: 0
-  path: {fileID: 0}
-  stage: 0
-  selectUnit: {fileID: 0}
-  originColor: {r: 0, g: 0, b: 0, a: 0}
-  occupation: -2
+  tileX: 2
+  tileY: 7
+  tileCost: 0
+  occupyStatus: 0
+  NoTouch: 0
+  OnUnit: {fileID: 0}
+  Selecting: 0
+  RouteTile: {fileID: 0}
 --- !u!64 &1589655762
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -29454,19 +29487,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1667976786}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57662d09ca3a9874f9c036f33676071c, type: 3}
+  m_Script: {fileID: 11500000, guid: b2841408651d8854fa1e686a3b1ef394, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  X: 2
-  Y: 3
-  cost: 1
-  selectTile: 0
-  firstTile: 0
-  path: {fileID: 0}
-  stage: 0
-  selectUnit: {fileID: 0}
-  originColor: {r: 0, g: 0, b: 0, a: 0}
-  occupation: 0
+  tileX: 2
+  tileY: 3
+  tileCost: 0
+  occupyStatus: 0
+  NoTouch: 0
+  OnUnit: {fileID: 0}
+  Selecting: 0
+  RouteTile: {fileID: 0}
 --- !u!64 &1667976789
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -30488,19 +30519,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1737376419}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57662d09ca3a9874f9c036f33676071c, type: 3}
+  m_Script: {fileID: 11500000, guid: b2841408651d8854fa1e686a3b1ef394, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  X: 3
-  Y: 6
-  cost: 1
-  selectTile: 0
-  firstTile: 0
-  path: {fileID: 0}
-  stage: 0
-  selectUnit: {fileID: 0}
-  originColor: {r: 0, g: 0, b: 0, a: 0}
-  occupation: -2
+  tileX: 3
+  tileY: 6
+  tileCost: 0
+  occupyStatus: 0
+  NoTouch: 0
+  OnUnit: {fileID: 0}
+  Selecting: 0
+  RouteTile: {fileID: 0}
 --- !u!64 &1737376422
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -31518,19 +31547,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1784793714}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57662d09ca3a9874f9c036f33676071c, type: 3}
+  m_Script: {fileID: 11500000, guid: b2841408651d8854fa1e686a3b1ef394, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  X: 0
-  Y: 4
-  cost: 1
-  selectTile: 0
-  firstTile: 0
-  path: {fileID: 0}
-  stage: 0
-  selectUnit: {fileID: 0}
-  originColor: {r: 0, g: 0, b: 0, a: 0}
-  occupation: 0
+  tileX: 0
+  tileY: 4
+  tileCost: 0
+  occupyStatus: 0
+  NoTouch: 0
+  OnUnit: {fileID: 0}
+  Selecting: 0
+  RouteTile: {fileID: 0}
 --- !u!64 &1784793717
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -31645,19 +31672,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1787663914}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57662d09ca3a9874f9c036f33676071c, type: 3}
+  m_Script: {fileID: 11500000, guid: b2841408651d8854fa1e686a3b1ef394, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  X: 4
-  Y: 1
-  cost: 1
-  selectTile: 0
-  firstTile: 0
-  path: {fileID: 0}
-  stage: 0
-  selectUnit: {fileID: 0}
-  originColor: {r: 0, g: 0, b: 0, a: 0}
-  occupation: 0
+  tileX: 4
+  tileY: 1
+  tileCost: 0
+  occupyStatus: 0
+  NoTouch: 0
+  OnUnit: {fileID: 0}
+  Selecting: 0
+  RouteTile: {fileID: 0}
 --- !u!64 &1787663917
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -33095,19 +33120,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1902315593}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57662d09ca3a9874f9c036f33676071c, type: 3}
+  m_Script: {fileID: 11500000, guid: b2841408651d8854fa1e686a3b1ef394, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  X: 3
-  Y: 7
-  cost: 1
-  selectTile: 0
-  firstTile: 0
-  path: {fileID: 0}
-  stage: 0
-  selectUnit: {fileID: 0}
-  originColor: {r: 0, g: 0, b: 0, a: 0}
-  occupation: -2
+  tileX: 3
+  tileY: 7
+  tileCost: 0
+  occupyStatus: 0
+  NoTouch: 0
+  OnUnit: {fileID: 940991059}
+  Selecting: 0
+  RouteTile: {fileID: 0}
 --- !u!64 &1902315596
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -33535,19 +33558,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1926955286}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57662d09ca3a9874f9c036f33676071c, type: 3}
+  m_Script: {fileID: 11500000, guid: b2841408651d8854fa1e686a3b1ef394, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  X: 2
-  Y: 5
-  cost: 1
-  selectTile: 0
-  firstTile: 0
-  path: {fileID: 0}
-  stage: 0
-  selectUnit: {fileID: 0}
-  originColor: {r: 0, g: 0, b: 0, a: 0}
-  occupation: 0
+  tileX: 2
+  tileY: 5
+  tileCost: 0
+  occupyStatus: 0
+  NoTouch: 0
+  OnUnit: {fileID: 0}
+  Selecting: 0
+  RouteTile: {fileID: 0}
 --- !u!64 &1926955289
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -34259,19 +34280,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1983787571}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57662d09ca3a9874f9c036f33676071c, type: 3}
+  m_Script: {fileID: 11500000, guid: b2841408651d8854fa1e686a3b1ef394, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  X: 2
-  Y: 4
-  cost: 1
-  selectTile: 0
-  firstTile: 0
-  path: {fileID: 0}
-  stage: 0
-  selectUnit: {fileID: 0}
-  originColor: {r: 0, g: 0, b: 0, a: 0}
-  occupation: 0
+  tileX: 2
+  tileY: 4
+  tileCost: 0
+  occupyStatus: 0
+  NoTouch: 0
+  OnUnit: {fileID: 0}
+  Selecting: 0
+  RouteTile: {fileID: 0}
 --- !u!64 &1983787574
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -35417,19 +35436,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 2024830473}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57662d09ca3a9874f9c036f33676071c, type: 3}
+  m_Script: {fileID: 11500000, guid: b2841408651d8854fa1e686a3b1ef394, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  X: 0
-  Y: 6
-  cost: 1
-  selectTile: 0
-  firstTile: 0
-  path: {fileID: 0}
-  stage: 0
-  selectUnit: {fileID: 0}
-  originColor: {r: 0, g: 0, b: 0, a: 0}
-  occupation: 0
+  tileX: 0
+  tileY: 6
+  tileCost: 0
+  occupyStatus: 0
+  NoTouch: 0
+  OnUnit: {fileID: 0}
+  Selecting: 0
+  RouteTile: {fileID: 0}
 --- !u!64 &2024830476
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -35880,7 +35897,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2048014709
 Transform:
   m_ObjectHideFlags: 0
@@ -35892,7 +35909,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &2053354169 stripped
 Transform:
@@ -36286,7 +36303,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2077470147}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.92805, y: 0, z: 6}
+  m_LocalPosition: {x: -6.93, y: 0.01, z: 6}
   m_LocalScale: {x: 0.96, y: 0.96, z: 1}
   m_Children:
   - {fileID: 1114862082}
@@ -36301,19 +36318,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 2077470147}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57662d09ca3a9874f9c036f33676071c, type: 3}
+  m_Script: {fileID: 11500000, guid: b2841408651d8854fa1e686a3b1ef394, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  X: 2
-  Y: 1
-  cost: 1
-  selectTile: 0
-  firstTile: 0
-  path: {fileID: 0}
-  stage: 0
-  selectUnit: {fileID: 0}
-  originColor: {r: 0, g: 0, b: 0, a: 0}
-  occupation: 2
+  tileX: 2
+  tileY: 1
+  tileCost: 0
+  occupyStatus: 0
+  NoTouch: 0
+  OnUnit: {fileID: 1268205455}
+  Selecting: 0
+  RouteTile: {fileID: 0}
 --- !u!64 &2077470150
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -36603,6 +36618,74 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 64ad523b8d019471988932267f33b756, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &2096667135
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 2096667136}
+  - component: {fileID: 2096667138}
+  - component: {fileID: 2096667137}
+  m_Layer: 5
+  m_Name: mainbar
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2096667136
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2096667135}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1473437089}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 90}
+  m_SizeDelta: {x: 532, y: 104}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2096667137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2096667135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: 99173bba0a4423a42a46a11bdbcdf8b4, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &2096667138
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2096667135}
 --- !u!1 &2099768202
 GameObject:
   m_ObjectHideFlags: 0
