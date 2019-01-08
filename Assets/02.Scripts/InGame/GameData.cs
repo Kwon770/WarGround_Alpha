@@ -93,4 +93,12 @@ public class GameData : MonoBehaviour {
         //비티늄 하단바 설정
         InfoBar.bar.SetBit(bitinium);
     }
+    public void SetCommandPoint(int point)
+    {
+        LeaderShip += point;
+        if (LeaderShip > MaxLeaderShip) LeaderShip = MaxLeaderShip;
+
+        //리더쉽 하단바 설정
+        InfoBar.bar.SetBit(LeaderShip);
+    }
 }

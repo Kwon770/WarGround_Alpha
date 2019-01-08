@@ -45,13 +45,14 @@ public class InfoBar : MonoBehaviour {
     {
         StartCoroutine(_ResetUI());
     }
+
     public void SetBit(int point)
     {
         bitinium.SetUI(point);
     }
-    public void SetLeadership()
+    public void SetLeadership(int point)
     {
-        leadership.SetUI(GameData.data.LeaderShip);
+        leadership.SetUI(point);
     }
 
     IEnumerator _SetUI(Sprite unitIcon,Sprite skillIcon,string name, int ATK, int HP, int SHD, int ACT, string SkillName, string SkillInfo)
