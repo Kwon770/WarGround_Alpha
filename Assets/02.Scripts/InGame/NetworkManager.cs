@@ -67,6 +67,8 @@ public class NetworkManager : Photon.MonoBehaviour {
     //턴종료 버튼
     public void EndTurnClick(string client)
     {
+        if (endButton.coroutine != null) return;
+
         if (turnOwner == client)
         {
             SetOwnerUI("Not_Mine");

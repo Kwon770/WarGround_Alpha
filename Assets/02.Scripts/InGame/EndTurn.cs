@@ -9,7 +9,7 @@ public class EndTurn : MonoBehaviour {
 
     [SerializeField] AnimationCurve curve;
 
-    Coroutine coroutine;
+    public Coroutine coroutine;
 
 
     [SerializeField] Transform upSide;

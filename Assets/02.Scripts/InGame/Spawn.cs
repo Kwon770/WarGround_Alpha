@@ -27,10 +27,20 @@ public class Spawn : Photon.MonoBehaviour {
         {
             Button temp;
             temp = GameManager.manager.SpawnButton.GetChild(i).GetComponent<Button>();
-            GameManager.manager.SpawnButton.GetChild(i).gameObject.SetActive(true);
+            temp.gameObject.SetActive(true);
             temp.transform.GetChild(1).GetComponent<Text>().text = Cost[i - 5 + Units.Length].ToString();
-            GameManager.manager.SpawnButton.GetChild(i).GetComponent<Image>().sprite = Icon[i - 5 + Units.Length];
+            temp.GetComponent<Image>().sprite = Icon[i - 5 + Units.Length];
 
+            //정보 갱신
+            string[] name = Units[i - 5 + Units.Length].Split('_');
+            temp.transform.GetChild(2).GetChild(0).GetComponent<Text>().text = (((name[0] == "Cora" || name[0] == "Partan") ? "[Normal] ":"[Veteran] ") + name[1]);
+
+            UnitInfo unit = Resources.Load<UnitInfo>(Units[i - 5 + Units.Length]);
+            temp.transform.GetChild(2).GetChild(1).GetComponent<Text>().text = unit.ATK.ToString();
+            temp.transform.GetChild(2).GetChild(2).GetComponent<Text>().text = unit.HP.ToString();
+            temp.transform.GetChild(2).GetChild(3).GetComponent<Text>().text = unit.SHD.ToString();
+
+            //버튼 갱신
             temp.onClick.RemoveAllListeners();
             var cachedI = i - 5 + Units.Length; // Cache for Lambda
             temp.onClick.AddListener(new UnityEngine.Events.UnityAction(() => spawn.SetName(Units[cachedI])));
@@ -61,6 +71,8 @@ public class Spawn : Photon.MonoBehaviour {
         {
             unit.SHD += 1;
         }
+
+        GameData.data.SetCommandPoint(1);
     }
 
     public void SetName(string name)

@@ -16,6 +16,8 @@ public class UnitInfo : Photon.MonoBehaviour {
     public string Owner;
     public int x;
     public int y;
+
+    public static Coroutine coroutine;
     
     public Coroutine move;
 
@@ -353,6 +355,10 @@ public class UnitInfo : Photon.MonoBehaviour {
     [PunRPC]
     public void DestroyUnit()
     {
+        if (photonView.isMine && Kinds != "SkullKnight")
+        {
+            GameData.data.SetCommandPoint(-1);
+        }
         GameData.data.DelUnit(this);
         Destroy(gameObject, 4f);
     }
@@ -382,6 +388,12 @@ public class UnitInfo : Photon.MonoBehaviour {
         }
         if (GetComponent<Synchro>() == null)
         {
+            //지휘력 설정
+            if (photonView.isMine && Kinds != "SkullKnight")
+            {
+                GameData.data.SetCommandPoint(-1);
+            }
+
             transform.Find("EnemyTag").gameObject.SetActive(true);
             transform.Find("TeamTag").gameObject.SetActive(false);
             gameObject.AddComponent<Synchro>();

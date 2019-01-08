@@ -46,9 +46,13 @@ public class InfoBar : MonoBehaviour {
         StartCoroutine(_ResetUI());
     }
 
-    public void SetBit(int point)
+    public void SetBit(int bitinium, int point)
     {
-        bitinium.SetUI(point);
+        if (point > 0)
+        {
+            this.bitinium.SetUI(bitinium, point);
+        }
+        else this.bitinium.SetUI(bitinium);
     }
     public void SetLeadership(int point)
     {

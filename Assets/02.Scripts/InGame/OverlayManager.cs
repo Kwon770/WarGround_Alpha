@@ -28,6 +28,11 @@ public class OverlayManager : MonoBehaviour {
             // 유닛이 레이에 맞았을시
             if(hit.transform.tag == "Unit")
             {
+                //오버레이 이동
+                Vector3 screenPos = mainCamera.WorldToScreenPoint(hit.transform.position);
+                float x = screenPos.x;
+                OverlayUi.transform.position = new Vector3(x, screenPos.y, OverlayUi.transform.position.z);
+
                 // 오브젝트 켜고
                 OverlayUi.SetActive(true);
 

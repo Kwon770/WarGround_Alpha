@@ -103,10 +103,12 @@ public class GameManager : MonoBehaviour {
         }
         else if (Type == "Spawn")
         {
+            if (GameData.data.MaxLeaderShip <= GameData.data.LeaderShip) return;
+
             UnitInfo Temp =Obj.GetComponent<UnitInfo>();
             foreach (var tile in Calculator.Calc.GetInrangeTile(GameData.data.FindTile(Temp.x, Temp.y), 1))
             {
-                if (tile.idlecost == 100) continue;
+                if (tile.idlecost == 100 || GameData.data.FindUnit(tile.x, tile.y) != null) continue;
                 tile.CanUse();
             }
             trigger = Trigger.Spawn;

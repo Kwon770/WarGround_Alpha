@@ -1498,7 +1498,7 @@ MonoBehaviour:
   self: {fileID: 0}
   Units:
   - Partan_Warrior
-  - 
+  - Partan_Archer
   Cost: 0300000003000000
   Icon:
   - {fileID: 21300000, guid: 2f7d0b05a6983bf4c91d55771891d550, type: 3}

@@ -91,7 +91,7 @@ public class GameData : MonoBehaviour {
         if (bitinium > Maxbitinium) bitinium = Maxbitinium;
 
         //비티늄 하단바 설정
-        InfoBar.bar.SetBit(bitinium);
+        InfoBar.bar.SetBit(bitinium,point);
     }
     public void SetCommandPoint(int point)
     {
@@ -99,6 +99,6 @@ public class GameData : MonoBehaviour {
         if (LeaderShip > MaxLeaderShip) LeaderShip = MaxLeaderShip;
 
         //리더쉽 하단바 설정
-        InfoBar.bar.SetBit(LeaderShip);
+        InfoBar.bar.SetLeadership(LeaderShip);
     }
 }
