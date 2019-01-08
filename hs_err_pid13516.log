@@ -1,0 +1,122 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (malloc) failed to allocate 480104 bytes for AllocateHeap
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   In 32 bit mode, the process size limit was hit
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Use 64 bit Java on a 64 bit OS
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (memory/allocation.inline.hpp:61), pid=13516, tid=0x00000000000035fc
+#
+# JRE version:  (8.0_181-b13) (build )
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (25.181-b13 mixed mode windows-amd64 compressed oops)
+# Failed to write core dump. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x0000000002e82800):  JavaThread "Unknown thread" [_thread_in_vm, id=13820, stack(0x0000000002d80000,0x0000000002e80000)]
+
+Stack: [0x0000000002d80000,0x0000000002e80000]
+[error occurred during error reporting (printing stack bounds), id 0xc0000005]
+
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+
+Other Threads:
+
+=>0x0000000002e82800 (exited) JavaThread "Unknown thread" [_thread_in_vm, id=13820, stack(0x0000000002d80000,0x0000000002e80000)]
+
+VM state:not at safepoint (not fully initialized)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+Events (0 events):
+No events
+
+
+Dynamic libraries:
+0x00007ff745ba0000 - 0x00007ff745bd7000 	C:\Program Files\Java\jdk1.8.0_181\bin\java.exe
+0x00007ffc69610000 - 0x00007ffc697f1000 	C:\WINDOWS\SYSTEM32\ntdll.dll
+0x00007ffc66bd0000 - 0x00007ffc66c82000 	C:\WINDOWS\System32\KERNEL32.DLL
+0x00007ffc664c0000 - 0x00007ffc66733000 	C:\WINDOWS\System32\KERNELBASE.dll
+0x00007ffc66ee0000 - 0x00007ffc66f81000 	C:\WINDOWS\System32\ADVAPI32.dll
+0x00007ffc66c90000 - 0x00007ffc66d2e000 	C:\WINDOWS\System32\msvcrt.dll
+0x00007ffc694e0000 - 0x00007ffc6953b000 	C:\WINDOWS\System32\sechost.dll
+0x00007ffc66aa0000 - 0x00007ffc66bc4000 	C:\WINDOWS\System32\RPCRT4.dll
+0x00007ffc68e70000 - 0x00007ffc69000000 	C:\WINDOWS\System32\USER32.dll
+0x00007ffc66a80000 - 0x00007ffc66aa0000 	C:\WINDOWS\System32\win32u.dll
+0x00007ffc686d0000 - 0x00007ffc686f8000 	C:\WINDOWS\System32\GDI32.dll
+0x00007ffc66740000 - 0x00007ffc668d2000 	C:\WINDOWS\System32\gdi32full.dll
+0x00007ffc669e0000 - 0x00007ffc66a7f000 	C:\WINDOWS\System32\msvcp_win.dll
+0x00007ffc668e0000 - 0x00007ffc669da000 	C:\WINDOWS\System32\ucrtbase.dll
+0x00007ffc57e50000 - 0x00007ffc580b9000 	C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.17134.472_none_fb3f9af53068156d\COMCTL32.dll
+0x00007ffc68b40000 - 0x00007ffc68e62000 	C:\WINDOWS\System32\combase.dll
+0x00007ffc65a30000 - 0x00007ffc65aaa000 	C:\WINDOWS\System32\bcryptPrimitives.dll
+0x00007ffc66eb0000 - 0x00007ffc66edd000 	C:\WINDOWS\System32\IMM32.DLL
+0x0000000074650000 - 0x0000000074722000 	C:\Program Files\Java\jdk1.8.0_181\jre\bin\msvcr100.dll
+0x0000000073da0000 - 0x0000000074642000 	C:\Program Files\Java\jdk1.8.0_181\jre\bin\server\jvm.dll
+0x00007ffc68700000 - 0x00007ffc68708000 	C:\WINDOWS\System32\PSAPI.DLL
+0x00007ffc526a0000 - 0x00007ffc526a9000 	C:\WINDOWS\SYSTEM32\WSOCK32.dll
+0x00007ffc68840000 - 0x00007ffc688ac000 	C:\WINDOWS\System32\WS2_32.dll
+0x00007ffc61600000 - 0x00007ffc6160a000 	C:\WINDOWS\SYSTEM32\VERSION.dll
+0x00007ffc60780000 - 0x00007ffc607a3000 	C:\WINDOWS\SYSTEM32\WINMM.dll
+0x00007ffc60750000 - 0x00007ffc6077a000 	C:\WINDOWS\SYSTEM32\winmmbase.dll
+0x00007ffc659e0000 - 0x00007ffc65a29000 	C:\WINDOWS\System32\cfgmgr32.dll
+0x0000000077d00000 - 0x0000000077d0f000 	C:\Program Files\Java\jdk1.8.0_181\jre\bin\verify.dll
+0x0000000077cd0000 - 0x0000000077cf9000 	C:\Program Files\Java\jdk1.8.0_181\jre\bin\java.dll
+0x0000000077cb0000 - 0x0000000077cc6000 	C:\Program Files\Java\jdk1.8.0_181\jre\bin\zip.dll
+
+VM Arguments:
+jvm_args: -Xmx128M -Dfile.encoding=UTF8 
+java_command: E:\Unity\Editor\Data\PlaybackEngines\AndroidPlayer/Tools\sdktools.jar -
+java_class_path (initial): E:\Unity\Editor\Data\PlaybackEngines\AndroidPlayer/Tools\sdktools.jar
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+JAVA_HOME=C:\Program Files\Java\jdk1.8.0_181
+PATH=C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\QuickTime\QTSystem\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\;C:\Program Files (x86)\GtkSharp\2.12\bin;C:\Program Files\Java\jdk1.8.0_181\bin;C:\Program Files\Git\cmd;C:\Users\ManaBing\AppData\Local\Programs\Python\Python37-32\Scripts\;C:\Users\ManaBing\AppData\Local\Programs\Python\Python37-32\;C:\Users\ManaBing\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Bandizip\;C:\Users\ManaBing\AppData\Local\GitHubDesktop\bin;C:\Users\ManaBing\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Python 3.7;
+USERNAME=ManaBing
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 158 Stepping 9, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 10.0 , 64 bit Build 17134 (10.0.17134.1)
+
+CPU:total 8 (initial active 8) (4 cores per cpu, 2 threads per core) family 6 model 158 stepping 9, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, avx2, aes, clmul, erms, 3dnowpref, lzcnt, ht, tsc, tscinvbit, bmi1, bmi2, adx
+
+Memory: 4k page, physical 16657448k(5985468k free), swap 16657448k(5300k free)
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (25.181-b13) for windows-amd64 JRE (1.8.0_181-b13), built on Jul  7 2018 04:01:33 by "java_re" with MS VC++ 10.0 (VS2010)
+
+time: Sun Jan 06 00:15:51 2019
+elapsed time: 0 seconds (0d 0h 0m 0s)
+
