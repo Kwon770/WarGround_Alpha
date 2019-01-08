@@ -6,6 +6,7 @@ public class REunitBehaviour : MonoBehaviour {
 
     public float MoveSpeed;
     [SerializeField] REunitInfo unitInfo;
+    [SerializeField] Animator anim;
  
 
     public IEnumerator MovePlayer(REtileInfo startPos, REtileInfo endPos, int cost)
@@ -42,15 +43,16 @@ public class REunitBehaviour : MonoBehaviour {
 
             time = 0;
 
-            
-            
-            while(time <= 1)
+
+            anim.SetBool("MOVE", true);
+            while (time <= 1)
             {
                 transform.position = Vector3.Lerp(Start.transform.position, End.transform.position, time);
                 time += MoveSpeed * Time.deltaTime;
 
                 yield return null;
             }
+            anim.SetBool("MOVE", false);
 
             yield return new WaitForSeconds(0.2f);
             Start = End;

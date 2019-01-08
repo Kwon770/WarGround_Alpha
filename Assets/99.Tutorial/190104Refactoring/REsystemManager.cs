@@ -113,6 +113,8 @@ public class REsystemManager : MonoBehaviour {
         yield return null;
     }
 
+ 
+
     void HideScriptBoxForEvent()
     {
         StartCoroutine(scriptMove.HideAnim());
