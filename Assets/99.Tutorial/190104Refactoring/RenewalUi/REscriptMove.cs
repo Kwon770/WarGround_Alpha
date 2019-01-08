@@ -29,7 +29,7 @@ public class REscriptMove : MonoBehaviour {
         }
     }
 
-    IEnumerator HideAnim()
+    public IEnumerator HideAnim()
     {
         float time = 0;
 
@@ -42,7 +42,7 @@ public class REscriptMove : MonoBehaviour {
         }
     }
 
-    IEnumerator OnAnim()
+    public IEnumerator OnAnim()
     {
         float time = 0;
 

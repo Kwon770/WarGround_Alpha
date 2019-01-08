@@ -34,6 +34,8 @@ public class REtileInfo : MonoBehaviour {
 
     public int TileCost { get; private set; }
 
+    // noooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
+
     public void SetTileCost(int value)
     {
         TileCost = value;
@@ -341,7 +343,6 @@ public class REtileInfo : MonoBehaviour {
         {
             float time = 0;
 
-            Debug.Log("몇번");
             while ( time <= 1)
             {
                 time += 2f * Time.deltaTime;

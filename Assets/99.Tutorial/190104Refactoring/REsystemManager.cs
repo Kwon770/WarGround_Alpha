@@ -7,33 +7,42 @@ public class REsystemManager : MonoBehaviour {
     [SerializeField] REunitInfo MarsInfo;
     [SerializeField] REunitBehaviour MarsBehave;
     [SerializeField] REunitBehaviour EnemeyBehave;
-
     [SerializeField] REunitInfo cameraMoveUnit;
-
     [SerializeField] REtileController tileController;
-
+    [SerializeField] REactPointController actPointController;
     [SerializeField] REcameraManager camera;
+    [SerializeField] REtileInfo tutorialTile;
+    [SerializeField] REbuttonController buttonController;
+    [SerializeField] REscriptMove scriptMove;
+    [SerializeField] REscriptManager scriptManager;
 
     public int bitinium;
     public int commandPower;
 
-    // Use this for initialization
     void Start () {
-        tileController.GetChildTile();
 
+        tileController.GetChildTile();
+        StartCoroutine(ScriptBoardStartAnim());
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Return))    // move 버튼 누를 시로 바꾸기
         {
-            tileController.GetMovableTile(MarsInfo.unitTile, MarsInfo.UnitActPoint);
-            ChangeTileColor();
+           
         }
 
         RayCast();
         CameraMove();
+        ActPointController();
+        SetScriptText();
+    }
+
+    public void MoveButtonUnitMove()
+    {
+        tileController.GetMovableTile(MarsInfo.unitTile, MarsInfo.UnitActPoint);
+        ChangeTileColor();
+        Debug.Log("실행");
     }
 
     void UnitMove(REtileInfo startPos, REtileInfo endPos, int cost)
@@ -88,5 +97,40 @@ public class REsystemManager : MonoBehaviour {
         {
             StartCoroutine(tileController.tileList[i].ChangeColor());
         }
+    }
+
+    void ActPointController()
+    {
+        actPointController.ActPointOn(MarsInfo.UnitActPoint);
+    }
+
+    //For tutorial proceed code
+    IEnumerator ScriptBoardStartAnim()
+    {
+        yield return new WaitForSeconds(2.0f);
+        StartCoroutine(scriptMove.OnAnim());
+
+        yield return null;
+    }
+
+    void HideScriptBoxForEvent()
+    {
+        StartCoroutine(scriptMove.HideAnim());
+    }
+
+    void SetScriptText()
+    {
+        scriptManager.SetScriptText();
+    }
+
+    void OnMoveButton()
+    {
+        buttonController.OnClickMoveButton();
+    }
+
+    void OnMovableTile()
+    {
+        ResetSelectingTile();
+        tutorialTile.Selecting = true;
     }
 }
