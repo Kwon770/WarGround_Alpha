@@ -191,6 +191,8 @@ public class GameManager : MonoBehaviour {
     //이동 및 공격, 방어 행동 연산
     void Move(GameObject Unit, GameObject Tile)
     {
+        if (UnitInfo.coroutine != null) return;
+
         ResetTrigger();
 
         UnitInfo unit = Unit.GetComponent<UnitInfo>();
@@ -210,6 +212,7 @@ public class GameManager : MonoBehaviour {
         if (path == null) return;
         if (unit.move != null) StopCoroutine(unit.move);
         unit.move = StartCoroutine(unit.Move(path));
+        UnitInfo.coroutine = unit.move;
     }
     void Attack(GameObject Attacker,GameObject Defender)
     {

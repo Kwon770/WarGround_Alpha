@@ -316,6 +316,7 @@ public class UnitInfo : Photon.MonoBehaviour {
         }
         anim.Stop();//이동 애니메이션 끝
         moveTrigger = false;
+        UnitInfo.coroutine = null;
     }
 
     //피가 0 이하일때
