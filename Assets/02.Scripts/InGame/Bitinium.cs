@@ -1,32 +1,28 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Bitinium : MonoBehaviour {
 
     [SerializeField] GameObject Bar;
-    
-    // Use this for initialization
+    [SerializeField] Text text;
 
+    int bit;
+    int point;
+    
     public void Setting(int Bit)
     {
-        GameObject temp;
-        for (int i = 1; i <= Bit; i++)
-        {
-            temp = Instantiate(Bar);
-            temp.transform.parent = transform;
-//            temp.transform.localScale *= (Screen.width / 1600);
-        }
+        bit = Bit;
+        text.text = 0 + " / " + Bit + " ( +" + 0 + ")";
     }
-    public void SetUI(int point)
+    public void SetUI(int bitinium, int point)
     {
-        for (int i = 0; i < transform.GetChildCount(); i++)
-        {
-            transform.GetChild(i).GetComponent<OnOff>().OffObj();
-        }
-        for (int i = 0; i < point; i++)
-        {
-            transform.GetChild(i).GetComponent<OnOff>().OnObj();
-        }
+        this.point = point;
+        text.text = bitinium + " / " + bit + " ( +" + point + ")";
+    }
+    public void SetUI(int bitinium)
+    {
+        text.text = bitinium + " / " + bit + " ( +" + point + ")";
     }
 }

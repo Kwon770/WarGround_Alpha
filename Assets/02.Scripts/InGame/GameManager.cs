@@ -103,10 +103,12 @@ public class GameManager : MonoBehaviour {
         }
         else if (Type == "Spawn")
         {
+            if (GameData.data.MaxLeaderShip <= GameData.data.LeaderShip) return;
+
             UnitInfo Temp =Obj.GetComponent<UnitInfo>();
             foreach (var tile in Calculator.Calc.GetInrangeTile(GameData.data.FindTile(Temp.x, Temp.y), 1))
             {
-                if (tile.idlecost == 100) continue;
+                if (tile.idlecost == 100 || GameData.data.FindUnit(tile.x, tile.y) != null) continue;
                 tile.CanUse();
             }
             trigger = Trigger.Spawn;
@@ -189,6 +191,8 @@ public class GameManager : MonoBehaviour {
     //이동 및 공격, 방어 행동 연산
     void Move(GameObject Unit, GameObject Tile)
     {
+        if (UnitInfo.coroutine != null) return;
+
         ResetTrigger();
 
         UnitInfo unit = Unit.GetComponent<UnitInfo>();
@@ -208,6 +212,7 @@ public class GameManager : MonoBehaviour {
         if (path == null) return;
         if (unit.move != null) StopCoroutine(unit.move);
         unit.move = StartCoroutine(unit.Move(path));
+        UnitInfo.coroutine = unit.move;
     }
     void Attack(GameObject Attacker,GameObject Defender)
     {
