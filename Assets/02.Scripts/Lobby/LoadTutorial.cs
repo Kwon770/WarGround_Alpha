@@ -43,6 +43,7 @@ public class LoadTutorial : MonoBehaviour {
             yield return null;
         }
         async.allowSceneActivation = true;
+        StopCoroutine(Anim());
         gameObject.SetActive(false);
     }
 
@@ -75,6 +76,13 @@ public class LoadTutorial : MonoBehaviour {
         {
             string Hex = hex[Random.Range(0, 9)];
 
+            // 색 초기화
+            for (int i = 0; i < 6; i++)
+            {
+                anim[i].color = Color.white;
+            }
+
+            // 애니메이션
             for (int i = 0; i < 6; i++)
             {
                 Debug.Log(Hex);

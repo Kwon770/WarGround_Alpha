@@ -69,17 +69,25 @@ public class Match : MonoBehaviour {
     }
 
     // 시작 버튼 함수
-    public void RandomMatch()
+    public void EnterMatch()
     {
-        // 오류 확인
-        StartCoroutine(CheckConnection());
-
         // Esc 키 무효화
         Manager.instance.corutine = true;
 
-        match.SetActive(true);
         LobbyNetwork.instance.JoinRandom();
 
+        match.SetActive(true);
+
+        myName.text = "Waiting . . .";
+        myChar.text = "";
+
+        // 오류 확인
+        StartCoroutine(CheckConnection());
+    }
+
+    void StartMatch()
+    {
+        // 매칭 시작
         StartCoroutine(Anim());
 
         // 내 이름 작성
@@ -115,6 +123,7 @@ public class Match : MonoBehaviour {
         // Esc 키 무효화 취소
         Manager.instance.corutine = false;
 
+        StopCoroutine(Anim());
         match.SetActive(false);
         LobbyNetwork.instance.LeaveRoom();
     }
@@ -134,6 +143,7 @@ public class Match : MonoBehaviour {
             time += Time.deltaTime;
             if (PhotonNetwork.inRoom)
             {
+                StartMatch();
                 yield break;
             }
             yield return null;
@@ -161,6 +171,7 @@ public class Match : MonoBehaviour {
 
         yield return new WaitForSeconds(2);
 
+        StopCoroutine(Anim());
         Manager.instance.corutine = false;
 
         startPos = Complete.transform.position;
@@ -180,7 +191,14 @@ public class Match : MonoBehaviour {
         while(true)
         {
             string Hex = hex[Random.Range(0, 9)];
-            
+
+            // 색 초기화
+            for (int i = 0; i < 6; i++)
+            {
+                anim[i].color = Color.white;
+            }
+
+            // 애니메이션
             for (int i = 0; i < 6; i++)
             {
                 Color animColor = new Color();
