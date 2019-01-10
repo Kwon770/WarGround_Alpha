@@ -6,7 +6,8 @@ public class REsystemManager : MonoBehaviour {
 
     [SerializeField] REunitInfo MarsInfo;
     [SerializeField] REunitBehaviour MarsBehave;
-    [SerializeField] REunitBehaviour EnemeyBehave;
+    [SerializeField] REunitInfo EnemyInfo;
+    [SerializeField] REunitBehaviour EnemyBehave;
     [SerializeField] REunitInfo cameraMoveUnit;
     [SerializeField] REtileController tileController;
     [SerializeField] REactPointController actPointController;
@@ -15,6 +16,12 @@ public class REsystemManager : MonoBehaviour {
     [SerializeField] REbuttonController buttonController;
     [SerializeField] REscriptMove scriptMove;
     [SerializeField] REscriptManager scriptManager;
+    [SerializeField] REpointer pointer;
+
+    [SerializeField] REtileInfo spawnTile;
+    [SerializeField] REunitInfo warrior;
+
+    [SerializeField] REbitiniumAndCommand topText;
 
     public int bitinium;
     public int commandPower;
@@ -27,27 +34,49 @@ public class REsystemManager : MonoBehaviour {
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Return))    // move 버튼 누를 시로 바꾸기
+        if (Input.GetKeyDown(KeyCode.Return) && scriptManager.isHide == false)  
         {
-           
+            PassScriptUseEnter();
         }
 
+        topText.TextBitinium(bitinium);
+        topText.TextCommand(commandPower);
+
+        ScriptFunction();
+        OnOffPointer();
         RayCast();
         CameraMove();
         ActPointController();
         SetScriptText();
+        OccupyTileColor();
+
+    }
+    public void OccupyTileColor()
+    {
+        for(int i = 0; i < tileController.tileList.Count; i++)
+        {
+            if (tileController.tileList[i].Selecting == false && tileController.tileList[i].spawnSelecting == false)
+            {
+                tileController.tileList[i].OccupyColor();
+            }
+
+        }
     }
 
     public void MoveButtonUnitMove()
     {
         tileController.GetMovableTile(MarsInfo.unitTile, MarsInfo.UnitActPoint);
         ChangeTileColor();
-        Debug.Log("실행");
     }
 
     void UnitMove(REtileInfo startPos, REtileInfo endPos, int cost)
     {
         StartCoroutine(MarsBehave.MovePlayer(startPos, endPos, cost));
+    }
+
+    void EnemyMove(REtileInfo startPos, REtileInfo endPos, int cost)
+    {
+        StartCoroutine(EnemyBehave.MovePlayer(startPos, endPos, cost));
     }
 
     void ResetSelectingTile()
@@ -74,10 +103,29 @@ public class REsystemManager : MonoBehaviour {
                         MarsInfo.ConsumeActPoint(rayTile.tileCost);
                         //MarsInfo.unitTile.NullUnit();
                         //MarsInfo.unitTile = rayTile;
+                        //PassScript();
                         ResetSelectingTile();
                         ChangeTileColor();
                     }
+                    else if (rayTile.spawnSelecting == true)
+                    {
+                        spawnTile.spawnSelecting = false;
+                        spawnTile.StartCoroutine(spawnTile.ChangeColor());
+                        warrior.gameObject.SetActive(true);
+                        MarsInfo.UnitActPoint = 2;
+                        PassScript();
+                    }
 
+                }
+                else if (hit.transform.tag == "Enemy")
+                {
+                    if(hit.transform.GetComponent<REunitInfo>().isDamaed == true)
+                    {
+                        hit.transform.GetComponent<REunitInfo>().isDamaed = false;
+                        MarsBehave.StartCoroutine(MarsBehave.Attack());
+                        EnemyBehave.StartCoroutine(EnemyBehave.Damaged());
+                        MarsInfo.UnitActPoint = 0;
+                    }
                 }
 
             }
@@ -113,8 +161,6 @@ public class REsystemManager : MonoBehaviour {
         yield return null;
     }
 
- 
-
     void HideScriptBoxForEvent()
     {
         StartCoroutine(scriptMove.HideAnim());
@@ -135,4 +181,163 @@ public class REsystemManager : MonoBehaviour {
         ResetSelectingTile();
         tutorialTile.Selecting = true;
     }
+
+    void ScriptFunction()
+    {
+        if (scriptManager.scriptNum == 1)
+        {
+            buttonController.OnClickMoveButton();
+        }
+        else if (scriptManager.scriptNum == 5)
+        {
+            buttonController.OnClickTurnButton();
+        }
+        else if (scriptManager.scriptNum == 6)
+        {
+            bitinium = 2;
+        }
+        else if (scriptManager.scriptNum == 13)
+        {
+            buttonController.OnClickTurnButton();
+        }
+        else if (scriptManager.scriptNum == 14)
+        {
+            bitinium = 4;
+        }
+        else if (scriptManager.scriptNum == 17)
+        {
+            buttonController.OnClickSpawnButton();
+        }
+        else if (scriptManager.scriptNum == 18)
+        {
+            commandPower = 1;
+            bitinium = 1;
+        }
+        else if (scriptManager.scriptNum == 21)
+        {
+            buttonController.OnClickAttackButton();
+        }
+    }
+
+    void PassScriptUseEnter()
+    {
+        if(scriptManager.scriptNum != 1 && scriptManager.scriptNum != 2 && scriptManager.scriptNum != 5 && scriptManager.scriptNum != 13 && scriptManager.scriptNum != 17 && scriptManager.scriptNum != 21)
+        {
+            scriptManager.scriptNum++;
+        }
+
+    }
+
+    public void PassScript()
+    {
+        scriptManager.scriptNum++;
+    }
+
+    public void AfterTurnButtonClick(int caseNum)
+    {
+        if(caseNum == 0)
+        {
+            if (scriptManager.isHide == false)
+            {
+                StartCoroutine(scriptMove.HideAnim());
+                tileController.GetMovableTile(EnemyInfo.unitTile, EnemyInfo.UnitActPoint);
+                tileController.ResetSelectingTile();
+                EnemyMove(EnemyInfo.unitTile, tileController.tileList[18], 2);
+            }
+          
+        }
+        else
+        {
+            if (scriptManager.isHide == false)
+            {
+                StartCoroutine(scriptMove.HideAnim());
+                tileController.GetMovableTile(EnemyInfo.unitTile, EnemyInfo.UnitActPoint);
+                tileController.ResetSelectingTile();
+                EnemyMove(EnemyInfo.unitTile, tileController.tileList[17], 1);
+            }
+
+        }
+    }
+
+    public void AfterEnemyTurnScript()
+    {
+        scriptManager.scriptNum++;
+        buttonController.OnClickTurnButton();
+        buttonController.ClickTurn();
+        tileController.Occupy();
+
+        MarsInfo.UnitActPoint = 3;
+        EnemyInfo.UnitActPoint = 2;
+
+        if (scriptManager.isHide == true)
+        {
+            StartCoroutine(scriptMove.OnAnim());
+        }
+    }
+
+    public void SpawnTileSelecting()
+    {
+        spawnTile.spawnSelecting = true;
+        spawnTile.StartCoroutine(spawnTile.ChangeColor());
+    }
+    public void ClickAttackButton()
+    {
+        EnemyInfo.isDamaed = true;
+    }
+
+    void OnOffPointer()
+    {
+        if (scriptManager.scriptNum == 1)
+        {
+            pointer.pointerIndex = 0;
+            pointer.OnOffPointer();
+        }
+        else if (scriptManager.scriptNum >= 3 && scriptManager.scriptNum <= 4)
+        {
+            pointer.pointerIndex = 1;
+            pointer.OnOffPointer();
+        }
+        else if (scriptManager.scriptNum == 5)
+        {
+            pointer.pointerIndex = 2;
+            pointer.OnOffPointer();
+        }
+        else if (scriptManager.scriptNum == 11)
+        {
+            pointer.pointerIndex = 3;
+            pointer.OnOffPointer();
+        }
+        else if (scriptManager.scriptNum == 12)
+        {
+            pointer.pointerIndex = 4;
+            pointer.OnOffPointer();
+        }
+        else if (scriptManager.scriptNum == 13)
+        {
+            pointer.pointerIndex = 2;
+            pointer.OnOffPointer();
+        }
+        else if (scriptManager.scriptNum == 17)
+        {
+            pointer.pointerIndex = 4;
+            pointer.OnOffPointer();
+        }
+        else if (scriptManager.scriptNum == 18)
+        {
+            pointer.pointerIndex = 5;
+            pointer.OnOffPointer();
+        }
+        else if (scriptManager.scriptNum == 21)
+        {
+            pointer.pointerIndex = 6;
+            pointer.OnOffPointer();
+        }
+        else
+        {
+            pointer.pointerIndex = 9;
+            pointer.OnOffPointer();
+        }
+
+    }
+    
 }

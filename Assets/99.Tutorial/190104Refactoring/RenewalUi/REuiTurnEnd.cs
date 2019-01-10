@@ -11,15 +11,10 @@ public class REuiTurnEnd : MonoBehaviour {
 
     [SerializeField] Transform animUpPos;
 
-    private void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.Return))
-        {
-            StartCoroutine(TurnEndAnim());
-        }
-    }
+    [SerializeField] REsystemManager systemManager;
 
-    IEnumerator TurnEndAnim()
+
+    public IEnumerator TurnEndAnim()
     {
         Transform backTurn = transform.GetChild(0).transform;
         Transform frontTurn = transform.GetChild(1).transform;
@@ -47,6 +42,9 @@ public class REuiTurnEnd : MonoBehaviour {
 
             yield return null;
         }
- 
+
+
+
+        yield return null;
     }
 }

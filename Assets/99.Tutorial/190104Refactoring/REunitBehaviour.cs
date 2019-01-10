@@ -5,13 +5,16 @@ using UnityEngine;
 public class REunitBehaviour : MonoBehaviour {
 
     public float MoveSpeed;
+
+
     [SerializeField] REunitInfo unitInfo;
-    [SerializeField] Animator anim;
+    public Animator anim;
+    [SerializeField] REsystemManager systemManager;
  
 
     public IEnumerator MovePlayer(REtileInfo startPos, REtileInfo endPos, int cost)
     {
-        
+
         REtileInfo RouteFinder = endPos;
         REtileInfo Start = startPos;
         REtileInfo End = endPos;
@@ -58,9 +61,34 @@ public class REunitBehaviour : MonoBehaviour {
             Start = End;
         }
 
+
         GetComponent<REunitInfo>().unitTile.NullUnit();
         GetComponent<REunitInfo>().unitTile = End;
         End.OnUnit = GetComponent<REunitInfo>();
+
+        if(gameObject.tag == "Player")
+        {
+            systemManager.PassScript();
+        }
+        else
+        {
+            systemManager.AfterEnemyTurnScript();
+        }
+
+        yield return null;
+    }
+
+    public IEnumerator Attack()
+    {
+        anim.SetTrigger("ATTACK");
+        yield return null;
+    }
+
+    public IEnumerator Damaged()
+    {
+        yield return new WaitForSeconds(2.1f);
+        anim.SetTrigger("DIE");
+        systemManager.PassScript();
         yield return null;
     }
 }

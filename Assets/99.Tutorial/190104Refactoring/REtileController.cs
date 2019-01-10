@@ -161,13 +161,36 @@ public class REtileController : MonoBehaviour {
 
             }
         }
+        ResetExceptEventTile();
+    }
+
+    public void Occupy()
+    {
+        for(int i = 0; i < tileList.Count; i++)
+        {
+            tileList[i].CheckOccupied(tileList);
+            Debug.Log("아이들");
+        }
     }
 
     public void ResetSelectingTile()
     {
         for (int i = 0; i < transform.childCount; i++)
         {
-            tileList[i].SetSelecting(false);
+
+             tileList[i].SetSelecting(false);
+
+        }
+    }
+
+    public void ResetExceptEventTile()
+    {
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            if (i != 16)
+            {
+                tileList[i].SetSelecting(false);
+            }
         }
     }
 }
