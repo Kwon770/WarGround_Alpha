@@ -138,6 +138,13 @@ public class REbuttonController : MonoBehaviour {
         }
     }
 
+    public void ClickLobby()
+    {
+        systemManager.end = true;
+        systemManager.StartCoroutine(systemManager.LoadScene());
+    }
+
+
     IEnumerator OnOption()
     {
         isOptionAnim = true;

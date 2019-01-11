@@ -16,6 +16,10 @@ public class Exit : MonoBehaviour
             EndUI.UI._myScore = 0;
             EndUI.UI.SetRemainTurn(0);
         }
+        else if(Application.loadedLevel == 2)
+        {
+            Application.Quit();
+        }
     }
 	
 }

@@ -29,7 +29,7 @@ public class REsystemManager : MonoBehaviour {
     public int bitinium;
     public int commandPower;
 
-    bool end;
+    public bool end;
     bool attackEnemy;
 
     private void Awake()
@@ -49,8 +49,6 @@ public class REsystemManager : MonoBehaviour {
         {
             PassScriptUseEnter();
         }
-
-
 
         topText.TextBitinium(bitinium);
         topText.TextCommand(commandPower);
@@ -368,7 +366,7 @@ public class REsystemManager : MonoBehaviour {
 
     }
 
-    IEnumerator LoadScene()
+    public IEnumerator LoadScene()
     {
         loadingCanvas.gameObject.SetActive(true);
         float time = 0;
