@@ -6,6 +6,7 @@ public class REunitInfo : MonoBehaviour {
 
 
     public REtileInfo unitTile;
+    public bool isDamaed;
 
     //유닛 상태
     public int UnitHP;

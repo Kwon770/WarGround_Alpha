@@ -8,29 +8,14 @@ public class REscriptMove : MonoBehaviour {
     [SerializeField] Transform onPos;
 
     [SerializeField] AnimationCurve curve;
+    [SerializeField] REscriptManager scriptManager;
 
     int turn = 0;
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            if(turn == 0)
-            {
-                StartCoroutine(HideAnim());
-                turn = 1;
-            }
-            else
-            {
-                StartCoroutine(OnAnim());
-                turn = 0;
-            }
-            
-        }
-    }
-
     public IEnumerator HideAnim()
     {
+        scriptManager.isHide = true;
+
         float time = 0;
 
         while (time <= 1)
@@ -44,6 +29,7 @@ public class REscriptMove : MonoBehaviour {
 
     public IEnumerator OnAnim()
     {
+
         float time = 0;
 
         while (time <= 1)
@@ -53,5 +39,7 @@ public class REscriptMove : MonoBehaviour {
             transform.position = Vector3.LerpUnclamped(hidePos.position, onPos.position, curve.Evaluate(time));
             yield return null;
         }
+
+        scriptManager.isHide = false;
     }
 }

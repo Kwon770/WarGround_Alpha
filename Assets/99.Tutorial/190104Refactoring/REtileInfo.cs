@@ -30,6 +30,8 @@ public class REtileInfo : MonoBehaviour {
 
     public bool Selecting;
 
+    public bool spawnSelecting;
+
     public REtileInfo RouteTile;
 
     public int TileCost { get; private set; }
@@ -71,7 +73,7 @@ public class REtileInfo : MonoBehaviour {
                 {
                     if (tileList[i].GetTileX() == GetTileX() && tileList[i].GetTileY() == GetTileY() && tileList[i].NoTouch == false)
                     {
-                        if (OnUnit.gameObject.tag == "player")
+                        if (OnUnit.gameObject.tag == "Player")
                         {
                             if (tileList[i].occupyStatus != 1)
                             {
@@ -79,7 +81,7 @@ public class REtileInfo : MonoBehaviour {
                             }
                         }
 
-                        if (tileList[i].OnUnit.gameObject.tag == "enemy")
+                        if (OnUnit.gameObject.tag == "Enemy")
                         {
                             if (tileList[i].occupyStatus != -1)
                             {
@@ -90,7 +92,7 @@ public class REtileInfo : MonoBehaviour {
 
                     else if (tileList[i].GetTileX() == GetTileX() && tileList[i].GetTileY() == GetTileY() + 1 && tileList[i].NoTouch == false)
                     {
-                        if (OnUnit.gameObject.tag == "player")
+                        if (OnUnit.gameObject.tag == "Player")
                         {
                             if (tileList[i].occupyStatus != 1)
                             {
@@ -98,7 +100,7 @@ public class REtileInfo : MonoBehaviour {
                             }
                         }
 
-                        if (tileList[i].OnUnit.gameObject.tag == "enemy")
+                        if (OnUnit.gameObject.tag == "Enemy")
                         {
                             if (tileList[i].occupyStatus != -1)
                             {
@@ -108,7 +110,7 @@ public class REtileInfo : MonoBehaviour {
                     }
                     else if (tileList[i].GetTileX() == GetTileX() + 1 && tileList[i].GetTileY() == GetTileY() + 1 && tileList[i].NoTouch == false)
                     {
-                        if (OnUnit.gameObject.tag == "player")
+                        if (OnUnit.gameObject.tag == "Player")
                         {
                             if (tileList[i].occupyStatus != 1)
                             {
@@ -116,7 +118,7 @@ public class REtileInfo : MonoBehaviour {
                             }
                         }
 
-                        if (tileList[i].OnUnit.gameObject.tag == "enemy")
+                        if (OnUnit.gameObject.tag == "Enemy")
                         {
                             if (tileList[i].occupyStatus != -1)
                             {
@@ -126,7 +128,7 @@ public class REtileInfo : MonoBehaviour {
                     }
                     else if (tileList[i].GetTileX() == GetTileX() + 1 && tileList[i].GetTileY() == GetTileY() && tileList[i].NoTouch == false)
                     {
-                        if (OnUnit.gameObject.tag == "player")
+                        if (OnUnit.gameObject.tag == "Player")
                         {
                             if (tileList[i].occupyStatus != 1)
                             {
@@ -134,7 +136,7 @@ public class REtileInfo : MonoBehaviour {
                             }
                         }
 
-                        if (tileList[i].OnUnit.gameObject.tag == "enemy")
+                        if (OnUnit.gameObject.tag == "Enemy")
                         {
                             if (tileList[i].occupyStatus != -1)
                             {
@@ -144,7 +146,7 @@ public class REtileInfo : MonoBehaviour {
                     }
                     else if (tileList[i].GetTileX() == GetTileX() && tileList[i].GetTileY() == GetTileY() - 1 && tileList[i].NoTouch == false)
                     {
-                        if (OnUnit.gameObject.tag == "player")
+                        if (OnUnit.gameObject.tag == "Player")
                         {
                             if (tileList[i].occupyStatus != 1)
                             {
@@ -152,7 +154,7 @@ public class REtileInfo : MonoBehaviour {
                             }
                         }
 
-                        if (tileList[i].OnUnit.gameObject.tag == "enemy")
+                        if (OnUnit.gameObject.tag == "Enemy")
                         {
                             if (tileList[i].occupyStatus != -1)
                             {
@@ -162,7 +164,7 @@ public class REtileInfo : MonoBehaviour {
                     }
                     else if (tileList[i].GetTileX() == GetTileX() - 1 && tileList[i].GetTileY() == GetTileY() && tileList[i].NoTouch == false)
                     {
-                        if (OnUnit.gameObject.tag == "player")
+                        if (OnUnit.gameObject.tag == "Player")
                         {
                             if (tileList[i].occupyStatus != 1)
                             {
@@ -170,7 +172,7 @@ public class REtileInfo : MonoBehaviour {
                             }
                         }
 
-                        if (tileList[i].OnUnit.gameObject.tag == "enemy")
+                        if (OnUnit.gameObject.tag == "Enemy")
                         {
                             if (tileList[i].occupyStatus != -1)
                             {
@@ -180,7 +182,7 @@ public class REtileInfo : MonoBehaviour {
                     }
                     else if (tileList[i].GetTileX() == GetTileX() - 1 && tileList[i].GetTileY() == GetTileY() + 1 && tileList[i].NoTouch == false)
                     {
-                        if (OnUnit.gameObject.tag == "player")
+                        if (OnUnit.gameObject.tag == "Player")
                         {
                             if (tileList[i].occupyStatus != 1)
                             {
@@ -188,7 +190,7 @@ public class REtileInfo : MonoBehaviour {
                             }
                         }
 
-                        if (tileList[i].OnUnit.gameObject.tag == "enemy")
+                        if (OnUnit.gameObject.tag == "Enemy")
                         {
                             if (tileList[i].occupyStatus != -1)
                             {
@@ -201,7 +203,7 @@ public class REtileInfo : MonoBehaviour {
                 {
                     if (tileList[i].GetTileX() == GetTileX() && tileList[i].GetTileY() == GetTileY() && tileList[i].NoTouch == false)
                     {
-                        if (OnUnit.gameObject.tag == "player")
+                        if (OnUnit.gameObject.tag == "Player")
                         {
                             if (tileList[i].occupyStatus != 1)
                             {
@@ -209,7 +211,7 @@ public class REtileInfo : MonoBehaviour {
                             }
                         }
 
-                        if (tileList[i].OnUnit.gameObject.tag == "enemy")
+                        if (OnUnit.gameObject.tag == "Enemy")
                         {
                             if (tileList[i].occupyStatus != -1)
                             {
@@ -220,7 +222,7 @@ public class REtileInfo : MonoBehaviour {
 
                     else if (tileList[i].GetTileX() == GetTileX() && tileList[i].GetTileY() == GetTileY() + 1 && tileList[i].NoTouch == false)
                     {
-                        if (OnUnit.gameObject.tag == "player")
+                        if (OnUnit.gameObject.tag == "Player")
                         {
                             if (tileList[i].occupyStatus != 1)
                             {
@@ -228,7 +230,7 @@ public class REtileInfo : MonoBehaviour {
                             }
                         }
 
-                        if (tileList[i].OnUnit.gameObject.tag == "enemy")
+                        if (OnUnit.gameObject.tag == "Enemy")
                         {
                             if (tileList[i].occupyStatus != -1)
                             {
@@ -238,7 +240,7 @@ public class REtileInfo : MonoBehaviour {
                     }
                     else if (tileList[i].GetTileX() == GetTileX() + 1 && tileList[i].GetTileY() == GetTileY() && tileList[i].NoTouch == false)
                     {
-                        if (OnUnit.gameObject.tag == "player")
+                        if (OnUnit.gameObject.tag == "Player")
                         {
                             if (tileList[i].occupyStatus != 1)
                             {
@@ -246,7 +248,7 @@ public class REtileInfo : MonoBehaviour {
                             }
                         }
 
-                        if (tileList[i].OnUnit.gameObject.tag == "enemy")
+                        if (OnUnit.gameObject.tag == "Enemy")
                         {
                             if (tileList[i].occupyStatus != -1)
                             {
@@ -256,7 +258,7 @@ public class REtileInfo : MonoBehaviour {
                     }
                     else if (tileList[i].GetTileX() == GetTileX() + 1 && tileList[i].GetTileY() == GetTileY() - 1 && tileList[i].NoTouch == false)
                     {
-                        if (OnUnit.gameObject.tag == "player")
+                        if (OnUnit.gameObject.tag == "Player")
                         {
                             if (tileList[i].occupyStatus != 1)
                             {
@@ -264,7 +266,7 @@ public class REtileInfo : MonoBehaviour {
                             }
                         }
 
-                        if (tileList[i].OnUnit.gameObject.tag == "enemy")
+                        if (OnUnit.gameObject.tag == "Enemy")
                         {
                             if (tileList[i].occupyStatus != -1)
                             {
@@ -274,7 +276,7 @@ public class REtileInfo : MonoBehaviour {
                     }
                     else if (tileList[i].GetTileX() == GetTileX() && tileList[i].GetTileY() == GetTileY() - 1 && tileList[i].NoTouch == false)
                     {
-                        if (OnUnit.gameObject.tag == "player")
+                        if (OnUnit.gameObject.tag == "Player")
                         {
                             if (tileList[i].occupyStatus != 1)
                             {
@@ -282,7 +284,7 @@ public class REtileInfo : MonoBehaviour {
                             }
                         }
 
-                        if (tileList[i].OnUnit.gameObject.tag == "enemy")
+                        if (OnUnit.gameObject.tag == "Enemy")
                         {
                             if (tileList[i].occupyStatus != -1)
                             {
@@ -292,7 +294,7 @@ public class REtileInfo : MonoBehaviour {
                     }
                     else if (tileList[i].GetTileX() == GetTileX() - 1 && tileList[i].GetTileY() == GetTileY() - 1 && tileList[i].NoTouch == false)
                     {
-                        if (OnUnit.gameObject.tag == "player")
+                        if (OnUnit.gameObject.tag == "Player")
                         {
                             if (tileList[i].occupyStatus != 1)
                             {
@@ -300,7 +302,7 @@ public class REtileInfo : MonoBehaviour {
                             }
                         }
 
-                        if (tileList[i].OnUnit.gameObject.tag == "enemy")
+                        if (OnUnit.gameObject.tag == "Enemy")
                         {
                             if (tileList[i].occupyStatus != -1)
                             {
@@ -310,7 +312,7 @@ public class REtileInfo : MonoBehaviour {
                     }
                     else if (tileList[i].GetTileX() == GetTileX() - 1 && tileList[i].GetTileY() == GetTileY() && tileList[i].NoTouch == false)
                     {
-                        if (OnUnit.gameObject.tag == "player")
+                        if (OnUnit.gameObject.tag == "Player")
                         {
                             if (tileList[i].occupyStatus != 1)
                             {
@@ -318,7 +320,7 @@ public class REtileInfo : MonoBehaviour {
                             }
                         }
 
-                        if (tileList[i].OnUnit.gameObject.tag == "enemy")
+                        if (OnUnit.gameObject.tag == "Enemy")
                         {
                             if (tileList[i].occupyStatus != -1)
                             {
@@ -336,10 +338,26 @@ public class REtileInfo : MonoBehaviour {
     {
         OnUnit = null;
     }
+
+    public void OccupyColor()
+    {
+        if(occupyStatus == 1)
+        {
+            render.material.color = new Color(0f, 0.2f, 0.8f, 1f);
+        }
+        else if(occupyStatus == 0)
+        {
+            render.material.color = originColor;
+        }
+        else
+        {
+            render.material.color = new Color(0.8f, 0.2f, 0f, 1f);
+        }
+    }
     
     public IEnumerator ChangeColor()
     {
-        if(Selecting == true)
+        if(Selecting == true || spawnSelecting == true)
         {
             float time = 0;
 
