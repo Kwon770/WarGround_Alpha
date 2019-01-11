@@ -19,7 +19,7 @@ public class ParticleScript : MonoBehaviour {
         particle = GetComponent<ParticleSystemRenderer>();
     }
 
-    public void DemagePlay()
+    public void DamagePlay()
     {
         particle.material = Demage;
         particleSys.Play();

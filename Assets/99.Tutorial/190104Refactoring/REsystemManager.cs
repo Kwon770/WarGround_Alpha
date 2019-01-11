@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class REsystemManager : MonoBehaviour {
 
@@ -23,8 +24,18 @@ public class REsystemManager : MonoBehaviour {
 
     [SerializeField] REbitiniumAndCommand topText;
 
+    [SerializeField] GameObject loadingCanvas;
+
     public int bitinium;
     public int commandPower;
+
+    bool end;
+    bool attackEnemy;
+
+    private void Awake()
+    {
+        SoundManager.soundmanager.planeBGM(true);
+    }
 
     void Start () {
 
@@ -38,6 +49,8 @@ public class REsystemManager : MonoBehaviour {
         {
             PassScriptUseEnter();
         }
+
+
 
         topText.TextBitinium(bitinium);
         topText.TextCommand(commandPower);
@@ -190,12 +203,15 @@ public class REsystemManager : MonoBehaviour {
         }
         else if (scriptManager.scriptNum == 5)
         {
+ 
             buttonController.OnClickTurnButton();
         }
         else if (scriptManager.scriptNum == 6)
         {
+            buttonController.isTurnClick = false;
             bitinium = 2;
         }
+
         else if (scriptManager.scriptNum == 13)
         {
             buttonController.OnClickTurnButton();
@@ -219,11 +235,16 @@ public class REsystemManager : MonoBehaviour {
         }
     }
 
-    void PassScriptUseEnter()
+    public void PassScriptUseEnter()
     {
-        if(scriptManager.scriptNum != 1 && scriptManager.scriptNum != 2 && scriptManager.scriptNum != 5 && scriptManager.scriptNum != 13 && scriptManager.scriptNum != 17 && scriptManager.scriptNum != 21)
+        if(scriptManager.scriptNum != 1 && scriptManager.scriptNum != 2 && scriptManager.scriptNum != 5 && scriptManager.scriptNum != 13 && scriptManager.scriptNum != 17 && scriptManager.scriptNum != 21 && scriptManager.scriptNum != 24)
         {
             scriptManager.scriptNum++;
+        }
+        else if(scriptManager.scriptNum == 24 && end == false)
+        {
+            end = true;
+            StartCoroutine(LoadScene());
         }
 
     }
@@ -280,9 +301,11 @@ public class REsystemManager : MonoBehaviour {
         spawnTile.spawnSelecting = true;
         spawnTile.StartCoroutine(spawnTile.ChangeColor());
     }
+
     public void ClickAttackButton()
     {
         EnemyInfo.isDamaed = true;
+        attackEnemy = true;
     }
 
     void OnOffPointer()
@@ -327,9 +350,14 @@ public class REsystemManager : MonoBehaviour {
             pointer.pointerIndex = 5;
             pointer.OnOffPointer();
         }
-        else if (scriptManager.scriptNum == 21)
+        else if (scriptManager.scriptNum == 21 && attackEnemy == false)
         {
             pointer.pointerIndex = 6;
+            pointer.OnOffPointer();
+        }
+        else if (scriptManager.scriptNum == 21 && attackEnemy == true)
+        {
+            pointer.pointerIndex = 7;
             pointer.OnOffPointer();
         }
         else
@@ -339,5 +367,21 @@ public class REsystemManager : MonoBehaviour {
         }
 
     }
-    
+
+    IEnumerator LoadScene()
+    {
+        loadingCanvas.gameObject.SetActive(true);
+        float time = 0;
+        AsyncOperation async = SceneManager.LoadSceneAsync("Lobby_Renewal");
+        async.allowSceneActivation = false;
+
+        while (time <= 3 && !async.isDone)
+        {
+            time += Time.deltaTime;
+            yield return null;
+        }
+        async.allowSceneActivation = true;
+        loadingCanvas.gameObject.SetActive(false);
+        
+    }
 }

@@ -6,7 +6,7 @@ public class REunitBehaviour : MonoBehaviour {
 
     public float MoveSpeed;
 
-
+    [SerializeField] REbuttonController buttonController;
     [SerializeField] REunitInfo unitInfo;
     public Animator anim;
     [SerializeField] REsystemManager systemManager;
@@ -72,7 +72,9 @@ public class REunitBehaviour : MonoBehaviour {
         }
         else
         {
+            buttonController.isTurnClick = false;
             systemManager.AfterEnemyTurnScript();
+           
         }
 
         yield return null;
@@ -87,8 +89,21 @@ public class REunitBehaviour : MonoBehaviour {
     public IEnumerator Damaged()
     {
         yield return new WaitForSeconds(2.1f);
+        SoundManager.soundmanager.smallSword();
+        GetComponent<ParticleScript>().DamagePlay();
         anim.SetTrigger("DIE");
         systemManager.PassScript();
         yield return null;
+    }
+
+    public void hit()
+    {
+       //필요없는 함수 리시버용
+
+    }
+
+    public void Step()
+    {
+        SoundManager.soundmanager.planeFootStep();
     }
 }

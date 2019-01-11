@@ -232,14 +232,14 @@ public class UnitInfo : Photon.MonoBehaviour {
         //애니메이션
         if (temp.dieTrigger)
         {
-            temp.particle.DemagePlay();
+            temp.particle.DamagePlay();
             temp.DIE();
         }
         else
         {
             if (Kinds != "Healer")
             {
-                temp.particle.DemagePlay();
+                temp.particle.DamagePlay();
                 temp.anim.Block();
             }
             else
