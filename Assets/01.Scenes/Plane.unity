@@ -6936,7 +6936,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -30}
-  m_SizeDelta: {x: 50, y: 50}
+  m_SizeDelta: {x: 45, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &187725327
 MonoBehaviour:
@@ -6957,7 +6957,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: c4cb889b77303524ca25b983549b4a3d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dfeec3c6582cede4b8f98508b7b75e8a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -7426,8 +7426,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -50, y: -5}
-  m_SizeDelta: {x: 50, y: 50}
+  m_AnchoredPosition: {x: -50, y: -12.08}
+  m_SizeDelta: {x: 42, y: 57}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &205622377
 MonoBehaviour:
@@ -7448,7 +7448,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: ce0d648e2a9b32146abef1a75451ef36, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d2692c75f7104c349b0408fa77c88353, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -31849,7 +31849,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 50, y: -5}
-  m_SizeDelta: {x: 50, y: 50}
+  m_SizeDelta: {x: 49, y: 61}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &998513999
 MonoBehaviour:
@@ -31870,7 +31870,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: f6cfc7df05d81b049b7a762c81494997, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 28cc9d9584d4fc440af3aa34a4c759ac, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -60208,7 +60208,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.8, y: -7.9}
+  m_AnchoredPosition: {x: -0.2, y: -1.52}
   m_SizeDelta: {x: 49.16, y: 49.16}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2010812868
