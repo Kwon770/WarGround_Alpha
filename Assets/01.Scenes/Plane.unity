@@ -34818,9 +34818,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 7
-    m_Right: 9
-    m_Top: 0
+    m_Left: 10
+    m_Right: 10
+    m_Top: 3
     m_Bottom: 0
   m_ChildAlignment: 4
   m_Spacing: 0
@@ -34872,7 +34872,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 575ca9e4abc83734b8ff26ced37a9913, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Bar: {fileID: 1357622136017054, guid: 72144189de0c62e4ea69100b0ca397a4, type: 2}
+  Bar: {fileID: 1497116616160070, guid: 8aca6237b576e8e4bb261f6630a1ab6b, type: 2}
   IdleAct: 3
 --- !u!114 &1084593109
 MonoBehaviour:

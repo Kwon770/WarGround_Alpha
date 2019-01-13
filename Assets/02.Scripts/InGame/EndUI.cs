@@ -36,6 +36,11 @@ public class EndUI : Photon.MonoBehaviour {
         if (turn <= 0)
         {
             StartCoroutine("EndGame");
+
+            PhotonNetwork.LeaveRoom();
+            if (MatchManager.manager != null) Destroy(MatchManager.manager.gameObject);
+            if (NetworkManager.network != null) Destroy(NetworkManager.network.gameObject);
+
             return;
         }
         remainTurn.text = turn.ToString();
@@ -71,8 +76,6 @@ public class EndUI : Photon.MonoBehaviour {
             yield return null;
         }
         yield return null;
-
-        PhotonNetwork.LeaveRoom();
     }
     public void LoadScene()
     {
@@ -81,9 +84,6 @@ public class EndUI : Photon.MonoBehaviour {
             if (unit == null) continue;
             if(unit.photonView.isMine) Destroy(unit.gameObject);
         }
-        PhotonNetwork.LeaveRoom();
-        if(MatchManager.manager != null)Destroy(MatchManager.manager.gameObject);
-        if (NetworkManager.network != null) Destroy(NetworkManager.network.gameObject);
         StartCoroutine("Loading");
     }
     public IEnumerator Loading()
