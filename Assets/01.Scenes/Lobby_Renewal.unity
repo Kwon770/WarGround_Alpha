@@ -232,11 +232,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f1448e5fc3bbd243a3298259f0df3ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  story: "\uC2F8\uC6C0 \uC790\uCCB4 \uBCF4\uB2E4\uB294 \uC0C1\uB300\uB97C \uAD34\uB86D\uD788\uB294
-    \uAC83\uC5D0 \uD76C\uC5F4\uC744 \uB290\uB07C\uB294 \uC774\uC0C1\uD55C \uB140\uC11D\uC785\uB2C8\uB2E4.
-    \uC704\uD611 \uC0AC\uACA9\uB9CC \uD558\uACE0 \uC5B4\uB514\uB860\uAC00 \uC228\uC5B4\uBC84\uB9AC\uB294
-    \uC774\uC0C1\uD55C \uB140\uC11D\uC740 \uAC19\uC740 \uBD80\uB300\uC6D0\uB4E4\uB07C\uB9AC\uB3C4
-    \uBA40\uB9AC\uD558\uB294 \uC774\uC720\uAC00 \uC788\uC2B5\uB2C8\uB2E4."
+  story: Strange one is more interested in bullying enemy than fighting. he shoots
+    of threat and hides somewhere.
   grade: Veteran
   name: Strange one
   cost: 4
@@ -679,7 +676,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f1448e5fc3bbd243a3298259f0df3ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  story: "\uAC80\uC744 \uB2E4\uB8E8\uB294 \uC6A9\uB9F9\uD55C \uCF54\uB77C\uC758 \uBCD1\uC0AC\uC785\uB2C8\uB2E4."
+  story: The brave soldier with a sword.
   grade: Normal
   name: Warrior
   cost: 3
@@ -1490,8 +1487,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f1448e5fc3bbd243a3298259f0df3ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  story: "\uAC80\uC744 \uB2E4\uB8E8\uB294 \uC6A9\uB9F9\uD55C \uD30C\uB974\uD0C4\uC758
-    \uBCD1\uC0AC\uC785\uB2C8\uB2E4."
+  story: The brave soldier with a sword.
   grade: Normal
   name: Warrior
   cost: 3
@@ -1600,10 +1596,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f1448e5fc3bbd243a3298259f0df3ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  story: "\uBC34\uC2DC\uC758 \uC218\uD558\uC778 \uADF8\uB4E4\uC5D0\uAC8C \uACFC\uAC70\uC758
-    \uC794\uC7AC\uB4E4\uC740 \uB0A8\uC544 \uC788\uC9C0 \uC54A\uC2B5\uB2C8\uB2E4. \uC0B4\uC758\uB9CC
-    \uB0A8\uC740 \uADF8\uB4E4\uC740 \uD50C\uB8E8\uD1A0\uB97C \uC704\uD55C \uB9F9\uBAA9\uC801\uC778
-    \uCDA9\uC131\uC744 \uBC14\uCE60 \uC900\uBE44\uAC00 \uB418\uC5B4\uC788\uC2B5\uB2C8\uB2E4. "
+  story: "Skull knight hasn\u2019t remnants of the past. Only ready to dedicate their
+    blind loyalty to Pluto. "
   grade: Veteran
   name: Skull knight
   cost: 0
@@ -1764,8 +1758,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f1448e5fc3bbd243a3298259f0df3ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  story: "\uAC80\uC744 \uB2E4\uB8E8\uB294 \uC6A9\uB9F9\uD55C \uD30C\uB974\uD0C4\uC758
-    \uBCD1\uC0AC\uC785\uB2C8\uB2E4."
+  story: The brave soldier with a sword.
   grade: Normal
   name: Warrior
   cost: 3
@@ -2560,8 +2553,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f1448e5fc3bbd243a3298259f0df3ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  story: "\uAC80\uC744 \uB2E4\uB8E8\uB294 \uC6A9\uB9F9\uD55C \uD30C\uB974\uD0C4\uC758
-    \uBCD1\uC0AC\uC785\uB2C8\uB2E4."
+  story: The brave soldier with a sword.
   grade: Normal
   name: Warrior
   cost: 3
@@ -3173,32 +3165,16 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "[Royal Guard Story]\n\n\n \uCE5C\uC704\uB300\uC7A5 \uB9C8\uB974\uC2A4\uAC00
-    \uC774\uB044\uB294 \uC81C\uAD6D \uCE5C\uC704\uB300\uB294 \uBA85\uC131\uC5D0 \uAC78\uB9DE\uB3C4\uB85D
-    \uB300\uB959 \uCD5C\uACE0\uC758 \uBCD1\uC0AC\uB4E4\uB85C \uC774\uB8E8\uC5B4\uC838\uC788\uB2E4.
-    \uD30C\uB974\uD0C4\uC758 \uC790\uB791\uC778 \uAC15\uCCA0 \uAC11\uC637\uC73C\uB85C
-    \uBB34\uC7A5\uD55C \uC81C\uAD6D \uCE5C\uC704\uB300\uC5D0\uAC8C \uD53C\uD574\uB97C
-    \uC785\uD788\uAE30\uB294 \uB9E4\uC6B0 \uC5B4\uB824\uC6E0\uC73C\uBA70, \uC124\uC0AC
-    \uC804\uD22C\uC5D0\uC11C \uC2B9\uB9AC\uD588\uB2E4 \uD558\uB354\uB77C\uB3C4 \uC804\uC5F4\uC744
-    \uBE60\uB978 \uC18D\uB3C4\uB85C \uC7AC\uC815\uBE44\uD55C \uADF8\uB4E4\uC5D0\uAC8C
-    \uC801\uAD70\uC740 \uC190 \uC4F8 \uB3C4\uB9AC \uC5C6\uC774 \uBB3C\uB7EC\uB0A0
-    \uC218 \uBC16\uC5D0 \uC5C6\uC5C8\uB2E4. \uC774\uCC98\uB7FC \uC81C\uAD6D \uCE5C\uC704\uB300\uB294
-    \uD30C\uB974\uD0C4\uC744 \uC9C0\uD0A4\uB294 \uAC70\uB300\uD55C \uBC29\uD328\uC758
-    \uC784\uBB34\uB97C \uC218\uC2ED\uB144\uAC04 \uC804\uB2F4\uD558\uACE0 \uC788\uC5C8\uB358
-    \uAC83\uC774\uB2E4.\r\n \n \uADF8\uB7EC\uB098 \u2018\uC8FD\uC74C\uC758 \uAE30\uC0AC\u2019\uC758
-    \uC874\uC7AC\uB294 \uB9C8\uB974\uC2A4\uB97C \uAC08\uB4F1\uD558\uAC8C \uB9CC\uB4E4\uC5C8\uB2E4.
-    \uC8FD\uC74C \uC774\uD6C4 \uB2E4\uC2DC \uC5BB\uC740 \uC0B6\uC5D0\uC11C\uC870\uCC28
-    \uC81C\uAD6D\uC744 \uC704\uD574 \uD5CC\uC2E0\uD558\uB294 \uC8FD\uC74C\uC758 \uAE30\uC0AC\uC758
-    \uBAA8\uC2B5\uC5D0\uC11C \uADF8\uB294 \uC704\uD654\uAC10\uC744 \uB290\uAF08\uACE0
-    \uADF8\uAC83\uC740 \uC774\uB0B4 \uC8FD\uC74C\uC758 \uAE30\uC0AC\uB97C \uB418\uC0B4\uB9B0
-    \uD751\uB9C8\uBC95\uACFC \uADF8\uAC83\uC744 \uC774\uC6A9\uD558\uB294 \uC81C\uAD6D\uC5D0
-    \uB300\uD55C \uC758\uC2EC\uC73C\uB85C \uB2E4\uAC00\uC654\uB2E4.\r\n \n \uADF8\uB9AC\uACE0
-    \uB54C\uB9DE\uCDB0 \uCC3E\uC544\uC628 \uC544\uC774\uC0AC \uC815\uBC8C \uC784\uBB34.
-    \uC774\uBC88 \uC804\uC7C1\uC774 \uBE44\uD2F0\uB284\uC744 \uB9E4\uAC1C\uCCB4\uB85C
-    \uD55C \uD751\uB9C8\uBC95\uACFC \uAD00\uB828\uB41C \uAC83\uC744 \uC54C\uAC8C \uB41C
-    \uB9C8\uB974\uC2A4\uB294 \uADF8 \uC5B4\uB290 \uB54C\uBCF4\uB2E4\uB3C4 \uC2E0\uC911\uD788
-    \uC784\uBB34\uC5D0 \uB098\uC11C\uBA70 \uD55C\uD3B8\uC73C\uB85C\uB294 \uC81C\uAD6D\uC758
-    \uC5B4\uB450\uC6B4 \uBA74 \uB610\uD55C \uBC1D\uD600\uB0B4\uAE30\uB85C \uACB0\uC2EC\uD55C\uB2E4.\r\n"
+  m_Text: "[Royal Guard Story]\n\n\n Led by Mars, the Royal guard is made up of the
+    best soldiers on the continent to live up to its reputation. It was very difficult
+    to inflict damage on the Royal guard armed with Partan\u2019s steel armor. As
+    such, Royal guard has been in charge of the task of protecting the Partan for
+    decades.\r\n\n However, the existence of Death knight has caused Mars to conflict.
+    he felt a sense of camaraderie in the image of Death knight dedicated to empire
+    even after his death, and it soon came to doubt the black magic and empire that
+    used it.\r\n\n And he timely got a task of the Aisa. After finding out out that
+    this war was related to the black magic of Bitinium, Mars was more careful than
+    ever before and decided to find the truth the dark side of the empire as well.\r\n"
 --- !u!222 &423086220
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3285,8 +3261,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f1448e5fc3bbd243a3298259f0df3ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  story: "\uD65C\uC744 \uB2E4\uB8E8\uB294 \uC6A9\uB9F9\uD55C \uD30C\uB974\uD0C4\uC758
-    \uBCD1\uC0AC\uC785\uB2C8\uB2E4."
+  story: The brave soldier with a bow.
   grade: Normal
   name: Archer
   cost: 3
@@ -3675,13 +3650,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f1448e5fc3bbd243a3298259f0df3ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  story: "\uC801\uC758 \uC2F8\uC6B8 \uC758\uC9C0\uB97C \uAEBE\uB294 \uAC83 \uB3D9\uC548
-    \uC2B9\uB9AC\uB97C \uC704\uD55C \uD589\uB3D9\uC77C \uAC83\uC785\uB2C8\uB2E4. \uC0E4\uBA3C\uC740
-    \uC801\uC5D0\uAC8C \uC800\uC8FC\uB97C \uB0B4\uB9BC\uC73C\uB85C\uC368 \uD798\uC744
-    \uBE7C\uC557\uACE0 \uC2A4\uC2A4\uB85C \uBB3C\uB7EC\uB098\uAC8C \uB9CC\uB4ED\uB2C8\uB2E4.
-    \uC5B4\uCA4C\uBA74 \uADF8\uC758 \uC800\uC8FC\uAC00 \uC801\uC5D0\uAC8C \uC788\uC5B4
-    \uC804\uC7A5\uC5D0\uC11C\uC758 \uC8FD\uC74C\uC744 \uB9C9\uC544\uC8FC\uB294 \uB9C8\uC9C0\uB9C9
-    \uC790\uBE44\uC77C\uC9C0\uB3C4 \uBAA8\uB985\uB2C8\uB2E4."
+  story: " It will be for victory as long as it breaks the enemy\u2019s will to fight.
+    By cursing the enemy, Shaman depresses enemy and forces them to retreat. "
   grade: Veteran
   name: Shaman
   cost: 5
@@ -3761,7 +3731,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &499218749
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3770,16 +3740,16 @@ RectTransform:
   m_GameObject: {fileID: 499218748}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 2087251463}
   - {fileID: 582579901}
-  m_Father: {fileID: 1758039550}
-  m_RootOrder: 9
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -352}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 700, y: 120.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &499218750
@@ -3965,10 +3935,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f1448e5fc3bbd243a3298259f0df3ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  story: "\uC695\uC2EC\uC774 \uAC00\uB4DD\uD55C \uC57D\uD0C8\uC790\uB294 \uB208 \uAE5C\uC9DD\uD560
-    \uC0C8 \uBAA8\uB4E0 \uAC83\uC744 \uBE7C\uC557\uC544\uAC11\uB2C8\uB2E4. \uADF8\uAC00
-    \uC9C0\uB098\uAC04 \uC790\uB9AC\uC5D0\uB294 \uB7FC\uC8FC \uD55C \uBC29\uC6B8 \uC870\uCC28
-    \uB0A8\uC9C0 \uC54A\uC2B5\uB2C8\uB2E4. "
+  story: "The greedy Harrier plundered everything in no time. There\u2019s not a drop
+    of rum left where he passed."
   grade: Veteran
   name: Harrier
   cost: 4
@@ -4338,10 +4306,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f1448e5fc3bbd243a3298259f0df3ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  story: "\uB9C8\uB974\uC2A4\uC758 \uC9C1\uC18D \uBD80\uD558\uC778 \uADFC\uC704\uBCD1\uC785\uB2C8\uB2E4.
-    \uADF8\uB294 \uB9C8\uB974\uC2A4\uB85C\uBD80\uD130 \uC9C0\uD718 \uAD8C\uD55C\uC744
-    \uBD80\uC5EC\uBC1B\uC544 \uB610 \uB2E4\uB978 \uBD80\uB300\uB97C \uC774\uB04C\uACE0
-    \uC81C\uAD6D \uCE5C\uC704\uB300\uC758 \uBCF8\uB300\uB97C \uC9C0\uC6D0\uD569\uB2C8\uB2E4. "
+  story: 'Royal knight is direct subordinate to Mars. He was given command authority
+    by Mars and led another soldiers to support the headquarters of the Royal guard. '
   grade: Veteran
   name: Royal knight
   cost: 6
@@ -5098,14 +5064,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f1448e5fc3bbd243a3298259f0df3ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  story: "\uCC9C\uBD80\uC801\uC778 \uC7AC\uB2A5\uC744 \uBC14\uD0D5\uC73C\uB85C \uD55C
-    \uB54C \uD669\uC2E4 \uB9C8\uBC95\uC0AC\uC758 \uC9C0\uD718\uC5D0\uB3C4 \uC62C\uB790\uB358
-    \uADF8\uB294 \uD751\uB9C8\uBC95\uC758 \uAC15\uB825\uD568\uC744 \uC5BB\uAE30 \uC704\uD574
-    \uC790\uC9C4\uD574\uC11C \uD50C\uB8E8\uD1A0 \uBD80\uB300\uB85C \uB4E4\uC5B4\uAC00\uAC8C\uB418\uC5C8\uC2B5\uB2C8\uB2E4.
-    \uC801\uC740 \uBB3C\uB860\uC774\uAC70\uB2C8\uC640 \uD544\uC694\uD558\uB2E4\uBA74
-    \uC544\uAD70 \uC870\uCC28 \uC81C\uBB3C\uB85C \uC0BC\uC544 \uD798\uC744 \uC5BB\uB294
-    \uD751\uB9C8\uBC95\uC0AC\uC5D0\uAC8C \uC874\uACBD\uBC1B\uB358 \uC608\uC804\uC758
-    \uBAA8\uC2B5\uC740 \uB0A8\uC544\uC788\uC9C0 \uC54A\uC2B5\uB2C8\uB2E4. "
+  story: Warlock, once led a mages as head of royal mage based on his natural talent,
+    entered the Pluto to gain the power of black magic.  He sacrifices living things
+    to gain power, whether they are enemies or allies.
   grade: Veteran
   name: Warlock
   cost: 5
@@ -5499,13 +5460,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f1448e5fc3bbd243a3298259f0df3ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  story: "\uC81C\uAD6D \uCE5C\uC704\uB300\uC758 \uC9C0\uD718\uAD00 \uCD9C\uC2E0\uC778
-    \uC8FD\uC74C\uC758 \uAE30\uC0AC\uB294 \uC804\uC7A5\uC5D0\uC11C \uC0B6\uC744 \uB9C8\uAC10\uD55C
-    \uD6C4 \uD751\uB9C8\uBC95\uC73C\uB85C \uB418\uC0B4\uC544\uB098 \uD50C\uB8E8\uD1A0
-    \uBD80\uB300\uC758 \uC218\uC7A5\uC73C\uB85C \uC81C 2\uC758 \uC0B6\uC744 \uC0B4\uACE0
-    \uC788\uC2B5\uB2C8\uB2E4. \uB6F0\uC5B4\uB09C \uC9C0\uD718\uB825\uC740 \uC8FD\uC74C
-    \uC774\uD6C4\uC5D0\uB3C4 \uC5EC\uC9C0\uC5C6\uC774 \uBC1C\uD718\uB418\uC5B4 \uC218\uB9CE\uC740
-    \uBCD1\uB825\uC744 \uD1B5\uC194\uD558\uACE0 \uC788\uC2B5\uB2C8\uB2E4. "
+  story: 'Death knight, a former commander of the Royal guard, raised from the dead
+    by black magic after ending his life on the battlefield and lives a second life
+    as head of the Pluto.  He leads a large number of soldiers based on his command
+    power. '
   grade: Elite
   name: Death knight
   cost: 0
@@ -5865,11 +5823,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f1448e5fc3bbd243a3298259f0df3ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  story: "\uD3C9\uC0DD \uAC80\uC220\uC744 \uC5F0\uB9C8\uD574\uC628 \uC0AC\uBB34\uB77C\uC774\uB294
-    \uB204\uAD6C\uBCF4\uB2E4 \uBE60\uB974\uAC8C \uC801\uC744 \uBCA0\uC5B4 \uB118\uAE38
-    \uC218 \uC788\uC2B5\uB2C8\uB2E4. \uC0AC\uBB34\uB77C\uC774\uC758 \uCE7C\uB0A0\uC774
-    \uBCF4\uC600\uB2E4\uBA74 \uC774\uBBF8 \uAE4A\uC740 \uC0C1\uCC98\uB97C \uC785\uC5C8\uC744
-    \uAC83\uC785\uB2C8\uB2E4."
+  story: 'Samurai, who has practiced sworld all his life, can cut off the enemy faster
+    than anyone else. If you see the blade of a samurai, you would have been deeply
+    wounded. '
   grade: Veteran
   name: Samurai
   cost: 5
@@ -6430,11 +6386,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f1448e5fc3bbd243a3298259f0df3ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  story: "\uAC15\uCCA0 \uAC11\uC637\uC744 \uC785\uACE0 \uBB34\uAC70\uC6B4 \uBC29\uD328\uAE4C\uC9C0
-    \uB2E4\uB8E8\uB294 \uBC29\uD328\uBCD1\uB4E4\uC740 \uBD80\uB300 \uB0B4\uC5D0\uC11C\uB3C4
-    \uD2B9\uBCC4\uD788 \uAC15\uD55C \uBCD1\uC0AC\uB4E4\uC785\uB2C8\uB2E4. \uADF8\uB4E4\uC758
-    \uBC29\uD328\uC5D0 \uB9DE\uC740 \uC801\uB4E4\uC740 \uD55C\uB3D9\uC548 \uC815\uC2E0\uC744
-    \uCC28\uB9AC\uC9C0 \uBABB\uD569\uB2C8\uB2E4."
+  story: The Guarder wearing steel armor and carrying heavy shields are particularly
+    strong soldiers in the Royal guard. The enemies who are hit by their shields are
+    out of their mind for a while.
   grade: Veteran
   name: Guarder
   cost: 6
@@ -6712,32 +6666,16 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "[Merica Story]\n\n\n \uC138\uC0C1\uC744 \uC6C0\uC9C1\uC774\uB294 \uAC83\uC740
-    \uB3C8\uC774\uB2E4. \uADF8\uB9AC\uACE0 \uB3C8\uC5D0 \uC758\uD574 \uC6C0\uC9C1\uC774\uB294
-    \uAC83\uC740 \uC140 \uC218 \uC5C6\uC774 \uB9CE\uC73C\uB098 \uADF8 \uBB34\uC5C7\uBCF4\uB2E4\uB3C4
-    \uBE60\uB974\uAC8C \uC6C0\uC9C1\uC774\uB294 \uAC83\uC744 \uAF3D\uC544\uBCF4\uC790\uBA74
-    \uAC00\uC7A5 \uBA3C\uC800 \uBA54\uB9AC\uCE74 \uBD80\uB300\uAC00 \uC5B8\uAE09\uB420
-    \uAC83\uC774\uB2E4.\r\n \n \uB300\uB959\uC5D0 \uC228\uACA8\uC9C4 \uBE44\uD2F0\uB284\uC744
-    \uC8FC \uC218\uC785\uC6D0\uC73C\uB85C \uC0BC\uACE0 \uC788\uB294 \uBA54\uB9AC\uCE74
-    \uBD80\uB300\uB294 \uCF54\uB77C \uC81C\uAD6D \uB0B4\uC5D0\uC11C \uCD1D\uC744 \uC798
-    \uB2E4\uB8E8\uAE30\uB85C \uC774\uB984\uB09C \uC778\uAC04\uB4E4\uC774 \uBAA8\uC5EC\uC788\uB2E4.
-    \uADF8\uB4E4\uC740 \uB3C8\uC774\uB77C\uB294 \uACF5\uD1B5 \uBD84\uBAA8 \uC544\uB798\uC5D0\uC11C
-    \uD558\uB098\uC758 \uBD80\uB300\uB97C \uACB0\uC131\uD558\uACE0 \uC788\uC73C\uB098,
-    \uADF8\uB4E4\uC740 \uC81C\uAC01\uAE30 \uB2E4\uB978 \uC0DD\uAC01\uACFC \uC131\uACA9\uC744
-    \uAC00\uC9C4 \uC778\uAC04\uB4E4\uC758 \uC9D1\uD569\uCCB4\uC774\uB2E4. \uC88B\uC740
-    \uB140\uC11D, \uB098\uC05C \uB140\uC11D, \uC774\uC0C1\uD55C \uB140\uC11D \uBAA8\uB450\uAC00
-    \uBAA8\uC5EC \uC788\uB294, \uD761\uC0AC \uC624\uD569\uC9C0\uC878\uB85C\uAE4C\uC9C0
-    \uBCF4\uC774\uB294 \uC774\uB7EC\uD55C \uBD80\uB300\uC5D0\uC11C \uC628\uC804\uD558\uAC8C
-    \uC874\uC911\uBC1B\uB294 \uC778\uAC04\uC740 \uC624\uC9C1 \u2018\uC5D8\uB9AC\uD2B8
-    \uC0AC\uC218\u2019\uB85C \uBD88\uB9AC\uC6B0\uB294 \uC708\uBCA8\uD2B8 \uBFD0\uC774\uB2E4.\r\n
-    \n \uBAA9\uD45C\uAC00 \uC0DD\uAE30\uBA74, \uB354\uAD70\uB2E4\uB098 \uADF8\uAC83\uC774
-    \uB3C8\uC5D0 \uAD00\uB828\uB418\uC5B4\uC788\uB2E4\uBA74 \uC218\uB2E8\uACFC \uBC29\uBC95\uC744
-    \uAC00\uB9AC\uC9C0 \uC54A\uB294 \uADF8\uB140\uC5D0\uAC8C \uC544\uC774\uC0AC \uB300\uB959\uC740
-    \uB108\uBB34\uB098\uB3C4 \uB2EC\uCF64\uD55C \uC720\uD639\uC73C\uB85C \uB2E4\uAC00\uC654\uB2E4.
-    \uADF8\uB140\uB294 \uBD80\uB300\uC758 \uBCD1\uC0AC\uB4E4\uACFC \uC7A5\uC7A5 30\uCD08\uC758
-    \uD1A0\uB860 \uB05D\uC5D0 \uC81C\uAD6D\uC5D0 \uC790\uC6D0 \uC758\uC0AC\uB97C \uD45C\uD558\uAE30\uB85C
-    \uACB0\uC815\uD558\uC600\uACE0, \uADF8\uB4E4\uC758 \uC870\uC900\uACBD\uC740 \uC544\uC774\uC0AC
-    \uB300\uB959\uC758 \uBE44\uD2F0\uB284\uC73C\uB85C \uD5A5\uD558\uAE30 \uC2DC\uC791\uD55C\uB2E4.\r\n"
+  m_Text: "[Merica Story]\n\n\n It is money that moves the world. And there are countless
+    things driven by money, but most of all, moving fast, the Merika is mentioned
+    first.\r\n\n Merica, which gain Bitinium hidden on the continent as its main source
+    of income, is group of people famous for its handling of guns within the Cora.
+    They form a troop under the common denominator of money, but they are each a group
+    of people with different thoughts and personalities. The only person who is fully
+    respected in this troop is Winvelt who is called the Elite shooter.\r\n\n For
+    them, the continent of Aisa has come as a tempting goal. Winvelt decided to volunteer
+    for the Cora after a 30-second discussion with the soldiers of the troops, and
+    their sights began to turn to Bitinium in the Aisa.\r\n"
 --- !u!222 &777609148
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6811,28 +6749,14 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "[Kamiken Story]\n\n\n \uC790\uD30C\uB2C8 \uC12C\uC740 \uBD80\uC871 \uAC04\uC5D0
-    \uC77C\uC5B4\uB09C \uC624\uB79C \uAE30\uAC04\uC758 \uC804\uC7C1\uC73C\uB85C \uC778\uD574
-    \uD669\uD3D0\uD654 \uB41C \uC12C\uC774\uC5C8\uB2E4. \uB0B4\uC804\uC758 \uC885\uACB0\uC744
-    \uC774\uB048 \uB3C4\uCFE0\uAC00\uC640\uB294 \uD30C\uAD34\uB41C \uC790\uC2E0\uC758
-    \uACE0\uD5A5\uC744 \uC548\uD0C0\uAE4C\uC6CC\uD558\uC600\uACE0, \uC774\uC640 \uAC19\uC740
-    \uC0C1\uD669\uC758 \uC7AC\uBC1C\uC744 \uB9C9\uAE30 \uC704\uD55C \uACC4\uCC45\uC758
-    \uC77C\uD658\uC73C\uB85C \uB300\uB959\uC744 \uC815\uBC8C\uD558\uACE0\uC790 \uD558\uC600\uB2E4.\r\n
-    \n \uADF8\uB7F0 \uADF8\uC5D0\uAC8C \uC788\uC5B4 \uC544\uC774\uC0AC \uB300\uB959\uC740
-    \uC544\uB9C8\uB3C4 \uC2E0\uC774 \uC900 \uAE30\uD68C\uB85C \uB2E4\uAC00\uC654\uC744
-    \uAC83\uC774\uB2E4. \uC815\uBCF5\uC758 \uC57C\uC2EC\uC744 \uC18D\uC5D0 \uD488\uC740
-    \uB3C4\uCFE0\uAC00\uC640\uB294 \uADF8\uC758 \uBD84\uC2E0\uACFC\uB3C4 \uAC19\uC740
-    \uCE74\uBBF8\uCF04 \uBD80\uB300\uB97C \uC18C\uC9D1\uD558\uC600\uB2E4. \uC12C \uC804\uCCB4\uB97C
-    \uB5A0\uB3CC\uBA70 \uAC16\uAC00\uC9C0\uC758 \uC784\uBB34\uB97C \uC218\uD589\uD558\uB358
-    \uC6A9\uBCD1 \uCD9C\uC2E0 \uBD80\uB300\uC6D0\uB4E4\uC5D0\uAC8C \uB3C4\uCFE0\uAC00\uC640\uB294
-    \uC57C\uC2EC\uC744 \uBD88\uC5B4\uB123\uC5C8\uB2E4. \uBCBD\uC5D0 \uAC78\uB9B0 \uC544\uC774\uC0AC\uC758
-    \uADF8\uB9BC\uC740 \uADF8\uB4E4\uC758 \uBAA9\uD45C\uB97C \uB354\uC6B1\uB354 \uACF5\uACE0\uD788
-    \uD558\uC600\uACE0 \uB3C4\uCFE0\uAC00\uC640\uC758 \uAD6C\uD638 \uC544\uB798 \uBD80\uB300\uC6D0\uB4E4\uC758
-    \uD658\uD638\uC131\uC740 \uBC24\uC774 \uB05D\uB098\uB3C4\uB85D \uC6B8\uB7EC\uD37C\uC84C\uB2E4.
-    \n\n\uB354 \uC774\uC0C1\uC758 \uB0B4\uC804\uC740 \uB450\uACE0 \uBCFC \uC218 \uC5C6\uC5C8\uB2E4.
-    \ \uB3C4\uCFE0\uAC00\uC640\uB294 \uB9C8\uC74C\uC744 \uAD73\uAC8C \uBA39\uC740
-    \uCC44\uB85C \uC544\uC774\uC0AC\uB85C \uD5A5\uD558\uB294 \uBC30\uC5D0 \uBAB8\uC744
-    \uC2E4\uC5C8\uB2E4.\r\n"
+  m_Text: "[Kamiken Story]\n\n\n Japany was an island devastated by a long war between
+    tribes. Dokugawa, who led to the end of the civil war, mourned his home town and
+    sought to reignite the continent as part of an effort to prevent the recurrence
+    of such a situation.\r\n\n For him, the continent of Aisa was probably an opportunity
+    given by god. In his ambition to conquer, Dokugawa called his troops, Kamiken.
+    Dokugawa. He has instilled ambition to former mercenaries who used to carry out
+    various mission throughout the island.\r\n\n There will be no more civil war.
+    Dokugawa got into a ship ahead to Aisa with a firm heart.\r\n"
 --- !u!222 &786973446
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7098,12 +7022,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f1448e5fc3bbd243a3298259f0df3ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  story: "\uC8FD\uC74C\uC744 \uB178\uB798\uD558\uB294 \uC790 \uBC34\uC2DC\uB294 \uAD6C\uCC9C\uC744
-    \uB5A0\uB3C4\uB294 \uC601\uD63C\uB4E4\uC744 \uBD99\uC7A1\uC544 \uC790\uC2E0\uC758
-    \uC218\uD558\uB85C \uC0BC\uC744 \uC218 \uC788\uC2B5\uB2C8\uB2E4. \uD574\uACE8
-    \uBCD1\uC0AC\uB85C \uB418\uC0B4\uC544\uB09C \uBC34\uC2DC\uC758 \uC218\uD558\uB4E4\uC740
-    \uC624\uC9C1 \uADF8\uB140\uC758 \uBA85\uB839\uC5D0 \uC758\uD574 \uC6C0\uC9C1\uC774\uB294
-    \uAF2D\uB450\uAC01\uC2DC\uC77C \uBFD0\uC785\uB2C8\uB2E4. "
+  story: "Banshee can capture the solus wandering around her and make them her own.
+    Banshee\u2019s slaves, revived as skull knight, are only puppets driven by her
+    orders."
   grade: Veteran
   name: Banshee
   cost: 5
@@ -7591,10 +7512,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f1448e5fc3bbd243a3298259f0df3ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  story: "\uBD80\uD558\uB4E4\uC744 \uC544\uB07C\uB294 \uB9C8\uB974\uC2A4\uB294 \uC5B8\uC81C\uB098
-    \uCD5C\uACE0\uC758 \uAC15\uCCA0 \uAC11\uC637\uC744 \uBD80\uB300\uC6D0\uB4E4\uC5D0\uAC8C
-    \uC81C\uACF5\uD569\uB2C8\uB2E4. \uC81C\uAD6D \uCE5C\uC704\uB300\uC758 \uBC29\uD328\uB294
-    \uC11C\uB85C\uC758 \uC2E0\uB8B0 \uC704\uC5D0 \uAD73\uAC74\uD788 \uC11C\uC788\uC2B5\uB2C8\uB2E4."
+  story: "Mars, who cared about his men, always provides the best steel armor for
+    the troops. The Royal guard\u2019s shield stand firm on each other\u2019s trust."
   grade: Elite
   name: Mars
   cost: 0
@@ -8045,11 +7964,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f1448e5fc3bbd243a3298259f0df3ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  story: "\uC0AC\uACA9 \uC19C\uC528 \uD558\uB098\uB85C \uAC11\uD310\uC7A5\uC5D0 \uC790\uB9AC\uC5D0
-    \uC62C\uB790\uB2E4\uACE0 \uD574\uB3C4 \uACFC\uC5B8\uC774 \uC544\uB2CC \uBCA0\uD14C\uB791\uC785\uB2C8\uB2E4.
-    \uADF8\uC758 \uCD1D\uC54C\uC740 \uAC15\uCCA0\uB85C \uB41C \uAC11\uC637\uC870\uCC28
-    \uAC04\uB2E8\uD788 \uB6AB\uC5B4\uBC84\uB9AC\uAE30\uC5D0 \uC801\uB4E4\uC740 \uAC11\uD310\uC7A5
-    \uC55E\uC5D0\uC11C \uAE34\uC7A5\uC744 \uB2A6\uCD94\uC9C0 \uBABB\uD569\uB2C8\uB2E4. "
+  story: "Boatswain\u2019s shooting skills let everyone know why he is famous. His
+    bullets simply pierce ven steel armor, so enemies cannot relax in front of him."
   grade: Veteran
   name: boatswain
   cost: 5
@@ -8443,12 +8359,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f1448e5fc3bbd243a3298259f0df3ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  story: "\uD0C0\uACE0\uB09C \uAC10\uAC01\uC73C\uB85C \uD574\uC801\uB2E8\uC758 \uC9C4\uB85C\uB97C
-    \uACB0\uC815\uD558\uB294 1\uB4F1 \uD56D\uD574\uC0AC\uB294 \uD574\uC801\uB2E8\uC5D0\uC11C
-    \uC5C4\uCCAD\uB09C \uC2E0\uB8B0\uB97C \uBC1B\uACE0 \uC788\uC2B5\uB2C8\uB2E4. 1\uB4F1
-    \uD56D\uD574\uC0AC\uAC00 \uC9C0\uB098\uAC04 \uAE38\uC740 \uADF8 \uBB34\uC5C7\uBCF4\uB2E4\uB3C4
-    \uBE60\uB978 \uAE38\uC774\uAE30\uC5D0 \uD574\uC801\uB2E8\uC740 \uC758\uC2EC\uC5C6\uC774
-    \uADF8\uC758 \uAE38\uC744 \uB530\uB77C\uAC00\uACE4 \uD569\uB2C8\uB2E4. "
+  story: Chief mate, whose natural sense determines the course of the pirates has
+    great trust from his colleagues. Pirates along his route boast their fast speeds.
   grade: Veteran
   name: Chief mate
   cost: 4
@@ -8558,7 +8470,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f1448e5fc3bbd243a3298259f0df3ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  story: "\uAC80\uC744 \uB2E4\uB8E8\uB294 \uC6A9\uB9F9\uD55C \uCF54\uB77C\uC758 \uBCD1\uC0AC\uC785\uB2C8\uB2E4."
+  story: The brave soldier with a sword.
   grade: Normal
   name: Warrior
   cost: 3
@@ -9658,7 +9570,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f1448e5fc3bbd243a3298259f0df3ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  story: "\uD65C\uC744 \uB2E4\uB8E8\uB294 \uC6A9\uB9F9\uD55C \uCF54\uB77C\uC758 \uBCD1\uC0AC\uC785\uB2C8\uB2E4."
+  story: The brave soldier with a bow.
   grade: Normal
   name: Archer
   cost: 3
@@ -9970,7 +9882,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f1448e5fc3bbd243a3298259f0df3ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  story: "\uAC80\uC744 \uB2E4\uB8E8\uB294 \uC6A9\uB9F9\uD55C \uCF54\uB77C\uC758 \uBCD1\uC0AC\uC785\uB2C8\uB2E4."
+  story: The brave soldier with a sword.
   grade: Normal
   name: Warrior
   cost: 3
@@ -10079,7 +9991,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f1448e5fc3bbd243a3298259f0df3ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  story: "\uD65C\uC744 \uB2E4\uB8E8\uB294 \uC6A9\uB9F9\uD55C \uCF54\uB77C\uC758 \uBCD1\uC0AC\uC785\uB2C8\uB2E4."
+  story: The brave soldier with a bow.
   grade: Normal
   name: Archer
   cost: 3
@@ -10571,11 +10483,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f1448e5fc3bbd243a3298259f0df3ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  story: "\uAD11\uC804\uC0AC\uAC00 \uB77C\uADF8\uB098\uB974\uC758 \uC721\uC2E0\uC744
-    \uBB3C\uB824\uBC1B\uC558\uB2E4\uBA74 \uBC1C\uD0A4\uB9AC\uB294 \uADF8\uC758 \uC815\uC2E0\uC744
-    \uBB3C\uB824\uBC1B\uC558\uC2B5\uB2C8\uB2E4. \uC2F8\uC6B8\uC218\uB85D \uAC15\uD574\uC9C0\uB294
-    \uADF8\uB140\uB97C \uC0C1\uB300\uD558\uB294 \uAC83\uC740 \uBB34\uCC99\uC774\uB098
-    \uACE0\uC5ED\uC77C \uAC83\uC785\uB2C8\uB2E4. "
+  story: "If the Berserker inherited Ragnarr\u2019s body, Valkyrie inherited his spirit.
+    It would be very diffucult to fight with her as she gets stronger. "
   grade: Veteran
   name: Valkyrie
   cost: 4
@@ -11241,8 +11150,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 663.05994, y: 468.09998}
-  m_SizeDelta: {x: 242.12, y: 100}
+  m_AnchoredPosition: {x: 648.3, y: 468.09998}
+  m_SizeDelta: {x: 212.59, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1276688754
 MonoBehaviour:
@@ -11270,7 +11179,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 3
     m_MaxSize: 70
-    m_Alignment: 3
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -11330,14 +11239,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f1448e5fc3bbd243a3298259f0df3ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  story: "\uD574\uC801\uC655\uC758 \uCE6D\uD638\uC5D0 \uAC78\uB9DE\uB294 \uC7AC\uB825\uC744
-    \uAC00\uC9C4 \uBD80\uC720\uD55C \uC5D8\uB9AC\uD2B8 \uC785\uB2C8\uB2E4. \uAC00\uC9C0\uACE0
-    \uC2F6\uC740 \uAC83\uC740 \uBB34\uC870\uAC74 \uC790\uC2E0\uC758 \uAC83\uC73C\uB85C
-    \uB9CC\uB4DC\uB294 \uAC08\uC0C9\uC218\uC5FC\uC774 \uC5BB\uC9C0 \uBABB\uD558\uB294
-    \uAC83\uC740 \uC5C6\uC2B5\uB2C8\uB2E4. \uC9C0\uAE08\uC740 \uACF5\uC8FC\uC640 \uBE44\uD2F0\uB284\uC774
-    \uADF8\uC758 \uBAA9\uD45C\uC774\uBBC0\uB85C \uC870\uB9CC\uAC04 \uAC08\uC0C9\uC218\uC5FC\uC740
-    \uB2E4\uC2DC \uD55C \uBC88 \uD2B9\uC720\uC758 \uBBF8\uC18C\uB97C \uC9D3\uAC8C
-    \uB420 \uAC83\uC785\uB2C8\uB2E4. "
+  story: "He has a lot of money live up to the tile of the pirate king. There\u2019s
+    nothing he can\u2019t get that he want to get.  As the princess is now his goal,
+    Brownbeared will soon achieve it."
   grade: Elite
   name: Brownbeared
   cost: 0
@@ -11446,10 +11350,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f1448e5fc3bbd243a3298259f0df3ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  story: "\uCD5C\uD6C4\uC758 \uCD5C\uD6C4\uAE4C\uC9C0 \uC2F8\uC6B0\uB294 \uAD11\uC804\uC0AC\uB294
-    \uC4F0\uB7EC\uB728\uB9AC\uB354\uB77C\uB3C4 \uC548\uC2EC\uD574\uC11C\uB294 \uC548\uB429\uB2C8\uB2E4.
-    \uB2E4\uC2DC \uD55C\uBC88 \uC77C\uC5B4\uC11C\uB294 \uADF8\uC758 \uBAA8\uC2B5\uC5D0\uC11C\uB294
-    \uD328\uBC30\uB97C \uBAA8\uB974\uB294 \uC6A9\uB9F9\uC774 \uB290\uAEF4\uC9D1\uB2C8\uB2E4."
+  story: The Berserker who fights to the last extremity must not be relieved even
+    if he falls down. He stands up again and fight for Savageborn.
   grade: Veteran
   name: Berserker
   cost: 5
@@ -11560,12 +11462,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f1448e5fc3bbd243a3298259f0df3ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  story: "\uB6F0\uC5B4\uB09C \uC0AC\uACA9 \uC19C\uC528\uB85C \uC5D8\uB9AC\uD2B8 \uC0AC\uC218\uC758
-    \uBCC4\uBA85\uC744 \uAC00\uC9C0\uACE0 \uC788\uB294 \uC5D8\uB9AC\uD2B8\uC785\uB2C8\uB2E4.
-    \uBA40\uB9AC \uC788\uB294 \uC801\uB3C4 \uCF54\uC55E\uC5D0 \uC788\uB294 \uAC83\uCC98\uB7FC
-    \uB9DE\uCD9C \uC218 \uC788\uB294 \uADF8\uB140\uB294 \uC790\uC874\uC2EC \uAC15\uD55C
-    \uBD80\uB300\uC6D0\uB4E4 \uC0AC\uC774\uC5D0\uC11C\uB3C4 \uC778\uC815\uBC1B\uB294
-    \uB9AC\uB354\uC785\uB2C8\uB2E4."
+  story: Winvelt is an elite who has the nickname of an elite shooter. She can shoot
+    every enemies even if they are far away from her.
   grade: Elite
   name: Winvelt
   cost: 0
@@ -11674,8 +11572,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f1448e5fc3bbd243a3298259f0df3ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  story: "\uD65C\uC744 \uB2E4\uB8E8\uB294 \uC6A9\uB9F9\uD55C \uD30C\uB974\uD0C4\uC758
-    \uBCD1\uC0AC\uC785\uB2C8\uB2E4."
+  story: The brave soldier with a bow.
   grade: Normal
   name: Archer
   cost: 3
@@ -12650,12 +12547,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f1448e5fc3bbd243a3298259f0df3ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  story: "\uCCAD\uBD80\uC0B4\uD574\uB97C \uC8FC \uC784\uBB34\uB85C \uB9E1\uC544\uC628
-    \uB2CC\uC790\uB294 \uB3C4\uC800\uD788 \uC778\uAC04\uC774\uB77C\uACE0\uB294 \uBCFC
-    \uC218 \uC5C6\uB294 \uBC18\uC0AC\uC2E0\uACBD\uC744 \uC9C0\uB154\uC2B5\uB2C8\uB2E4.
-    \uC784\uBB34 \uC218\uD589 \uC911 \uC218\uB9CE\uC740 \uD654\uC0B4 \uC138\uB840\uB97C
-    \uD53C\uD55C \uC77C\uD654\uB294 \uADF8\uC5D0\uAC8C \uC788\uC5B4 \uD6C8\uC7A5\uACFC\uB3C4
-    \uAC19\uC2B5\uB2C8\uB2E4. "
+  story: "Ninja, whose main mission was to kill, had reflexes that couldn\u2019t be
+    seen as human. An anecdote that avoided numerous arrow during his mission is like
+    a medal for his life.  "
   grade: Veteran
   name: Ninja
   cost: 4
@@ -12838,12 +12732,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f1448e5fc3bbd243a3298259f0df3ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  story: "\uCD1D\uC73C\uB85C \uBB34\uC5B8\uAC00\uB97C \uB9DE\uCD9C \uB54C \uAC00\uC7A5
-    \uC990\uAC70\uC6B4 \uB098\uC05C \uB140\uC11D\uC740 \uC274\uC0C8\uC5C6\uC774 \uC801\uC744
-    \uACF5\uACA9\uD569\uB2C8\uB2E4. \uC5F0\uBC1C \uC0AC\uACA9\uC744 \uD558\uBA70 \uB2EC\uC544\uB098\uB294
-    \uC801\uC5D0\uAC8C\uC870\uCC28 \uC790\uBE44\uB97C \uBCA0\uD480\uC9C0 \uC54A\uB294
-    \uB098\uC05C \uB140\uC11D\uC740 \uC5B8\uC81C\uB098 \uCD1D\uC744 \uC3E0 \uC900\uBE44\uAC00
-    \uB418\uC5B4\uC788\uC2B5\uB2C8\uB2E4. "
+  story: 'Bad one is the happiest man when he hit something with a gun. he always
+    ready to shoot. '
   grade: Veteran
   name: Bad one
   cost: 6
@@ -12952,7 +12842,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f1448e5fc3bbd243a3298259f0df3ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  story: "\uD65C\uC744 \uB2E4\uB8E8\uB294 \uC6A9\uB9F9\uD55C \uCF54\uB77C\uC758 \uBCD1\uC0AC\uC785\uB2C8\uB2E4."
+  story: The brave soldier with a bow.
   grade: Normal
   name: Archer
   cost: 3
@@ -13494,10 +13384,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f1448e5fc3bbd243a3298259f0df3ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  story: "\uB77C\uADF8\uB098\uB974\uAC00 \uC120\uB450\uC5D0 \uC120\uB2E4\uBA74 \uADF8
-    \uC5B4\uB5A4 \uBD80\uB300\uB77C\uB3C4 \uC0AC\uAE30\uAC00 \uCE58\uC19F\uC744 \uAC83\uC785\uB2C8\uB2E4.
-    \uBC14\uC774\uD0B9\uC758 \uD63C\uC774 \uAE43\uB4E0 \uB77C\uADF8\uB098\uB974\uB294
-    \uBD80\uB300\uC6D0\uB4E4\uC5D0\uAC8C \uD798\uC744 \uBD88\uC5B4\uB123\uC2B5\uB2C8\uB2E4. "
+  story: If Ragnarr lead the troops, morale will soar. The viking spirit of Ragnarr
+    inspires the troops.
   grade: Elite
   name: Ragnarr
   cost: 0
@@ -14615,12 +14503,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f1448e5fc3bbd243a3298259f0df3ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  story: "\uC2E0\uC0AC\uC5D0 \uCC3E\uC544\uC624\uB294 \uC774\uB4E4\uC740 \uC544\uBB34\uB9AC
-    \uD070 \uAC71\uC815\uAC70\uB9AC\uAC00 \uC788\uB354\uB77C\uB3C4 \uBB34\uB140\uC758
-    \uCDA4\uC744 \uBCF4\uACE0 \uBAB8\uACFC \uB9C8\uC74C\uC774 \uD68C\uBCF5\uB418\uB294
-    \uAC83\uC744 \uB290\uAF08\uC2B5\uB2C8\uB2E4. \uC774\uC81C \uADF8 \uB2A5\uB825\uC744
-    \uB098\uB77C\uB97C \uC704\uD574 \uC4F8 \uC900\uBE44\uAC00 \uB41C \uBB34\uB140\uB294
-    \uC870\uC6A9\uD788 \uC2E0\uC0AC\uB97C \uB5A0\uB0AC\uC2B5\uB2C8\uB2E4."
+  story: 'Miko gave a lot of comfort with her holy dance to those who came to see
+    her. She is now dancing for Kamiken. '
   grade: Veteran
   name: Miko
   cost: 5
@@ -14628,8 +14512,8 @@ MonoBehaviour:
   atk: 1
   shd: 0
   skillName: Dance of Heal
-  skillDescription: "If a friendly unit in the 1 tile range suffers damage, \u2018Miko\u2019
-    heals friendly unit\u2019s health point by 1  in 1 tile range."
+  skillDescription: 'Reduces 1 point of damage of friendly unit in 1 tile range if
+    they are damaged. '
   Back3: {fileID: 451685251}
   Back4: {fileID: 1672566824}
   Back5: {fileID: 847154219}
@@ -14824,31 +14708,20 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "[Brownbeard Pirate Story]\n\n\n \uB9C8\uBC95\uC5D0\uB294 \uC5EC\uB7EC\uAC00\uC9C0
-    \uC885\uB958\uAC00 \uC788\uC73C\uB098 \uADF8 \uC911 \uD751\uB9C8\uBC95\uC740 \uAC00\uC7A5
-    \uAC15\uB825\uD55C \uB9C8\uBC95\uC774\uB77C\uB294 \uAC83\uC5D0 \uC774\uACAC\uC774
-    \uC5C6\uC744 \uAC83\uC774\uB2E4. \uADF8\uB807\uAE30\uC5D0 \uD30C\uB974\uD0C4 \uD669\uC2E4\uC740
-    \uADF8 \uAC15\uB825\uD568\uC5D0 \uC8FC\uBAA9\uD558\uC5EC \uD751\uB9C8\uBC95 \uC5F0\uAD6C\uB97C
-    \uBE44\uBC00\uB9AC\uC5D0 \uC9C0\uC6D0\uD574\uC654\uB2E4. \uADF8\uB7EC\uB098 \uC81C\uBB3C\uC744
-    \uBC14\uCCD0\uC57C \uD558\uB294 \uD751\uB9C8\uBC95\uC758 \uD2B9\uC131\uC0C1 \uC218\uB9CE\uC740
-    \uBC18\uBC1C\uC774 \uC5F0\uAD6C\uC790\uB4E4\uC744 \uC911\uC2EC\uC73C\uB85C \uC81C\uAE30\uB418\uC5C8\uACE0
-    \uAE09\uAE30\uC57C \uD751\uB9C8\uBC95\uC758 \uC601\uD5A5\uC73C\uB85C \uC774\uB97C
-    \uD589\uD558\uB294 \uB9C8\uBC95\uC0AC\uB4E4\uC774 \uC57D\uD574\uC9C0\uAC70\uB098
-    \uC2EC\uC9C0\uC5B4 \uC0AC\uB9DD\uC5D0 \uAE4C\uC9C0 \uC774\uB974\uC790 \uD669\uC2E4\uC740
-    \uB2E4\uB978 \uBC29\uD5A5\uC744 \uBAA8\uC0C9\uD558\uAE30 \uC2DC\uC791\uD588\uB2E4.
-    \n\n \uADF8\uB9AC\uACE0 \uADF8 \uACB0\uACFC,  \uD751\uB9C8\uBC95\uC5D0 \uC601\uD5A5\uC744
-    \uB35C \uBC1B\uB294 \uC5B8\uB370\uB4DC\uB4E4\uC774 \uC8FC\uBAA9\uC744 \uBC1B\uAE30
-    \uC2DC\uC791\uD558\uC600\uC73C\uBA70 \uC8FD\uC74C\uC758 \uAE30\uC0AC\uB97C \uD544\uB450\uB85C
-    \uC5B8\uB370\uB4DC \uBD80\uB300 \uD50C\uB8E8\uD1A0\uAC00 \uACB0\uC131\uB418\uAE30\uC5D0
-    \uC774\uB978\uB2E4. \uD751\uB9C8\uBC95\uC744 \uD1B5\uD574 \uC0C1\uB300\uC758 \uC601\uD63C\uC744
-    \uBE8F\uC5B4 \uAC15\uD574\uC9C0\uB294 \uADF8\uB4E4\uC740 \uC874\uC7AC\uB9CC\uC73C\uB85C\uB3C4
-    \uACF5\uD3EC\uC758 \uB300\uC0C1\uC774\uC5C8\uC73C\uBA70, \uC8FD\uC740 \uC544\uAD70\uC774
-    \uD574\uACE8\uC758 \uBAA8\uC2B5\uC73C\uB85C \uB418\uC0B4\uC544\uB098 \uC790\uC2E0\uB4E4\uC744
-    \uACF5\uACA9\uD558\uB294 \uBAA8\uC2B5\uC744 \uBCF4\uBA70 \uC801\uC740  \uC804\uC758\uB97C
-    \uC0C1\uC2E4\uD558\uACE0 \uB3C4\uB9DD\uCE58\uAE30 \uBC14\uBE74\uB2E4. \r\n \n
-    \uADF8\uC758 \uBD89\uC740 \uB208\uC744 \uBCF4\uBA74 \uB2EC\uC544\uB098\uB77C.
-    \uADF8\uAC83\uC774 \uC8FD\uC74C\uC73C\uB85C\uBD80\uD130 \uBC97\uC5B4\uB0A0 \uC720\uC77C\uD55C
-    \uAE38\uC77C \uAC83\uC774\uB2C8.\r\n"
+  m_Text: "[Pluto Story]\n\n\n There are many kinds of magic, but there is no disagreement
+    that black magic is the most powerful magic. For that reason, the Paran royal
+    family was paying attention to its strength and secretly supporting the black
+    magic research.\r\n\n However, due to the nature of the black magic that requiring
+    sacrifices, a lot of repulsions were raised from the researchers, and eventually
+    wizards who did black magic was weakened or even reached death, the royal family
+    began to look for a different direction.\r\n\n As a result, \u2018Undead\u2019
+    that less affected by black magic began to attract attention, and finally the
+    \u2018Pluto\u2019 was formed with \u2018Death knight\u2019 as a captain . They
+    are fear just by existences because using black magic and steal enemy\u2019s soul
+    to become stronger. The enemy lost all their fighting spirit and was busy running
+    away when they saw the dead allies returning to skeletons and attacking them.\r\n\nJust
+    run when you see Death knight\u2019s red eyes. \r\nThat would be the only way
+    out of death.\r\n"
 --- !u!222 &1744372655
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -15077,7 +14950,6 @@ RectTransform:
   - {fileID: 2097342777}
   - {fileID: 235757143}
   - {fileID: 1898334994}
-  - {fileID: 499218749}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -15329,33 +15201,19 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "[Pluto Story]\n\n\n \uC545\uBA85\uB192\uC740 \uAC08\uC0C9\uC218\uC5FC \uD574\uC801\uB2E8\uC744
-    \uBAA8\uB974\uB294 \uC774\uB294 \uC544\uB9C8 \uB300\uB959 \uC5B4\uB514\uC5D0\uB3C4
-    \uC5C6\uC744 \uAC83\uC774\uB2E4. \uADF8\uB4E4\uC774 \uC57D\uD0C8\uD55C \uB9C8\uC744\uC5D0\uB294
-    \uD480 \uD55C\uD3EC\uAE30 \uC870\uCC28 \uB0A8\uC9C0 \uC54A\uB294 \uAC83\uC73C\uB85C
-    \uC720\uBA85\uD558\uBA70, \uADF8 \uC18D\uB3C4\uAC00 \uC5BC\uB9C8\uB098 \uBE60\uB978\uC9C0
-    \uC218\uD638\uBCD1\uB4E4\uC774 \uB3C4\uCC29\uD560 \uB54C \uCBE4 \uADF8\uB4E4\uC740
-    \uBC30 \uC704\uC5D0\uC11C \uC120\uC0C1 \uCD95\uC81C\uB97C \uC5F4\uBA70 \uB7FC\uC8FC
-    \uC5F4 \uD1B5 \uAC00\uB7C9\uC744 \uB3D9\uB0B4\uACE4 \uD55C\uB2E4.\r\n\n \uC774\uB807\uB4EF
-    \uCC9C\uD558\uBB34\uC801\uC77C \uAC83 \uAC19\uC740 \uD574\uC801\uB2E8\uB3C4 \uC57D\uC810\uC774
-    \uC788\uC73C\uB2C8, \uBC14\uB85C \uAC08\uC0C9\uC218\uC5FC \uD574\uC801\uB2E8\uC758
-    \uC120\uC7A5 \uAC08\uC0C9\uC218\uC5FC\uC774 \uC0AC\uB791\uD558\uB294 \uC0AC\uB78C\uC774
-    \uD30C\uB974\uD0C4 \uD669\uC81C\uC758 \uACF5\uC8FC\uB77C\uB294 \uAC83\uC774\uC5C8\uB2E4.
-    \uC544, \uC0AC\uB098\uC774\uC758 \uC0AC\uB791\uC744 \uC5B4\uB5BB\uAC8C \uB9D0\uB9B4
-    \uAC83\uC778\uAC00. \uC5BB\uACE0\uC790 \uD558\uB294 \uAC83\uC744 \uBE7C\uC557\uB294
-    \uD589\uC704\uB85C\uB9CC \uC5BB\uC5B4\uC628 \uADF8\uC5D0\uAC8C \uC788\uC5B4 \uACF5\uC8FC\uB77C\uB294
-    \uC874\uC7AC\uB294 \uAE30\uC874\uC758 \uBC29\uBC95\uC73C\uB85C \uC5BB\uC744 \uC218
-    \uC788\uB294 \uAC83\uC774 \uC544\uB2C8\uC5C8\uAE30\uC5D0 \uAD34\uD608\uBCD1\uC73C\uB85C\uB3C4
-    \uC4F0\uB7EC\uC9C0\uC9C0 \uC54A\uC558\uB358 \uAC08\uC0C9 \uC218\uC5FC\uC740 \uB54C\uC544\uB2CC
-    \uC0C1\uC0AC\uBCD1\uC73C\uB85C \uC2DC\uB984\uC2DC\uB984 \uC553\uAE30 \uC2DC\uC791\uD55C\uB2E4.\r\n\n
-    \uADF8\uB9AC\uACE0 \uADF8\uC5D0\uAC8C \uCC3E\uC544\uC628 \uAE30\uD68C\uC778 \uC544\uC774\uC0AC
-    \uB300\uB959 \uD30C\uACAC! \uADF8\uB294 \uB0C9\uD07C \uC81C\uAD6D\uC758 \uC6A9\uBCD1
-    \uBAA8\uC9D1\uC5D0 \uC790\uC6D0\uD558\uC600\uACE0, \uC218\uB9CE\uC740 \uB17C\uB780\uC774
-    \uD669\uC2E4 \uB0B4 \uBFD0\uB9CC \uC544\uB2C8\uB77C \uC81C\uAD6D \uC804\uCCB4\uC5D0
-    \uB4E4\uB053\uC5C8\uC9C0\uB9CC, \uB354 \uC774\uC0C1 \uD30C\uB974\uD0C4 \uC81C\uAD6D\uC740
-    \uC57D\uD0C8\uD558\uC9C0 \uC54A\uACA0\uB2E4\uB294 \uB9F9\uC138 \uD558\uC5D0 \uADF8\uB294
-    \uC0AC\uB791\u2026 \uC544\uB2C8 \uC81C\uAD6D\uC744 \uC704\uD55C \uD55C \uAC78\uC74C\uC744
-    \uC544\uC774\uC0AC \uB300\uB959\uC5D0 \uB0B4\uB51B\uAC8C \uB41C\uB2E4.\r\n"
+  m_Text: "[Brownbeared pirate story]\n\n\n There is probably no one on the continent
+    who doesn\u2019t know the infamous of Brownbeared pirates.\r\n Not even a grass
+    left after they plundered, and when guard arrives, they already hold a boat festival
+    and drink about ten barrels of rum.\r\n But they have one weakness: The captain
+    Brownbeared love a girl, who is princess of the Partan empire.\r\n\n For a man
+    who has gain everything what he wants to get, the presence of a princess is not
+    something that can be obtained by the old method. So Brownbeared, who was not
+    even suffering from scurvy, starts to wither from an untimely lovesickness.\r\n\n
+    And then soon after, the chance to go Aisa continent is given to him from Partan
+    empire! He quickly volunteered to recruit the mercenaris of the empire, and while
+    numerous disputes have raged no only in the royal family but throughout the entire
+    continent, he sworn not to plunder anymore and takes a step toward the Aisa for
+    love.\r\n"
 --- !u!222 &1778347135
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -15442,11 +15300,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f1448e5fc3bbd243a3298259f0df3ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  story: "\uC7A5\uAC70\uB9AC \uC800\uACA9\uC5D0 \uD2B9\uD654\uB418\uC5B4 \uC788\uB294
-    \uC88B\uC740 \uB140\uC11D\uC744 \uC5ED\uC73C\uB85C \uC800\uACA9\uD560 \uC218 \uC788\uB294
-    \uC778\uBB3C\uC740 \uB300\uB959 \uC5B4\uB514\uC5D0\uB3C4 \uC874\uC7AC\uD558\uC9C0
-    \uC54A\uC744 \uAC83\uC785\uB2C8\uB2E4. \uC548\uACBD\uC744 \uBC97\uAE34\uB2E4\uBA74
-    \uD639\uC2DC \uBAA8\uB974\uB294 \uC77C\uC774\uC9C0\uB9CC\uC694. "
+  story: There will be no one on the continent who can counterattack the Good one
+    specialized in long-range snipers. Only way to shoot him is take off his glass,
+    maybe.
   grade: Veteran
   name: Good one
   cost: 8
@@ -15696,11 +15552,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f1448e5fc3bbd243a3298259f0df3ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  story: "\uB9CE\uC740 \uC804\uC7C1\uC744 \uACAA\uC740 \uBB34\uC0AC \uB3C4\uCFE0\uAC00\uC640\uC5D0\uAC8C
-    \uC788\uC5B4 \uC778\uAC04\uC758 \uAE09\uC18C\uB97C \uBCA0\uB294 \uAC83\uC740 \uBB34
-    \uBCA0\uAE30\uBCF4\uB2E4\uB3C4 \uC26C\uC6B8 \uAC83\uC785\uB2C8\uB2E4. \uADF8\uB7F0
-    \uB3C4\uCFE0\uAC00\uC640\uC5D0\uAC8C \uB2F9\uD55C \uC774\uB4E4\uC740 \uB2E4\uC2DC\uB294
-    \uC804\uC7A5\uC5D0 \uBC1C\uC744 \uBD99\uC77C \uC218 \uC5C6\uAC8C \uB420 \uAC83\uC785\uB2C8\uB2E4."
+  story: 'For Dokugawa, who has undergone numerous wars, cutting the vital point of
+    the human would be easier than cutting radish. Those who have been defeated by
+    Dokugawa will never be able to set foot on the war ground again. '
   grade: Elite
   name: Dokugawa
   cost: 0
@@ -16084,11 +15938,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f1448e5fc3bbd243a3298259f0df3ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  story: "\uCE58\uB8CC\uB97C \uC804\uB2F4\uD558\uB294 \uCE58\uB8CC\uC0AC\uB294 \uC274
-    \uD2C8\uC774 \uC5C6\uC2B5\uB2C8\uB2E4. \uBD80\uB300\uC6D0\uB4E4\uC758 \uC544\uD514\uC740
-    \uACE7 \uC790\uC2E0\uC758 \uC544\uD514\uC73C\uB85C \uB418\uB3CC\uC544\uC624\uAE30\uC5D0
-    \uC624\uB298\uB3C4 \uADF8\uB140\uB294 \uC81C\uAD6D \uCE5C\uC704\uB300\uC5D0 \uD5CC\uC2E0\uC744
-    \uB2E4 \uD558\uACE0 \uC788\uC2B5\uB2C8\uB2E4."
+  story: The Healer exclusively for treatment has no time to rest. Because the pain
+    of the troops soon returns to her own pain, she is dedicated to the royal guard
+    everyday.
   grade: Veteran
   name: Healer
   cost: 5
@@ -17169,27 +17021,15 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "[Savage Born Story]\n\n\n \uD638\uC804\uC801\uC778 \uC131\uACA9\uC758 \uB77C\uADF8\uB098\uB974\uB294
-    \uC804\uD22C\uB97C \uD53C\uD558\uC9C0 \uC54A\uB294\uB2E4. \uADF8\uAC00 \uCF54\uB77C
-    \uC5F0\uD569\uAD6D\uC5D0\uC11C \uAC00\uC7A5 \uD070 \uC601\uD5A5\uB825\uC744 \uAC00\uC9C0\uAC8C
-    \uB41C \uAC83\uB3C4 \uC774 \uC131\uACA9 \uB355\uBD84\uC77C \uAC83\uC774\uB2E4.
-    \uB77C\uADF8\uB098\uB974\uC640 \uADF8\uC758 \uBD80\uB300 \uC0C8\uBE44\uC9C0\uBCF8\uC740
-    \uC8FD\uC74C\uC744 \uCF54 \uC55E\uC5D0 \uB450\uACE0\uB3C4 \uC5B8\uC81C\uB098 \uC6A9\uAE30\uB97C
-    \uC783\uC9C0 \uC54A\uC558\uC73C\uBA70 \uC804\uD22C\uB97C \uC9C0\uC18D\uD558\uBA74
-    \uC9C0\uC18D\uD560 \uC218\uB85D \uB354\uC6B1 \uB354 \uAC15\uD574\uC84C\uB2E4.\r\n
-    \n \uC8FD\uC74C\uC744 \uB450\uB824\uC6CC\uD558\uC9C0 \uC54A\uB294 \uB77C\uADF8\uB098\uB974\uC5D0\uAC8C\uB294
-    \uC218\uB9CE\uC740 \uB098\uB77C\uB4E4\uC774 \uBAA8\uC5EC\uB4E4\uC5C8\uACE0 \uC5B4\uB290\uC0C8
-    \uADF8\uAC83\uC740 \uD558\uB098\uC758 \uAD6D\uAC00\uC758 \uD615\uD0DC\uB97C \uC774\uB8E8\uAE30
-    \uC2DC\uC791\uD588\uB2E4. \uC774\uB807\uAC8C \uD615\uC131\uB41C \uCF54\uB77C \uC5F0\uD569\uAD6D\uC740
-    \uB300\uB959\uC5D0 \uC9C0\uB300\uD55C \uC601\uD5A5\uC744 \uB07C\uCE58\uAC8C \uB418\uC5C8\uC73C\uBA70,
-    \uB77C\uADF8\uB098\uB974\uC758 \uC0C8\uBE44\uC9C0\uBCF8\uC740 \uC5F0\uD569\uAD6D\uC5D0
-    \uC704\uD611\uC774 \uB418\uB294 \uBAA8\uB4E0 \uC790\uB4E4\uC5D0\uAC8C \uC804\uC7C1\uC744
-    \uC120\uD3EC\uD558\uBA70 \uB450\uB824\uC6C0\uC758 \uB300\uC0C1\uC774 \uB418\uC5C8\uB2E4.\r\n
-    \n \uD30C\uB974\uD0C4\uACFC\uC758 \uACB0\uC804\uC774 \uB2E4\uAC00\uC624\uC790
-    \uB77C\uADF8\uB098\uB974\uB294 \uB2E4\uC2DC \uD55C\uBC88 \uC0C8\uBE44\uC9C0\uBCF8\uC744
-    \uBD88\uB7EC\uBAA8\uC558\uB2E4. \uC544\uBB34\uAC83\uB3C4 \uB450\uB824\uC6CC\uD560
-    \uAC83\uC774 \uC5C6\uC5C8\uB2E4. \uB77C\uADF8\uB098\uB974\uB294 \uC804\uD22C\uC758
-    \uD568\uC131\uC744 \uC678\uCCE4\uB2E4.\r\n"
+  m_Text: "[Savageborn Story]\n\n\n Ragnarr, a militant berserker, does not avoid
+    combat. This is probably why he has become the most influential member of the
+    Cora alliance. Ragnarr and his brave troops Savageborn, when they continue to
+    fight, the stronger they become.\r\n\n A great number of countrie gathered to
+    Ragnarr, and soon it began to form of nation. Nation named Cora has a profound
+    impact on the continent, and the Savageborn of Ragnarr has become a target of
+    fear by declaring war on everyone who threatens the Allied.\r\n\n As the war with
+    Partan drew near, Ragnarr called the Savageborn. There was nothing to be afraid
+    of. Ragnarr shouted.\r\n\r\n"
 --- !u!222 &2047702117
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -17900,8 +17740,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f1448e5fc3bbd243a3298259f0df3ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  story: "\uD65C\uC744 \uB2E4\uB8E8\uB294 \uC6A9\uB9F9\uD55C \uD30C\uB974\uD0C4\uC758
-    \uBCD1\uC0AC\uC785\uB2C8\uB2E4."
+  story: The brave soldier with a bow.
   grade: Normal
   name: Archer
   cost: 3

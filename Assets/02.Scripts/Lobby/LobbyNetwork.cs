@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Steamworks;
 
 public class LobbyNetwork : Photon.MonoBehaviour
 {
@@ -17,10 +18,12 @@ public class LobbyNetwork : Photon.MonoBehaviour
     {
         if (!PhotonNetwork.inRoom) LeaveRoom();
 
-        UserName = "Guest" + Random.Range(1, 1000);
+        if (SteamManager.Initialized)
+        {
+            UserName = SteamFriends.GetPersonaName();
+        }
         PhotonNetwork.playerName = UserName;//이름 지정 다음에 지워야함
         instance = this;//싱글톤
-//        ConnectNetwork();//인터넷연결
         MatchManager = null;
         ConnectNetwork();
     }
@@ -150,3 +153,20 @@ public class LobbyNetwork : Photon.MonoBehaviour
     }
 
 }
+
+
+/*
+void Start()
+    {
+        if (!PhotonNetwork.inRoom) LeaveRoom();
+
+        if (SteamManager.Initialized)
+        {
+            UserName = SteamFriends.GetPersonaName();
+        }
+        PhotonNetwork.playerName = UserName;//이름 지정 다음에 지워야함
+        instance = this;//싱글톤
+        MatchManager = null;
+        ConnectNetwork();
+    }
+*/

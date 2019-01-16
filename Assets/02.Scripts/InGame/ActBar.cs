@@ -22,17 +22,17 @@ public class ActBar : MonoBehaviour {
 
     public void ResetUI()
     {
-        for (int i = 0; i < transform.GetChildCount(); i++)
+        foreach(Transform child in transform)
         {
-            transform.GetChild(i).GetComponent<OnOff>().OffObj();
+            child.GetComponent<OnOff>().OffObj();
         }
     }
 
     public void SetUI(int index)
     {
-        for (int i = 0; i < transform.GetChildCount(); i++)
+        foreach (Transform child in transform)
         {
-            transform.GetChild(i).GetComponent<OnOff>().OffObj();
+            child.GetComponent<OnOff>().OffObj();
         }
         for (int i = 0; i < index; i++)
         {
