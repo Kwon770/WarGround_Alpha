@@ -27,6 +27,7 @@ public class EndTurn : MonoBehaviour {
     }
     IEnumerator SetButton(Transform setButton, Transform NonButton)
     {
+        Debug.Log("dddddddddd");
         GameManager.manager.ResetTrigger();
 
         yield return null;
