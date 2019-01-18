@@ -22,7 +22,7 @@ public class EndTurn : MonoBehaviour {
     }
     public void EnemyTurn()
     {
-        if (coroutine != null) return;
+        if (coroutine != null) StopCoroutine(coroutine);
         coroutine = StartCoroutine(SetButton(enemyTurn, myTurn));
     }
     IEnumerator SetButton(Transform setButton, Transform NonButton)

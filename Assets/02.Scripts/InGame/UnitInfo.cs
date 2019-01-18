@@ -116,14 +116,6 @@ public class UnitInfo : Photon.MonoBehaviour {
     {
         UnitInfo attacker = GameData.data.FindUnit(x, y);
 
-        //방어 무시일 경우
-        if (attacker.Kinds == "Boatswain")
-        {
-            HP -= demage;
-            if (HP <= 0) dieTrigger = true;
-            return;
-        }
-
         //무녀 데미지 경감
         if (Calculator.Calc.UnitInRange(Owner, "Miko", 1, GameData.data.FindTile(this.x, this.y)))
         {
@@ -144,8 +136,15 @@ public class UnitInfo : Photon.MonoBehaviour {
         {
             ATK = 1;
         }
+        
+        //방어 무시일 경우
+        if (attacker.Kinds == "Boatswain")
+        {
+            HP -= demage;
+            demage = 0;
+        }
         //방어무시가 아닐경우
-        if (SHD > 0)
+        else if (SHD > 0)
         {
             if (demage >= SHD)
             {
@@ -329,6 +328,7 @@ public class UnitInfo : Photon.MonoBehaviour {
         if (Kinds == "Dokugawa" || Kinds == "Winvelt" || Kinds == "Brownbeard" || Kinds == "Deathknight" || Kinds == "Mars" || Kinds == "Ragnarr")
         {
             photonView.RPC("DestroyUnit", PhotonTargets.All);
+            return;
         }
 
         else if (Kinds == "Berserker")
@@ -361,6 +361,14 @@ public class UnitInfo : Photon.MonoBehaviour {
             GameData.data.SetCommandPoint(-1);
         }
         GameData.data.DelUnit(this);
+
+        if (Kinds == "Dokugawa" || Kinds == "Winvelt" || Kinds == "Brownbeard" || Kinds == "Deathknight" || Kinds == "Mars" || Kinds == "Ragnarr")
+        {
+            if (photonView.isMine) EndUI.UI._myScore = 0;
+            else EndUI.UI._enemyScore = 0;
+            EndUI.UI.SetRemainTurn(0);
+        }
+
         Destroy(gameObject, 4f);
     }
 

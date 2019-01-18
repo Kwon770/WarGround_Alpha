@@ -22,7 +22,6 @@ public class LobbyNetwork : Photon.MonoBehaviour
         {
             UserName = SteamFriends.GetPersonaName();
         }
-        UserName = Random.RandomRange(0, 111111).ToString();
         PhotonNetwork.playerName = UserName;//이름 지정 다음에 지워야함
         instance = this;//싱글톤
         MatchManager = null;
