@@ -58,7 +58,6 @@ public class SoundManager : MonoBehaviour
     {
         if(playMusic == true)
         {
-            Debug.Log(bgmVolume + " " + masterVolume);
             StartCoroutine(soundFadeIn(bgmSource));
             bgmSource.clip = LobbyBGM;
             //SoundManager.soundmanager.bgmSource.volume = bgmVolume.value * masterVolume.value *0.5f;
@@ -176,7 +175,6 @@ public class SoundManager : MonoBehaviour
 
     IEnumerator soundFadeIn(AudioSource sound)
     {
-        Debug.Log("a");
         float time = 0;
         sound.volume = 0f;
         while (time <= 1f)

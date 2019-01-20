@@ -18,11 +18,8 @@ public class LobbyNetwork : Photon.MonoBehaviour
     {
         if (!PhotonNetwork.inRoom) LeaveRoom();
 
-        if (SteamManager.Initialized)
-        {
-            UserName = SteamFriends.GetPersonaName();
-        }
-        PhotonNetwork.playerName = UserName;//이름 지정 다음에 지워야함
+        UserName = PhotonNetwork.playerName;
+        PhotonNetwork.playerName = SteamFriends.GetPersonaName();//이름 지정 다음에 지워야함
         instance = this;//싱글톤
         MatchManager = null;
         ConnectNetwork();
@@ -122,7 +119,6 @@ public class LobbyNetwork : Photon.MonoBehaviour
 
     private void Update()
     {
-
         if(PhotonNetwork.inRoom)
         {
             Debug.Log(PhotonNetwork.room.Name + " " + PhotonNetwork.room.PlayerCount + " " + PhotonNetwork.playerName);

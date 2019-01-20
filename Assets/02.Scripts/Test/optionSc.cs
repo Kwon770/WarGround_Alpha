@@ -24,7 +24,6 @@ public class optionSc : MonoBehaviour {
             isChangeFullScreen = true;
             isFullScreenString = PlayerPrefs.GetString("isFullScreenSave", isFullScreen.ToString());
             isFullScreen = System.Convert.ToBoolean(isFullScreenString);
-            Debug.Log(isFullScreen);
         }
         else
         {
@@ -38,7 +37,6 @@ public class optionSc : MonoBehaviour {
             screenHeight = PlayerPrefs.GetInt("screenHeightSave", screenHeight);
         }
         
-        Debug.Log(screenWidth + " + " + screenHeight);
 
         Screen.SetResolution(screenWidth, screenHeight, isFullScreen);
         setFirstUi();
