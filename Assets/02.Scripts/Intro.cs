@@ -7,8 +7,8 @@ using Steamworks;
 
 public class Intro : MonoBehaviour {
 
-    public VideoPlayer vd;
-
+    public VideoPlayer video;
+    public AudioSource audio;
     Coroutine coroutine;
 
     void Start()
@@ -21,6 +21,7 @@ public class Intro : MonoBehaviour {
     {
         if(Input.GetKeyDown(KeyCode.Escape))
         {
+            if (coroutine != null) return;
             StopCoroutine(IntroCheck());
             Skip();
         }
@@ -34,18 +35,21 @@ public class Intro : MonoBehaviour {
             yield return null;
         }
         PhotonNetwork.playerName = SteamFriends.GetPersonaName();
-        yield return null;
+        coroutine = null;
+        yield break; ;
     }
 
     IEnumerator IntroCheck()
     {
         yield return new WaitForSeconds(12);
-        SceneManager.LoadScene("Lobby_Renewal");
+        Skip();
     }
 
     void Skip()
     {
-        if (coroutine != null) return;
+        Destroy(video);
+        Destroy(audio);
+        Destroy(this);
         SceneManager.LoadScene("Lobby_Renewal");
     }
 }
