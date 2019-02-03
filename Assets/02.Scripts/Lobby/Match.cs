@@ -138,7 +138,7 @@ public class Match : MonoBehaviour {
     IEnumerator CheckConnection()
     {
         float time = 0f;
-        while(time < 5f)
+        while(time < 10f)
         {
             time += Time.deltaTime;
             if (PhotonNetwork.inRoom)
